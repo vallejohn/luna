@@ -56,7 +56,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  stacked_generator: ^0.4.6
+  stacked_generator: ^0.5.2
   freezed:
   json_serializable:
 
