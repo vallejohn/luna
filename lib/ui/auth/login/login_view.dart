@@ -18,128 +18,126 @@ class LoginView extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, model, child) => Scaffold(
-        body: SafeArea(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [lPrimaryColor, lPrimaryColorsTransition]),
-            ),
-            child: ListView(
-              children: [
-                verticalSpaceMassive,
-                Center(
-                    child: Text(
-                  'luna.',
-                  style:
-                      GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
-                )),
-                verticalSpaceLarge,
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 45),
-                    child: Text(
-                      'Welcome!',
-                      style: largeTextStyle.copyWith(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: rubikMedium),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 45),
-                    child: Text(
-                      'Login using your username or email.',
-                      style: mediumTextStyle.copyWith(
-                          color: Colors.white, fontWeight: rubikLight),
-                    ),
-                  ),
-                ),
-                verticalSpaceLarge,
-                verticalSpaceLarge,
-                Padding(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [lPrimaryColor, lPrimaryColorsTransition]),
+          ),
+          child: ListView(
+            children: [
+              verticalSpaceMassive,
+              Center(
+                  child: Text(
+                'luna.',
+                style:
+                    GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
+              )),
+              verticalSpaceLarge,
+              Center(
+                child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 45),
-                  child: FormView(
-                    emailandUsernameController: emailController,
-                    passwordController: passwordController,
+                  child: Text(
+                    'Welcome!',
+                    style: largeTextStyle.copyWith(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: rubikMedium),
                   ),
                 ),
-                verticalSpaceMedium,
-                Padding(
+              ),
+              Center(
+                child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 45),
-                  child: GradientButton(
-                      onLoginBusy: model.isBusy,
-                      onPressed: () => model.login(
-                          email: emailController.text.toString(),
-                          password: passwordController.text.toString())),
+                  child: Text(
+                    'Login using your username or email.',
+                    style: mediumTextStyle.copyWith(
+                        color: Colors.white, fontWeight: rubikLight),
+                  ),
                 ),
-                verticalSpaceRegular,
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 45),
-                        child: GestureDetector(
-                          onTap: () => model.goToRegisterView(),
-                          child: Text(
-                            'Create account',
-                            style: mediumTextStyle.copyWith(
-                                color: Colors.white, fontWeight: rubikLight),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
+              ),
+              verticalSpaceLarge,
+              verticalSpaceLarge,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: FormView(
+                  emailandUsernameController: emailController,
+                  passwordController: passwordController,
+                ),
+              ),
+              verticalSpaceMedium,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: GradientButton(
+                    onLoginBusy: model.isBusy,
+                    onPressed: () => model.login(
+                        email: emailController.text.toString(),
+                        password: passwordController.text.toString())),
+              ),
+              verticalSpaceRegular,
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: GestureDetector(
                         onTap: () => model.goToRegisterView(),
                         child: Text(
-                          'Forgot password?',
+                          'Create account',
                           style: mediumTextStyle.copyWith(
                               color: Colors.white, fontWeight: rubikLight),
                         ),
                       ),
                     ),
-                  ],
-                ),
-                verticalSpaceLarge,
-                Center(
-                  child: Padding(
+                  ),
+                  Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: GestureDetector(
                       onTap: () => model.goToRegisterView(),
-                      child: Wrap(
-                        children: [
-                          Text(
-                            'Sign in with',
-                            style: mediumTextStyle.copyWith(
-                                color: Colors.white, fontWeight: rubikLight),
-                          ),
-                          Text(
-                            ' Google',
-                            style: mediumTextStyle.copyWith(
-                                color: Colors.white, fontWeight: rubikSemiBold),
-                          ),
-                          Text(
-                            ' or ',
-                            style: mediumTextStyle.copyWith(
-                                color: Colors.white, fontWeight: rubikLight),
-                          ),
-                          Text(
-                            'Facebook',
-                            style: mediumTextStyle.copyWith(
-                                color: Colors.white, fontWeight: rubikSemiBold),
-                          ),
-                        ],
+                      child: Text(
+                        'Forgot password?',
+                        style: mediumTextStyle.copyWith(
+                            color: Colors.white, fontWeight: rubikLight),
                       ),
                     ),
                   ),
+                ],
+              ),
+              verticalSpaceLarge,
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 45),
+                  child: GestureDetector(
+                    onTap: () => model.goToRegisterView(),
+                    child: Wrap(
+                      children: [
+                        Text(
+                          'Sign in with',
+                          style: mediumTextStyle.copyWith(
+                              color: Colors.white, fontWeight: rubikLight),
+                        ),
+                        Text(
+                          ' Google',
+                          style: mediumTextStyle.copyWith(
+                              color: Colors.white, fontWeight: rubikSemiBold),
+                        ),
+                        Text(
+                          ' or ',
+                          style: mediumTextStyle.copyWith(
+                              color: Colors.white, fontWeight: rubikLight),
+                        ),
+                        Text(
+                          'Facebook',
+                          style: mediumTextStyle.copyWith(
+                              color: Colors.white, fontWeight: rubikSemiBold),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
