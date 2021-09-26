@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
@@ -18,12 +19,21 @@ class LoginViewModel extends BaseViewModel {
 
   bool _emailError = false;
   bool _passwordError = false;
+  bool _hidePassword = true;
+  String _validationMessage = '';
 
   bool get emailError => _emailError;
   bool get passwordError => _passwordError;
+  bool get hidePassword => _hidePassword;
+  String get validationMessage => _validationMessage;
 
   void goToRegisterView() {
     _navigationService.navigateTo(Routes.registerView);
+  }
+
+  void onShowPasswordTap() {
+    _hidePassword = _hidePassword ? false : true;
+    notifyListeners();
   }
 
   void login({required String email, required String password}) async {
@@ -42,9 +52,11 @@ class LoginViewModel extends BaseViewModel {
       } else if (user == null && error != null) {
         if (error.code == 'user-not-found') {
           _emailError = true;
+          _validationMessage = 'Invalid username or email';
           logger.w('User not found!');
         } else if (error.code == 'wrong-password') {
           _passwordError = true;
+          _validationMessage = 'Incorrect Password';
           logger.w('Wrong password!');
         }
       }

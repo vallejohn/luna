@@ -7,13 +7,19 @@ class TextInputField extends StatelessWidget {
   final String hintText;
   final bool? obscureText;
   final TextInputType? textInputType;
-  const TextInputField(
-      {Key? key,
-      required this.controller,
-      required this.hintText,
-      this.obscureText,
-      this.textInputType})
-      : super(key: key);
+  final VoidCallback? onShowPasswordTap;
+  final bool hasError;
+  final String errorMessage;
+  const TextInputField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    this.obscureText,
+    this.textInputType,
+    this.onShowPasswordTap,
+    required this.hasError,
+    required this.errorMessage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +33,13 @@ class TextInputField extends StatelessWidget {
       obscureText: obscureText ?? false,
       obscuringCharacter: '•',
       decoration: InputDecoration(
-        suffixIcon: obscureText != null && obscureText == true
+        suffixIcon: obscureText != null
             ? TextButton(
-                onPressed: () {},
+                onPressed: onShowPasswordTap,
                 style:
                     TextButton.styleFrom(splashFactory: NoSplash.splashFactory),
                 child: Text(
-                  'show',
+                  obscureText! ? 'show' : 'hide',
                   style: mediumTextStyle.copyWith(
                     color: Colors.white.withOpacity(0.5),
                     fontWeight: rubikLight,
@@ -51,9 +57,21 @@ class TextInputField extends StatelessWidget {
         fillColor: Colors.black.withOpacity(0.15),
         hintStyle: mediumTextStyle.copyWith(
             color: Colors.white.withOpacity(0.5), fontWeight: rubikLight),
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(customBorderRadius),
+          borderSide: hasError
+              ? BorderSide(
+                  color: lErrorColor, width: 1.5, style: BorderStyle.solid)
+              : BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(customBorderRadius),
-            borderSide: BorderSide.none),
+            borderSide:
+                BorderSide(color: Colors.white.withOpacity(0.2), width: 1.5)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(customBorderRadius),
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }

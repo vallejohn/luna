@@ -9,6 +9,7 @@ const Color lBackgroundColor = Color(0xffE5E5E5);
 const Color lDarkGreyColor = Color(0xff616161);
 const Color lTFBackgroundColor = Color(0xffF9F9F9);
 const Color lOtherColor = Color(0xff57737A);
+const Color lErrorColor = Color(0xffCA5500);
 
 const LinearGradient buttonGradientBGColor = LinearGradient(
     begin: Alignment(-4.0, -2.0),
