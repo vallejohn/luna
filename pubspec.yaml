@@ -31,6 +31,7 @@ dependencies:
   stacked_hooks: ^0.2.1
   flutter_hooks: ^0.17.0
   freezed_annotation:
+  logger: ^1.1.0
 
   #CLOUD DATABASE
   cloud_firestore: ^2.5.1
@@ -41,6 +42,7 @@ dependencies:
   #UI
   ionicons: ^0.1.2
   google_fonts: ^2.1.0
+  statusbarz: ^1.0.2
 
   #PROVIDERS
   path_provider:

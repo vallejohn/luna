@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:luna/global/custom_widgets/shadowed_text_button.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/auth/login/login_viewmodel.dart';
+import 'package:luna/ui/auth/login/widgets/forms/form_view.dart';
+import 'package:luna/ui/auth/login/widgets/gradient_button.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
@@ -17,93 +18,128 @@ class LoginView extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.white,
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              verticalSpaceMassive,
-              Center(
-                  child: Text(
-                'Login',
-                style: massiveTextStyle,
-              )),
-              verticalSpaceLarge,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: TextFormField(
-                  controller: emailController,
-                  textInputAction: TextInputAction.done,
-                  style: TextStyle(
-                      fontSize: textSizeMedium, color: lBodyTextColor),
-                  textAlign: TextAlign.start,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Ionicons.person,
-                      color: lOtherColor,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [lPrimaryColor, lPrimaryColorsTransition]),
+            ),
+            child: ListView(
+              children: [
+                verticalSpaceMassive,
+                Center(
+                    child: Text(
+                  'luna.',
+                  style:
+                      GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
+                )),
+                verticalSpaceLarge,
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45),
+                    child: Text(
+                      'Welcome!',
+                      style: largeTextStyle.copyWith(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: rubikMedium),
                     ),
-                    contentPadding:
-                        EdgeInsets.only(left: 50, top: 10, bottom: 10),
-                    hintText: 'Email',
-                    filled: true,
-                    fillColor: lTFBackgroundColor,
-                    hintStyle: TextStyle(color: lOtherColor),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(customBorderRadius),
-                        borderSide: BorderSide.none),
                   ),
                 ),
-              ),
-              verticalSpaceRegular,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: TextFormField(
-                  obscureText: true,
-                  controller: passwordController,
-                  textInputAction: TextInputAction.done,
-                  style: TextStyle(
-                      fontSize: textSizeMedium, color: lBodyTextColor),
-                  textAlign: TextAlign.start,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Ionicons.shield,
-                      color: lOtherColor,
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45),
+                    child: Text(
+                      'Login using your username or email.',
+                      style: mediumTextStyle.copyWith(
+                          color: Colors.white, fontWeight: rubikLight),
                     ),
-                    contentPadding:
-                        EdgeInsets.only(left: 50, top: 10, bottom: 10),
-                    hintText: 'Password',
-                    filled: true,
-                    fillColor: lTFBackgroundColor,
-                    hintStyle: TextStyle(color: lOtherColor),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(customBorderRadius),
-                        borderSide: BorderSide.none),
                   ),
                 ),
-              ),
-              verticalSpaceRegular,
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: ShadowedTextButton(
-                  onPressed: () => model.login(
-                      email: emailController.text.toString(),
-                      password: passwordController.text.toString()
+                verticalSpaceLarge,
+                verticalSpaceLarge,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 45),
+                  child: FormView(
+                    emailandUsernameController: emailController,
+                    passwordController: passwordController,
                   ),
-                  backgroundColor: lPrimaryColor,
-                  child: !model.isBusy ? Text('Login', style: mediumTextStyle.copyWith(color: Colors.white),)
-                      : Container(width: 15, height: 15, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2, )),),
-              ),
-              verticalSpaceRegular,
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: GestureDetector(
-                  onTap: () => model.goToRegisterView(),
-                  child: Text('Register', style: mediumTextStyle,),
-                )
-              ),
-            ],
+                ),
+                verticalSpaceMedium,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 45),
+                  child: GradientButton(
+                      onLoginBusy: model.isBusy,
+                      onPressed: () => model.login(
+                          email: emailController.text.toString(),
+                          password: passwordController.text.toString())),
+                ),
+                verticalSpaceRegular,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 45),
+                        child: GestureDetector(
+                          onTap: () => model.goToRegisterView(),
+                          child: Text(
+                            'Create account',
+                            style: mediumTextStyle.copyWith(
+                                color: Colors.white, fontWeight: rubikLight),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 45),
+                      child: GestureDetector(
+                        onTap: () => model.goToRegisterView(),
+                        child: Text(
+                          'Forgot password?',
+                          style: mediumTextStyle.copyWith(
+                              color: Colors.white, fontWeight: rubikLight),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                verticalSpaceLarge,
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45),
+                    child: GestureDetector(
+                      onTap: () => model.goToRegisterView(),
+                      child: Wrap(
+                        children: [
+                          Text(
+                            'Sign in with',
+                            style: mediumTextStyle.copyWith(
+                                color: Colors.white, fontWeight: rubikLight),
+                          ),
+                          Text(
+                            ' Google',
+                            style: mediumTextStyle.copyWith(
+                                color: Colors.white, fontWeight: rubikSemiBold),
+                          ),
+                          Text(
+                            ' or ',
+                            style: mediumTextStyle.copyWith(
+                                color: Colors.white, fontWeight: rubikLight),
+                          ),
+                          Text(
+                            'Facebook',
+                            style: mediumTextStyle.copyWith(
+                                color: Colors.white, fontWeight: rubikSemiBold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
