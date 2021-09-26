@@ -4,7 +4,7 @@ import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   setupLocator();
