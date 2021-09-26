@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/auth/login/login_viewmodel.dart';
-import 'package:luna/ui/auth/login/widgets/forms/text_input_field.dart';
+import 'package:luna/global/custom_widgets/text_input_field.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
 
-class FormView extends HookViewModelWidget<LoginViewModel> {
+class LoginFormView extends HookViewModelWidget<LoginViewModel> {
   final TextEditingController emailandUsernameController;
   final TextEditingController passwordController;
-  const FormView({
+  const LoginFormView({
     Key? key,
     required this.emailandUsernameController,
     required this.passwordController,
