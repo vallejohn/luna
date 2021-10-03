@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/auth/login/login_viewmodel.dart';
-import 'package:luna/ui/auth/login/widgets/forms/form_view.dart';
-import 'package:luna/ui/auth/login/widgets/gradient_button.dart';
+import 'package:luna/ui/auth/login/login_form_view.dart';
+import 'package:luna/global/custom_widgets/gradient_button.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
@@ -72,7 +72,7 @@ class LoginView extends StatelessWidget {
               if (model.validationMessage != '') verticalSpaceMedium,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
-                child: FormView(
+                child: LoginFormView(
                   emailandUsernameController: emailController,
                   passwordController: passwordController,
                 ),
@@ -81,6 +81,7 @@ class LoginView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: GradientButton(
+                    text: 'Login',
                     onLoginBusy: model.isBusy,
                     onPressed: () => model.login(
                         email: emailController.text.toString(),
