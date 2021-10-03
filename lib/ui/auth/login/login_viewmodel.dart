@@ -37,16 +37,12 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void login({required String email, required String password}) async {
-    setBusy(true);
-    await _firebaseAuthService
-        .signInWithEmailAndPassword(email: email, password: password)
-        .then((List value) async {
+    await runBusyFuture(_firebaseAuthService.signInWithEmailAndPassword(email: email, password: password)).then((List value) async {
       User? user = value[1];
       FirebaseAuthException? error = value[0];
 
       if (user != null) {
-        _userProfileService.setCurrentUser(
-            await _firestoreService.getUserFromCollection(user.uid));
+        _userProfileService.setCurrentUser(await _firestoreService.getUserFromCollection(user.uid));
         logger.i('Login successful with user ID: ${user.uid}');
         await _navigationService.replaceWith(Routes.homeView);
       } else if (user == null && error != null) {
@@ -61,7 +57,6 @@ class LoginViewModel extends BaseViewModel {
         }
       }
     });
-    setBusy(false);
     notifyListeners();
   }
 }
