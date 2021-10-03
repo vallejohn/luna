@@ -5,25 +5,22 @@ import 'package:luna/global/ui_helpers.dart';
 class GradientButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool? onLoginBusy;
-  const GradientButton({Key? key, required this.onPressed, this.onLoginBusy})
-      : super(key: key);
+  final String text;
+  const GradientButton({Key? key, required this.onPressed, this.onLoginBusy, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
       width: 50,
-      decoration: BoxDecoration(
-          gradient: buttonGradientBGColor,
-          borderRadius: BorderRadius.circular(customBorderRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              spreadRadius: 1,
-              blurRadius: 20,
-              offset: Offset(0, 10),
-            )
-          ]),
+      decoration: BoxDecoration(gradient: buttonGradientBGColor, borderRadius: BorderRadius.circular(customBorderRadius), boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.05),
+          spreadRadius: 1,
+          blurRadius: 20,
+          offset: Offset(0, 10),
+        )
+      ]),
       child: TextButton(
         onPressed: onPressed,
         child: onLoginBusy! && onLoginBusy != null
@@ -36,7 +33,7 @@ class GradientButton extends StatelessWidget {
                 ),
               )
             : Text(
-                'Login',
+                text,
                 style: largeTextStyle.copyWith(color: lPrimaryColorsTransition),
               ),
       ),
