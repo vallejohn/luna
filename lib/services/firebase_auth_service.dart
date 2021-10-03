@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 
@@ -16,14 +14,12 @@ class FirebaseAuthService {
     return _auth.currentUser!;
   }
 
-  Future<List> signInWithEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<List> signInWithEmailAndPassword({required String email, required String password}) async {
     User? user;
     FirebaseAuthException? error;
     try {
       logger.i('Sigining in with email and password');
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
       user = userCredential.user!;
     } on FirebaseAuthException catch (e) {
       error = e;
@@ -40,22 +36,27 @@ class FirebaseAuthService {
     }
   }
 
-  Future<User> createUserWithEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<List> createUserWithEmailAndPassword({required String email, required String password}) async {
     UserCredential? userCredential;
+    FirebaseAuthException? error;
+
+    //CHECK IF USERNAME OR EMAIL EXIST BEFORE CREATING
 
     try {
-      userCredential = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      logger.i('Successfully created user on firebaseAuth.');
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
+      /* if (e.code == 'weak-password') {
         print('The password is weak.');
+        error = e;
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
-      }
+        error = e;
+      } */
+      error = e;
     } catch (e) {
       print('Error: $e');
     }
-    return userCredential!.user!;
+    return [userCredential, error];
   }
 }
