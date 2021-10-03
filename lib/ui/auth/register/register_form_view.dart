@@ -77,12 +77,7 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         GradientButton(
           text: 'Register',
           onLoginBusy: model.isBusy,
-          onPressed: () => model.register(
-              username: usernameController.text.toString(),
-              firstname: firstnameController.text.toString(),
-              lastname: lastnameController.text.toString(),
-              email: emailController.text.toString(),
-              password: passwordController.text.toString()),
+          onPressed: () => model.register(username: usernameController.text.toString(), firstname: firstnameController.text.toString(), lastname: lastnameController.text.toString(), email: emailController.text.toString(), password: passwordController.text.toString()),
         ),
         verticalSpaceRegular,
       ],
