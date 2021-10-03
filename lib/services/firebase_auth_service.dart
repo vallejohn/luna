@@ -14,17 +14,8 @@ class FirebaseAuthService {
     return _auth.currentUser!;
   }
 
-  Future<List> signInWithEmailAndPassword({required String email, required String password}) async {
-    User? user;
-    FirebaseAuthException? error;
-    try {
-      logger.i('Sigining in with email and password');
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
-      user = userCredential.user!;
-    } on FirebaseAuthException catch (e) {
-      error = e;
-    }
-    return [error, user];
+  Future<UserCredential>? signInWithEmailAndPassword({required String email, required String password}) async {
+    return await _auth.signInWithEmailAndPassword(email: email, password: password);
   }
 
   Future<bool> signOut() async {

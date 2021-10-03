@@ -6,24 +6,25 @@ import 'package:luna/ui/auth/login/login_viewmodel.dart';
 import 'package:luna/ui/auth/login/login_form_view.dart';
 import 'package:luna/global/custom_widgets/gradient_button.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked/stacked_annotations.dart';
+import 'login_view.form.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+@FormView(fields: [
+  FormTextField(name: 'usernameOrEmail'),
+  FormTextField(name: 'password'),
+])
+class LoginView extends StatelessWidget with $LoginView {
+  LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-
     return ViewModelBuilder<LoginViewModel>.reactive(
+      onModelReady: (model) => listenToFormUpdated(model),
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, model, child) => Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [lPrimaryColor, lPrimaryColorsTransition]),
+            gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [lPrimaryColor, lPrimaryColorsTransition]),
           ),
           child: ListView(
             children: [
@@ -31,8 +32,7 @@ class LoginView extends StatelessWidget {
               Center(
                   child: Text(
                 'luna.',
-                style:
-                    GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
+                style: GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
               )),
               verticalSpaceLarge,
               Center(
@@ -40,10 +40,7 @@ class LoginView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Welcome!',
-                    style: largeTextStyle.copyWith(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: rubikMedium),
+                    style: largeTextStyle.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
                   ),
                 ),
               ),
@@ -52,8 +49,7 @@ class LoginView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Login using your username or email.',
-                    style: mediumTextStyle.copyWith(
-                        color: Colors.white, fontWeight: rubikLight),
+                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                   ),
                 ),
               ),
@@ -65,27 +61,21 @@ class LoginView extends StatelessWidget {
                   child: Center(
                       child: Text(
                     '${model.validationMessage}',
-                    style: mediumTextStyle.copyWith(
-                        color: Colors.white, fontWeight: rubikLight),
+                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                   )),
                 ),
               if (model.validationMessage != '') verticalSpaceMedium,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: LoginFormView(
-                  emailandUsernameController: emailController,
+                  emailandUsernameController: usernameOrEmailController,
                   passwordController: passwordController,
                 ),
               ),
               verticalSpaceMedium,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
-                child: GradientButton(
-                    text: 'Login',
-                    onLoginBusy: model.isBusy,
-                    onPressed: () => model.login(
-                        email: emailController.text.toString(),
-                        password: passwordController.text.toString())),
+                child: GradientButton(text: 'Login', onLoginBusy: model.isBusy, onPressed: () => model.saveData()),
               ),
               verticalSpaceRegular,
               Row(
@@ -97,8 +87,7 @@ class LoginView extends StatelessWidget {
                         onTap: () => model.goToRegisterView(),
                         child: Text(
                           'Create account',
-                          style: mediumTextStyle.copyWith(
-                              color: Colors.white, fontWeight: rubikLight),
+                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                       ),
                     ),
@@ -109,8 +98,7 @@ class LoginView extends StatelessWidget {
                       onTap: () => model.goToRegisterView(),
                       child: Text(
                         'Forgot password?',
-                        style: mediumTextStyle.copyWith(
-                            color: Colors.white, fontWeight: rubikLight),
+                        style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                       ),
                     ),
                   ),
@@ -126,23 +114,19 @@ class LoginView extends StatelessWidget {
                       children: [
                         Text(
                           'Sign in with',
-                          style: mediumTextStyle.copyWith(
-                              color: Colors.white, fontWeight: rubikLight),
+                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                         Text(
                           ' Google',
-                          style: mediumTextStyle.copyWith(
-                              color: Colors.white, fontWeight: rubikSemiBold),
+                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
                         ),
                         Text(
                           ' or ',
-                          style: mediumTextStyle.copyWith(
-                              color: Colors.white, fontWeight: rubikLight),
+                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                         Text(
                           'Facebook',
-                          style: mediumTextStyle.copyWith(
-                              color: Colors.white, fontWeight: rubikSemiBold),
+                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
                         ),
                       ],
                     ),
