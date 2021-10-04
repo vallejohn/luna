@@ -3,8 +3,6 @@ import 'package:logger/logger.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/services/firebase_auth_service.dart';
-import 'package:luna/services/firestore_service.dart';
-import 'package:luna/services/user_profile_service.dart';
 import 'package:luna/ui/auth/authentication_viewmodel.dart';
 import 'package:luna/ui/auth/login/login_view.form.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -14,8 +12,6 @@ class LoginViewModel extends AuthenticationViewModel {
 
   final _navigationService = locator<NavigationService>();
   final _firebaseAuthService = locator<FirebaseAuthService>();
-  final _userProfileService = locator<UserProfileService>();
-  final _firestoreService = locator<FirestoreService>();
 
   Logger logger = Logger();
 
@@ -56,5 +52,19 @@ class LoginViewModel extends AuthenticationViewModel {
     }
     notifyListeners();
     return userCredential!;
+  }
+
+  @override
+  bool isRequiredFieldsError() {
+    bool onFieldsError = false;
+    if(usernameOrEmailValue == null){
+      _emailError = true;
+      onFieldsError = true;
+    }
+    if(passwordValue == null){
+      _passwordError = true;
+      onFieldsError = true;
+    }
+    return onFieldsError;
   }
 }

@@ -9,7 +9,6 @@ class TextInputField extends StatelessWidget {
   final TextInputType? textInputType;
   final VoidCallback? onShowPasswordTap;
   final bool hasError;
-  final String errorMessage;
   const TextInputField({
     Key? key,
     required this.controller,
@@ -18,7 +17,6 @@ class TextInputField extends StatelessWidget {
     this.textInputType,
     this.onShowPasswordTap,
     required this.hasError,
-    required this.errorMessage,
   }) : super(key: key);
 
   @override

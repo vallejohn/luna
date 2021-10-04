@@ -19,7 +19,6 @@ class LoginFormView extends HookViewModelWidget<LoginViewModel> {
       children: [
         TextInputField(
           hasError: model.emailError,
-          errorMessage: model.validationMessage,
           textInputType: TextInputType.emailAddress,
           controller: emailandUsernameController,
           hintText: 'username or email',
@@ -27,7 +26,6 @@ class LoginFormView extends HookViewModelWidget<LoginViewModel> {
         verticalSpaceSmall,
         TextInputField(
           hasError: model.passwordError,
-          errorMessage: model.validationMessage,
           onShowPasswordTap: () => model.onShowPasswordTap(),
           obscureText: model.hidePassword,
           controller: passwordController,

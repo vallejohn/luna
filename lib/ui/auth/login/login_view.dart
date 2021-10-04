@@ -55,7 +55,7 @@ class LoginView extends StatelessWidget with $LoginView {
               ),
               verticalSpaceLarge,
               verticalSpaceLarge,
-              if (model.validationMessage != '')
+              if (model.validationMessage != '' && model.validationMessage != null)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Center(
@@ -64,7 +64,7 @@ class LoginView extends StatelessWidget with $LoginView {
                     style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
                   )),
                 ),
-              if (model.validationMessage != '') verticalSpaceMedium,
+              if (model.validationMessage != '' && model.validationMessage != null) verticalSpaceMedium,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: LoginFormView(

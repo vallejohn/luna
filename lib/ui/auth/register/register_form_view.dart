@@ -24,7 +24,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
       children: [
         TextInputField(
           hasError: false,
-          errorMessage: '',
           textInputType: TextInputType.text,
           controller: usernameController,
           hintText: 'username',
@@ -32,7 +31,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         verticalSpaceSmall,
         TextInputField(
           hasError: false,
-          errorMessage: '',
           textInputType: TextInputType.text,
           controller: firstnameController,
           hintText: 'first name',
@@ -40,7 +38,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         verticalSpaceSmall,
         TextInputField(
           hasError: false,
-          errorMessage: '',
           textInputType: TextInputType.text,
           controller: lastnameController,
           hintText: 'last name',
@@ -48,7 +45,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         verticalSpaceSmall,
         TextInputField(
           hasError: false,
-          errorMessage: '',
           textInputType: TextInputType.emailAddress,
           controller: emailController,
           hintText: 'email address',
@@ -58,7 +54,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
           hasError: false,
           obscureText: true,
           onShowPasswordTap: () {},
-          errorMessage: '',
           textInputType: TextInputType.text,
           controller: passwordController,
           hintText: 'password',
@@ -68,7 +63,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
           hasError: false,
           obscureText: true,
           onShowPasswordTap: () {},
-          errorMessage: '',
           textInputType: TextInputType.text,
           controller: confirmPassword,
           hintText: 'confirm password',

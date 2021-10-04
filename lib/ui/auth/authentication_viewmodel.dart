@@ -19,7 +19,8 @@ abstract class AuthenticationViewModel extends FormViewModel {
   void setFormStatus() {}
 
   Future saveData() async {
-    try {
+    if(!isRequiredFieldsError()){
+      try {
       UserCredential? userCredential = await runBusyFuture(runAuthentication());
       _userProfileService.setCurrentUser(await _firestoreService.getUserFromCollection(userCredential!.user!.uid));
       logger.i('Login successful with user ID: ${userCredential.user!.uid}');
@@ -27,7 +28,12 @@ abstract class AuthenticationViewModel extends FormViewModel {
     }catch (e) {
       logger.e('We have an error: $e');
     }
+    }else{
+      setValidationMessage('Required fields are missing!');
+    }
+    notifyListeners();
   }
 
   Future<UserCredential> runAuthentication();
+  bool isRequiredFieldsError();
 }
