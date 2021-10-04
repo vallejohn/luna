@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/auth/register/register_form_view.dart';
@@ -35,7 +36,7 @@ class RegisterView extends StatelessWidget with $RegisterView{
           ),
           child: ListView(
             children: [
-              verticalSpaceMassive,
+              verticalSpaceLarge,
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 45),
@@ -59,6 +60,31 @@ class RegisterView extends StatelessWidget with $RegisterView{
                 ),
               ),
               verticalSpaceLarge,
+              Center(
+                child: GestureDetector(
+                  child: ClipOval(
+                    child: Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        gradient: buttonGradientBGColor
+                      ),
+                      child: model.profilePhoto == null ?  Icon(Ionicons.camera, size: 45, color: lPrimaryColor,) : Image.file(
+                        model.profilePhoto!, fit: BoxFit.fitHeight,
+                      ),
+                      ),
+                  ),
+                  onTap: () => model.loadProfileImageFromGallery(),
+                ),
+              ),
+              verticalSpaceSmall,
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Center(
+                      child: Text('Click on the camera icon to browse a photo in your gallery.',
+                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight), textAlign: TextAlign.center,
+                  )),
+                ),
               verticalSpaceLarge,
               if (model.validationMessage != '' && model.validationMessage != null)
                 Padding(

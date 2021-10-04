@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/models/user_profile.dart';
 import 'package:luna/services/firebase_auth_service.dart';
 import 'package:luna/services/firestore_service.dart';
+import 'package:luna/services/image_picker_service.dart';
 import 'package:luna/ui/auth/authentication_viewmodel.dart';
 import 'package:luna/ui/auth/register/register_view.form.dart';
 
@@ -13,6 +17,7 @@ class RegisterViewModel extends AuthenticationViewModel {
 
   final _firebaseAuthService = locator<FirebaseAuthService>();
   final _firestoreService = locator<FirestoreService>();
+  final _imagePickerService = locator<ImagePickerService>();
 
   final Logger logger = Logger();
 
@@ -22,6 +27,7 @@ class RegisterViewModel extends AuthenticationViewModel {
   bool _emailError = false;
   bool _passwordError = false;
   bool _confirmPasswordError = false;
+  File? _profilePhoto;
 
   bool get usernameError => _usernameError;
   bool get firstnameError => _firstnameError;
@@ -29,6 +35,7 @@ class RegisterViewModel extends AuthenticationViewModel {
   bool get emailError => _emailError;
   bool get passwordError => _passwordError;
   bool get confirmPasswordError => _confirmPasswordError;
+  File? get profilePhoto => _profilePhoto;
 
   @override
   Future<UserCredential> runAuthentication() async{
@@ -59,7 +66,18 @@ class RegisterViewModel extends AuthenticationViewModel {
 
   @override
   bool isRequiredFieldsError() {
-
     return false;
+  }
+
+  void loadProfileImageFromGallery() async{
+    try{
+      PickedFile? image = await _imagePickerService.loadProfileImageFromGallery();
+      if(image != null){
+        _profilePhoto = File(image.path);
+      }
+    }catch(e){
+      logger.e('Error: $e');
+    }
+    notifyListeners();
   }
 }
