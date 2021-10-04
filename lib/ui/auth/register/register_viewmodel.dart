@@ -7,6 +7,7 @@ import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/models/user_profile.dart';
 import 'package:luna/services/firebase_auth_service.dart';
+import 'package:luna/services/firebase_storage_service.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/image_picker_service.dart';
 import 'package:luna/ui/auth/authentication_viewmodel.dart';
@@ -18,6 +19,7 @@ class RegisterViewModel extends AuthenticationViewModel {
   final _firebaseAuthService = locator<FirebaseAuthService>();
   final _firestoreService = locator<FirestoreService>();
   final _imagePickerService = locator<ImagePickerService>();
+  final _firebaseStorageService = locator<FirebaseStorageService>();
 
   final Logger logger = Logger();
 
@@ -44,9 +46,14 @@ class RegisterViewModel extends AuthenticationViewModel {
       userCredential = await _firebaseAuthService.createUserWithEmailAndPassword(
         email: emailAddressValue!, 
         password: passwordValue!);
+      
+      String profileImageURL = await _firebaseStorageService.uploadProfilePhotoToFirebaseStorage(
+        uID: userCredential!.user!.uid, 
+        file: _profilePhoto!);
 
       await _firestoreService.addUserToCollection(UserProfile(
-        authID: userCredential!.user!.uid,
+        authID: userCredential.user!.uid,
+        profileImageURL: profileImageURL,
         username: usernameValue,
         email: emailAddressValue,
         firstname: firstnameValue,

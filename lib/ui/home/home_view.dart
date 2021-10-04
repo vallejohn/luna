@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
                   onTap: () => model.signOut(),
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        'https://i.pinimg.com/736x/9c/91/e0/9c91e06b6538e8bb941314a25207835f.jpg'),
+                        '${model.userProfile.profileImageURL}'),
                   ),
                 ),
               )

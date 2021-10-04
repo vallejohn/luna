@@ -23,12 +23,14 @@ class _$UserProfileTearOff {
 
   _UserProfile call(
       {String? authID,
+      String? profileImageURL,
       String? username,
       String? email,
       String? firstname,
       String? lastname}) {
     return _UserProfile(
       authID: authID,
+      profileImageURL: profileImageURL,
       username: username,
       email: email,
       firstname: firstname,
@@ -47,6 +49,7 @@ const $UserProfile = _$UserProfileTearOff();
 /// @nodoc
 mixin _$UserProfile {
   String? get authID => throw _privateConstructorUsedError;
+  String? get profileImageURL => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get firstname => throw _privateConstructorUsedError;
@@ -65,6 +68,7 @@ abstract class $UserProfileCopyWith<$Res> {
       _$UserProfileCopyWithImpl<$Res>;
   $Res call(
       {String? authID,
+      String? profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -82,6 +86,7 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
   @override
   $Res call({
     Object? authID = freezed,
+    Object? profileImageURL = freezed,
     Object? username = freezed,
     Object? email = freezed,
     Object? firstname = freezed,
@@ -91,6 +96,10 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
       authID: authID == freezed
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profileImageURL: profileImageURL == freezed
+          ? _value.profileImageURL
+          : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String?,
       username: username == freezed
           ? _value.username
@@ -121,6 +130,7 @@ abstract class _$UserProfileCopyWith<$Res>
   @override
   $Res call(
       {String? authID,
+      String? profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -140,6 +150,7 @@ class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
   @override
   $Res call({
     Object? authID = freezed,
+    Object? profileImageURL = freezed,
     Object? username = freezed,
     Object? email = freezed,
     Object? firstname = freezed,
@@ -149,6 +160,10 @@ class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
       authID: authID == freezed
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profileImageURL: profileImageURL == freezed
+          ? _value.profileImageURL
+          : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String?,
       username: username == freezed
           ? _value.username
@@ -174,13 +189,20 @@ class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserProfile implements _UserProfile {
   _$_UserProfile(
-      {this.authID, this.username, this.email, this.firstname, this.lastname});
+      {this.authID,
+      this.profileImageURL,
+      this.username,
+      this.email,
+      this.firstname,
+      this.lastname});
 
   factory _$_UserProfile.fromJson(Map<String, dynamic> json) =>
       _$$_UserProfileFromJson(json);
 
   @override
   final String? authID;
+  @override
+  final String? profileImageURL;
   @override
   final String? username;
   @override
@@ -192,7 +214,7 @@ class _$_UserProfile implements _UserProfile {
 
   @override
   String toString() {
-    return 'UserProfile(authID: $authID, username: $username, email: $email, firstname: $firstname, lastname: $lastname)';
+    return 'UserProfile(authID: $authID, profileImageURL: $profileImageURL, username: $username, email: $email, firstname: $firstname, lastname: $lastname)';
   }
 
   @override
@@ -201,6 +223,9 @@ class _$_UserProfile implements _UserProfile {
         (other is _UserProfile &&
             (identical(other.authID, authID) ||
                 const DeepCollectionEquality().equals(other.authID, authID)) &&
+            (identical(other.profileImageURL, profileImageURL) ||
+                const DeepCollectionEquality()
+                    .equals(other.profileImageURL, profileImageURL)) &&
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
                     .equals(other.username, username)) &&
@@ -218,6 +243,7 @@ class _$_UserProfile implements _UserProfile {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(authID) ^
+      const DeepCollectionEquality().hash(profileImageURL) ^
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(firstname) ^
@@ -237,6 +263,7 @@ class _$_UserProfile implements _UserProfile {
 abstract class _UserProfile implements UserProfile {
   factory _UserProfile(
       {String? authID,
+      String? profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -247,6 +274,8 @@ abstract class _UserProfile implements UserProfile {
 
   @override
   String? get authID => throw _privateConstructorUsedError;
+  @override
+  String? get profileImageURL => throw _privateConstructorUsedError;
   @override
   String? get username => throw _privateConstructorUsedError;
   @override
