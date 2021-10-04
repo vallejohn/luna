@@ -27,13 +27,10 @@ class FirebaseAuthService {
     }
   }
 
-  Future<List> createUserWithEmailAndPassword({required String email, required String password}) async {
-    UserCredential? userCredential;
-    FirebaseAuthException? error;
+  Future<UserCredential>? createUserWithEmailAndPassword({required String email, required String password}) async {
+    return await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
-    //CHECK IF USERNAME OR EMAIL EXIST BEFORE CREATING
-
-    try {
+/*     try {
       userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       logger.i('Successfully created user on firebaseAuth.');
     } on FirebaseAuthException catch (e) {
@@ -47,7 +44,6 @@ class FirebaseAuthService {
       error = e;
     } catch (e) {
       print('Error: $e');
-    }
-    return [userCredential, error];
+    } */
   }
 }

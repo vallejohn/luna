@@ -6,52 +6,60 @@ import 'package:luna/ui/auth/register/register_viewmodel.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
 
 class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
+
+  final TextEditingController usernameController;
+  final TextEditingController firstnameController;
+  final TextEditingController lastnameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController confirmPasswordController;
+
   const RegisterFormView({
+    required this.usernameController, 
+    required this.firstnameController, 
+    required this.lastnameController, 
+    required this.emailController, 
+    required this.passwordController, 
+    required this.confirmPasswordController, 
     Key? key,
   }) : super(key: key);
 
   @override
   Widget buildViewModelWidget(BuildContext context, RegisterViewModel model) {
-    TextEditingController usernameController = TextEditingController();
-    TextEditingController firstnameController = TextEditingController();
-    TextEditingController lastnameController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController confirmPassword = TextEditingController();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TextInputField(
-          hasError: false,
+          hasError: model.usernameError,
           textInputType: TextInputType.text,
           controller: usernameController,
           hintText: 'username',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: false,
+          hasError: model.firstnameError,
           textInputType: TextInputType.text,
           controller: firstnameController,
           hintText: 'first name',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: false,
+          hasError: model.lastnameError,
           textInputType: TextInputType.text,
           controller: lastnameController,
           hintText: 'last name',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: false,
+          hasError: model.emailError,
           textInputType: TextInputType.emailAddress,
           controller: emailController,
           hintText: 'email address',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: false,
+          hasError: model.passwordError,
           obscureText: true,
           onShowPasswordTap: () {},
           textInputType: TextInputType.text,
@@ -60,19 +68,18 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: false,
+          hasError: model.confirmPasswordError,
           obscureText: true,
           onShowPasswordTap: () {},
           textInputType: TextInputType.text,
-          controller: confirmPassword,
+          controller: confirmPasswordController,
           hintText: 'confirm password',
         ),
         verticalSpaceMedium,
         GradientButton(
           text: 'Register',
           onLoginBusy: model.isBusy,
-          onPressed: () => model.register(username: usernameController.text.toString(), firstname: firstnameController.text.toString(), lastname: lastnameController.text.toString(), email: emailController.text.toString(), password: passwordController.text.toString()),
-        ),
+          onPressed: () => model.saveData()),
         verticalSpaceRegular,
       ],
     );
