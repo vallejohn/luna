@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:luna/models/user_profile.dart';
 
 part 'comment.freezed.dart';
 part 'comment.g.dart';

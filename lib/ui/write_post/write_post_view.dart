@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:luna/global/custom_widgets/shadowed_text_button.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/write_post/write_post_viewmodel.dart';

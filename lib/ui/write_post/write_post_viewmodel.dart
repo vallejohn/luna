@@ -1,6 +1,5 @@
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
-import 'package:luna/models/comment.dart';
 import 'package:luna/models/post.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/user_profile_service.dart';
