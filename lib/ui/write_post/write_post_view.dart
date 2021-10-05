@@ -27,7 +27,7 @@ class WritePostView extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(right: horizontalMargin),
               child: CircleAvatar(
-                backgroundImage: NetworkImage('https://i.pinimg.com/736x/9c/91/e0/9c91e06b6538e8bb941314a25207835f.jpg'),
+                backgroundImage: NetworkImage('${model.currentUser.profileImageURL}'),
               ),
             )
           ],
@@ -45,7 +45,10 @@ class WritePostView extends StatelessWidget {
                     horizontalSpaceTiny,
                     Icon(Ionicons.caret_down_outline, color: lDarkGreyColor, size: 15,),
                     horizontalSpaceRegular,
-                    Icon(Ionicons.image, color: lDarkGreyColor,),
+                    GestureDetector(
+                      child: Icon(Ionicons.image, color: model.postImageCover == null ? lDarkGreyColor : lPrimaryColor,),
+                      onTap: () => model.loadPostImageCoverFromGallery(),
+                      ),
                     horizontalSpaceTiny,
                     Expanded(child: Text('Photos', style: mediumTextStyle.copyWith(color: lDarkGreyColor),)),
                     Padding(
@@ -111,6 +114,7 @@ class WritePostView extends StatelessWidget {
         ),
       ),
       viewModelBuilder: () => WritePostViewModel(),
+      onModelReady: (model) => model.initWritePost(),
     );
   }
 }

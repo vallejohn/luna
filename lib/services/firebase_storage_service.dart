@@ -23,4 +23,17 @@ class FirebaseStorageService {
 
     return profileImageURL!;
   }
+
+    Future<String> uploadPostCoverImageToFirebaseStorage({required String uID, required File file}) async{
+    String? postCoverImageURL;
+    try{
+      UploadTask uploadTask = _firebaseStorage.ref().child('images/users/$uID/post_covers/${file.path}').putFile(file);
+      TaskSnapshot taskSnapshot = await uploadTask.then((TaskSnapshot taskSnapshot) => taskSnapshot);
+      postCoverImageURL = await taskSnapshot.ref.getDownloadURL();
+    }on FirebaseException catch(e){
+      logger.e(e);
+    }
+
+    return postCoverImageURL!;
+  }
 }

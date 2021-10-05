@@ -12,6 +12,7 @@ class PostItem extends StatelessWidget {
   final String category;
   final String datePosted;
   final String title;
+  final String coverImageURL;
   final String content;
   final int commentCount;
   final Comment? recentComment;
@@ -27,7 +28,8 @@ class PostItem extends StatelessWidget {
     required this.name,
     required this.category,
     required this.datePosted,
-    required this.onPostTap
+    required this.onPostTap, 
+    required this.coverImageURL
   }) : super(key: key);
 
   @override
@@ -82,9 +84,8 @@ class PostItem extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.grey,
                       image: DecorationImage(
-                        image: NetworkImage('https://images.squarespace-cdn.com/content/v1/55d64111e4b0a'
-                            '862eed6a419/1524007829841-21C3C49BS8T0YQGZ3X7I/new-year-travel.jpg'),
-                        fit: BoxFit.fill
+                        image: NetworkImage('$coverImageURL'),
+                        fit: BoxFit.cover
                       ),
                     ),
                     child: Padding(
@@ -152,7 +153,7 @@ class PostItem extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 14,
-                      backgroundImage: NetworkImage('https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg'),
+                      backgroundImage: NetworkImage('${UserProfile.fromJson(recentComment!.userProfile!).profileImageURL}'),
                     ),
                     horizontalSpaceSmall,
                     Expanded(

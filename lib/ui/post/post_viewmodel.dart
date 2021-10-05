@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/models/comment.dart';
 import 'package:luna/models/post.dart';
+import 'package:luna/models/user_profile.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/user_profile_service.dart';
 import 'package:stacked/stacked.dart';
@@ -12,8 +13,12 @@ class PostViewModel extends BaseViewModel{
   final _userProfileService = locator<UserProfileService>();
 
   Post _post = Post();
+  UserProfile _author = UserProfile();
+  UserProfile _currentUser = UserProfile();
   List<Comment> _comments = [];
   Post get post => _post;
+  UserProfile get author => _author;
+  UserProfile get currentUser => _currentUser;
   List<Comment> get comments => _comments;
   
   String _postID = '';
@@ -22,7 +27,9 @@ class PostViewModel extends BaseViewModel{
   Stream<QuerySnapshot> get commentQuerySnapshot => _commentsQuerySnapshot;
 
   void initPost(BuildContext context) async{
+    _currentUser = _userProfileService.currentUser;
     getPost(ModalRoute.of(context)!.settings.arguments as String);
+    notifyListeners();
   }
 
   void getPost(String postID) async{
@@ -33,6 +40,7 @@ class PostViewModel extends BaseViewModel{
     postRef.get().then((DocumentSnapshot documentSnapshot) async{
       _post = documentSnapshot.data() as Post;
       _commentsQuerySnapshot = _firestoreService.getCommentsQuerySnapshot(postID);
+      _author = UserProfile.fromJson(_post.author as Map<String, dynamic>);
       setBusy(false);
       notifyListeners();
     });

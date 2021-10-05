@@ -23,12 +23,14 @@ class _$PostTearOff {
 
   _Post call(
       {String? title,
+      String? coverImageURL,
       String? content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author}) {
     return _Post(
       title: title,
+      coverImageURL: coverImageURL,
       content: content,
       commentCount: commentCount,
       recentComment: recentComment,
@@ -47,6 +49,7 @@ const $Post = _$PostTearOff();
 /// @nodoc
 mixin _$Post {
   String? get title => throw _privateConstructorUsedError;
+  String? get coverImageURL => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   int? get commentCount => throw _privateConstructorUsedError;
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
@@ -63,6 +66,7 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res>;
   $Res call(
       {String? title,
+      String? coverImageURL,
       String? content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
@@ -80,6 +84,7 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
   @override
   $Res call({
     Object? title = freezed,
+    Object? coverImageURL = freezed,
     Object? content = freezed,
     Object? commentCount = freezed,
     Object? recentComment = freezed,
@@ -89,6 +94,10 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImageURL: coverImageURL == freezed
+          ? _value.coverImageURL
+          : coverImageURL // ignore: cast_nullable_to_non_nullable
               as String?,
       content: content == freezed
           ? _value.content
@@ -117,6 +126,7 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   $Res call(
       {String? title,
+      String? coverImageURL,
       String? content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
@@ -135,6 +145,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
+    Object? coverImageURL = freezed,
     Object? content = freezed,
     Object? commentCount = freezed,
     Object? recentComment = freezed,
@@ -144,6 +155,10 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImageURL: coverImageURL == freezed
+          ? _value.coverImageURL
+          : coverImageURL // ignore: cast_nullable_to_non_nullable
               as String?,
       content: content == freezed
           ? _value.content
@@ -170,6 +185,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 class _$_Post implements _Post {
   _$_Post(
       {this.title,
+      this.coverImageURL,
       this.content,
       this.commentCount,
       this.recentComment,
@@ -179,6 +195,8 @@ class _$_Post implements _Post {
 
   @override
   final String? title;
+  @override
+  final String? coverImageURL;
   @override
   final String? content;
   @override
@@ -190,7 +208,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(title: $title, content: $content, commentCount: $commentCount, recentComment: $recentComment, author: $author)';
+    return 'Post(title: $title, coverImageURL: $coverImageURL, content: $content, commentCount: $commentCount, recentComment: $recentComment, author: $author)';
   }
 
   @override
@@ -199,6 +217,9 @@ class _$_Post implements _Post {
         (other is _Post &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.coverImageURL, coverImageURL) ||
+                const DeepCollectionEquality()
+                    .equals(other.coverImageURL, coverImageURL)) &&
             (identical(other.content, content) ||
                 const DeepCollectionEquality()
                     .equals(other.content, content)) &&
@@ -216,6 +237,7 @@ class _$_Post implements _Post {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(coverImageURL) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(commentCount) ^
       const DeepCollectionEquality().hash(recentComment) ^
@@ -235,6 +257,7 @@ class _$_Post implements _Post {
 abstract class _Post implements Post {
   factory _Post(
       {String? title,
+      String? coverImageURL,
       String? content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
@@ -244,6 +267,8 @@ abstract class _Post implements Post {
 
   @override
   String? get title => throw _privateConstructorUsedError;
+  @override
+  String? get coverImageURL => throw _privateConstructorUsedError;
   @override
   String? get content => throw _privateConstructorUsedError;
   @override

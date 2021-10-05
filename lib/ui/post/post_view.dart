@@ -41,8 +41,7 @@ class PostView extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 14,
-                            backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q='
-                                'tbn:ANd9GcSpnTXjP7TSkmeA3OKB2zAwdnebWtg8n6ySYw&usqp=CAU'),
+                            backgroundImage: NetworkImage('${model.author.profileImageURL}'),
                           ),
                           horizontalSpaceSmall,
                           Expanded(
@@ -51,7 +50,7 @@ class PostView extends StatelessWidget {
                               children: [
                                 Wrap(
                                   children: [
-                                    Text('Lydia Calvert', style: mediumTextStyle.copyWith(fontWeight: rubikMedium),),
+                                    Text('${model.author.firstname} ${model.author.lastname} ', style: mediumTextStyle.copyWith(fontWeight: rubikMedium),),
                                     Text(' on ', style: mediumTextStyle.copyWith(color: lLightGrey),),
                                     Text('Technology', style: mediumTextStyle.copyWith(color: lPrimaryColor, fontWeight: rubikMedium),),
                                   ],
@@ -104,7 +103,7 @@ class PostView extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     radius: 14,
-                                    backgroundImage: NetworkImage('https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg'),
+                                    backgroundImage: NetworkImage('${user.profileImageURL}'),
                                   ),
                                   horizontalSpaceSmall,
                                   Expanded(
@@ -142,7 +141,7 @@ class PostView extends StatelessWidget {
                             textAlign: TextAlign.start,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
-                              hintText: 'Your thoughts here',
+                              hintText: 'Your thoughts here, ${model.currentUser.firstname}',
                               filled: true,
                               fillColor: lTFBackgroundColor,
                               hintStyle: TextStyle(color: lOtherColor),
@@ -157,7 +156,7 @@ class PostView extends StatelessWidget {
                             top: 10,
                             child: CircleAvatar(
                               radius: 14,
-                              backgroundImage: NetworkImage('https://i.pinimg.com/736x/9c/91/e0/9c91e06b6538e8bb941314a25207835f.jpg'),
+                              backgroundImage: NetworkImage('${model.currentUser.profileImageURL}'),
                             ),
                           ),
                           Positioned(

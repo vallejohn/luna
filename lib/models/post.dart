@@ -7,6 +7,7 @@ part 'post.g.dart';
 abstract class Post with _$Post{
   factory Post({
     String? title,
+    String? coverImageURL,
     String? content,
     int? commentCount,
     Map<String, dynamic>? recentComment,

@@ -68,6 +68,7 @@ class HomeView extends StatelessWidget {
                       UserProfile.fromJson(post.author as Map<String, dynamic>);
                   return PostItem(
                     onPostTap: () => model.goToPost(documentSnapshot.id),
+                    coverImageURL: post.coverImageURL!,
                     title: post.title.toString(),
                     category: 'Technology',
                     content: post.content.toString(),
@@ -77,7 +78,7 @@ class HomeView extends StatelessWidget {
                         : null,
                     datePosted: '7 hrs ago',
                     imageUrl:
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpnTXjP7TSkmeA3OKB2zAwdnebWtg8n6ySYw&usqp=CAU',
+                        '${author.profileImageURL}',
                     name: '${author.firstname} ${author.lastname}',
                   );
                 }).toList(),
