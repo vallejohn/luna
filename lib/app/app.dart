@@ -7,6 +7,7 @@ import 'package:luna/ui/auth/login/login_view.dart';
 import 'package:luna/ui/auth/register/register_view.dart';
 import 'package:luna/ui/home/home_view.dart';
 import 'package:luna/ui/post/post_view.dart';
+import 'package:luna/ui/profile/profile_view.dart';
 import 'package:luna/ui/startup/startup_view.dart';
 import 'package:luna/ui/write_post/write_post_view.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -20,6 +21,7 @@ import 'package:stacked_services/stacked_services.dart';
     CupertinoRoute(page: PostView),
     CupertinoRoute(page: LoginView),
     CupertinoRoute(page: RegisterView),
+    CupertinoRoute(page: ProfileView),
   ],
   dependencies: [
     LazySingleton(classType: FirestoreService),

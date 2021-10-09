@@ -37,7 +37,8 @@ class HomeView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: horizontalMargin),
                 child: GestureDetector(
-                  onTap: () => model.signOut(),
+                  onTap: () => model.gotoProfile(),
+                  onLongPress: () => model.signOut(),
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
                         '${model.userProfile.profileImageURL}'),

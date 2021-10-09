@@ -57,4 +57,8 @@ class HomeViewModel extends BaseViewModel {
       }
     });
   }
+
+  void gotoProfile(){
+    _navigationService.navigateTo(Routes.profileView);
+  }
 }
