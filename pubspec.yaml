@@ -39,6 +39,9 @@ dependencies:
   firebase_auth: ^3.1.1
   firebase_storage: ^10.0.3
 
+  #SERVICES
+  google_maps_place_picker:
+
   #UI
   ionicons: ^0.1.2
   google_fonts: ^2.1.0
@@ -62,6 +65,7 @@ dev_dependencies:
   stacked_generator: ^0.5.2
   freezed:
   json_serializable:
+  mockito: ^5.0.16
 
 
 # For information on the generic Dart part of this file, see the

@@ -28,6 +28,7 @@ const FontWeight rubikBlack = FontWeight.w800;
 
 const TextStyle massiveTextStyle =
     TextStyle(color: lBodyTextColor, fontSize: 30);
+    const TextStyle extralargeTextStyle = TextStyle(color: lBodyTextColor, fontSize: 25);
 const TextStyle largeTextStyle = TextStyle(color: lBodyTextColor, fontSize: 18);
 const TextStyle mediumTextStyle =
     TextStyle(color: lBodyTextColor, fontSize: 16);
