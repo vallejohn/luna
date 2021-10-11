@@ -7,10 +7,12 @@ import 'package:luna/models/user_profile.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/user_profile_service.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class PostViewModel extends BaseViewModel{
   final _firestoreService = locator<FirestoreService>();
   final _userProfileService = locator<UserProfileService>();
+  final _navigationService = locator<NavigationService>();
 
   Post _post = Post();
   UserProfile _author = UserProfile();
@@ -44,6 +46,10 @@ class PostViewModel extends BaseViewModel{
       setBusy(false);
       notifyListeners();
     });
+  }
+
+  void navigateBack(){
+    _navigationService.back();
   }
 
   void addComment(String commentBody) async{
