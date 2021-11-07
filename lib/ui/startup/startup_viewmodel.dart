@@ -27,7 +27,7 @@ class StartupViewModel extends BaseViewModel {
 
   Future getCurrentUser() async {
     try {
-      logger.i('Trying to fetch user');
+      /* logger.i('Trying to fetch user');
       User? user = _firebaseAuthService.getCurrentUser();
       UserProfile userProfile =
           await _firestoreService.getUserFromCollection(user!.uid);
@@ -35,7 +35,7 @@ class StartupViewModel extends BaseViewModel {
 
       Future.delayed(Duration.zero, () async {
         await _navigationService.replaceWith(Routes.homeView);
-      });
+      }); */
     } catch (e) {
       logger.e('No user was fetched: $e -- Redirecting to LoginView');
       Future.delayed(Duration.zero, () async {

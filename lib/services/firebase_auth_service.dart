@@ -10,7 +10,11 @@ class FirebaseAuthService {
     _auth = FirebaseAuth.instance;
   }
 
-  User? getCurrentUser() {
+  bool isSignedIn(){
+    return _auth.currentUser != null;
+  }
+
+  User? getUser(){
     return _auth.currentUser!;
   }
 
