@@ -14,6 +14,7 @@ import 'package:stacked/stacked_annotations.dart';
 import '../ui/auth/login/login_view.dart';
 import '../ui/auth/register/register_view.dart';
 import '../ui/home/home_view.dart';
+import '../ui/location_search/location_search_view.dart';
 import '../ui/post/post_view.dart';
 import '../ui/profile/profile_view.dart';
 import '../ui/startup/startup_view.dart';
@@ -27,6 +28,7 @@ class Routes {
   static const String loginView = '/login-view';
   static const String registerView = '/register-view';
   static const String profileView = '/profile-view';
+  static const String locationSearchView = '/location-search-view';
   static const all = <String>{
     startupView,
     homeView,
@@ -35,6 +37,7 @@ class Routes {
     loginView,
     registerView,
     profileView,
+    locationSearchView,
   };
 }
 
@@ -49,6 +52,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.registerView, page: RegisterView),
     RouteDef(Routes.profileView, page: ProfileView),
+    RouteDef(Routes.locationSearchView, page: LocationSearchView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -98,6 +102,12 @@ class StackedRouter extends RouterBase {
     ProfileView: (data) {
       return CupertinoPageRoute<CupertinoRoute<dynamic>>(
         builder: (context) => const ProfileView(),
+        settings: data,
+      );
+    },
+    LocationSearchView: (data) {
+      return CupertinoPageRoute<CupertinoRoute<dynamic>>(
+        builder: (context) => const LocationSearchView(),
         settings: data,
       );
     },

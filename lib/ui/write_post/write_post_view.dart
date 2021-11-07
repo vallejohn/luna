@@ -46,10 +46,16 @@ class WritePostView extends StatelessWidget {
                     Icon(Ionicons.caret_down_outline, color: lDarkGreyColor, size: 15,),
                     horizontalSpaceRegular,
                     GestureDetector(
+                      child: Icon(Ionicons.location_outline, color: lDarkGreyColor,),
+                      onTap: () => model.goToSearchLocation(),
+                      ),
+                    Text('Location', style: mediumTextStyle.copyWith(color: lDarkGreyColor,),),
+                    horizontalSpaceRegular,
+                    GestureDetector(
                       child: Icon(Ionicons.image, color: model.postImageCover == null ? lDarkGreyColor : lPrimaryColor,),
                       onTap: () => model.loadPostImageCoverFromGallery(),
                       ),
-                    horizontalSpaceTiny,
+                      horizontalSpaceTiny,
                     Expanded(child: Text('Photos', style: mediumTextStyle.copyWith(color: lDarkGreyColor),)),
                     Padding(
                       padding: const EdgeInsets.only(right: horizontalMargin),

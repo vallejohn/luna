@@ -35,12 +35,9 @@ dependencies:
 
   #CLOUD DATABASE
   cloud_firestore: ^2.5.1
-  firebase_core: ^1.6.0
+  firebase_core: ^1.1.0
   firebase_auth: ^3.1.1
   firebase_storage: ^10.0.3
-
-  #SERVICES
-  google_maps_place_picker:
 
   #UI
   ionicons: ^0.1.2

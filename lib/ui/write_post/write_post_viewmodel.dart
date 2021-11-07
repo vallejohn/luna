@@ -68,4 +68,8 @@ class WritePostViewModel extends BaseViewModel{
     }
     notifyListeners();
   }
+
+  void goToSearchLocation(){
+    _navigationService.navigateTo(Routes.locationSearchView);
+  }
 }
