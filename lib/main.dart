@@ -6,7 +6,9 @@ import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/app/bloc/authentication_bloc.dart';
 import 'package:luna/bloc_observer.dart';
-import 'package:luna/services/firebase_auth_service.dart';
+import 'package:luna/services/firestore_service.dart';
+import 'package:luna/services/user_profile_service.dart';
+import 'package:luna/ui/home/bloc/home_bloc.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:statusbarz/statusbarz.dart';
 
@@ -25,6 +27,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthenticationBloc>(
           create: (context) => AuthenticationBloc()..add(AuthenticationEvent.startup()),
+        ),
+        BlocProvider<HomeBloc>(
+          create: (context) => HomeBloc(
+            userProfileService: locator<UserProfileService>(),
+            firestoreService: locator<FirestoreService>()
+          )..add(HomeEvent.started()),
         ),
       ],
       child: StatusbarzCapturer(
