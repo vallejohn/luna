@@ -9,7 +9,7 @@ import 'package:luna/services/user_profile_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class PostViewModel extends BaseViewModel{
+class PostViewModel extends BaseViewModel {
   final _firestoreService = locator<FirestoreService>();
   final _userProfileService = locator<UserProfileService>();
   final _navigationService = locator<NavigationService>();
@@ -22,24 +22,24 @@ class PostViewModel extends BaseViewModel{
   UserProfile get author => _author;
   UserProfile get currentUser => _currentUser;
   List<Comment> get comments => _comments;
-  
+
   String _postID = '';
 
   late final Stream<QuerySnapshot> _commentsQuerySnapshot;
   Stream<QuerySnapshot> get commentQuerySnapshot => _commentsQuerySnapshot;
 
-  void initPost(BuildContext context) async{
+  void initPost(BuildContext context) async {
     _currentUser = _userProfileService.currentUser;
     getPost(ModalRoute.of(context)!.settings.arguments as String);
     notifyListeners();
   }
 
-  void getPost(String postID) async{
+  void getPost(String postID) async {
     _postID = postID;
     setBusy(true);
     final postRef = _firestoreService.getPost(postID);
 
-    postRef.get().then((DocumentSnapshot documentSnapshot) async{
+    postRef.get().then((DocumentSnapshot documentSnapshot) async {
       _post = documentSnapshot.data() as Post;
       _commentsQuerySnapshot = _firestoreService.getCommentsQuerySnapshot(postID);
       _author = UserProfile.fromJson(_post.author as Map<String, dynamic>);
@@ -48,16 +48,15 @@ class PostViewModel extends BaseViewModel{
     });
   }
 
-  void navigateBack(){
+  void navigateBack() {
     _navigationService.back();
   }
 
-  void addComment(String commentBody) async{
-    await _firestoreService.addComment(_postID, _post.commentCount!,
-      Comment(
-        userProfile: _userProfileService.currentUser.toJson(),
-        body: commentBody
-      ),
+  void addComment(String commentBody) async {
+    await _firestoreService.addComment(
+      _postID,
+      _post.commentCount!,
+      Comment(userProfile: _userProfileService.currentUser.toJson(), body: commentBody),
     );
   }
 }

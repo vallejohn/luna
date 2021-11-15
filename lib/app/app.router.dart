@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../models/post.dart';
 import '../ui/auth/login/login_view.dart';
 import '../ui/auth/register/register_view.dart';
 import '../ui/home/home_view.dart';
@@ -76,8 +77,12 @@ class StackedRouter extends RouterBase {
       );
     },
     PostView: (data) {
+      var args = data.getArgs<PostViewArguments>(nullOk: false);
       return CupertinoPageRoute<CupertinoRoute<dynamic>>(
-        builder: (context) => const PostView(),
+        builder: (context) => PostView(
+          key: args.key,
+          post: args.post,
+        ),
         settings: data,
       );
     },
@@ -117,6 +122,13 @@ class StackedRouter extends RouterBase {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
+
+/// PostView arguments holder class
+class PostViewArguments {
+  final Key? key;
+  final Post post;
+  PostViewArguments({this.key, required this.post});
+}
 
 /// LoginView arguments holder class
 class LoginViewArguments {

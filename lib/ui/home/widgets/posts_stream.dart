@@ -7,6 +7,7 @@ import 'package:luna/models/post.dart';
 import 'package:luna/models/user_profile.dart';
 import 'package:luna/ui/home/bloc/home_bloc.dart';
 import 'package:luna/ui/home/widgets/post_item.dart';
+import 'package:luna/ui/post/post_view.dart';
 
 class PostsStream extends StatelessWidget {
   final Stream<QuerySnapshot> postsStream;
@@ -31,13 +32,15 @@ class PostsStream extends StatelessWidget {
 
             return ListView(
               children:
-                  snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                Post post =
-                    Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                UserProfile author =
-                    UserProfile.fromJson(post.author as Map<String, dynamic>);
+                snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
+                Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+                UserProfile author = UserProfile.fromJson(post.author as Map<String, dynamic>);
                 return PostItem(
-                  onPostTap: () => context.read<HomeBloc>().add(HomeEvent.navigateTo(routeName: Routes.postView, postID: documentSnapshot.id)),
+                  onPostTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return PostView(post: post);
+                    }));
+                  },
                   coverImageURL: post.coverImageURL!,
                   title: post.title.toString(),
                   category: 'Technology',

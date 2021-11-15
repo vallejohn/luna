@@ -11,26 +11,26 @@ class FirebaseStorageService {
     _firebaseStorage = FirebaseStorage.instance;
   }
 
-  Future<String> uploadProfilePhotoToFirebaseStorage({required String uID, required File file}) async{
+  Future<String> uploadProfilePhotoToFirebaseStorage({required String uID, required File file}) async {
     String? profileImageURL;
-    try{
+    try {
       UploadTask uploadTask = _firebaseStorage.ref().child('images/users/$uID/profile_photos/${file.path}').putFile(file);
       TaskSnapshot taskSnapshot = await uploadTask.then((TaskSnapshot taskSnapshot) => taskSnapshot);
       profileImageURL = await taskSnapshot.ref.getDownloadURL();
-    }on FirebaseException catch(e){
+    } on FirebaseException catch (e) {
       logger.e(e);
     }
 
     return profileImageURL!;
   }
 
-    Future<String> uploadPostCoverImageToFirebaseStorage({required String uID, required File file}) async{
+  Future<String> uploadPostCoverImageToFirebaseStorage({required String uID, required File file}) async {
     String? postCoverImageURL;
-    try{
+    try {
       UploadTask uploadTask = _firebaseStorage.ref().child('images/users/$uID/post_covers/${file.path}').putFile(file);
       TaskSnapshot taskSnapshot = await uploadTask.then((TaskSnapshot taskSnapshot) => taskSnapshot);
       postCoverImageURL = await taskSnapshot.ref.getDownloadURL();
-    }on FirebaseException catch(e){
+    } on FirebaseException catch (e) {
       logger.e(e);
     }
 

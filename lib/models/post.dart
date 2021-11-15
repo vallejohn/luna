@@ -6,6 +6,7 @@ part 'post.g.dart';
 @freezed
 abstract class Post with _$Post{
   factory Post({
+    String? id,
     String? title,
     String? coverImageURL,
     String? content,

@@ -9,6 +9,7 @@ import 'package:luna/bloc_observer.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/user_profile_service.dart';
 import 'package:luna/ui/home/bloc/home_bloc.dart';
+import 'package:luna/ui/post/bloc/post_bloc.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:statusbarz/statusbarz.dart';
 
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
             firestoreService: locator<FirestoreService>()
           )..add(HomeEvent.started()),
         ),
+        BlocProvider<PostBloc>(create: (context) => PostBloc(
+          userProfileService: locator<UserProfileService>()
+        )..add(PostEvent.started())),
       ],
       child: StatusbarzCapturer(
         child: Builder(builder: (context) {

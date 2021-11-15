@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'home_bloc.dart';
+part of 'post_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$HomeEventTearOff {
-  const _$HomeEventTearOff();
+class _$PostEventTearOff {
+  const _$PostEventTearOff();
 
   _Started started() {
     return const _Started();
@@ -23,10 +23,10 @@ class _$HomeEventTearOff {
 }
 
 /// @nodoc
-const $HomeEvent = _$HomeEventTearOff();
+const $PostEvent = _$PostEventTearOff();
 
 /// @nodoc
-mixin _$HomeEvent {
+mixin _$PostEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -62,18 +62,18 @@ mixin _$HomeEvent {
 }
 
 /// @nodoc
-abstract class $HomeEventCopyWith<$Res> {
-  factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
-      _$HomeEventCopyWithImpl<$Res>;
+abstract class $PostEventCopyWith<$Res> {
+  factory $PostEventCopyWith(PostEvent value, $Res Function(PostEvent) then) =
+      _$PostEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HomeEventCopyWithImpl<$Res> implements $HomeEventCopyWith<$Res> {
-  _$HomeEventCopyWithImpl(this._value, this._then);
+class _$PostEventCopyWithImpl<$Res> implements $PostEventCopyWith<$Res> {
+  _$PostEventCopyWithImpl(this._value, this._then);
 
-  final HomeEvent _value;
+  final PostEvent _value;
   // ignore: unused_field
-  final $Res Function(HomeEvent) _then;
+  final $Res Function(PostEvent) _then;
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ abstract class _$StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+class __$StartedCopyWithImpl<$Res> extends _$PostEventCopyWithImpl<$Res>
     implements _$StartedCopyWith<$Res> {
   __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
       : super(_value, (v) => _then(v as _Started));
@@ -99,7 +99,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'HomeEvent.started()';
+    return 'PostEvent.started()';
   }
 
   @override
@@ -167,52 +167,41 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements HomeEvent {
+abstract class _Started implements PostEvent {
   const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-class _$HomeStateTearOff {
-  const _$HomeStateTearOff();
+class _$PostStateTearOff {
+  const _$PostStateTearOff();
 
-  _Initial initial(
-      {required UserProfile currentUser,
-      required Stream<QuerySnapshot<Object?>> postStream}) {
+  _Initial initial({required UserProfile currentUser}) {
     return _Initial(
       currentUser: currentUser,
-      postStream: postStream,
     );
   }
 }
 
 /// @nodoc
-const $HomeState = _$HomeStateTearOff();
+const $PostState = _$PostStateTearOff();
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$PostState {
   UserProfile get currentUser => throw _privateConstructorUsedError;
-  Stream<QuerySnapshot<Object?>> get postStream =>
-      throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)
-        initial,
+    required TResult Function(UserProfile currentUser) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)?
-        initial,
+    TResult Function(UserProfile currentUser)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)?
-        initial,
+    TResult Function(UserProfile currentUser)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -234,42 +223,36 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith =>
+  $PostStateCopyWith<PostState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
-  $Res call(
-      {UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream});
+abstract class $PostStateCopyWith<$Res> {
+  factory $PostStateCopyWith(PostState value, $Res Function(PostState) then) =
+      _$PostStateCopyWithImpl<$Res>;
+  $Res call({UserProfile currentUser});
 
   $UserProfileCopyWith<$Res> get currentUser;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$PostStateCopyWithImpl<$Res> implements $PostStateCopyWith<$Res> {
+  _$PostStateCopyWithImpl(this._value, this._then);
 
-  final HomeState _value;
+  final PostState _value;
   // ignore: unused_field
-  final $Res Function(HomeState) _then;
+  final $Res Function(PostState) _then;
 
   @override
   $Res call({
     Object? currentUser = freezed,
-    Object? postStream = freezed,
   }) {
     return _then(_value.copyWith(
       currentUser: currentUser == freezed
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as UserProfile,
-      postStream: postStream == freezed
-          ? _value.postStream
-          : postStream // ignore: cast_nullable_to_non_nullable
-              as Stream<QuerySnapshot<Object?>>,
     ));
   }
 
@@ -282,19 +265,18 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+abstract class _$InitialCopyWith<$Res> implements $PostStateCopyWith<$Res> {
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream});
+  $Res call({UserProfile currentUser});
 
   @override
   $UserProfileCopyWith<$Res> get currentUser;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$PostStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -305,17 +287,12 @@ class __$InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentUser = freezed,
-    Object? postStream = freezed,
   }) {
     return _then(_Initial(
       currentUser: currentUser == freezed
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as UserProfile,
-      postStream: postStream == freezed
-          ? _value.postStream
-          : postStream // ignore: cast_nullable_to_non_nullable
-              as Stream<QuerySnapshot<Object?>>,
     ));
   }
 }
@@ -323,16 +300,14 @@ class __$InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({required this.currentUser, required this.postStream});
+  const _$_Initial({required this.currentUser});
 
   @override
   final UserProfile currentUser;
-  @override
-  final Stream<QuerySnapshot<Object?>> postStream;
 
   @override
   String toString() {
-    return 'HomeState.initial(currentUser: $currentUser, postStream: $postStream)';
+    return 'PostState.initial(currentUser: $currentUser)';
   }
 
   @override
@@ -341,17 +316,12 @@ class _$_Initial implements _Initial {
         (other is _Initial &&
             (identical(other.currentUser, currentUser) ||
                 const DeepCollectionEquality()
-                    .equals(other.currentUser, currentUser)) &&
-            (identical(other.postStream, postStream) ||
-                const DeepCollectionEquality()
-                    .equals(other.postStream, postStream)));
+                    .equals(other.currentUser, currentUser)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(currentUser) ^
-      const DeepCollectionEquality().hash(postStream);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(currentUser);
 
   @JsonKey(ignore: true)
   @override
@@ -361,33 +331,27 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)
-        initial,
+    required TResult Function(UserProfile currentUser) initial,
   }) {
-    return initial(currentUser, postStream);
+    return initial(currentUser);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)?
-        initial,
+    TResult Function(UserProfile currentUser)? initial,
   }) {
-    return initial?.call(currentUser, postStream);
+    return initial?.call(currentUser);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            UserProfile currentUser, Stream<QuerySnapshot<Object?>> postStream)?
-        initial,
+    TResult Function(UserProfile currentUser)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(currentUser, postStream);
+      return initial(currentUser);
     }
     return orElse();
   }
@@ -421,16 +385,11 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements HomeState {
-  const factory _Initial(
-      {required UserProfile currentUser,
-      required Stream<QuerySnapshot<Object?>> postStream}) = _$_Initial;
+abstract class _Initial implements PostState {
+  const factory _Initial({required UserProfile currentUser}) = _$_Initial;
 
   @override
   UserProfile get currentUser => throw _privateConstructorUsedError;
-  @override
-  Stream<QuerySnapshot<Object?>> get postStream =>
-      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>

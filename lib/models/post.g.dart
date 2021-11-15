@@ -7,6 +7,7 @@ part of 'post.dart';
 // **************************************************************************
 
 _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
+      id: json['id'] as String?,
       title: json['title'] as String?,
       coverImageURL: json['coverImageURL'] as String?,
       content: json['content'] as String?,
@@ -16,6 +17,7 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
     );
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'coverImageURL': instance.coverImageURL,
       'content': instance.content,

@@ -1,9 +1,15 @@
+import 'package:logger/logger.dart';
+import 'package:luna/models/post.dart';
+
 class PostService{
 
-  String _postID = '';
-  String get postID => _postID;
+  Post? _post;
+  Post? get post => _post;
 
-  void setPostID(String postID){
-    _postID = postID;
+  Logger _logger = Logger();
+
+  void setPost(Post post){
+    _logger.i('Setting post with title: ${post.title}');
+    _post = post;
   }
 }

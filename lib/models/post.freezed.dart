@@ -22,13 +22,15 @@ class _$PostTearOff {
   const _$PostTearOff();
 
   _Post call(
-      {String? title,
+      {String? id,
+      String? title,
       String? coverImageURL,
       String? content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author}) {
     return _Post(
+      id: id,
       title: title,
       coverImageURL: coverImageURL,
       content: content,
@@ -48,6 +50,7 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
+  String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get coverImageURL => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
@@ -65,7 +68,8 @@ abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
   $Res call(
-      {String? title,
+      {String? id,
+      String? title,
       String? coverImageURL,
       String? content,
       int? commentCount,
@@ -83,6 +87,7 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? coverImageURL = freezed,
     Object? content = freezed,
@@ -91,6 +96,10 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
     Object? author = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -125,7 +134,8 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       __$PostCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? title,
+      {String? id,
+      String? title,
       String? coverImageURL,
       String? content,
       int? commentCount,
@@ -144,6 +154,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? coverImageURL = freezed,
     Object? content = freezed,
@@ -152,6 +163,10 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
     Object? author = freezed,
   }) {
     return _then(_Post(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -184,7 +199,8 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Post implements _Post {
   _$_Post(
-      {this.title,
+      {this.id,
+      this.title,
       this.coverImageURL,
       this.content,
       this.commentCount,
@@ -193,6 +209,8 @@ class _$_Post implements _Post {
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? title;
   @override
@@ -208,13 +226,15 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(title: $title, coverImageURL: $coverImageURL, content: $content, commentCount: $commentCount, recentComment: $recentComment, author: $author)';
+    return 'Post(id: $id, title: $title, coverImageURL: $coverImageURL, content: $content, commentCount: $commentCount, recentComment: $recentComment, author: $author)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Post &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.coverImageURL, coverImageURL) ||
@@ -236,6 +256,7 @@ class _$_Post implements _Post {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(coverImageURL) ^
       const DeepCollectionEquality().hash(content) ^
@@ -256,7 +277,8 @@ class _$_Post implements _Post {
 
 abstract class _Post implements Post {
   factory _Post(
-      {String? title,
+      {String? id,
+      String? title,
       String? coverImageURL,
       String? content,
       int? commentCount,
@@ -265,6 +287,8 @@ abstract class _Post implements Post {
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
+  @override
+  String? get id => throw _privateConstructorUsedError;
   @override
   String? get title => throw _privateConstructorUsedError;
   @override
