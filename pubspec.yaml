@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  equatable: ^2.0.3
+
   #MVVM Framework
   stacked: ^2.2.7
   stacked_services: ^0.8.15
@@ -34,10 +36,10 @@ dependencies:
   logger: ^1.1.0
 
   #CLOUD DATABASE
-  cloud_firestore: ^2.5.1
-  firebase_core: ^1.1.0
-  firebase_auth: ^3.1.1
-  firebase_storage: ^10.0.3
+  cloud_firestore: ^3.1.6
+  firebase_core: ^1.11.0
+  firebase_auth: ^3.3.5
+  firebase_storage: ^10.2.5
 
   #UI
   ionicons: ^0.1.2
