@@ -8,7 +8,7 @@ class TextInputField extends StatelessWidget {
   final bool? obscureText;
   final TextInputType? textInputType;
   final VoidCallback? onShowPasswordTap;
-  final bool hasError;
+  final String? errorText;
   const TextInputField({
     Key? key,
     required this.controller,
@@ -16,7 +16,7 @@ class TextInputField extends StatelessWidget {
     this.obscureText,
     this.textInputType,
     this.onShowPasswordTap,
-    required this.hasError,
+    this.errorText,
   }) : super(key: key);
 
   @override
@@ -31,6 +31,7 @@ class TextInputField extends StatelessWidget {
       obscureText: obscureText ?? false,
       obscuringCharacter: '•',
       decoration: InputDecoration(
+        errorText: errorText,
         suffixIcon: obscureText != null
             ? TextButton(
                 onPressed: onShowPasswordTap,
@@ -57,7 +58,7 @@ class TextInputField extends StatelessWidget {
             color: Colors.white.withOpacity(0.5), fontWeight: rubikLight),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(customBorderRadius),
-          borderSide: hasError
+          borderSide: errorText != null
               ? BorderSide(
                   color: lErrorColor, width: 1.5, style: BorderStyle.solid)
               : BorderSide.none,

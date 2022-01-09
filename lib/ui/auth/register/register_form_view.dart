@@ -31,35 +31,30 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TextInputField(
-          hasError: model.usernameError,
           textInputType: TextInputType.text,
           controller: usernameController,
           hintText: 'username',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: model.firstnameError,
           textInputType: TextInputType.text,
           controller: firstnameController,
           hintText: 'first name',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: model.lastnameError,
           textInputType: TextInputType.text,
           controller: lastnameController,
           hintText: 'last name',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: model.emailError,
           textInputType: TextInputType.emailAddress,
           controller: emailController,
           hintText: 'email address',
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: model.passwordError,
           obscureText: true,
           onShowPasswordTap: () {},
           textInputType: TextInputType.text,
@@ -68,7 +63,6 @@ class RegisterFormView extends HookViewModelWidget<RegisterViewModel> {
         ),
         verticalSpaceSmall,
         TextInputField(
-          hasError: model.confirmPasswordError,
           obscureText: true,
           onShowPasswordTap: () {},
           textInputType: TextInputType.text,

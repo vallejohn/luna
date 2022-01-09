@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/ui/auth/login/login_viewmodel.dart';
-import 'package:luna/ui/auth/login/login_form_view.dart';
 import 'package:luna/global/custom_widgets/gradient_button.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -65,13 +64,6 @@ class LoginView extends StatelessWidget with $LoginView {
                   )),
                 ),
               if (model.validationMessage != '' && model.validationMessage != null) verticalSpaceMedium,
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 45),
-                child: LoginFormView(
-                  emailandUsernameController: usernameOrEmailController,
-                  passwordController: passwordController,
-                ),
-              ),
               verticalSpaceMedium,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),

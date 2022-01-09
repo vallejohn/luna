@@ -20,7 +20,6 @@ class ProfileView extends StatelessWidget {
                 backgroundColor: Colors.white,
                 title: TextInputField(
                   controller: searchController,
-                  hasError: false,
                   hintText: 'search',
                 ),
               ),
