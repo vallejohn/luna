@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/utils/enums.dart';
+import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
@@ -38,7 +39,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             Logger().e('Login success!: ${userProfileModel.toString()}');
           }, failed: (loginError){
             LoginError error = loginError;
-            Logger().e('Login failed: ${error.toString()}');
+            String errorMessage = AuthError.getStringMessageFromErrorCode(error);
+            Logger().w('Login failed: $errorMessage');
+
+            if(AuthError.isEmailError(error)){
+              emit(LoginState.emailFailure(message: errorMessage));
+            }else{
+              emit(LoginState.passwordFailure(message: errorMessage));
+            }
       });
     });
   }

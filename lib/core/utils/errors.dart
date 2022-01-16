@@ -23,4 +23,34 @@ class AuthError{
     }
     return loginError;
   }
+  /// This static method will fetch [String] error message based on [LoginError] enum
+  static String getStringMessageFromErrorCode(LoginError errorCode){
+    String errorMessage = '';
+    switch(errorCode){
+      case LoginError.invalidEmail:
+        errorMessage = 'Invalid email';
+        break;
+      case LoginError.userDisabled:
+        errorMessage = 'User disabled';
+        break;
+      case LoginError.userNotFound:
+        errorMessage = 'User not found';
+        break;
+      case LoginError.wrongPassword:
+        errorMessage = 'Wrong password';
+        break;
+      case LoginError.unknown:
+        errorMessage = 'Unknown error';
+        break;
+    }
+    return errorMessage;
+  }
+
+  static bool isEmailError(LoginError errorCode){
+    if(errorCode == LoginError.invalidEmail || errorCode == LoginError.userDisabled || errorCode == LoginError.userNotFound){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

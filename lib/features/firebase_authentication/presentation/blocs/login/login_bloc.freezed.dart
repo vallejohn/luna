@@ -368,14 +368,14 @@ class _$LoginStateTearOff {
     );
   }
 
-  _IncorrectEmail incorrectEmail({required String message}) {
-    return _IncorrectEmail(
+  _EmailFailure emailFailure({required String message}) {
+    return _EmailFailure(
       message: message,
     );
   }
 
-  _IncorrectPassword incorrectPassword({required String message}) {
-    return _IncorrectPassword(
+  _PasswordFailure passwordFailure({required String message}) {
+    return _PasswordFailure(
       message: message,
     );
   }
@@ -397,8 +397,8 @@ mixin _$LoginState {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -407,8 +407,8 @@ mixin _$LoginState {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -417,8 +417,8 @@ mixin _$LoginState {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) =>
@@ -428,8 +428,8 @@ mixin _$LoginState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -438,8 +438,8 @@ mixin _$LoginState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -448,8 +448,8 @@ mixin _$LoginState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
@@ -512,8 +512,8 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
     return initial();
@@ -525,8 +525,8 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
     return initial?.call();
@@ -538,8 +538,8 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -555,8 +555,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
     return initial(this);
@@ -568,8 +568,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
     return initial?.call(this);
@@ -581,8 +581,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -638,8 +638,8 @@ class _$_LoggingIn implements _LoggingIn {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
     return loggingIn();
@@ -651,8 +651,8 @@ class _$_LoggingIn implements _LoggingIn {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
     return loggingIn?.call();
@@ -664,8 +664,8 @@ class _$_LoggingIn implements _LoggingIn {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -681,8 +681,8 @@ class _$_LoggingIn implements _LoggingIn {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
     return loggingIn(this);
@@ -694,8 +694,8 @@ class _$_LoggingIn implements _LoggingIn {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
     return loggingIn?.call(this);
@@ -707,8 +707,8 @@ class _$_LoggingIn implements _LoggingIn {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -790,8 +790,8 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
     return success(userProfileModel);
@@ -803,8 +803,8 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
     return success?.call(userProfileModel);
@@ -816,8 +816,8 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -833,8 +833,8 @@ class _$_Success implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
     return success(this);
@@ -846,8 +846,8 @@ class _$_Success implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
     return success?.call(this);
@@ -859,8 +859,8 @@ class _$_Success implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -882,28 +882,28 @@ abstract class _Success implements LoginState {
 }
 
 /// @nodoc
-abstract class _$IncorrectEmailCopyWith<$Res> {
-  factory _$IncorrectEmailCopyWith(
-          _IncorrectEmail value, $Res Function(_IncorrectEmail) then) =
-      __$IncorrectEmailCopyWithImpl<$Res>;
+abstract class _$EmailFailureCopyWith<$Res> {
+  factory _$EmailFailureCopyWith(
+          _EmailFailure value, $Res Function(_EmailFailure) then) =
+      __$EmailFailureCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class __$IncorrectEmailCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
-    implements _$IncorrectEmailCopyWith<$Res> {
-  __$IncorrectEmailCopyWithImpl(
-      _IncorrectEmail _value, $Res Function(_IncorrectEmail) _then)
-      : super(_value, (v) => _then(v as _IncorrectEmail));
+class __$EmailFailureCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements _$EmailFailureCopyWith<$Res> {
+  __$EmailFailureCopyWithImpl(
+      _EmailFailure _value, $Res Function(_EmailFailure) _then)
+      : super(_value, (v) => _then(v as _EmailFailure));
 
   @override
-  _IncorrectEmail get _value => super._value as _IncorrectEmail;
+  _EmailFailure get _value => super._value as _EmailFailure;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_IncorrectEmail(
+    return _then(_EmailFailure(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -914,21 +914,21 @@ class __$IncorrectEmailCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IncorrectEmail implements _IncorrectEmail {
-  const _$_IncorrectEmail({required this.message});
+class _$_EmailFailure implements _EmailFailure {
+  const _$_EmailFailure({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'LoginState.incorrectEmail(message: $message)';
+    return 'LoginState.emailFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _IncorrectEmail &&
+        (other is _EmailFailure &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -939,8 +939,8 @@ class _$_IncorrectEmail implements _IncorrectEmail {
 
   @JsonKey(ignore: true)
   @override
-  _$IncorrectEmailCopyWith<_IncorrectEmail> get copyWith =>
-      __$IncorrectEmailCopyWithImpl<_IncorrectEmail>(this, _$identity);
+  _$EmailFailureCopyWith<_EmailFailure> get copyWith =>
+      __$EmailFailureCopyWithImpl<_EmailFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -948,11 +948,11 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
-    return incorrectEmail(message);
+    return emailFailure(message);
   }
 
   @override
@@ -961,11 +961,11 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
-    return incorrectEmail?.call(message);
+    return emailFailure?.call(message);
   }
 
   @override
@@ -974,13 +974,13 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
-    if (incorrectEmail != null) {
-      return incorrectEmail(message);
+    if (emailFailure != null) {
+      return emailFailure(message);
     }
     return orElse();
   }
@@ -991,11 +991,11 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
-    return incorrectEmail(this);
+    return emailFailure(this);
   }
 
   @override
@@ -1004,11 +1004,11 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
-    return incorrectEmail?.call(this);
+    return emailFailure?.call(this);
   }
 
   @override
@@ -1017,51 +1017,51 @@ class _$_IncorrectEmail implements _IncorrectEmail {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
-    if (incorrectEmail != null) {
-      return incorrectEmail(this);
+    if (emailFailure != null) {
+      return emailFailure(this);
     }
     return orElse();
   }
 }
 
-abstract class _IncorrectEmail implements LoginState {
-  const factory _IncorrectEmail({required String message}) = _$_IncorrectEmail;
+abstract class _EmailFailure implements LoginState {
+  const factory _EmailFailure({required String message}) = _$_EmailFailure;
 
   String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$IncorrectEmailCopyWith<_IncorrectEmail> get copyWith =>
+  _$EmailFailureCopyWith<_EmailFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$IncorrectPasswordCopyWith<$Res> {
-  factory _$IncorrectPasswordCopyWith(
-          _IncorrectPassword value, $Res Function(_IncorrectPassword) then) =
-      __$IncorrectPasswordCopyWithImpl<$Res>;
+abstract class _$PasswordFailureCopyWith<$Res> {
+  factory _$PasswordFailureCopyWith(
+          _PasswordFailure value, $Res Function(_PasswordFailure) then) =
+      __$PasswordFailureCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class __$IncorrectPasswordCopyWithImpl<$Res>
+class __$PasswordFailureCopyWithImpl<$Res>
     extends _$LoginStateCopyWithImpl<$Res>
-    implements _$IncorrectPasswordCopyWith<$Res> {
-  __$IncorrectPasswordCopyWithImpl(
-      _IncorrectPassword _value, $Res Function(_IncorrectPassword) _then)
-      : super(_value, (v) => _then(v as _IncorrectPassword));
+    implements _$PasswordFailureCopyWith<$Res> {
+  __$PasswordFailureCopyWithImpl(
+      _PasswordFailure _value, $Res Function(_PasswordFailure) _then)
+      : super(_value, (v) => _then(v as _PasswordFailure));
 
   @override
-  _IncorrectPassword get _value => super._value as _IncorrectPassword;
+  _PasswordFailure get _value => super._value as _PasswordFailure;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_IncorrectPassword(
+    return _then(_PasswordFailure(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1072,21 +1072,21 @@ class __$IncorrectPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IncorrectPassword implements _IncorrectPassword {
-  const _$_IncorrectPassword({required this.message});
+class _$_PasswordFailure implements _PasswordFailure {
+  const _$_PasswordFailure({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'LoginState.incorrectPassword(message: $message)';
+    return 'LoginState.passwordFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _IncorrectPassword &&
+        (other is _PasswordFailure &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -1097,8 +1097,8 @@ class _$_IncorrectPassword implements _IncorrectPassword {
 
   @JsonKey(ignore: true)
   @override
-  _$IncorrectPasswordCopyWith<_IncorrectPassword> get copyWith =>
-      __$IncorrectPasswordCopyWithImpl<_IncorrectPassword>(this, _$identity);
+  _$PasswordFailureCopyWith<_PasswordFailure> get copyWith =>
+      __$PasswordFailureCopyWithImpl<_PasswordFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1106,11 +1106,11 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
-    return incorrectPassword(message);
+    return passwordFailure(message);
   }
 
   @override
@@ -1119,11 +1119,11 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
-    return incorrectPassword?.call(message);
+    return passwordFailure?.call(message);
   }
 
   @override
@@ -1132,13 +1132,13 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
-    if (incorrectPassword != null) {
-      return incorrectPassword(message);
+    if (passwordFailure != null) {
+      return passwordFailure(message);
     }
     return orElse();
   }
@@ -1149,11 +1149,11 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
-    return incorrectPassword(this);
+    return passwordFailure(this);
   }
 
   @override
@@ -1162,11 +1162,11 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
-    return incorrectPassword?.call(this);
+    return passwordFailure?.call(this);
   }
 
   @override
@@ -1175,25 +1175,25 @@ class _$_IncorrectPassword implements _IncorrectPassword {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
-    if (incorrectPassword != null) {
-      return incorrectPassword(this);
+    if (passwordFailure != null) {
+      return passwordFailure(this);
     }
     return orElse();
   }
 }
 
-abstract class _IncorrectPassword implements LoginState {
-  const factory _IncorrectPassword({required String message}) =
-      _$_IncorrectPassword;
+abstract class _PasswordFailure implements LoginState {
+  const factory _PasswordFailure({required String message}) =
+      _$_PasswordFailure;
 
   String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$IncorrectPasswordCopyWith<_IncorrectPassword> get copyWith =>
+  _$PasswordFailureCopyWith<_PasswordFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1262,8 +1262,8 @@ class _$_Failed implements _Failed {
     required TResult Function() initial,
     required TResult Function() loggingIn,
     required TResult Function(UserProfileModel userProfileModel) success,
-    required TResult Function(String message) incorrectEmail,
-    required TResult Function(String message) incorrectPassword,
+    required TResult Function(String message) emailFailure,
+    required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
     return failed(message);
@@ -1275,8 +1275,8 @@ class _$_Failed implements _Failed {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
     return failed?.call(message);
@@ -1288,8 +1288,8 @@ class _$_Failed implements _Failed {
     TResult Function()? initial,
     TResult Function()? loggingIn,
     TResult Function(UserProfileModel userProfileModel)? success,
-    TResult Function(String message)? incorrectEmail,
-    TResult Function(String message)? incorrectPassword,
+    TResult Function(String message)? emailFailure,
+    TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -1305,8 +1305,8 @@ class _$_Failed implements _Failed {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoggingIn value) loggingIn,
     required TResult Function(_Success value) success,
-    required TResult Function(_IncorrectEmail value) incorrectEmail,
-    required TResult Function(_IncorrectPassword value) incorrectPassword,
+    required TResult Function(_EmailFailure value) emailFailure,
+    required TResult Function(_PasswordFailure value) passwordFailure,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -1318,8 +1318,8 @@ class _$_Failed implements _Failed {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -1331,8 +1331,8 @@ class _$_Failed implements _Failed {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoggingIn value)? loggingIn,
     TResult Function(_Success value)? success,
-    TResult Function(_IncorrectEmail value)? incorrectEmail,
-    TResult Function(_IncorrectPassword value)? incorrectPassword,
+    TResult Function(_EmailFailure value)? emailFailure,
+    TResult Function(_PasswordFailure value)? passwordFailure,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

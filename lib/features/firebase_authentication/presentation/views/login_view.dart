@@ -61,7 +61,7 @@ class LoginView extends StatelessWidget {
                     children: [
                       TextInputField(
                         errorText: state.maybeWhen(
-                            incorrectEmail:(message) => message ,
+                            emailFailure:(message) => message ,
                             orElse: () => null),
                         textInputType: TextInputType.emailAddress,
                         controller: emailController,
@@ -70,7 +70,7 @@ class LoginView extends StatelessWidget {
                       verticalSpaceSmall,
                       TextInputField(
                         errorText: state.maybeWhen(
-                            incorrectPassword:(message) => message ,
+                            passwordFailure:(message) => message ,
                             orElse: () => null),
                         onShowPasswordTap: () {},
                         obscureText: true,
