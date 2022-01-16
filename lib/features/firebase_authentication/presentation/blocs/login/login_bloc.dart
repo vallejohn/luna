@@ -36,7 +36,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           success: (data){
             UserProfileModel userProfileModel = data;
             emit(LoginState.success(userProfileModel: userProfileModel));
-            Logger().e('Login success!: ${userProfileModel.toString()}');
+            Logger().i('Login success!: ${userProfileModel.toString()}');
           }, failed: (loginError){
             LoginError error = loginError;
             String errorMessage = AuthError.getStringMessageFromErrorCode(error);
