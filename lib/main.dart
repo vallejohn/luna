@@ -5,7 +5,6 @@ import 'package:luna/bloc_observer.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
 import 'package:luna/features/firebase_authentication/presentation/views/auth_check_view.dart';
-import 'package:luna/features/post/presentation/blocs/posts/posts_bloc.dart';
 import 'package:luna/locator.dart';
 import 'package:statusbarz/statusbarz.dart';
 
