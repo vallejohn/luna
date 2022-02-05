@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
-            state.maybeWhen(success: (user){
+            state.maybeWhen(success: (){
               AutoRouter.of(context).replace(const PostsRoute());
             }, orElse: () => null);
           },

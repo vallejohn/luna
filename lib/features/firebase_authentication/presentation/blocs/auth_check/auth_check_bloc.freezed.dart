@@ -183,10 +183,8 @@ class _$AuthCheckStateTearOff {
     return const _Loading();
   }
 
-  _Authenticated authenticated({required UserProfileModel user}) {
-    return _Authenticated(
-      user: user,
-    );
+  _Authenticated authenticated() {
+    return const _Authenticated();
   }
 
   _UnAuthenticated unAuthenticated() {
@@ -208,7 +206,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserProfileModel user) authenticated,
+    required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) =>
@@ -216,7 +214,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) =>
@@ -224,7 +222,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -313,7 +311,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserProfileModel user) authenticated,
+    required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -324,7 +322,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -335,7 +333,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -393,7 +391,6 @@ abstract class _$AuthenticatedCopyWith<$Res> {
   factory _$AuthenticatedCopyWith(
           _Authenticated value, $Res Function(_Authenticated) then) =
       __$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({UserProfileModel user});
 }
 
 /// @nodoc
@@ -406,83 +403,60 @@ class __$AuthenticatedCopyWithImpl<$Res>
 
   @override
   _Authenticated get _value => super._value as _Authenticated;
-
-  @override
-  $Res call({
-    Object? user = freezed,
-  }) {
-    return _then(_Authenticated(
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserProfileModel,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Authenticated implements _Authenticated {
-  const _$_Authenticated({required this.user});
-
-  @override
-  final UserProfileModel user;
+  const _$_Authenticated();
 
   @override
   String toString() {
-    return 'AuthCheckState.authenticated(user: $user)';
+    return 'AuthCheckState.authenticated()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Authenticated &&
-            const DeepCollectionEquality().equals(other.user, user));
+        (other.runtimeType == runtimeType && other is _Authenticated);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
-
-  @JsonKey(ignore: true)
-  @override
-  _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
-      __$AuthenticatedCopyWithImpl<_Authenticated>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserProfileModel user) authenticated,
+    required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
-    return authenticated(user);
+    return authenticated();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
-    return authenticated?.call(user);
+    return authenticated?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(user);
+      return authenticated();
     }
     return orElse();
   }
@@ -526,13 +500,7 @@ class _$_Authenticated implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthCheckState {
-  const factory _Authenticated({required UserProfileModel user}) =
-      _$_Authenticated;
-
-  UserProfileModel get user;
-  @JsonKey(ignore: true)
-  _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Authenticated() = _$_Authenticated;
 }
 
 /// @nodoc
@@ -577,7 +545,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserProfileModel user) authenticated,
+    required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -588,7 +556,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -599,7 +567,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -715,7 +683,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserProfileModel user) authenticated,
+    required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -726,7 +694,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -737,7 +705,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserProfileModel user)? authenticated,
+    TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),

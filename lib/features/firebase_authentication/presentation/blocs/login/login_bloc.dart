@@ -11,6 +11,8 @@ import 'package:luna/features/firebase_authentication/data/models/user_profile_m
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../core/services/user_profile_service.dart';
+
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
@@ -18,6 +20,7 @@ part 'login_bloc.freezed.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final _signInWithUsernameAndPassword = GetIt.instance<SignInWithEmailAndPassword>();
+  final _userProfile = GetIt.instance<UserProfileService>();
 
   LoginBloc() : super(LoginState.initial()) {
     on<_SignInWithEmailAndPassword>(_onSignInWithEmailAndPassword);
@@ -39,7 +42,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       dataState.when(
           success: (data){
             UserProfileModel userProfileModel = data;
-            emit(LoginState.success(userProfileModel: userProfileModel));
+            _userProfile.setUser(userProfileModel);
+            emit(LoginState.success());
             Logger().i('Login success!: ${userProfileModel.toString()}');
           }, failed: (loginError){
             LoginError error = loginError;

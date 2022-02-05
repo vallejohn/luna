@@ -12,7 +12,7 @@ class StartupPage extends StatelessWidget {
     return BlocConsumer<AuthCheckBloc, AuthCheckState>(
       listener: (context, state){
         state.maybeWhen(
-            authenticated: (data) {
+            authenticated: () {
               AutoRouter.of(context).replace(const PostsRoute());
             },
             unAuthenticated: () {
