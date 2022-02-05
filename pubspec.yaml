@@ -32,7 +32,7 @@ dependencies:
   stacked_services: ^0.8.15
   get_it: ^7.2.0
   stacked_hooks: ^0.2.1
-  flutter_hooks: ^0.17.0
+  flutter_hooks: ^0.18.2
   freezed_annotation:
   logger: ^1.1.0
 
@@ -56,8 +56,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.4+2
-  bloc: ^7.2.1
-  flutter_bloc: ^7.1.0
+  bloc: ^8.0.2
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +68,9 @@ dev_dependencies:
   freezed:
   json_serializable:
   mockito: ^5.0.16
+
+dependency_overrides:
+  flutter_hooks: ^0.17.0
 
 
 # For information on the generic Dart part of this file, see the

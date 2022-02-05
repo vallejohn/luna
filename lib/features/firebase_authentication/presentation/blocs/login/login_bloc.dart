@@ -21,6 +21,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc() : super(LoginState.initial()) {
     on<_SignInWithEmailAndPassword>(_onSignInWithEmailAndPassword);
+    on<_Started>(_onStarted);
+  }
+
+  FutureOr<void> _onStarted(_Started event, Emitter<LoginState> emit) {
   }
 
   FutureOr<void> _onSignInWithEmailAndPassword(_SignInWithEmailAndPassword event, Emitter<LoginState> emit) async{

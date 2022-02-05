@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +5,7 @@ import 'package:luna/bloc_observer.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
 import 'package:luna/features/firebase_authentication/presentation/views/auth_check_view.dart';
+import 'package:luna/features/post/presentation/blocs/posts/posts_bloc.dart';
 import 'package:luna/locator.dart';
 import 'package:statusbarz/statusbarz.dart';
 
@@ -13,10 +13,10 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  Bloc.observer = AppBlocObserver();
-  setupLocator();
 
-  runApp(MyApp());
+  setupLocator();
+  BlocOverrides.runZoned(() => runApp(MyApp()),
+      blocObserver: AppBlocObserver());
 }
 
 class MyApp extends StatelessWidget {
