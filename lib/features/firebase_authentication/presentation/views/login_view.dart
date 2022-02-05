@@ -7,6 +7,7 @@ import 'package:luna/global/custom_widgets/gradient_button.dart';
 import 'package:luna/global/custom_widgets/text_input_field.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
+import 'package:luna/ui/home/home_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -17,7 +18,12 @@ class LoginView extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
-      body: BlocBuilder<LoginBloc, LoginState>(
+      body: BlocConsumer<LoginBloc, LoginState>(
+        listener: (context, state){
+          state.maybeWhen(success: (user){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
+          }, orElse: () => null);
+        },
         builder: (context, state) {
           return Container(
             decoration: BoxDecoration(
