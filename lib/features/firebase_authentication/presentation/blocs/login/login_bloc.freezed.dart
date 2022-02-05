@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'login_bloc.dart';
@@ -124,7 +125,8 @@ class _$_Started implements _Started {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Started);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Started);
   }
 
   @override
@@ -253,16 +255,15 @@ class _$_SignInWithEmailAndPassword implements _SignInWithEmailAndPassword {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SignInWithEmailAndPassword &&
-            (identical(other.emailAndPassword, emailAndPassword) ||
-                const DeepCollectionEquality()
-                    .equals(other.emailAndPassword, emailAndPassword)));
+        (other.runtimeType == runtimeType &&
+            other is _SignInWithEmailAndPassword &&
+            const DeepCollectionEquality()
+                .equals(other.emailAndPassword, emailAndPassword));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(emailAndPassword);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(emailAndPassword));
 
   @JsonKey(ignore: true)
   @override
@@ -344,7 +345,7 @@ abstract class _SignInWithEmailAndPassword implements LoginEvent {
           {required LoginCredentials emailAndPassword}) =
       _$_SignInWithEmailAndPassword;
 
-  LoginCredentials get emailAndPassword => throw _privateConstructorUsedError;
+  LoginCredentials get emailAndPassword;
   @JsonKey(ignore: true)
   _$SignInWithEmailAndPasswordCopyWith<_SignInWithEmailAndPassword>
       get copyWith => throw _privateConstructorUsedError;
@@ -500,7 +501,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
   }
 
   @override
@@ -626,7 +628,8 @@ class _$_LoggingIn implements _LoggingIn {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggingIn);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggingIn);
   }
 
   @override
@@ -768,16 +771,15 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Success &&
-            (identical(other.userProfileModel, userProfileModel) ||
-                const DeepCollectionEquality()
-                    .equals(other.userProfileModel, userProfileModel)));
+        (other.runtimeType == runtimeType &&
+            other is _Success &&
+            const DeepCollectionEquality()
+                .equals(other.userProfileModel, userProfileModel));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(userProfileModel);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(userProfileModel));
 
   @JsonKey(ignore: true)
   @override
@@ -875,7 +877,7 @@ abstract class _Success implements LoginState {
   const factory _Success({required UserProfileModel userProfileModel}) =
       _$_Success;
 
-  UserProfileModel get userProfileModel => throw _privateConstructorUsedError;
+  UserProfileModel get userProfileModel;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -928,14 +930,14 @@ class _$_EmailFailure implements _EmailFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _EmailFailure &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _EmailFailure &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -1032,7 +1034,7 @@ class _$_EmailFailure implements _EmailFailure {
 abstract class _EmailFailure implements LoginState {
   const factory _EmailFailure({required String message}) = _$_EmailFailure;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$EmailFailureCopyWith<_EmailFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1086,14 +1088,14 @@ class _$_PasswordFailure implements _PasswordFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PasswordFailure &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _PasswordFailure &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -1191,7 +1193,7 @@ abstract class _PasswordFailure implements LoginState {
   const factory _PasswordFailure({required String message}) =
       _$_PasswordFailure;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$PasswordFailureCopyWith<_PasswordFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1242,14 +1244,14 @@ class _$_Failed implements _Failed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Failed &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _Failed &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -1346,7 +1348,7 @@ class _$_Failed implements _Failed {
 abstract class _Failed implements LoginState {
   const factory _Failed({required String message}) = _$_Failed;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$FailedCopyWith<_Failed> get copyWith => throw _privateConstructorUsedError;
 }

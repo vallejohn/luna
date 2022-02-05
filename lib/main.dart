@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/bloc_observer.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
-import 'package:luna/features/firebase_authentication/presentation/views/auth_check_view.dart';
 import 'package:luna/locator.dart';
+import 'package:luna/router/app_router.dart';
 import 'package:statusbarz/statusbarz.dart';
 
 void main() async {
@@ -19,6 +19,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+
+  final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,15 +35,15 @@ class MyApp extends StatelessWidget {
       ],
       child: StatusbarzCapturer(
         child: Builder(builder: (context) {
-          return MaterialApp(
-            navigatorObservers: [Statusbarz.instance.observer],
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
               fontFamily: 'Rubik',
               primarySwatch: Colors.blue,
             ),
-            home: const AuthCheckView(),
+            routerDelegate: _appRouter.delegate(),
+            routeInformationParser: _appRouter.defaultRouteParser(),
           );
         }),
       ),

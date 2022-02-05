@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'user_profile.dart';
@@ -38,7 +39,7 @@ class _$UserProfileTearOff {
     );
   }
 
-  UserProfile fromJson(Map<String, Object> json) {
+  UserProfile fromJson(Map<String, Object?> json) {
     return UserProfile.fromJson(json);
   }
 }
@@ -220,34 +221,26 @@ class _$_UserProfile implements _UserProfile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserProfile &&
-            (identical(other.authID, authID) ||
-                const DeepCollectionEquality().equals(other.authID, authID)) &&
-            (identical(other.profileImageURL, profileImageURL) ||
-                const DeepCollectionEquality()
-                    .equals(other.profileImageURL, profileImageURL)) &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.firstname, firstname) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstname, firstname)) &&
-            (identical(other.lastname, lastname) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastname, lastname)));
+        (other.runtimeType == runtimeType &&
+            other is _UserProfile &&
+            const DeepCollectionEquality().equals(other.authID, authID) &&
+            const DeepCollectionEquality()
+                .equals(other.profileImageURL, profileImageURL) &&
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.firstname, firstname) &&
+            const DeepCollectionEquality().equals(other.lastname, lastname));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(authID) ^
-      const DeepCollectionEquality().hash(profileImageURL) ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(firstname) ^
-      const DeepCollectionEquality().hash(lastname);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authID),
+      const DeepCollectionEquality().hash(profileImageURL),
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(firstname),
+      const DeepCollectionEquality().hash(lastname));
 
   @JsonKey(ignore: true)
   @override
@@ -273,17 +266,17 @@ abstract class _UserProfile implements UserProfile {
       _$_UserProfile.fromJson;
 
   @override
-  String? get authID => throw _privateConstructorUsedError;
+  String? get authID;
   @override
-  String? get profileImageURL => throw _privateConstructorUsedError;
+  String? get profileImageURL;
   @override
-  String? get username => throw _privateConstructorUsedError;
+  String? get username;
   @override
-  String? get email => throw _privateConstructorUsedError;
+  String? get email;
   @override
-  String? get firstname => throw _privateConstructorUsedError;
+  String? get firstname;
   @override
-  String? get lastname => throw _privateConstructorUsedError;
+  String? get lastname;
   @override
   @JsonKey(ignore: true)
   _$UserProfileCopyWith<_UserProfile> get copyWith =>

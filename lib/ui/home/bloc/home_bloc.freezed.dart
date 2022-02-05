@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'home_bloc.dart';
@@ -104,7 +105,8 @@ class _$_Started implements _Started {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Started);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Started);
   }
 
   @override
@@ -338,20 +340,19 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Initial &&
-            (identical(other.currentUser, currentUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentUser, currentUser)) &&
-            (identical(other.postStream, postStream) ||
-                const DeepCollectionEquality()
-                    .equals(other.postStream, postStream)));
+        (other.runtimeType == runtimeType &&
+            other is _Initial &&
+            const DeepCollectionEquality()
+                .equals(other.currentUser, currentUser) &&
+            const DeepCollectionEquality()
+                .equals(other.postStream, postStream));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(currentUser) ^
-      const DeepCollectionEquality().hash(postStream);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(currentUser),
+      const DeepCollectionEquality().hash(postStream));
 
   @JsonKey(ignore: true)
   @override
@@ -427,10 +428,9 @@ abstract class _Initial implements HomeState {
       required Stream<QuerySnapshot<Object?>> postStream}) = _$_Initial;
 
   @override
-  UserProfile get currentUser => throw _privateConstructorUsedError;
+  UserProfile get currentUser;
   @override
-  Stream<QuerySnapshot<Object?>> get postStream =>
-      throw _privateConstructorUsedError;
+  Stream<QuerySnapshot<Object?>> get postStream;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>

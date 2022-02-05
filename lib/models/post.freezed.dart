@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'post.dart';
@@ -40,7 +41,7 @@ class _$PostTearOff {
     );
   }
 
-  Post fromJson(Map<String, Object> json) {
+  Post fromJson(Map<String, Object?> json) {
     return Post.fromJson(json);
   }
 }
@@ -232,37 +233,30 @@ class _$_Post implements _Post {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Post &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.coverImageURL, coverImageURL) ||
-                const DeepCollectionEquality()
-                    .equals(other.coverImageURL, coverImageURL)) &&
-            (identical(other.content, content) ||
-                const DeepCollectionEquality()
-                    .equals(other.content, content)) &&
-            (identical(other.commentCount, commentCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.commentCount, commentCount)) &&
-            (identical(other.recentComment, recentComment) ||
-                const DeepCollectionEquality()
-                    .equals(other.recentComment, recentComment)) &&
-            (identical(other.author, author) ||
-                const DeepCollectionEquality().equals(other.author, author)));
+        (other.runtimeType == runtimeType &&
+            other is _Post &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.coverImageURL, coverImageURL) &&
+            const DeepCollectionEquality().equals(other.content, content) &&
+            const DeepCollectionEquality()
+                .equals(other.commentCount, commentCount) &&
+            const DeepCollectionEquality()
+                .equals(other.recentComment, recentComment) &&
+            const DeepCollectionEquality().equals(other.author, author));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(coverImageURL) ^
-      const DeepCollectionEquality().hash(content) ^
-      const DeepCollectionEquality().hash(commentCount) ^
-      const DeepCollectionEquality().hash(recentComment) ^
-      const DeepCollectionEquality().hash(author);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(coverImageURL),
+      const DeepCollectionEquality().hash(content),
+      const DeepCollectionEquality().hash(commentCount),
+      const DeepCollectionEquality().hash(recentComment),
+      const DeepCollectionEquality().hash(author));
 
   @JsonKey(ignore: true)
   @override
@@ -288,19 +282,19 @@ abstract class _Post implements Post {
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
   @override
-  String? get title => throw _privateConstructorUsedError;
+  String? get title;
   @override
-  String? get coverImageURL => throw _privateConstructorUsedError;
+  String? get coverImageURL;
   @override
-  String? get content => throw _privateConstructorUsedError;
+  String? get content;
   @override
-  int? get commentCount => throw _privateConstructorUsedError;
+  int? get commentCount;
   @override
-  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get recentComment;
   @override
-  Map<String, dynamic>? get author => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get author;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;

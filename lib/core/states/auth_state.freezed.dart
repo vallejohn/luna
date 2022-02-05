@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'auth_state.dart';
@@ -135,14 +136,14 @@ class _$_Authenticated implements _Authenticated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Authenticated &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+        (other.runtimeType == runtimeType &&
+            other is _Authenticated &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +217,7 @@ abstract class _Authenticated implements AuthState {
   const factory _Authenticated({required UserProfileModel data}) =
       _$_Authenticated;
 
-  UserProfileModel get data => throw _privateConstructorUsedError;
+  UserProfileModel get data;
   @JsonKey(ignore: true)
   _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -252,7 +253,8 @@ class _$_UnAuthenticated implements _UnAuthenticated {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnAuthenticated);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UnAuthenticated);
   }
 
   @override

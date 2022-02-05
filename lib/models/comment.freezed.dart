@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'comment.dart';
@@ -28,7 +29,7 @@ class _$CommentTearOff {
     );
   }
 
-  Comment fromJson(Map<String, Object> json) {
+  Comment fromJson(Map<String, Object?> json) {
     return Comment.fromJson(json);
   }
 }
@@ -135,19 +136,18 @@ class _$_Comment implements _Comment {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Comment &&
-            (identical(other.userProfile, userProfile) ||
-                const DeepCollectionEquality()
-                    .equals(other.userProfile, userProfile)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)));
+        (other.runtimeType == runtimeType &&
+            other is _Comment &&
+            const DeepCollectionEquality()
+                .equals(other.userProfile, userProfile) &&
+            const DeepCollectionEquality().equals(other.body, body));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(userProfile) ^
-      const DeepCollectionEquality().hash(body);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(userProfile),
+      const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override
@@ -167,9 +167,9 @@ abstract class _Comment implements Comment {
   factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
 
   @override
-  Map<String, dynamic>? get userProfile => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get userProfile;
   @override
-  String? get body => throw _privateConstructorUsedError;
+  String? get body;
   @override
   @JsonKey(ignore: true)
   _$CommentCopyWith<_Comment> get copyWith =>
