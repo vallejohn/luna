@@ -15,7 +15,7 @@ class AuthDataSourceImpl extends AuthDataSource{
     required CollectionReference collection
   }) : super(
       firebaseAuth: firebaseAuth,
-      collection: collection
+      usersCollection: collection
   );
 
   @override
@@ -49,7 +49,7 @@ class AuthDataSourceImpl extends AuthDataSource{
   Future<UserProfileModel> _getUserFromCollection(String authID) async{
     Logger().i('Getting user information from collection using $authID');
 
-    QuerySnapshot snapshot = await collection.where('authID', isEqualTo: authID).get();
+    QuerySnapshot snapshot = await usersCollection.where('authID', isEqualTo: authID).get();
     UserProfileModel? userProfileModel = UserProfileModel.fromJson(
       snapshot.docs.first.data() as Map<String, dynamic>
     );

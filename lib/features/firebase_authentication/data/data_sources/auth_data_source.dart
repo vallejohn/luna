@@ -8,11 +8,11 @@ import 'package:luna/features/firebase_authentication/data/models/user_profile_m
 
 abstract class AuthDataSource{
   final FirebaseAuth firebaseAuth;
-  final CollectionReference collection;
+  final CollectionReference usersCollection;
 
   AuthDataSource({
     required this.firebaseAuth,
-    required this.collection
+    required this.usersCollection
   });
 
   Future<DataState<UserProfileModel, LoginError>> signInWithEmailAndPassword(LoginCredentials params);

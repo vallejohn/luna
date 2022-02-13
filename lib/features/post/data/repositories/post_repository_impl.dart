@@ -1,10 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
-import 'package:luna/features/post/domain/entities/post.dart';
 import 'package:luna/features/post/domain/repositories/post_repository.dart';
 
 class PostRepositoryImpl extends PostRepository{
@@ -15,7 +15,7 @@ class PostRepositoryImpl extends PostRepository{
   );
 
   @override
-  Future<Either<Failure, DataState<Post, PostError>>> getAllPosts() async{
+  Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts() async{
     // TODO: implement getPost
     try{
       Logger().i('Getting all posts from firebase');
