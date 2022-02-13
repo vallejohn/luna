@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:luna/router/app_router.dart';
 
-import '../core/utils/params.dart';
-import '../features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
-import '../global/custom_widgets/gradient_button.dart';
-import '../global/custom_widgets/text_input_field.dart';
-import '../global/styles.dart';
-import '../global/ui_helpers.dart';
+import '../../../../core/utils/params.dart';
+import '../blocs/login/login_bloc.dart';
+import '../../../../global/custom_widgets/gradient_button.dart';
+import '../../../../global/custom_widgets/text_input_field.dart';
+import '../../../../global/styles.dart';
+import '../../../../global/ui_helpers.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/router/app_router.dart';
-import '../features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
+import '../blocs/auth_check/auth_check_bloc.dart';
 
 class StartupPage extends StatelessWidget {
   const StartupPage({Key? key}) : super(key: key);
