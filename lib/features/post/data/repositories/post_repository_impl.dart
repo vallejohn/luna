@@ -15,11 +15,11 @@ class PostRepositoryImpl extends PostRepository{
   );
 
   @override
-  Future<Either<Failure, DataState<Post, PostError>>> getPost() async{
+  Future<Either<Failure, DataState<Post, PostError>>> getAllPosts() async{
     // TODO: implement getPost
     try{
       Logger().i('Getting all posts from firebase');
-      final dataState = await postDataSource.getPosts();
+      final dataState = await postDataSource.getAllPosts();
       return Right(dataState);
     }catch(e){
       Logger().e('Error getting posts from firebase: ${e.toString()}');

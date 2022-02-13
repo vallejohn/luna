@@ -9,5 +9,5 @@ abstract class PostRepository{
   final PostDataSource postDataSource;
   PostRepository({required this.postDataSource});
 
-  Future<Either<Failure, DataState<Post, PostError>>> getPost();
+  Future<Either<Failure, DataState<Post, PostError>>> getAllPosts();
 }

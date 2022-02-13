@@ -14,7 +14,7 @@ class PostDataSourceImpl extends PostDataSource{
   );
 
   @override
-  Future<DataState<PostModel, PostError>> getPosts() {
+  Future<DataState<PostModel, PostError>> getAllPosts() {
     // TODO: implement getPosts
 
     throw UnimplementedError();

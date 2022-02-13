@@ -6,11 +6,11 @@ import 'package:luna/core/utils/enums.dart';
 import 'package:luna/features/post/domain/entities/post.dart';
 import 'package:luna/features/post/domain/repositories/post_repository.dart';
 
-class GetPosts implements UseCaseWithNoParams<DataState<Post, PostError>>{
+class GetAllPosts implements UseCaseWithNoParams<DataState<Post, PostError>>{
   final PostRepository _postRepository;
-  GetPosts(this._postRepository);
+  GetAllPosts(this._postRepository);
   @override
   Future<Either<Failure, DataState<Post, PostError>>> call() {
-    return _postRepository.getPost();
+    return _postRepository.getAllPosts();
   }
 }

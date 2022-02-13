@@ -12,5 +12,5 @@ abstract class PostDataSource{
     required this.collection
   });
 
-  Future<DataState<PostModel, PostError>> getPosts();
+  Future<DataState<PostModel, PostError>> getAllPosts();
 }
