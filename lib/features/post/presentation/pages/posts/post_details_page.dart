@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:luna/features/post/data/models/post.dart';
 
 class PostDetailsPage extends StatelessWidget {
 
-  final String postID;
+  final Post post;
 
-  const PostDetailsPage({Key? key, required this.postID}) : super(key: key);
+  const PostDetailsPage({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class PostDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Details'),
       ),
-      body: Center(child: Text(postID),),
+      body: Center(child: Text(post.title),),
     );
   }
 }

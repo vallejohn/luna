@@ -4,6 +4,7 @@ import '../features/firebase_authentication/presentation/pages/login_page.dart';
 import '../features/firebase_authentication/presentation/pages/startup_page.dart';
 import '../features/post/presentation/pages/posts/post_details_page.dart';
 import '../features/post/presentation/pages/posts/posts_page.dart';
+import '../features/post/data/models/post.dart';
 
 part 'app_router.gr.dart';
 

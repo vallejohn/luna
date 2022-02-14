@@ -15,43 +15,53 @@ class PostsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Posts'),),
+      appBar: AppBar(
+        title: Text('Posts'),
+      ),
       body: BlocBuilder<PostsBloc, PostsState>(
         builder: (context, state) => state.when(
-            initial: () => Center(child: CircularProgressIndicator(),),
+            initial: () => Center(
+                  child: CircularProgressIndicator(),
+                ),
             success: (postsStream) => StreamBuilder<QuerySnapshot>(
-              stream: postsStream,
-                builder: (context, snapshot){
-                  if(snapshot.hasError){
-                    return Center(child: Text('Something went wrong'),);
+                stream: postsStream,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Something went wrong'),
+                    );
                   }
-                  if(snapshot.connectionState == ConnectionState.waiting){
-                    return Center(child: Text('Waiting'),);
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(
+                      child: Text('Waiting'),
+                    );
                   }
 
                   return ListView(
-                    children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot){
-                     Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                     UserProfile author = UserProfile.fromJson(post.author as Map<String, dynamic>);
+                    children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
+                      Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+                      post.copyWith(author: UserProfile.fromJson(post.author!.toJson()));
                       return PostItem(
                           title: post.title,
                           content: post.content,
                           commentCount: post.commentCount,
-                          profileImageURL: author.profileImageURL,
-                          name: '${author.firstname} ${author.lastname}',
+                          profileImageURL: post.author!.profileImageURL,
+                          name: '${post.author!.firstname} ${post.author!.lastname}',
                           category: 'Technology',
                           datePosted: '7 mins ago',
-                          onPostTap: (){
-                            AutoRouter.of(context).push(PostDetailsRoute(postID: documentSnapshot.id));
+                          onPostTap: () {
+                            AutoRouter.of(context).push(PostDetailsRoute(post: post));
                           },
-                          coverImageURL: post.coverImageURL
-                      );
+                          coverImageURL: post.coverImageURL);
                     }).toList(),
                   );
                 }),
-            empty: () => Center(child: Container(),),
-            error: (message) => Center(child: Text(message),)
-        ),
+            empty: () => Center(
+                  child: Container(),
+                ),
+            error: (message) => Center(
+                  child: Text(message),
+                )),
       ),
     );
   }

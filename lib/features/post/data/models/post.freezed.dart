@@ -23,13 +23,13 @@ class _$PostTearOff {
   const _$PostTearOff();
 
   _Post call(
-      {String? id,
+      {String id = '',
       String title = '',
       String coverImageURL = '',
       String content = '',
       int commentCount = 0,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author}) {
+      UserProfile? author}) {
     return _Post(
       id: id,
       title: title,
@@ -51,13 +51,13 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get coverImageURL => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get commentCount => throw _privateConstructorUsedError;
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get author => throw _privateConstructorUsedError;
+  UserProfile? get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,13 +69,15 @@ abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {String id,
       String title,
       String coverImageURL,
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author});
+      UserProfile? author});
+
+  $UserProfileCopyWith<$Res>? get author;
 }
 
 /// @nodoc
@@ -100,7 +102,7 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -124,8 +126,19 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as UserProfile?,
     ));
+  }
+
+  @override
+  $UserProfileCopyWith<$Res>? get author {
+    if (_value.author == null) {
+      return null;
+    }
+
+    return $UserProfileCopyWith<$Res>(_value.author!, (value) {
+      return _then(_value.copyWith(author: value));
+    });
   }
 }
 
@@ -135,13 +148,16 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       __$PostCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {String id,
       String title,
       String coverImageURL,
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author});
+      UserProfile? author});
+
+  @override
+  $UserProfileCopyWith<$Res>? get author;
 }
 
 /// @nodoc
@@ -167,7 +183,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -191,7 +207,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as UserProfile?,
     ));
   }
 }
@@ -200,7 +216,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Post implements _Post {
   _$_Post(
-      {this.id,
+      {this.id = '',
       this.title = '',
       this.coverImageURL = '',
       this.content = '',
@@ -210,8 +226,9 @@ class _$_Post implements _Post {
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
+  @JsonKey()
   @override
-  final String? id;
+  final String id;
   @JsonKey()
   @override
   final String title;
@@ -227,7 +244,7 @@ class _$_Post implements _Post {
   @override
   final Map<String, dynamic>? recentComment;
   @override
-  final Map<String, dynamic>? author;
+  final UserProfile? author;
 
   @override
   String toString() {
@@ -275,18 +292,18 @@ class _$_Post implements _Post {
 
 abstract class _Post implements Post {
   factory _Post(
-      {String? id,
+      {String id,
       String title,
       String coverImageURL,
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author}) = _$_Post;
+      UserProfile? author}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
   String get title;
   @override
@@ -298,7 +315,7 @@ abstract class _Post implements Post {
   @override
   Map<String, dynamic>? get recentComment;
   @override
-  Map<String, dynamic>? get author;
+  UserProfile? get author;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
