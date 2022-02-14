@@ -26,8 +26,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const PostsPage());
     },
     PostDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<PostDetailsRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const PostDetailsPage());
+          routeData: routeData,
+          child: PostDetailsPage(key: args.key, postID: args.postID));
     },
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -62,11 +64,26 @@ class PostsRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PostDetailsPage]
-class PostDetailsRoute extends PageRouteInfo<void> {
-  const PostDetailsRoute()
-      : super(PostDetailsRoute.name, path: '/post-details-page');
+class PostDetailsRoute extends PageRouteInfo<PostDetailsRouteArgs> {
+  PostDetailsRoute({Key? key, required String postID})
+      : super(PostDetailsRoute.name,
+            path: '/post-details-page',
+            args: PostDetailsRouteArgs(key: key, postID: postID));
 
   static const String name = 'PostDetailsRoute';
+}
+
+class PostDetailsRouteArgs {
+  const PostDetailsRouteArgs({this.key, required this.postID});
+
+  final Key? key;
+
+  final String postID;
+
+  @override
+  String toString() {
+    return 'PostDetailsRouteArgs{key: $key, postID: $postID}';
+  }
 }
 
 /// generated route for
