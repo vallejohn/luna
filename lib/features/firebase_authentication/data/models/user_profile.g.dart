@@ -9,7 +9,7 @@ part of 'user_profile.dart';
 _$_UserProfile _$$_UserProfileFromJson(Map<String, dynamic> json) =>
     _$_UserProfile(
       authID: json['authID'] as String?,
-      profileImageURL: json['profileImageURL'] as String?,
+      profileImageURL: json['profileImageURL'] as String? ?? '',
       username: json['username'] as String?,
       email: json['email'] as String?,
       firstname: json['firstname'] as String?,

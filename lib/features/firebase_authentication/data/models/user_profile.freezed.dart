@@ -24,7 +24,7 @@ class _$UserProfileTearOff {
 
   _UserProfile call(
       {String? authID,
-      String? profileImageURL,
+      String profileImageURL = '',
       String? username,
       String? email,
       String? firstname,
@@ -50,7 +50,7 @@ const $UserProfile = _$UserProfileTearOff();
 /// @nodoc
 mixin _$UserProfile {
   String? get authID => throw _privateConstructorUsedError;
-  String? get profileImageURL => throw _privateConstructorUsedError;
+  String get profileImageURL => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get firstname => throw _privateConstructorUsedError;
@@ -69,7 +69,7 @@ abstract class $UserProfileCopyWith<$Res> {
       _$UserProfileCopyWithImpl<$Res>;
   $Res call(
       {String? authID,
-      String? profileImageURL,
+      String profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -101,7 +101,7 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -131,7 +131,7 @@ abstract class _$UserProfileCopyWith<$Res>
   @override
   $Res call(
       {String? authID,
-      String? profileImageURL,
+      String profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -165,7 +165,7 @@ class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
 class _$_UserProfile implements _UserProfile {
   _$_UserProfile(
       {this.authID,
-      this.profileImageURL,
+      this.profileImageURL = '',
       this.username,
       this.email,
       this.firstname,
@@ -202,8 +202,9 @@ class _$_UserProfile implements _UserProfile {
 
   @override
   final String? authID;
+  @JsonKey()
   @override
-  final String? profileImageURL;
+  final String profileImageURL;
   @override
   final String? username;
   @override
@@ -256,7 +257,7 @@ class _$_UserProfile implements _UserProfile {
 abstract class _UserProfile implements UserProfile {
   factory _UserProfile(
       {String? authID,
-      String? profileImageURL,
+      String profileImageURL,
       String? username,
       String? email,
       String? firstname,
@@ -268,7 +269,7 @@ abstract class _UserProfile implements UserProfile {
   @override
   String? get authID;
   @override
-  String? get profileImageURL;
+  String get profileImageURL;
   @override
   String? get username;
   @override

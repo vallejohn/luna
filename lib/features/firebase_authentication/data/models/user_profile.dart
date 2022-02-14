@@ -7,7 +7,7 @@ part 'user_profile.g.dart';
 abstract class UserProfile with _$UserProfile{
   factory UserProfile({
     String? authID,
-    String? profileImageURL,
+    @Default('') String profileImageURL,
     String? username,
     String? email,
     String? firstname,
