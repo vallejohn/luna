@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/get_active_user.dart';
 
 import '../../../../../core/services/user_profile_service.dart';

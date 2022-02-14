@@ -7,9 +7,8 @@ import 'package:logger/logger.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
-import 'package:meta/meta.dart';
 
 import '../../../../../core/services/user_profile_service.dart';
 
@@ -41,10 +40,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }, (dataState){
       dataState.when(
           success: (data){
-            UserProfileModel userProfileModel = data;
-            _userProfile.setUser(userProfileModel);
+            UserProfile userProfile = data;
+            _userProfile.setUser(userProfile);
             emit(LoginState.success());
-            Logger().i('Login success!: ${userProfileModel.toString()}');
+            Logger().i('Login success!: ${userProfile.toString()}');
           }, failed: (loginError){
             LoginError error = loginError;
             String errorMessage = AuthError.getStringMessageFromErrorCode(error);

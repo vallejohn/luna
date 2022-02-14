@@ -6,9 +6,10 @@ import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/params.dart';
-import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
-import 'package:luna/features/firebase_authentication/domain/entities/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/repositories/auth_repository.dart';
+
+import '../data_sources/auth_data_source.dart';
+import '../models/user_profile.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({

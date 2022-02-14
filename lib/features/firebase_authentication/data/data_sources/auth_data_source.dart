@@ -4,7 +4,7 @@ import 'package:luna/core/states/auth_state.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/params.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 abstract class AuthDataSource{
   final FirebaseAuth firebaseAuth;
@@ -15,6 +15,6 @@ abstract class AuthDataSource{
     required this.usersCollection
   });
 
-  Future<DataState<UserProfileModel, LoginError>> signInWithEmailAndPassword(LoginCredentials params);
+  Future<DataState<UserProfile, LoginError>> signInWithEmailAndPassword(LoginCredentials params);
   Future<AuthState> getActiveUser();
 }

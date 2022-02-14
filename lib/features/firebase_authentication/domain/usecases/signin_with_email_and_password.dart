@@ -4,8 +4,9 @@ import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/usecases/usecase_with_params.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/params.dart';
-import 'package:luna/features/firebase_authentication/domain/entities/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/repositories/auth_repository.dart';
+
+import '../../data/models/user_profile.dart';
 
 class SignInWithEmailAndPassword implements UseCaseWithParams<DataState<UserProfile, LoginError>, LoginCredentials>{
   final AuthRepository _authRepository;

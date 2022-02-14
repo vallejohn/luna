@@ -1,4 +1,4 @@
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 class UserProfileService{
   UserProfile? _currentUser;

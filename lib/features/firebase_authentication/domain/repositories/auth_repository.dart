@@ -5,7 +5,8 @@ import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
-import 'package:luna/features/firebase_authentication/domain/entities/user_profile.dart';
+
+import '../../data/models/user_profile.dart';
 
 abstract class AuthRepository{
   final AuthDataSource authDataSource;

@@ -8,7 +8,7 @@ import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/models/comment.dart';
 import 'package:luna/features/post/data/models/post.dart';
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/ui/post/bloc/post_bloc.dart';
 
 class PostView extends StatelessWidget {

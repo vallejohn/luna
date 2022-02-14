@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/models/comment.dart';
 import 'package:luna/features/post/data/models/post.dart';
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 const String POSTS = 'posts';
 const String USERS = 'users';

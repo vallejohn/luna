@@ -1,10 +1,10 @@
-import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 class UserProfileService{
-  late final UserProfileModel _userProfileModel;
-  UserProfileModel get userProfile => _userProfileModel;
+  late final UserProfile _userProfile;
+  UserProfile get userProfile => _userProfile;
 
-  void setUser(UserProfileModel userProfileModel){
-    _userProfileModel = userProfileModel;
+  void setUser(UserProfile userProfile){
+    _userProfile = userProfile;
   }
 }

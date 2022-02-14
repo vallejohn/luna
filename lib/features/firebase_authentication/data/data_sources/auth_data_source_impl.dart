@@ -7,7 +7,7 @@ import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile_model.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 class AuthDataSourceImpl extends AuthDataSource{
   AuthDataSourceImpl({
@@ -19,7 +19,7 @@ class AuthDataSourceImpl extends AuthDataSource{
   );
 
   @override
-  Future<DataState<UserProfileModel, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
+  Future<DataState<UserProfile, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
     UserCredential userCredential;
 
     try{
@@ -46,13 +46,13 @@ class AuthDataSourceImpl extends AuthDataSource{
     }
   }
 
-  Future<UserProfileModel> _getUserFromCollection(String authID) async{
+  Future<UserProfile> _getUserFromCollection(String authID) async{
     Logger().i('Getting user information from collection using $authID');
 
     QuerySnapshot snapshot = await usersCollection.where('authID', isEqualTo: authID).get();
-    UserProfileModel? userProfileModel = UserProfileModel.fromJson(
+    UserProfile? userProfile = UserProfile.fromJson(
       snapshot.docs.first.data() as Map<String, dynamic>
     );
-    return userProfileModel;
+    return userProfile;
   }
 }

@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/features/post/data/models/post.dart';
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/services/firebase_storage_service.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/image_picker_service.dart';

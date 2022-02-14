@@ -7,7 +7,7 @@ import 'package:luna/global/custom_widgets/shadowed_container.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/models/comment.dart';
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 class PostItem extends StatelessWidget {
   final String name;

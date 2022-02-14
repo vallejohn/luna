@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  _Authenticated authenticated({required UserProfileModel data}) {
+  _Authenticated authenticated({required UserProfile data}) {
     return _Authenticated(
       data: data,
     );
@@ -36,19 +36,19 @@ const $AuthState = _$AuthStateTearOff();
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserProfileModel data) authenticated,
+    required TResult Function(UserProfile data) authenticated,
     required TResult Function() unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
   }) =>
@@ -94,7 +94,9 @@ abstract class _$AuthenticatedCopyWith<$Res> {
   factory _$AuthenticatedCopyWith(
           _Authenticated value, $Res Function(_Authenticated) then) =
       __$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({UserProfileModel data});
+  $Res call({UserProfile data});
+
+  $UserProfileCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -115,8 +117,15 @@ class __$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserProfileModel,
+              as UserProfile,
     ));
+  }
+
+  @override
+  $UserProfileCopyWith<$Res> get data {
+    return $UserProfileCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
@@ -126,7 +135,7 @@ class _$_Authenticated implements _Authenticated {
   const _$_Authenticated({required this.data});
 
   @override
-  final UserProfileModel data;
+  final UserProfile data;
 
   @override
   String toString() {
@@ -153,7 +162,7 @@ class _$_Authenticated implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserProfileModel data) authenticated,
+    required TResult Function(UserProfile data) authenticated,
     required TResult Function() unAuthenticated,
   }) {
     return authenticated(data);
@@ -162,7 +171,7 @@ class _$_Authenticated implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
   }) {
     return authenticated?.call(data);
@@ -171,7 +180,7 @@ class _$_Authenticated implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
   }) {
@@ -214,10 +223,9 @@ class _$_Authenticated implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthState {
-  const factory _Authenticated({required UserProfileModel data}) =
-      _$_Authenticated;
+  const factory _Authenticated({required UserProfile data}) = _$_Authenticated;
 
-  UserProfileModel get data;
+  UserProfile get data;
   @JsonKey(ignore: true)
   _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -263,7 +271,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserProfileModel data) authenticated,
+    required TResult Function(UserProfile data) authenticated,
     required TResult Function() unAuthenticated,
   }) {
     return unAuthenticated();
@@ -272,7 +280,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
   }) {
     return unAuthenticated?.call();
@@ -281,7 +289,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserProfileModel data)? authenticated,
+    TResult Function(UserProfile data)? authenticated,
     TResult Function()? unAuthenticated,
     required TResult orElse(),
   }) {

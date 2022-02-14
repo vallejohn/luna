@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/app/app.router.dart';
 import 'package:luna/models/comment.dart';
 import 'package:luna/features/post/data/models/post.dart';
-import 'package:luna/models/user_profile.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/ui/home/bloc/home_bloc.dart';
 import 'package:luna/ui/home/widgets/post_item.dart';
 import 'package:luna/ui/post/post_view.dart';
