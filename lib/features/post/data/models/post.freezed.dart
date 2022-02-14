@@ -24,9 +24,9 @@ class _$PostTearOff {
 
   _Post call(
       {String? id,
-      String? title,
+      String title = '',
       String? coverImageURL,
-      String? content,
+      String content = '',
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author}) {
@@ -52,9 +52,9 @@ const $Post = _$PostTearOff();
 /// @nodoc
 mixin _$Post {
   String? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String? get coverImageURL => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
   int? get commentCount => throw _privateConstructorUsedError;
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
   Map<String, dynamic>? get author => throw _privateConstructorUsedError;
@@ -70,9 +70,9 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res>;
   $Res call(
       {String? id,
-      String? title,
+      String title,
       String? coverImageURL,
-      String? content,
+      String content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author});
@@ -104,7 +104,7 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       coverImageURL: coverImageURL == freezed
           ? _value.coverImageURL
           : coverImageURL // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       commentCount: commentCount == freezed
           ? _value.commentCount
           : commentCount // ignore: cast_nullable_to_non_nullable
@@ -136,9 +136,9 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   $Res call(
       {String? id,
-      String? title,
+      String title,
       String? coverImageURL,
-      String? content,
+      String content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author});
@@ -171,7 +171,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       coverImageURL: coverImageURL == freezed
           ? _value.coverImageURL
           : coverImageURL // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       commentCount: commentCount == freezed
           ? _value.commentCount
           : commentCount // ignore: cast_nullable_to_non_nullable
@@ -201,9 +201,9 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 class _$_Post implements _Post {
   _$_Post(
       {this.id,
-      this.title,
+      this.title = '',
       this.coverImageURL,
-      this.content,
+      this.content = '',
       this.commentCount,
       this.recentComment,
       this.author});
@@ -212,12 +212,14 @@ class _$_Post implements _Post {
 
   @override
   final String? id;
+  @JsonKey()
   @override
-  final String? title;
+  final String title;
   @override
   final String? coverImageURL;
+  @JsonKey()
   @override
-  final String? content;
+  final String content;
   @override
   final int? commentCount;
   @override
@@ -272,9 +274,9 @@ class _$_Post implements _Post {
 abstract class _Post implements Post {
   factory _Post(
       {String? id,
-      String? title,
+      String title,
       String? coverImageURL,
-      String? content,
+      String content,
       int? commentCount,
       Map<String, dynamic>? recentComment,
       Map<String, dynamic>? author}) = _$_Post;
@@ -284,11 +286,11 @@ abstract class _Post implements Post {
   @override
   String? get id;
   @override
-  String? get title;
+  String get title;
   @override
   String? get coverImageURL;
   @override
-  String? get content;
+  String get content;
   @override
   int? get commentCount;
   @override

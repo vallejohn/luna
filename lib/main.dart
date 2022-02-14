@@ -8,6 +8,8 @@ import 'package:luna/locator.dart';
 import 'package:luna/router/app_router.dart';
 import 'package:statusbarz/statusbarz.dart';
 
+import 'features/post/presentation/blocs/posts/posts_bloc.dart';
+
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<LoginBloc>(
           create: (context) => LoginBloc()..add(LoginEvent.started()),
+        ),
+        BlocProvider<PostsBloc>(
+          create: (context) => PostsBloc()..add(PostsEvent.started()),
         ),
       ],
       child: StatusbarzCapturer(

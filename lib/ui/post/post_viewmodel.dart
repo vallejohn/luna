@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:luna/app/app.locator.dart';
 import 'package:luna/models/comment.dart';
-import 'package:luna/models/post.dart';
+import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/models/user_profile.dart';
 import 'package:luna/services/firestore_service.dart';
 import 'package:luna/services/user_profile_service.dart';

@@ -1,5 +1,6 @@
 part of 'posts_bloc.dart';
 
-abstract class PostsEvent extends Equatable {
-  const PostsEvent();
+@freezed
+class PostsEvent with _$PostsEvent {
+  const factory PostsEvent.started() = _Started;
 }

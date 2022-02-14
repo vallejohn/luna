@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:luna/models/post.dart';
+import 'package:luna/features/post/data/models/post.dart';
 
 class PostService{
 
