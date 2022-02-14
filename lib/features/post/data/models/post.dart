@@ -8,9 +8,9 @@ abstract class Post with _$Post{
   factory Post({
     String? id,
     @Default('') String title,
-    String? coverImageURL,
+    @Default('') String coverImageURL,
     @Default('') String content,
-    int? commentCount,
+    @Default(0) int commentCount,
     Map<String, dynamic>? recentComment,
     Map<String, dynamic>? author,
   }) = _Post;

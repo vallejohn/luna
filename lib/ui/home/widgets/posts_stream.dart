@@ -6,7 +6,7 @@ import 'package:luna/models/comment.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/ui/home/bloc/home_bloc.dart';
-import 'package:luna/ui/home/widgets/post_item.dart';
+import 'package:luna/features/post/presentation/pages/posts/widgets/post_item.dart';
 import 'package:luna/ui/post/post_view.dart';
 
 class PostsStream extends StatelessWidget {
@@ -50,7 +50,7 @@ class PostsStream extends StatelessWidget {
                       ? Comment.fromJson(post.recentComment!)
                       : null,
                   datePosted: '7 hrs ago',
-                  imageUrl: '${author.profileImageURL}',
+                  profileImageURL: '${author.profileImageURL}',
                   name: '${author.firstname} ${author.lastname}',
                 );
               }).toList(),

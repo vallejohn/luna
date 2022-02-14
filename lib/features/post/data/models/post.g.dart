@@ -9,9 +9,9 @@ part of 'post.dart';
 _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       id: json['id'] as String?,
       title: json['title'] as String? ?? '',
-      coverImageURL: json['coverImageURL'] as String?,
+      coverImageURL: json['coverImageURL'] as String? ?? '',
       content: json['content'] as String? ?? '',
-      commentCount: json['commentCount'] as int?,
+      commentCount: json['commentCount'] as int? ?? 0,
       recentComment: json['recentComment'] as Map<String, dynamic>?,
       author: json['author'] as Map<String, dynamic>?,
     );

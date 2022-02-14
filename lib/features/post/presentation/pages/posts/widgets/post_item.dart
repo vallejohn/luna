@@ -18,7 +18,7 @@ class PostItem extends StatelessWidget {
   final String content;
   final int commentCount;
   final Comment? recentComment;
-  final String imageUrl;
+  final String profileImageURL;
   final VoidCallback onPostTap;
 
   const PostItem(
@@ -27,7 +27,7 @@ class PostItem extends StatelessWidget {
       required this.content,
       required this.commentCount,
       this.recentComment,
-      required this.imageUrl,
+      required this.profileImageURL,
       required this.name,
       required this.category,
       required this.datePosted,
@@ -78,7 +78,7 @@ class PostItem extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 15,
-                              backgroundImage: NetworkImage(imageUrl),
+                              backgroundImage: NetworkImage(profileImageURL),
                             ),
                             horizontalSpaceSmall,
                             Expanded(

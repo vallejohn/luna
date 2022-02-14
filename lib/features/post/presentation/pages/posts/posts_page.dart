@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/features/post/data/models/post.dart';
+import 'package:luna/features/post/presentation/pages/posts/widgets/post_item.dart';
 
+import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../blocs/posts/posts_bloc.dart';
 
 class PostsPage extends StatelessWidget {
@@ -28,7 +30,20 @@ class PostsPage extends StatelessWidget {
                   return ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot){
                      Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                      return Text(post.title);
+                     UserProfile author = UserProfile.fromJson(post.author as Map<String, dynamic>);
+                      return PostItem(
+                          title: post.title,
+                          content: post.content,
+                          commentCount: post.commentCount,
+                          profileImageURL: author.profileImageURL,
+                          name: '${author.firstname} ${author.lastname}',
+                          category: 'Technology',
+                          datePosted: '7 mins ago',
+                          onPostTap: (){
+                            
+                          },
+                          coverImageURL: post.coverImageURL
+                      );
                     }).toList(),
                   );
                 }),
