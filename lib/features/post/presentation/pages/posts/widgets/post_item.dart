@@ -46,6 +46,68 @@ class PostItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              height: 60,
+              child: Padding(
+                padding:
+                EdgeInsets.only(left: hPadding, right: hPadding),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundImage: NetworkImage(profileImageURL),
+                    ),
+                    horizontalSpaceSmall,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            name,
+                            style: mediumTextStyle.copyWith(
+                                color: lLightBlackColor,
+                                fontWeight: rubikMedium),
+                          ),
+                          Text(
+                            datePosted,
+                            style: smallTextStyle.copyWith(
+                                color: lDarkGreyColor,
+                                fontWeight: rubikLight),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Okinawa',
+                          style: smallTextStyle.copyWith(
+                            color: lDarkGreyColor,
+                            fontWeight: rubikLight,
+                          ),
+                        ),
+                        horizontalSpaceTiny,
+                        Text(
+                          'Japan',
+                          style: mediumTextStyle.copyWith(
+                              color: lLightBlackColor,
+                              fontWeight: rubikMedium),
+                        ),
+                        horizontalSpaceTiny,
+                        Icon(
+                          Ionicons.location_outline,
+                          color: lPrimaryColor,
+                          size: 20,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
             Stack(
               children: [
                 Container(
@@ -53,85 +115,12 @@ class PostItem extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Colors.grey,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10)),
                     image: DecorationImage(
                         image: NetworkImage('$coverImageURL'),
                         fit: BoxFit.cover),
                   ),
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10)),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                    child: Container(
-                      height: 50,
-                      color: Colors.black.withOpacity(0.4),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: hPadding, right: hPadding),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              radius: 15,
-                              backgroundImage: NetworkImage(profileImageURL),
-                            ),
-                            horizontalSpaceSmall,
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    name,
-                                    style: mediumTextStyle.copyWith(
-                                        color: Colors.white,
-                                        fontWeight: rubikMedium),
-                                  ),
-                                  Text(
-                                    datePosted,
-                                    style: smallTextStyle.copyWith(
-                                        color: Colors.white,
-                                        fontWeight: rubikLight),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Okinawa',
-                                  style: smallTextStyle.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: rubikLight,
-                                  ),
-                                ),
-                                horizontalSpaceTiny,
-                                Text(
-                                  'Japan',
-                                  style: mediumTextStyle.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: rubikMedium),
-                                ),
-                                horizontalSpaceTiny,
-                                Icon(
-                                  Ionicons.location_outline,
-                                  color: Colors.white,
-                                  size: 15,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+
                 Positioned(
                   bottom: 0,
                   child: InkWell(
