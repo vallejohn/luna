@@ -2,10 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/post_item.dart';
 import 'package:luna/router/app_router.dart';
 
+import '../../../../../global/styles.dart';
+import '../../../../../global/ui_helpers.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../blocs/posts/posts_bloc.dart';
 
@@ -16,7 +20,32 @@ class PostsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Posts'),
+        elevation: 1,
+        backgroundColor: Colors.white,
+        title: Text(
+          'Luna',
+          style: GoogleFonts.yesteryear(color: lPrimaryColor, fontSize: 45),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {}, // goto write post,
+              splashRadius: 20,
+              icon: Icon(
+                Ionicons.create_outline,
+                color: lPrimaryColor,
+                size: 30,
+              )),
+          Padding(
+            padding: EdgeInsets.only(right: horizontalMargin),
+            child: GestureDetector(
+              onTap: () {}, // goto profile,
+              onLongPress: (){}, // signout,
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(''),
+              ),
+            ),
+          )
+        ],
       ),
       body: BlocBuilder<PostsBloc, PostsState>(
         builder: (context, state) => state.when(
