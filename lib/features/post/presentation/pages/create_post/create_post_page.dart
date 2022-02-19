@@ -19,44 +19,45 @@ class CreatePostPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 1,
-        iconTheme: IconThemeData(
-            color: AppColors.darkGrey
-        ),
+        iconTheme: IconThemeData(color: AppColors.darkGrey),
         backgroundColor: Colors.white,
-        title: Text('Create post', style: TextStyle(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikRegular),),
+        title: Text(
+          'Create post',
+          style: TextStyle(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikRegular),
+        ),
         actions: [
           BlocBuilder<UserProfileBloc, UserProfileState>(
             builder: (context, state) {
               return state.when(
                   initial: () => Container(),
                   success: (profileStream) => StreamBuilder<UserProfile>(
-                    stream: profileStream,
-                    builder: (context, snapshot) {
-                      if(snapshot.hasError){
-                        return Center(
-                          child: Text('Error'),
-                        );
-                      }
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                          child: Text('Waiting'),
-                        );
-                      }
+                        stream: profileStream,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) {
+                            return Center(
+                              child: Text('Error'),
+                            );
+                          }
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return Center(
+                              child: Text('Waiting'),
+                            );
+                          }
 
-                      UserProfile profile = UserProfile.fromJson(snapshot.data!.toJson());
+                          UserProfile profile = UserProfile.fromJson(snapshot.data!.toJson());
 
-                      return Padding(
-                        padding: EdgeInsets.only(right: horizontalMargin),
-                        child: GestureDetector(
-                          onTap: () {}, // goto profile,
-                          onLongPress: () {}, // signout,
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(profile.profileImageURL),
-                          ),
-                        ),
-                      );
-                    },
-                  ));
+                          return Padding(
+                            padding: EdgeInsets.only(right: horizontalMargin),
+                            child: GestureDetector(
+                              onTap: () {}, // goto profile,
+                              onLongPress: () {}, // signout,
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(profile.profileImageURL),
+                              ),
+                            ),
+                          );
+                        },
+                      ));
             },
           )
         ],
@@ -70,26 +71,51 @@ class CreatePostPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: horizontalMargin),
               child: Row(
                 children: [
-                  Text('Private', style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),),
+                  Text(
+                    'Private',
+                    style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),
+                  ),
                   AppHorizontalSpace.tiny,
-                  Icon(Ionicons.caret_down_outline, color: AppColors.darkGrey, size: 15,),
+                  Icon(
+                    Ionicons.caret_down_outline,
+                    color: AppColors.darkGrey,
+                    size: 15,
+                  ),
                   AppHorizontalSpace.regular,
                   GestureDetector(
-                    child: Icon(Ionicons.location_outline, color: AppColors.darkGrey,),
+                    child: Icon(
+                      Ionicons.location_outline,
+                      color: AppColors.darkGrey,
+                    ),
                     onTap: () {},
                   ),
-                  Text('Location', style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey,),),
+                  Text(
+                    'Location',
+                    style: AppTextStyle.medium.copyWith(
+                      color: AppColors.darkGrey,
+                    ),
+                  ),
                   AppHorizontalSpace.regular,
                   GestureDetector(
                     //child: Icon(Ionicons.image, color: model.postImageCover == null ? AppColors.darkGrey : AppColors.primary,),
-                    child: Icon(Ionicons.image, color: AppColors.darkGrey,),
+                    child: Icon(
+                      Ionicons.image,
+                      color: AppColors.darkGrey,
+                    ),
                     onTap: () {},
                   ),
                   AppHorizontalSpace.tiny,
-                  Expanded(child: Text('Photos', style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),)),
+                  Expanded(
+                      child: Text(
+                    'Photos',
+                    style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),
+                  )),
                   Padding(
                     padding: const EdgeInsets.only(right: horizontalMargin),
-                    child: Text('Post', style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),),
+                    child: Text(
+                      'Post',
+                      style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),
+                    ),
                     /*child: model.isBusy
                         ? Container(height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.primary,))
                         : GestureDetector(
@@ -114,10 +140,7 @@ class CreatePostPage extends StatelessWidget {
                   filled: true,
                   fillColor: AppColors.textFieldBG,
                   hintStyle: TextStyle(color: AppColors.lightGrey),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(customBorderRadius),
-                      borderSide: BorderSide.none
-                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(customBorderRadius), borderSide: BorderSide.none),
                 ),
               ),
             ),
@@ -130,7 +153,10 @@ class CreatePostPage extends StatelessWidget {
                 minLines: 1,
                 maxLines: null,
                 textInputAction: TextInputAction.newline,
-                style: TextStyle(fontSize: textSizeMedium, color: AppColors.bodyText,),
+                style: TextStyle(
+                  fontSize: textSizeMedium,
+                  color: AppColors.bodyText,
+                ),
                 textAlign: TextAlign.start,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -138,10 +164,7 @@ class CreatePostPage extends StatelessWidget {
                   filled: false,
                   fillColor: AppColors.textFieldBG,
                   hintStyle: TextStyle(color: AppColors.lightGrey),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(customBorderRadius),
-                      borderSide: BorderSide.none
-                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(customBorderRadius), borderSide: BorderSide.none),
                 ),
               ),
             ),
