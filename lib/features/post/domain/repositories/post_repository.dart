@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
@@ -10,4 +11,5 @@ abstract class PostRepository{
   PostRepository({required this.postDataSource});
 
   Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts();
+  Future<Either<Failure, DataState<PickedFile, String>>> uploadPostCoverImage();
 }

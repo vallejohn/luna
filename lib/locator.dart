@@ -12,6 +12,7 @@ import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source_impl.dart';
 import 'package:luna/features/post/data/repositories/post_repository_impl.dart';
 import 'package:luna/features/post/domain/repositories/post_repository.dart';
+import 'package:luna/features/post/domain/usecases/add_post_cover_image.dart';
 import 'package:luna/features/post/domain/usecases/get_all_posts.dart';
 
 final getIt = GetIt.instance;
@@ -53,4 +54,5 @@ void _setUpPostFeature(){
       postDataSource: getIt()));
 
   getIt.registerLazySingleton(() => GetAllPosts(getIt()));
+  getIt.registerLazySingleton(() => AddPostCoverImage(getIt()));
 }

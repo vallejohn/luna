@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
@@ -6,6 +8,7 @@ import 'package:luna/global/styles.dart';
 import '../../../../../global/ui_helpers.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
+import '../../blocs/upload_image_bloc/upload_image_bloc.dart';
 
 class CreatePostPage extends StatelessWidget {
   const CreatePostPage({Key? key}) : super(key: key);
@@ -96,35 +99,76 @@ class CreatePostPage extends StatelessWidget {
                     ),
                   ),
                   AppHorizontalSpace.regular,
-                  GestureDetector(
-                    //child: Icon(Ionicons.image, color: model.postImageCover == null ? AppColors.darkGrey : AppColors.primary,),
-                    child: Icon(
-                      Ionicons.image,
-                      color: AppColors.darkGrey,
-                    ),
-                    onTap: () {},
-                  ),
-                  AppHorizontalSpace.tiny,
                   Expanded(
-                      child: Text(
-                    'Photos',
-                    style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),
-                  )),
+                    child: BlocConsumer<UploadImageBloc, UploadImageState>(listener: (context, state) {
+                      state.whenOrNull(cancelled: () {
+                        const snackBar = SnackBar(
+                          content: Text('Upload cancelled'),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      });
+                    }, builder: (context, state) {
+                      return GestureDetector(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Ionicons.image,
+                              color: state.maybeWhen(success: (image) => AppColors.accent, orElse: () => AppColors.darkGrey),
+                            ),
+                            AppHorizontalSpace.tiny,
+                            Text(
+                              'Photo',
+                              style: AppTextStyle.medium
+                                  .copyWith(color: state.maybeWhen(success: (image) => AppColors.accent, orElse: () => AppColors.darkGrey)),
+                            ),
+                          ],
+                        ),
+                        onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onUpload()),
+                      );
+                    }),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(right: horizontalMargin),
                     child: Text(
                       'Post',
                       style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),
                     ),
-                    /*child: model.isBusy
-                        ? Container(height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.primary,))
-                        : GestureDetector(
-                        onTap: () => model.addPost(titleController.text.toString(), contentController.text.toString()),
-                        child: Text('Post', style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: rubikMedium),)),*/
                   )
                 ],
               ),
             ),
+            AppVerticalSpace.regular,
+            BlocBuilder<UploadImageBloc, UploadImageState>(builder: (context, state) {
+              return state.maybeWhen(
+                  success: (image) => Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                            height: 300,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: AppColors.lightGrey,
+                              image: DecorationImage(image: FileImage(File(image.path)), fit: BoxFit.cover),
+                            ),
+                          ),
+                      Positioned(
+                        top: 10,
+                        left: 10,
+                        child: GestureDetector(
+                          child: Container(
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: AppColors.darkGrey.withOpacity(0.2),
+                              child: Icon(Ionicons.close, color: Colors.white, size: 17,),
+                            ),
+                          ),
+                          onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onCancel()),
+                        ),
+                      ),
+                    ],
+                  ),
+                  orElse: () => Container());
+            }),
             AppVerticalSpace.regular,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: horizontalMargin),

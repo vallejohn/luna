@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
@@ -23,7 +24,20 @@ class PostRepositoryImpl extends PostRepository{
       return Right(dataState);
     }catch(e){
       Logger().e('Error getting posts from firebase: ${e.toString()}');
+      //TODO: Should return a firebaseException instead of normal string message.
       return Left(Failure.firebase(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, DataState<PickedFile, String>>> uploadPostCoverImage() async{
+    try{
+      Logger().i('Browsing for cover image!');
+      final dataState = await postDataSource.uploadPostCoverImage();
+      return Right(dataState);
+    }catch(e){
+      Logger().e('Error Uploading cover image: ${e.toString()}');
+      return Left(Failure.generic(message: e.toString()));
     }
   }
 }

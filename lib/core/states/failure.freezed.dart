@@ -23,6 +23,12 @@ class _$FailureTearOff {
       message: message,
     );
   }
+
+  _Generic generic({required String message}) {
+    return _Generic(
+      message: message,
+    );
+  }
 }
 
 /// @nodoc
@@ -35,32 +41,38 @@ mixin _$Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) firebase,
+    required TResult Function(String message) generic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Firebase value) firebase,
+    required TResult Function(_Generic value) generic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +173,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) firebase,
+    required TResult Function(String message) generic,
   }) {
     return firebase(message);
   }
@@ -169,6 +182,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
   }) {
     return firebase?.call(message);
   }
@@ -177,6 +191,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
     required TResult orElse(),
   }) {
     if (firebase != null) {
@@ -189,6 +204,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Firebase value) firebase,
+    required TResult Function(_Generic value) generic,
   }) {
     return firebase(this);
   }
@@ -197,6 +213,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
   }) {
     return firebase?.call(this);
   }
@@ -205,6 +222,7 @@ class _$_Firebase implements _Firebase {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
     required TResult orElse(),
   }) {
     if (firebase != null) {
@@ -222,5 +240,139 @@ abstract class _Firebase implements Failure {
   @override
   @JsonKey(ignore: true)
   _$FirebaseCopyWith<_Firebase> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$GenericCopyWith<$Res> implements $FailureCopyWith<$Res> {
+  factory _$GenericCopyWith(_Generic value, $Res Function(_Generic) then) =
+      __$GenericCopyWithImpl<$Res>;
+  @override
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$GenericCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$GenericCopyWith<$Res> {
+  __$GenericCopyWithImpl(_Generic _value, $Res Function(_Generic) _then)
+      : super(_value, (v) => _then(v as _Generic));
+
+  @override
+  _Generic get _value => super._value as _Generic;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_Generic(
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Generic implements _Generic {
+  const _$_Generic({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'Failure.generic(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Generic &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$GenericCopyWith<_Generic> get copyWith =>
+      __$GenericCopyWithImpl<_Generic>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) firebase,
+    required TResult Function(String message) generic,
+  }) {
+    return generic(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
+  }) {
+    return generic?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? firebase,
+    TResult Function(String message)? generic,
+    required TResult orElse(),
+  }) {
+    if (generic != null) {
+      return generic(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Firebase value) firebase,
+    required TResult Function(_Generic value) generic,
+  }) {
+    return generic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
+  }) {
+    return generic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Firebase value)? firebase,
+    TResult Function(_Generic value)? generic,
+    required TResult orElse(),
+  }) {
+    if (generic != null) {
+      return generic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Generic implements Failure {
+  const factory _Generic({required String message}) = _$_Generic;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$GenericCopyWith<_Generic> get copyWith =>
       throw _privateConstructorUsedError;
 }
