@@ -22,4 +22,10 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   FutureOr<void> _onStarted(_Started event, Emitter<UserProfileState> emit) {
     emit(UserProfileState.success(profileStream: _profileStream.userStream));
   }
+
+  @override
+  Future<void> close() {
+    _profileStream.close();
+    return super.close();
+  }
 }

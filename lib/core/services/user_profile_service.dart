@@ -8,8 +8,11 @@ class UserProfileService{
   Sink<UserProfile> get userSink => _controller.sink;
   Stream<UserProfile> get userStream => _controller.stream;
 
-
   void setUser(UserProfile userProfile){
     userSink.add(userProfile);
+  }
+
+  void close(){
+    _controller.close();
   }
 }
