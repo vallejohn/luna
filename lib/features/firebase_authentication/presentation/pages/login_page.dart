@@ -48,7 +48,7 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: Text(
                         'Welcome!',
-                        style: AppTextStyle.large.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
+                        style: AppTextStyle.large.copyWith(color: Colors.white, fontSize: 24, fontWeight: AppFontWeight.rubikMedium),
                       ),
                     ),
                   ),
@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: Text(
                         'Login using your username or email.',
-                        style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: rubikLight),
+                        style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
                       ),
                     ),
                   ),
