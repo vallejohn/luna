@@ -8,6 +8,7 @@ import 'package:luna/locator.dart';
 import 'package:luna/router/app_router.dart';
 import 'package:statusbarz/statusbarz.dart';
 
+import 'features/firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import 'features/post/presentation/blocs/posts/posts_bloc.dart';
 
 void main() async {
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<PostsBloc>(
           create: (context) => PostsBloc()..add(PostsEvent.started()),
+        ),
+        BlocProvider<UserProfileBloc>(
+          create: (context) => UserProfileBloc()..add(UserProfileEvent.started()),
         ),
       ],
       child: StatusbarzCapturer(

@@ -11,6 +11,7 @@ import 'package:luna/router/app_router.dart';
 import '../../../../../global/styles.dart';
 import '../../../../../global/ui_helpers.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
+import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import '../../blocs/posts/posts_bloc.dart';
 
 class PostsPage extends StatelessWidget {
@@ -35,15 +36,39 @@ class PostsPage extends StatelessWidget {
                 color: lPrimaryColor,
                 size: 30,
               )),
-          Padding(
-            padding: EdgeInsets.only(right: horizontalMargin),
-            child: GestureDetector(
-              onTap: () {}, // goto profile,
-              onLongPress: (){}, // signout,
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(''),
-              ),
-            ),
+          BlocBuilder<UserProfileBloc, UserProfileState>(
+            builder: (context, state) {
+              return state.when(
+                  initial: () => Container(),
+                  success: (profileStream) => StreamBuilder<UserProfile>(
+                        stream: profileStream,
+                        builder: (context, snapshot) {
+                          if(snapshot.hasError){
+                            return Center(
+                              child: Text('Error'),
+                            );
+                          }
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return Center(
+                              child: Text('Waiting'),
+                            );
+                          }
+
+                          UserProfile profile = UserProfile.fromJson(snapshot.data!.toJson());
+
+                          return Padding(
+                            padding: EdgeInsets.only(right: horizontalMargin),
+                            child: GestureDetector(
+                              onTap: () {}, // goto profile,
+                              onLongPress: () {}, // signout,
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(profile.profileImageURL),
+                              ),
+                            ),
+                          );
+                        },
+                      ));
+            },
           )
         ],
       ),
