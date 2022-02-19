@@ -29,7 +29,7 @@ class PostsPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {}, // goto write post,
+              onPressed: () => AutoRouter.of(context).push(CreatePostRoute()), // goto write post,
               splashRadius: 20,
               icon: Icon(
                 Ionicons.create_outline,

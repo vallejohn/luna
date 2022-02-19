@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart ';
+import 'package:luna/features/post/presentation/pages/create_post/create_post_page.dart';
 import '../features/firebase_authentication/presentation/pages/login_page.dart';
 import '../features/firebase_authentication/presentation/pages/startup_page.dart';
 import '../features/post/presentation/pages/posts/post_details_page.dart';
@@ -15,6 +16,7 @@ part 'app_router.gr.dart';
     AutoRoute(page: PostsPage),
     AutoRoute(page: PostDetailsPage),
     AutoRoute(page: LoginPage),
+    AutoRoute(page: CreatePostPage),
   ]
 )
 

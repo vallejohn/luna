@@ -34,6 +34,10 @@ class _$AppRouter extends RootStackRouter {
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
+    },
+    CreatePostRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const CreatePostPage());
     }
   };
 
@@ -42,7 +46,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(StartupRoute.name, path: '/'),
         RouteConfig(PostsRoute.name, path: '/posts-page'),
         RouteConfig(PostDetailsRoute.name, path: '/post-details-page'),
-        RouteConfig(LoginRoute.name, path: '/login-page')
+        RouteConfig(LoginRoute.name, path: '/login-page'),
+        RouteConfig(CreatePostRoute.name, path: '/create-post-page')
       ];
 }
 
@@ -92,4 +97,13 @@ class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [CreatePostPage]
+class CreatePostRoute extends PageRouteInfo<void> {
+  const CreatePostRoute()
+      : super(CreatePostRoute.name, path: '/create-post-page');
+
+  static const String name = 'CreatePostRoute';
 }
