@@ -42,7 +42,7 @@ class RegisterView extends StatelessWidget with $RegisterView{
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Create an account',
-                    style: largeTextStyle.copyWith(
+                    style: large.copyWith(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: rubikMedium),
@@ -54,7 +54,7 @@ class RegisterView extends StatelessWidget with $RegisterView{
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Please provide the required information below.',
-                    style: mediumTextStyle.copyWith(
+                    style: medium.copyWith(
                         color: Colors.white, fontWeight: rubikLight),
                   ),
                 ),
@@ -82,7 +82,7 @@ class RegisterView extends StatelessWidget with $RegisterView{
                   padding: const EdgeInsets.symmetric(horizontal: 100),
                   child: Center(
                       child: Text('Click on the camera icon to browse a photo in your gallery.',
-                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight), textAlign: TextAlign.center,
+                    style: medium.copyWith(color: Colors.white, fontWeight: rubikLight), textAlign: TextAlign.center,
                   )),
                 ),
               verticalSpaceLarge,
@@ -92,7 +92,7 @@ class RegisterView extends StatelessWidget with $RegisterView{
                   child: Center(
                       child: Text(
                     '${model.validationMessage}',
-                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                    style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                   )),
                 ),
               Padding(

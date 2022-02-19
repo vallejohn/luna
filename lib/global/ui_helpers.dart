@@ -3,18 +3,20 @@ import 'package:flutter/material.dart';
 const double horizontalMargin = 16;
 const double customBorderRadius = 10;
 
-// Horizontal Spacing
-const Widget horizontalSpaceTiny = SizedBox(width: 5.0);
-const Widget horizontalSpaceSmall = SizedBox(width: 10.0);
-const Widget horizontalSpaceRegular = SizedBox(width: 18.0);
-const Widget horizontalSpaceMedium = SizedBox(width: 25.0);
-const Widget horizontalSpaceLarge = SizedBox(width: 50.0);
+class AppHorizontalSpacing{
+  static const Widget tiny = SizedBox(width: 5.0);
+  static const Widget small = SizedBox(width: 10.0);
+  static const Widget regular = SizedBox(width: 18.0);
+  static const Widget medium = SizedBox(width: 25.0);
+  static const Widget large = SizedBox(width: 50.0);
+}
 
-// Vertical Spacing
-const Widget verticalSpaceExtraTiny = SizedBox(height: 1.0);
-const Widget verticalSpaceTiny = SizedBox(height: 5.0);
-const Widget verticalSpaceSmall = SizedBox(height: 10.0);
-const Widget verticalSpaceRegular = SizedBox(height: 18.0);
-const Widget verticalSpaceMedium = SizedBox(height: 25);
-const Widget verticalSpaceLarge = SizedBox(height: 50.0);
-const Widget verticalSpaceMassive = SizedBox(height: 120.0);
+class AppVerticalSpace{
+  static const Widget extraTiny = SizedBox(height: 1.0);
+  static const Widget tiny = SizedBox(height: 5.0);
+  static const Widget small = SizedBox(height: 10.0);
+  static const Widget regular = SizedBox(height: 18.0);
+  static const Widget medium = SizedBox(height: 25);
+  static const Widget large = SizedBox(height: 50.0);
+  static const Widget massive = SizedBox(height: 120.0);
+}

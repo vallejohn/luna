@@ -13,7 +13,9 @@ class GradientButton extends StatelessWidget {
     return Container(
       height: 50,
       width: 50,
-      decoration: BoxDecoration(gradient: buttonGradientBGColor, borderRadius: BorderRadius.circular(customBorderRadius), boxShadow: [
+      decoration: BoxDecoration(
+          gradient: AppColors.linearGradient(beginColor: AppColors.accent, endColor: AppColors.yellowGreen),
+          borderRadius: BorderRadius.circular(customBorderRadius), boxShadow: [
         BoxShadow(
           color: Colors.black.withOpacity(0.05),
           spreadRadius: 1,
@@ -29,12 +31,12 @@ class GradientButton extends StatelessWidget {
                 width: 25,
                 child: CircularProgressIndicator(
                   strokeWidth: 3,
-                  color: lPrimaryColorsTransition,
+                  color: AppColors.bodyText,
                 ),
               )
             : Text(
                 text,
-                style: largeTextStyle.copyWith(color: lPrimaryColorsTransition),
+                style: AppTextStyle.large.copyWith(color: AppColors.lightGrey),
               ),
       ),
     );

@@ -68,7 +68,7 @@ class PostView extends StatelessWidget {
                                           children: [
                                             Text(
                                               '${author.firstname}',
-                                              style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikMedium),
+                                              style: medium.copyWith(color: Colors.white, fontWeight: rubikMedium),
                                             ),
                                             Text('7 mins ago', style: smallTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight)),
                                           ],
@@ -85,7 +85,7 @@ class PostView extends StatelessWidget {
                                           horizontalSpaceTiny,
                                           Text(
                                             'Japan',
-                                            style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikMedium),
+                                            style: medium.copyWith(color: Colors.white, fontWeight: rubikMedium),
                                           ),
                                           horizontalSpaceTiny,
                                           Icon(Ionicons.location_outline, color: Colors.white, size: 15)
@@ -106,7 +106,7 @@ class PostView extends StatelessWidget {
                             alignment: Alignment.center,
                             child: Text(
                               post.title.toString(),
-                              style: largeTextStyle.copyWith(
+                              style: large.copyWith(
                                 fontWeight: rubikMedium,
                               ),
                               textAlign: TextAlign.center,
@@ -117,7 +117,7 @@ class PostView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                         child: Text(
                           '${post.content.toString()}',
-                          style: mediumTextStyle,
+                          style: medium,
                           textAlign: TextAlign.justify,
                         ),
                       ),
@@ -126,15 +126,15 @@ class PostView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                         child: Row(
                           children: [
-                            Text('2.3k Likes', style: mediumTextStyle.copyWith(color: lOtherColor, fontWeight: rubikMedium)),
+                            Text('2.3k Likes', style: medium.copyWith(color: lOtherColor, fontWeight: rubikMedium)),
                             horizontalSpaceRegular,
-                            Expanded(child: Text('4.1k Shares', style: mediumTextStyle.copyWith(color: lOtherColor, fontWeight: rubikMedium))),
+                            Expanded(child: Text('4.1k Shares', style: medium.copyWith(color: lOtherColor, fontWeight: rubikMedium))),
                             Icon(
                               Ionicons.chatbubble_outline,
                               color: lOtherColor,
                             ),
                             horizontalSpaceTiny,
-                            Text(post.commentCount.toString(), style: mediumTextStyle.copyWith(color: lOtherColor, fontWeight: rubikMedium)),
+                            Text(post.commentCount.toString(), style: medium.copyWith(color: lOtherColor, fontWeight: rubikMedium)),
                           ],
                         ),
                       ),

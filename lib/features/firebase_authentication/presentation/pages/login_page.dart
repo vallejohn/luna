@@ -32,23 +32,23 @@ class LoginPage extends StatelessWidget {
                   gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [lPrimaryColor, lPrimaryColorsTransition])
+                      colors: [AppColors.primary, AppColors.blue])
               ),
               child: ListView(
                 children: [
-                  verticalSpaceMassive,
+                  AppVerticalSpace.massive,
                   Center(
                       child: Text(
                         'luna.',
                         style: GoogleFonts.yesteryear(color: Colors.white, fontSize: 80),
                       )),
-                  verticalSpaceLarge,
+                  AppVerticalSpace.large,
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: Text(
                         'Welcome!',
-                        style: largeTextStyle.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
+                        style: AppTextStyle.large.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
                       ),
                     ),
                   ),
@@ -57,12 +57,12 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: Text(
                         'Login using your username or email.',
-                        style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                        style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                       ),
                     ),
                   ),
-                  verticalSpaceLarge,
-                  verticalSpaceLarge,
+                  AppVerticalSpace.large,
+                  AppVerticalSpace.large,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: Column(
@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
                           controller: emailController,
                           hintText: 'Email',
                         ),
-                        verticalSpaceSmall,
+                        AppVerticalSpace.small,
                         TextInputField(
                           errorText: state.maybeWhen(
                               passwordFailure:(message) => message ,
@@ -88,7 +88,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  verticalSpaceMedium,
+                  AppVerticalSpace.medium,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: GradientButton(

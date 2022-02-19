@@ -25,7 +25,7 @@ class PostsPage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           'Luna',
-          style: GoogleFonts.yesteryear(color: lPrimaryColor, fontSize: 45),
+          style: GoogleFonts.yesteryear(color: AppColors.primary, fontSize: 45),
         ),
         actions: [
           IconButton(
@@ -33,7 +33,7 @@ class PostsPage extends StatelessWidget {
               splashRadius: 20,
               icon: Icon(
                 Ionicons.create_outline,
-                color: lPrimaryColor,
+                color: AppColors.primary,
                 size: 30,
               )),
           BlocBuilder<UserProfileBloc, UserProfileState>(

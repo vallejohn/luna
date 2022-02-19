@@ -39,7 +39,7 @@ class LoginView extends StatelessWidget with $LoginView {
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Welcome!',
-                    style: largeTextStyle.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
+                    style: large.copyWith(color: Colors.white, fontSize: 24, fontWeight: rubikMedium),
                   ),
                 ),
               ),
@@ -48,7 +48,7 @@ class LoginView extends StatelessWidget with $LoginView {
                   padding: const EdgeInsets.symmetric(horizontal: 45),
                   child: Text(
                     'Login using your username or email.',
-                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                    style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                   ),
                 ),
               ),
@@ -60,7 +60,7 @@ class LoginView extends StatelessWidget with $LoginView {
                   child: Center(
                       child: Text(
                     '${model.validationMessage}',
-                    style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                    style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                   )),
                 ),
               if (model.validationMessage != '' && model.validationMessage != null) verticalSpaceMedium,
@@ -79,7 +79,7 @@ class LoginView extends StatelessWidget with $LoginView {
                         onTap: () => model.goToRegisterView(),
                         child: Text(
                           'Create account',
-                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                          style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                       ),
                     ),
@@ -90,7 +90,7 @@ class LoginView extends StatelessWidget with $LoginView {
                       onTap: () => model.goToRegisterView(),
                       child: Text(
                         'Forgot password?',
-                        style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                        style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                       ),
                     ),
                   ),
@@ -106,19 +106,19 @@ class LoginView extends StatelessWidget with $LoginView {
                       children: [
                         Text(
                           'Sign in with',
-                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                          style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                         Text(
                           ' Google',
-                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
+                          style: medium.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
                         ),
                         Text(
                           ' or ',
-                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikLight),
+                          style: medium.copyWith(color: Colors.white, fontWeight: rubikLight),
                         ),
                         Text(
                           'Facebook',
-                          style: mediumTextStyle.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
+                          style: medium.copyWith(color: Colors.white, fontWeight: rubikSemiBold),
                         ),
                       ],
                     ),

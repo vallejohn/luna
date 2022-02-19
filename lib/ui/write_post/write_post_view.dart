@@ -41,7 +41,7 @@ class WritePostView extends StatelessWidget {
                 padding: const EdgeInsets.only(left: horizontalMargin),
                 child: Row(
                   children: [
-                    Text('Private', style: mediumTextStyle.copyWith(color: lDarkGreyColor),),
+                    Text('Private', style: medium.copyWith(color: lDarkGreyColor),),
                     horizontalSpaceTiny,
                     Icon(Ionicons.caret_down_outline, color: lDarkGreyColor, size: 15,),
                     horizontalSpaceRegular,
@@ -49,21 +49,21 @@ class WritePostView extends StatelessWidget {
                       child: Icon(Ionicons.location_outline, color: lDarkGreyColor,),
                       onTap: () => model.goToSearchLocation(),
                       ),
-                    Text('Location', style: mediumTextStyle.copyWith(color: lDarkGreyColor,),),
+                    Text('Location', style: medium.copyWith(color: lDarkGreyColor,),),
                     horizontalSpaceRegular,
                     GestureDetector(
                       child: Icon(Ionicons.image, color: model.postImageCover == null ? lDarkGreyColor : lPrimaryColor,),
                       onTap: () => model.loadPostImageCoverFromGallery(),
                       ),
                       horizontalSpaceTiny,
-                    Expanded(child: Text('Photos', style: mediumTextStyle.copyWith(color: lDarkGreyColor),)),
+                    Expanded(child: Text('Photos', style: medium.copyWith(color: lDarkGreyColor),)),
                     Padding(
                       padding: const EdgeInsets.only(right: horizontalMargin),
                       child: model.isBusy
                           ? Container(height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2, color: lPrimaryColor,))
                           : GestureDetector(
                         onTap: () => model.addPost(titleController.text.toString(), contentController.text.toString()),
-                          child: Text('Post', style: mediumTextStyle.copyWith(color: lPrimaryColor, fontWeight: rubikMedium),)),
+                          child: Text('Post', style: medium.copyWith(color: lPrimaryColor, fontWeight: rubikMedium),)),
                     )
                   ],
                 ),

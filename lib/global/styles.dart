@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 
-const Color lPrimaryColor = Color(0xff167D7F);
-const Color lPrimaryColorsTransition = Color(0xff165F7F);
-const Color lBodyTextColor = Color(0xff000000);
-const Color lLightGrey = Color(0xffA3A3A3);
-const Color lNotificationColor = Color(0xffCA0000);
-const Color lBackgroundColor = Color(0xffE5E5E5);
-const Color lDarkGreyColor = Color(0xff616161);
-const Color lTFBackgroundColor = Color(0xffF9F9F9);
-const Color lOtherColor = Color(0xff57737A);
-const Color lErrorColor = Color(0xffCA5500);
-const Color lLightBlackColor = Color(0xff4F4F4F);
+const Color _teal = Color(0xff167D7F);
+const Color _yellow = Color(0xffE0B620);
+const Color _yellowGreen = Color(0xff80E020);
+const Color _orange = Color(0xffCA5500);
+const Color _blue = Color(0xff165f7f);
+const Color _error = Color(0xffCA0000);
+const Color _electricBlue = Color(0xff57737a);
 
-const LinearGradient buttonGradientBGColor = LinearGradient(
-    begin: Alignment(-4.0, -2.0),
-    end: Alignment(3.0, 4.0),
-    colors: [
-      Color(0xff80E020),
-      Color(0xffE0B620),
-    ]);
+const Color _bodyTextColor = Color(0xff000000);
+const Color _lightGrey = Color(0xffA3A3A3);
+const Color _backgroundColor = Color(0xffE5E5E5);
+const Color _darkGreyColor = Color(0xff616161);
+const Color _textFieldBGColor = Color(0xffF9F9F9);
+const Color _lightBlack = Color(0xff4F4F4F);
 
 const FontWeight rubikLight = FontWeight.w300;
 const FontWeight rubikRegular = FontWeight.w400;
@@ -27,14 +22,53 @@ const FontWeight rubikSemiBold = FontWeight.w600;
 const FontWeight rubikBold = FontWeight.w700;
 const FontWeight rubikBlack = FontWeight.w800;
 
-const TextStyle massiveTextStyle =
-    TextStyle(color: lBodyTextColor, fontSize: 30);
-    const TextStyle extralargeTextStyle = TextStyle(color: lBodyTextColor, fontSize: 25);
-const TextStyle largeTextStyle = TextStyle(color: lBodyTextColor, fontSize: 18);
-const TextStyle mediumTextStyle =
-    TextStyle(color: lBodyTextColor, fontSize: 16);
-const TextStyle smallTextStyle = TextStyle(color: lBodyTextColor, fontSize: 12);
+class AppColors{
+  static const primary = _teal;
+  static const secondary = _teal;
+  static const accent = _yellow;
+  static const warning = _orange;
+  static const error = _error;
+  static const blue = _blue;
+  static const lightGrey = _lightGrey;
+  static const electricBlue = _electricBlue;
+  static const yellowGreen = _yellowGreen;
 
+  static const bodyText = _bodyTextColor;
+  static const background = _backgroundColor;
+  static const darkGrey = _darkGreyColor;
+  static const textFieldBG = _textFieldBGColor;
+  static const lightBlack = _lightBlack;
+
+  static LinearGradient linearGradient({required Color beginColor, required Color endColor}){
+    return LinearGradient(
+        begin: Alignment(-4.0, -2.0),
+        end: Alignment(3.0, 4.0),
+        colors: [
+          beginColor,
+          endColor,
+        ]);
+  }
+}
+
+class AppFontWeight{
+  static const FontWeight rubikLight = FontWeight.w300;
+  static const FontWeight rubikRegular = FontWeight.w400;
+  static const FontWeight rubikMedium = FontWeight.w500;
+  static const FontWeight rubikSemiBold = FontWeight.w600;
+  static const FontWeight rubikBold = FontWeight.w700;
+  static const FontWeight rubikBlack = FontWeight.w800;
+}
+
+class AppTextStyle{
+  static const TextStyle massive = TextStyle(color: _bodyTextColor, fontSize: textSizeMassive);
+  static const TextStyle extraLarge = TextStyle(color: _bodyTextColor, fontSize: textSizeExtraLarge);
+  static const TextStyle large = TextStyle(color: _bodyTextColor, fontSize: textSizeLarge);
+  static const TextStyle medium = TextStyle(color: _bodyTextColor, fontSize: textSizeMedium);
+  static const TextStyle small = TextStyle(color: _bodyTextColor, fontSize: textSizeSmall);
+}
+
+const double textSizeMassive = 30;
+const double textSizeExtraLarge = 25;
 const double textSizeLarge = 18;
 const double textSizeMedium = 16;
 const double textSizeSmall = 12;

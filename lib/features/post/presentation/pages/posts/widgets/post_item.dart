@@ -58,7 +58,7 @@ class PostItem extends StatelessWidget {
                       radius: 15,
                       backgroundImage: NetworkImage(profileImageURL),
                     ),
-                    horizontalSpaceSmall,
+                    AppHorizontalSpacing.small,
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,21 +66,21 @@ class PostItem extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: mediumTextStyle.copyWith(
-                                color: lLightBlackColor,
+                            style: AppTextStyle.medium.copyWith(
+                                color: AppColors.lightBlack,
                                 fontWeight: rubikMedium),
                           ),
                           Row(children: [
                             Text(
                               '$datePosted on ',
-                              style: smallTextStyle.copyWith(
-                                  color: lDarkGreyColor,
+                              style: AppTextStyle.small.copyWith(
+                                  color: AppColors.darkGrey,
                                   fontWeight: rubikLight),
                             ),
                             Text(
                               'Travel',
-                              style: smallTextStyle.copyWith(
-                                  color: lPrimaryColor,
+                              style: AppTextStyle.small.copyWith(
+                                  color: AppColors.primary,
                                   fontWeight: rubikMedium),
                             ),
                           ],)
@@ -92,22 +92,22 @@ class PostItem extends StatelessWidget {
                       children: [
                         Text(
                           'Okinawa',
-                          style: smallTextStyle.copyWith(
-                            color: lDarkGreyColor,
+                          style: AppTextStyle.small.copyWith(
+                            color: AppColors.darkGrey,
                             fontWeight: rubikLight,
                           ),
                         ),
-                        horizontalSpaceTiny,
+                        AppHorizontalSpacing.tiny,
                         Text(
                           'Japan',
-                          style: mediumTextStyle.copyWith(
-                              color: lLightBlackColor,
+                          style: AppTextStyle.medium.copyWith(
+                              color: AppColors.lightBlack,
                               fontWeight: rubikMedium),
                         ),
-                        horizontalSpaceTiny,
+                        AppHorizontalSpacing.tiny,
                         Icon(
                           Ionicons.location_outline,
-                          color: lPrimaryColor,
+                          color: AppColors.primary,
                           size: 20,
                         )
                       ],
@@ -147,13 +147,13 @@ class PostItem extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   title,
-                                  style: mediumTextStyle.copyWith(
+                                  style: AppTextStyle.medium.copyWith(
                                       color: Colors.white,
                                       fontWeight: rubikRegular),
                                 ),
                               ),
                             ),
-                            horizontalSpaceMedium,
+                            AppHorizontalSpacing.medium,
                             Icon(
                               Ionicons.arrow_forward,
                               color: Colors.white,
@@ -171,37 +171,37 @@ class PostItem extends StatelessWidget {
                   horizontal: hPadding, vertical: vPadding),
               child: Text(
                 content,
-                style: mediumTextStyle.copyWith(color: lDarkGreyColor),
+                style: AppTextStyle.medium.copyWith(color: AppColors.darkGrey),
                 maxLines: 5,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.justify,
               ),
             ),
-            verticalSpaceRegular,
+            AppVerticalSpace.regular,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: hPadding),
               child: Row(
                 children: [
                   Text('2.3k Likes',
-                      style: mediumTextStyle.copyWith(
-                          color: lOtherColor, fontWeight: rubikMedium)),
-                  horizontalSpaceRegular,
+                      style: AppTextStyle.medium.copyWith(
+                          color: AppColors.electricBlue, fontWeight: rubikMedium)),
+                  AppVerticalSpace.regular,
                   Expanded(
                       child: Text('4.1k Shares',
-                          style: mediumTextStyle.copyWith(
-                              color: lOtherColor, fontWeight: rubikMedium))),
+                          style: AppTextStyle.medium.copyWith(
+                              color: AppColors.electricBlue, fontWeight: rubikMedium))),
                   Icon(
                     Ionicons.chatbubble_outline,
-                    color: lOtherColor,
+                    color: AppColors.electricBlue,
                   ),
-                  horizontalSpaceTiny,
+                  AppVerticalSpace.tiny,
                   Text('$commentCount',
-                      style: mediumTextStyle.copyWith(
-                          color: lOtherColor, fontWeight: rubikMedium)),
+                      style: AppTextStyle.medium.copyWith(
+                          color: AppColors.electricBlue, fontWeight: rubikMedium)),
                 ],
               ),
             ),
-            verticalSpaceRegular,
+            AppVerticalSpace.regular,
             if (recentComment != null)
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -214,7 +214,7 @@ class PostItem extends StatelessWidget {
                       backgroundImage: NetworkImage(
                           '${UserProfile.fromJson(recentComment!.userProfile!).profileImageURL}'),
                     ),
-                    horizontalSpaceSmall,
+                    AppHorizontalSpacing.small,
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,20 +224,20 @@ class PostItem extends StatelessWidget {
                             children: [
                               Text(
                                 '${UserProfile.fromJson(recentComment!.userProfile!).firstname} ${UserProfile.fromJson(recentComment!.userProfile!).lastname}',
-                                style: mediumTextStyle.copyWith(
+                                style: AppTextStyle.medium.copyWith(
                                     fontWeight: rubikMedium),
                               ),
-                              horizontalSpaceTiny,
+                              AppHorizontalSpacing.tiny,
                               Text(
                                 '5 mins ago',
                                 style:
-                                    smallTextStyle.copyWith(color: lLightGrey),
+                                AppTextStyle.small.copyWith(color: AppColors.lightGrey),
                               ),
                             ],
                           ),
                           Text(
                             '${recentComment!.body}',
-                            style: mediumTextStyle.copyWith(color: lOtherColor),
+                            style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue),
                           ),
                         ],
                       ),
@@ -245,7 +245,7 @@ class PostItem extends StatelessWidget {
                   ],
                 ),
               ),
-            if (recentComment != null) verticalSpaceSmall,
+            if (recentComment != null) AppVerticalSpace.small,
           ],
         ),
       ),
