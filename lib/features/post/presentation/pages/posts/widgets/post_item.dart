@@ -70,12 +70,20 @@ class PostItem extends StatelessWidget {
                                 color: lLightBlackColor,
                                 fontWeight: rubikMedium),
                           ),
-                          Text(
-                            datePosted,
-                            style: smallTextStyle.copyWith(
-                                color: lDarkGreyColor,
-                                fontWeight: rubikLight),
-                          ),
+                          Row(children: [
+                            Text(
+                              '$datePosted on ',
+                              style: smallTextStyle.copyWith(
+                                  color: lDarkGreyColor,
+                                  fontWeight: rubikLight),
+                            ),
+                            Text(
+                              'Travel',
+                              style: smallTextStyle.copyWith(
+                                  color: lPrimaryColor,
+                                  fontWeight: rubikMedium),
+                            ),
+                          ],)
                         ],
                       ),
                     ),
