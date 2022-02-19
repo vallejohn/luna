@@ -68,20 +68,20 @@ class PostItem extends StatelessWidget {
                             name,
                             style: AppTextStyle.medium.copyWith(
                                 color: AppColors.lightBlack,
-                                fontWeight: rubikMedium),
+                                fontWeight: AppFontWeight.rubikMedium),
                           ),
                           Row(children: [
                             Text(
                               '$datePosted on ',
                               style: AppTextStyle.small.copyWith(
                                   color: AppColors.darkGrey,
-                                  fontWeight: rubikLight),
+                                  fontWeight: AppFontWeight.rubikLight),
                             ),
                             Text(
                               'Travel',
                               style: AppTextStyle.small.copyWith(
                                   color: AppColors.primary,
-                                  fontWeight: rubikMedium),
+                                  fontWeight: AppFontWeight.rubikMedium),
                             ),
                           ],)
                         ],
@@ -94,7 +94,7 @@ class PostItem extends StatelessWidget {
                           'Okinawa',
                           style: AppTextStyle.small.copyWith(
                             color: AppColors.darkGrey,
-                            fontWeight: rubikLight,
+                            fontWeight: AppFontWeight.rubikLight,
                           ),
                         ),
                         AppHorizontalSpacing.tiny,
@@ -102,7 +102,7 @@ class PostItem extends StatelessWidget {
                           'Japan',
                           style: AppTextStyle.medium.copyWith(
                               color: AppColors.lightBlack,
-                              fontWeight: rubikMedium),
+                              fontWeight: AppFontWeight.rubikMedium),
                         ),
                         AppHorizontalSpacing.tiny,
                         Icon(
@@ -149,7 +149,7 @@ class PostItem extends StatelessWidget {
                                   title,
                                   style: AppTextStyle.medium.copyWith(
                                       color: Colors.white,
-                                      fontWeight: rubikRegular),
+                                      fontWeight: AppFontWeight.rubikRegular),
                                 ),
                               ),
                             ),
@@ -184,12 +184,12 @@ class PostItem extends StatelessWidget {
                 children: [
                   Text('2.3k Likes',
                       style: AppTextStyle.medium.copyWith(
-                          color: AppColors.electricBlue, fontWeight: rubikMedium)),
+                          color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
                   AppVerticalSpace.regular,
                   Expanded(
                       child: Text('4.1k Shares',
                           style: AppTextStyle.medium.copyWith(
-                              color: AppColors.electricBlue, fontWeight: rubikMedium))),
+                              color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium))),
                   Icon(
                     Ionicons.chatbubble_outline,
                     color: AppColors.electricBlue,
@@ -197,7 +197,7 @@ class PostItem extends StatelessWidget {
                   AppVerticalSpace.tiny,
                   Text('$commentCount',
                       style: AppTextStyle.medium.copyWith(
-                          color: AppColors.electricBlue, fontWeight: rubikMedium)),
+                          color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
                 ],
               ),
             ),
@@ -225,7 +225,7 @@ class PostItem extends StatelessWidget {
                               Text(
                                 '${UserProfile.fromJson(recentComment!.userProfile!).firstname} ${UserProfile.fromJson(recentComment!.userProfile!).lastname}',
                                 style: AppTextStyle.medium.copyWith(
-                                    fontWeight: rubikMedium),
+                                    fontWeight: AppFontWeight.rubikMedium),
                               ),
                               AppHorizontalSpacing.tiny,
                               Text(
