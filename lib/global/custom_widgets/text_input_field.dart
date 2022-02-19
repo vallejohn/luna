@@ -25,7 +25,7 @@ class TextInputField extends StatelessWidget {
       controller: controller,
       textInputAction: TextInputAction.done,
       style:
-          AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: rubikLight),
+          AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
       keyboardType: textInputType ?? null,
       textAlign: TextAlign.start,
       obscureText: obscureText ?? false,
@@ -41,7 +41,7 @@ class TextInputField extends StatelessWidget {
                   obscureText! ? 'show' : 'hide',
                   style: AppTextStyle.medium.copyWith(
                     color: Colors.white.withOpacity(0.5),
-                    fontWeight: rubikLight,
+                    fontWeight: AppFontWeight.rubikLight,
                   ),
                 ),
               )
@@ -55,7 +55,7 @@ class TextInputField extends StatelessWidget {
         filled: true,
         fillColor: Colors.black.withOpacity(0.15),
         hintStyle: AppTextStyle.medium.copyWith(
-            color: Colors.white.withOpacity(0.5), fontWeight: rubikLight),
+            color: Colors.white.withOpacity(0.5), fontWeight: AppFontWeight.rubikLight),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(customBorderRadius),
           borderSide: errorText != null

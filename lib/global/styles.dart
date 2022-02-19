@@ -15,13 +15,6 @@ const Color _darkGreyColor = Color(0xff616161);
 const Color _textFieldBGColor = Color(0xffF9F9F9);
 const Color _lightBlack = Color(0xff4F4F4F);
 
-const FontWeight rubikLight = FontWeight.w300;
-const FontWeight rubikRegular = FontWeight.w400;
-const FontWeight rubikMedium = FontWeight.w500;
-const FontWeight rubikSemiBold = FontWeight.w600;
-const FontWeight rubikBold = FontWeight.w700;
-const FontWeight rubikBlack = FontWeight.w800;
-
 class AppColors{
   static const primary = _teal;
   static const secondary = _teal;
