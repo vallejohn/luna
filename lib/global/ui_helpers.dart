@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const double horizontalMargin = 16;
 const double customBorderRadius = 10;
 
-class AppHorizontalSpacing{
+class AppHorizontalSpace{
   static const Widget tiny = SizedBox(width: 5.0);
   static const Widget small = SizedBox(width: 10.0);
   static const Widget regular = SizedBox(width: 18.0);
