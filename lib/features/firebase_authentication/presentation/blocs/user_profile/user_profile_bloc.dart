@@ -20,6 +20,6 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   }
 
   FutureOr<void> _onStarted(_Started event, Emitter<UserProfileState> emit) {
-    emit(UserProfileState.success(profileStream: _profileStream.profileStream.stream));
+    emit(UserProfileState.success(profileStream: _profileStream.userStream));
   }
 }
