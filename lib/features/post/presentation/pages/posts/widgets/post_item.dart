@@ -57,7 +57,7 @@ class PostItem extends StatelessWidget {
                       radius: 15,
                       backgroundImage: NetworkImage(profileImageURL),
                     ),
-                    AppHorizontalSpacing.small,
+                    AppHorizontalSpace.small,
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,12 +92,12 @@ class PostItem extends StatelessWidget {
                             fontWeight: AppFontWeight.rubikLight,
                           ),
                         ),
-                        AppHorizontalSpacing.tiny,
+                        AppHorizontalSpace.tiny,
                         Text(
                           'Japan',
                           style: AppTextStyle.medium.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
                         ),
-                        AppHorizontalSpacing.tiny,
+                        AppHorizontalSpace.tiny,
                         Icon(
                           Ionicons.location_outline,
                           color: AppColors.primary,
@@ -140,7 +140,7 @@ class PostItem extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            AppHorizontalSpacing.medium,
+                            AppHorizontalSpace.medium,
                             Icon(
                               Ionicons.arrow_forward,
                               color: Colors.white,
@@ -193,7 +193,7 @@ class PostItem extends StatelessWidget {
                       radius: 14,
                       backgroundImage: NetworkImage('${UserProfile.fromJson(recentComment!.userProfile!).profileImageURL}'),
                     ),
-                    AppHorizontalSpacing.small,
+                    AppHorizontalSpace.small,
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,7 +205,7 @@ class PostItem extends StatelessWidget {
                                 '${UserProfile.fromJson(recentComment!.userProfile!).firstname} ${UserProfile.fromJson(recentComment!.userProfile!).lastname}',
                                 style: AppTextStyle.medium.copyWith(fontWeight: AppFontWeight.rubikMedium),
                               ),
-                              AppHorizontalSpacing.tiny,
+                              AppHorizontalSpace.tiny,
                               Text(
                                 '5 mins ago',
                                 style: AppTextStyle.small.copyWith(color: AppColors.lightGrey),
