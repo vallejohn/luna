@@ -112,7 +112,7 @@ class CreatePostPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Icon(
-                              Ionicons.image,
+                              Ionicons.image_outline,
                               color: state.maybeWhen(success: (image) => AppColors.accent, orElse: () => AppColors.darkGrey),
                             ),
                             AppHorizontalSpace.tiny,
@@ -143,17 +143,32 @@ class CreatePostPage extends StatelessWidget {
                   success: (image) => Stack(
                     alignment: Alignment.center,
                     children: [
-                      Container(
-                            height: 300,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              color: AppColors.lightGrey,
-                              image: DecorationImage(image: FileImage(File(image.path)), fit: BoxFit.cover),
-                            ),
-                          ),
+                      Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: horizontalMargin),
+                                height: 300,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(customBorderRadius),
+                                  color: AppColors.lightGrey,
+                                  image: DecorationImage(image: FileImage(File(image.path)), fit: BoxFit.cover),
+                                    boxShadow:[
+                                      BoxShadow(
+                                        color: AppColors.darkGrey.withOpacity(0.3),
+                                        spreadRadius: 0.5,
+                                        blurRadius: 20,
+                                        offset: Offset(0, 10),
+                                      )
+                                    ]
+                                ),
+                              ),
+                          AppVerticalSpace.large,
+                        ],
+                      ),
                       Positioned(
                         top: 10,
-                        left: 10,
+                        left: 25,
                         child: GestureDetector(
                           child: Container(
                             child: CircleAvatar(
@@ -169,7 +184,6 @@ class CreatePostPage extends StatelessWidget {
                   ),
                   orElse: () => Container());
             }),
-            AppVerticalSpace.regular,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: horizontalMargin),
               child: TextFormField(
