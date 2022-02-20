@@ -6,10 +6,12 @@ import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 
+import '../../../../core/utils/errors.dart';
+
 abstract class PostRepository{
   final PostDataSource postDataSource;
   PostRepository({required this.postDataSource});
 
   Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts();
-  Future<Either<Failure, DataState<PickedFile, String>>> uploadPostCoverImage();
+  Future<Either<Failure, DataState<PickedFile, NoError>>> uploadPostCoverImage();
 }

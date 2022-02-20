@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
+import 'package:luna/core/utils/errors.dart';
 
 abstract class PostDataSource{
   final FirebaseFirestore firestore;
@@ -13,5 +14,5 @@ abstract class PostDataSource{
   });
 
   Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts();
-  Future<DataState<PickedFile, String>> uploadPostCoverImage();
+  Future<DataState<PickedFile, NoError>> uploadPostCoverImage();
 }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
+import 'package:luna/core/utils/errors.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 
 class PostDataSourceImpl extends PostDataSource{
@@ -19,7 +20,7 @@ class PostDataSourceImpl extends PostDataSource{
   }
 
   @override
-  Future<DataState<PickedFile, String>> uploadPostCoverImage() async{
+  Future<DataState<PickedFile, NoError>> uploadPostCoverImage() async{
 
     // ignore: invalid_use_of_visible_for_testing_member
     PickedFile? image = await ImagePicker.platform.pickImage(
@@ -30,7 +31,7 @@ class PostDataSourceImpl extends PostDataSource{
     if(image != null){
       return DataState.success(data: image);
     }else{
-      return DataState.failed(error: 'Cancelled');
+      return DataState.failed(error: NoError());
     }
   }
 }
