@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
@@ -8,10 +9,12 @@ import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 class PostDataSourceImpl extends PostDataSource{
   PostDataSourceImpl({
     required FirebaseFirestore firestore,
-    required CollectionReference collectionReference
+    required CollectionReference collectionReference,
+    required FirebaseStorage firebaseStorage
   }) : super(
       firestore: firestore,
-      postsCollection: collectionReference
+      postsCollection: collectionReference,
+      firebaseStorage: firebaseStorage
   );
 
   @override
