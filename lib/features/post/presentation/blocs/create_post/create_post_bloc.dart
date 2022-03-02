@@ -13,7 +13,7 @@ part 'create_post_bloc.freezed.dart';
 
 class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
 
-  final _addPost = GetIt.instance<AddPost>();
+ // final _addPost = GetIt.instance<AddPost>();
 
   CreatePostBloc() : super(CreatePostState.initial()) {
     on<_Started>(_onStarted);
@@ -25,9 +25,9 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
   }
 
   FutureOr<void> _onAddPost(_OnAddPost event, Emitter<CreatePostState> emit) async{
-    emit(CreatePostState.uploading());
+   // emit(CreatePostState.uploading());
 
-    final failureOrSuccess = await _addPost(event.addPostData);
+   // final failureOrSuccess = await _addPost(event.addPostData);
 
     emit(CreatePostState.success());
   }
