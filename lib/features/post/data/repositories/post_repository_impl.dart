@@ -6,6 +6,7 @@ import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
+import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 import 'package:luna/features/post/domain/repositories/post_repository.dart';
 
@@ -39,6 +40,18 @@ class PostRepositoryImpl extends PostRepository{
     }catch(e){
       Logger().e('Error Uploading cover image: ${e.toString()}');
       return Left(Failure.generic(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, DataState<DocumentReference<Object?>, NoError>>> addPost(AddPostData addPostData) async{
+    try{
+      Logger().i('Trying to add post!');
+      final dataState = await postDataSource.addPost(addPostData);
+      return Right(dataState);
+    }catch(e){
+      Logger().e('Error when adding post: ${e.toString()}');
+      return Left(Failure.firebase(message: e.toString()));
     }
   }
 }

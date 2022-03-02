@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/presentation/blocs/create_post/create_post_bloc.dart';
 import 'package:luna/global/styles.dart';
 
@@ -130,12 +131,12 @@ class CreatePostPage extends StatelessWidget {
                       }),
                     ),
                     GestureDetector(
-                      onTap: () => context.read<CreatePostBloc>().add(CreatePostEvent.onAddPost(
-                            image: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image),
-                            title: postTitleController.text,
-                            content: contentController.text
-                        ),
-                      ),
+                      onTap: () => context.read<CreatePostBloc>().add(
+                            CreatePostEvent.onAddPost(addPostData: AddPostData(
+                                image: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image),
+                                title: postTitleController.text,
+                                content: contentController.text)),
+                          ),
                       child: Padding(
                         padding: const EdgeInsets.only(right: horizontalMargin),
                         child: Text(

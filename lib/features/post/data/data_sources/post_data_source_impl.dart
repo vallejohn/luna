@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
+import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 
 class PostDataSourceImpl extends PostDataSource{
@@ -36,5 +37,11 @@ class PostDataSourceImpl extends PostDataSource{
     }else{
       return DataState.failed(error: NoError());
     }
+  }
+
+  @override
+  Future<DataState<DocumentReference, NoError>> addPost(AddPostData addPostData) {
+    // TODO: implement addPost
+    throw UnimplementedError();
   }
 }

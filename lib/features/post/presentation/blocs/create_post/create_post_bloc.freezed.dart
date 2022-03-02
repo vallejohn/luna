@@ -22,12 +22,9 @@ class _$CreatePostEventTearOff {
     return const _Started();
   }
 
-  _OnAddPost onAddPost(
-      {PickedFile? image, required String title, required String content}) {
+  _OnAddPost onAddPost({required AddPostData addPostData}) {
     return _OnAddPost(
-      image: image,
-      title: title,
-      content: content,
+      addPostData: addPostData,
     );
   }
 }
@@ -40,22 +37,19 @@ mixin _$CreatePostEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(PickedFile? image, String title, String content)
-        onAddPost,
+    required TResult Function(AddPostData addPostData) onAddPost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,8 +130,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(PickedFile? image, String title, String content)
-        onAddPost,
+    required TResult Function(AddPostData addPostData) onAddPost,
   }) {
     return started();
   }
@@ -146,8 +139,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
   }) {
     return started?.call();
   }
@@ -156,8 +148,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -207,7 +198,7 @@ abstract class _$OnAddPostCopyWith<$Res> {
   factory _$OnAddPostCopyWith(
           _OnAddPost value, $Res Function(_OnAddPost) then) =
       __$OnAddPostCopyWithImpl<$Res>;
-  $Res call({PickedFile? image, String title, String content});
+  $Res call({AddPostData addPostData});
 }
 
 /// @nodoc
@@ -221,23 +212,13 @@ class __$OnAddPostCopyWithImpl<$Res> extends _$CreatePostEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? image = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
+    Object? addPostData = freezed,
   }) {
     return _then(_OnAddPost(
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as PickedFile?,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: content == freezed
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
+      addPostData: addPostData == freezed
+          ? _value.addPostData
+          : addPostData // ignore: cast_nullable_to_non_nullable
+              as AddPostData,
     ));
   }
 }
@@ -245,18 +226,14 @@ class __$OnAddPostCopyWithImpl<$Res> extends _$CreatePostEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_OnAddPost implements _OnAddPost {
-  const _$_OnAddPost({this.image, required this.title, required this.content});
+  const _$_OnAddPost({required this.addPostData});
 
   @override
-  final PickedFile? image;
-  @override
-  final String title;
-  @override
-  final String content;
+  final AddPostData addPostData;
 
   @override
   String toString() {
-    return 'CreatePostEvent.onAddPost(image: $image, title: $title, content: $content)';
+    return 'CreatePostEvent.onAddPost(addPostData: $addPostData)';
   }
 
   @override
@@ -264,17 +241,13 @@ class _$_OnAddPost implements _OnAddPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OnAddPost &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.content, content));
+            const DeepCollectionEquality()
+                .equals(other.addPostData, addPostData));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(content));
+      runtimeType, const DeepCollectionEquality().hash(addPostData));
 
   @JsonKey(ignore: true)
   @override
@@ -285,32 +258,29 @@ class _$_OnAddPost implements _OnAddPost {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(PickedFile? image, String title, String content)
-        onAddPost,
+    required TResult Function(AddPostData addPostData) onAddPost,
   }) {
-    return onAddPost(image, title, content);
+    return onAddPost(addPostData);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
   }) {
-    return onAddPost?.call(image, title, content);
+    return onAddPost?.call(addPostData);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(PickedFile? image, String title, String content)?
-        onAddPost,
+    TResult Function(AddPostData addPostData)? onAddPost,
     required TResult orElse(),
   }) {
     if (onAddPost != null) {
-      return onAddPost(image, title, content);
+      return onAddPost(addPostData);
     }
     return orElse();
   }
@@ -348,14 +318,9 @@ class _$_OnAddPost implements _OnAddPost {
 }
 
 abstract class _OnAddPost implements CreatePostEvent {
-  const factory _OnAddPost(
-      {PickedFile? image,
-      required String title,
-      required String content}) = _$_OnAddPost;
+  const factory _OnAddPost({required AddPostData addPostData}) = _$_OnAddPost;
 
-  PickedFile? get image;
-  String get title;
-  String get content;
+  AddPostData get addPostData;
   @JsonKey(ignore: true)
   _$OnAddPostCopyWith<_OnAddPost> get copyWith =>
       throw _privateConstructorUsedError;
@@ -372,6 +337,10 @@ class _$CreatePostStateTearOff {
   _Success success() {
     return const _Success();
   }
+
+  _Uploading uploading() {
+    return const _Uploading();
+  }
 }
 
 /// @nodoc
@@ -383,18 +352,21 @@ mixin _$CreatePostState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
+    required TResult Function() uploading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -402,18 +374,21 @@ mixin _$CreatePostState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Uploading value) uploading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -476,6 +451,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
+    required TResult Function() uploading,
   }) {
     return initial();
   }
@@ -485,6 +461,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
   }) {
     return initial?.call();
   }
@@ -494,6 +471,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -507,6 +485,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Uploading value) uploading,
   }) {
     return initial(this);
   }
@@ -516,6 +495,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
   }) {
     return initial?.call(this);
   }
@@ -525,6 +505,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -578,6 +559,7 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
+    required TResult Function() uploading,
   }) {
     return success();
   }
@@ -587,6 +569,7 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
   }) {
     return success?.call();
   }
@@ -596,6 +579,7 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
+    TResult Function()? uploading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -609,6 +593,7 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Uploading value) uploading,
   }) {
     return success(this);
   }
@@ -618,6 +603,7 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
   }) {
     return success?.call(this);
   }
@@ -627,6 +613,7 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -638,4 +625,113 @@ class _$_Success implements _Success {
 
 abstract class _Success implements CreatePostState {
   const factory _Success() = _$_Success;
+}
+
+/// @nodoc
+abstract class _$UploadingCopyWith<$Res> {
+  factory _$UploadingCopyWith(
+          _Uploading value, $Res Function(_Uploading) then) =
+      __$UploadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UploadingCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
+    implements _$UploadingCopyWith<$Res> {
+  __$UploadingCopyWithImpl(_Uploading _value, $Res Function(_Uploading) _then)
+      : super(_value, (v) => _then(v as _Uploading));
+
+  @override
+  _Uploading get _value => super._value as _Uploading;
+}
+
+/// @nodoc
+
+class _$_Uploading implements _Uploading {
+  const _$_Uploading();
+
+  @override
+  String toString() {
+    return 'CreatePostState.uploading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Uploading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() success,
+    required TResult Function() uploading,
+  }) {
+    return uploading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? success,
+    TResult Function()? uploading,
+  }) {
+    return uploading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? success,
+    TResult Function()? uploading,
+    required TResult orElse(),
+  }) {
+    if (uploading != null) {
+      return uploading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Uploading value) uploading,
+  }) {
+    return uploading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
+  }) {
+    return uploading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Uploading value)? uploading,
+    required TResult orElse(),
+  }) {
+    if (uploading != null) {
+      return uploading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Uploading implements CreatePostState {
+  const factory _Uploading() = _$_Uploading;
 }
