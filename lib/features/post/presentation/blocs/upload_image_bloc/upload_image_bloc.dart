@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
-
 import '../../../domain/usecases/add_post_cover_image.dart';
 
 part 'upload_image_event.dart';
@@ -15,7 +14,6 @@ part 'upload_image_bloc.freezed.dart';
 class UploadImageBloc extends Bloc<UploadImageEvent, UploadImageState> {
   final _uploadPostCoverImage = GetIt.instance<AddPostCoverImage>();
 
-  PickedFile? _image;
 
   UploadImageBloc() : super(UploadImageState.initial()) {
     on<_Started>((event, emit) {});
@@ -31,15 +29,14 @@ class UploadImageBloc extends Bloc<UploadImageEvent, UploadImageState> {
       emit(UploadImageState.error());
     }, (dataState){
       dataState.whenOrNull(success: (data){
-        _image = data;
+        PickedFile? _image = data;
         Logger().i(_image!.path.toString());
-        emit(UploadImageState.success(image: _image!));
+        emit(UploadImageState.success(image: _image));
       });
     });
   }
 
   FutureOr<void> _onCancel(_OnCancel event, Emitter<UploadImageState> emit) {
-    _image = null;
     emit(UploadImageState.cancelled());
   }
 }
