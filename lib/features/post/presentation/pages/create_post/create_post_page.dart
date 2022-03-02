@@ -125,7 +125,7 @@ class CreatePostPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onUpload()),
+                          onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onBrowse()),
                         );
                       }),
                     ),

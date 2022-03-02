@@ -22,8 +22,8 @@ class _$UploadImageEventTearOff {
     return const _Started();
   }
 
-  _OnUpload onUpload() {
-    return const _OnUpload();
+  _OnBrowse onBrowse() {
+    return const _OnBrowse();
   }
 
   _OnCancel onCancel() {
@@ -39,21 +39,21 @@ mixin _$UploadImageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() onUpload,
+    required TResult Function() onBrowse,
     required TResult Function() onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
     required TResult orElse(),
   }) =>
@@ -61,21 +61,21 @@ mixin _$UploadImageEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_OnUpload value) onUpload,
+    required TResult Function(_OnBrowse value) onBrowse,
     required TResult Function(_OnCancel value) onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
     required TResult orElse(),
   }) =>
@@ -138,7 +138,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() onUpload,
+    required TResult Function() onBrowse,
     required TResult Function() onCancel,
   }) {
     return started();
@@ -148,7 +148,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
   }) {
     return started?.call();
@@ -158,7 +158,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
     required TResult orElse(),
   }) {
@@ -172,7 +172,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_OnUpload value) onUpload,
+    required TResult Function(_OnBrowse value) onBrowse,
     required TResult Function(_OnCancel value) onCancel,
   }) {
     return started(this);
@@ -182,7 +182,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
   }) {
     return started?.call(this);
@@ -192,7 +192,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
     required TResult orElse(),
   }) {
@@ -208,35 +208,35 @@ abstract class _Started implements UploadImageEvent {
 }
 
 /// @nodoc
-abstract class _$OnUploadCopyWith<$Res> {
-  factory _$OnUploadCopyWith(_OnUpload value, $Res Function(_OnUpload) then) =
-      __$OnUploadCopyWithImpl<$Res>;
+abstract class _$OnBrowseCopyWith<$Res> {
+  factory _$OnBrowseCopyWith(_OnBrowse value, $Res Function(_OnBrowse) then) =
+      __$OnBrowseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$OnUploadCopyWithImpl<$Res> extends _$UploadImageEventCopyWithImpl<$Res>
-    implements _$OnUploadCopyWith<$Res> {
-  __$OnUploadCopyWithImpl(_OnUpload _value, $Res Function(_OnUpload) _then)
-      : super(_value, (v) => _then(v as _OnUpload));
+class __$OnBrowseCopyWithImpl<$Res> extends _$UploadImageEventCopyWithImpl<$Res>
+    implements _$OnBrowseCopyWith<$Res> {
+  __$OnBrowseCopyWithImpl(_OnBrowse _value, $Res Function(_OnBrowse) _then)
+      : super(_value, (v) => _then(v as _OnBrowse));
 
   @override
-  _OnUpload get _value => super._value as _OnUpload;
+  _OnBrowse get _value => super._value as _OnBrowse;
 }
 
 /// @nodoc
 
-class _$_OnUpload implements _OnUpload {
-  const _$_OnUpload();
+class _$_OnBrowse implements _OnBrowse {
+  const _$_OnBrowse();
 
   @override
   String toString() {
-    return 'UploadImageEvent.onUpload()';
+    return 'UploadImageEvent.onBrowse()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OnUpload);
+        (other.runtimeType == runtimeType && other is _OnBrowse);
   }
 
   @override
@@ -246,32 +246,32 @@ class _$_OnUpload implements _OnUpload {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() onUpload,
+    required TResult Function() onBrowse,
     required TResult Function() onCancel,
   }) {
-    return onUpload();
+    return onBrowse();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
   }) {
-    return onUpload?.call();
+    return onBrowse?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
     required TResult orElse(),
   }) {
-    if (onUpload != null) {
-      return onUpload();
+    if (onBrowse != null) {
+      return onBrowse();
     }
     return orElse();
   }
@@ -280,39 +280,39 @@ class _$_OnUpload implements _OnUpload {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_OnUpload value) onUpload,
+    required TResult Function(_OnBrowse value) onBrowse,
     required TResult Function(_OnCancel value) onCancel,
   }) {
-    return onUpload(this);
+    return onBrowse(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
   }) {
-    return onUpload?.call(this);
+    return onBrowse?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
     required TResult orElse(),
   }) {
-    if (onUpload != null) {
-      return onUpload(this);
+    if (onBrowse != null) {
+      return onBrowse(this);
     }
     return orElse();
   }
 }
 
-abstract class _OnUpload implements UploadImageEvent {
-  const factory _OnUpload() = _$_OnUpload;
+abstract class _OnBrowse implements UploadImageEvent {
+  const factory _OnBrowse() = _$_OnBrowse;
 }
 
 /// @nodoc
@@ -354,7 +354,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() onUpload,
+    required TResult Function() onBrowse,
     required TResult Function() onCancel,
   }) {
     return onCancel();
@@ -364,7 +364,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
   }) {
     return onCancel?.call();
@@ -374,7 +374,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? onUpload,
+    TResult Function()? onBrowse,
     TResult Function()? onCancel,
     required TResult orElse(),
   }) {
@@ -388,7 +388,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_OnUpload value) onUpload,
+    required TResult Function(_OnBrowse value) onBrowse,
     required TResult Function(_OnCancel value) onCancel,
   }) {
     return onCancel(this);
@@ -398,7 +398,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
   }) {
     return onCancel?.call(this);
@@ -408,7 +408,7 @@ class _$_OnCancel implements _OnCancel {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_OnUpload value)? onUpload,
+    TResult Function(_OnBrowse value)? onBrowse,
     TResult Function(_OnCancel value)? onCancel,
     required TResult orElse(),
   }) {

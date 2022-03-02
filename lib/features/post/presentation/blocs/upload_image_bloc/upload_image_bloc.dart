@@ -17,11 +17,11 @@ class UploadImageBloc extends Bloc<UploadImageEvent, UploadImageState> {
 
   UploadImageBloc() : super(UploadImageState.initial()) {
     on<_Started>((event, emit) {});
-    on<_OnUpload>(_onUpload);
+    on<_OnBrowse>(_onBrowse);
     on<_OnCancel>(_onCancel);
   }
 
-  FutureOr<void> _onUpload(_OnUpload event, Emitter<UploadImageState> emit) async{
+  FutureOr<void> _onBrowse(_OnBrowse event, Emitter<UploadImageState> emit) async{
     final failureOrCoverImage = await _uploadPostCoverImage();
 
     failureOrCoverImage.fold((failure){

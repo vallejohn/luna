@@ -17,5 +17,5 @@ abstract class PostDataSource{
   });
 
   Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts();
-  Future<DataState<PickedFile, NoError>> uploadPostCoverImage();
+  Future<DataState<PickedFile, NoError>> browsePostCoverImage();
 }

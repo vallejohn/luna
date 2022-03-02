@@ -34,7 +34,7 @@ class PostRepositoryImpl extends PostRepository{
   Future<Either<Failure, DataState<PickedFile, NoError>>> uploadPostCoverImage() async{
     try{
       Logger().i('Browsing for cover image!');
-      final dataState = await postDataSource.uploadPostCoverImage();
+      final dataState = await postDataSource.browsePostCoverImage();
       return Right(dataState);
     }catch(e){
       Logger().e('Error Uploading cover image: ${e.toString()}');
