@@ -8,9 +8,9 @@ import 'package:luna/features/post/presentation/blocs/create_post/create_post_bl
 import 'package:luna/global/styles.dart';
 
 import '../../../../../global/ui_helpers.dart';
-import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import '../../blocs/upload_image_bloc/upload_image_bloc.dart';
+import '../widgets/profile_photo.dart';
 
 class CreatePostPage extends StatelessWidget {
   const CreatePostPage({Key? key}) : super(key: key);
@@ -31,40 +31,7 @@ class CreatePostPage extends StatelessWidget {
           style: TextStyle(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikRegular),
         ),
         actions: [
-          BlocBuilder<UserProfileBloc, UserProfileState>(
-            builder: (context, state) {
-              return state.when(
-                  initial: () => Container(),
-                  success: (profileStream) => StreamBuilder<UserProfile>(
-                        stream: profileStream,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasError) {
-                            return Center(
-                              child: Text('Error'),
-                            );
-                          }
-                          if (snapshot.connectionState == ConnectionState.waiting) {
-                            return Center(
-                              child: Text('Waiting'),
-                            );
-                          }
-
-                          UserProfile profile = UserProfile.fromJson(snapshot.data!.toJson());
-
-                          return Padding(
-                            padding: EdgeInsets.only(right: horizontalMargin),
-                            child: GestureDetector(
-                              onTap: () {}, // goto profile,
-                              onLongPress: () {}, // signout,
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage(profile.profileImageURL),
-                              ),
-                            ),
-                          );
-                        },
-                      ));
-            },
-          )
+          ProfilePhoto()
         ],
       ),
       body: BlocBuilder<CreatePostBloc, CreatePostState>(builder: (context, state) {
@@ -132,10 +99,12 @@ class CreatePostPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () => context.read<CreatePostBloc>().add(
-                            CreatePostEvent.onAddPost(addPostData: AddPostData(
-                                image: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image),
-                                title: postTitleController.text,
-                                content: contentController.text)),
+                            CreatePostEvent.onAddPost(
+                                addPostData: AddPostData(
+                                    image: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image),
+                                    title: postTitleController.text,
+                                    content: contentController.text,
+                                    user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),
                           ),
                       child: Padding(
                         padding: const EdgeInsets.only(right: horizontalMargin),

@@ -183,8 +183,10 @@ class _$AuthCheckStateTearOff {
     return const _Loading();
   }
 
-  _Authenticated authenticated() {
-    return const _Authenticated();
+  _Authenticated authenticated({required UserProfileParam param}) {
+    return _Authenticated(
+      param: param,
+    );
   }
 
   _UnAuthenticated unAuthenticated() {
@@ -206,7 +208,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) =>
@@ -214,7 +216,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) =>
@@ -222,7 +224,7 @@ mixin _$AuthCheckState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -311,7 +313,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -322,7 +324,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -333,7 +335,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -391,6 +393,7 @@ abstract class _$AuthenticatedCopyWith<$Res> {
   factory _$AuthenticatedCopyWith(
           _Authenticated value, $Res Function(_Authenticated) then) =
       __$AuthenticatedCopyWithImpl<$Res>;
+  $Res call({UserProfileParam param});
 }
 
 /// @nodoc
@@ -403,60 +406,83 @@ class __$AuthenticatedCopyWithImpl<$Res>
 
   @override
   _Authenticated get _value => super._value as _Authenticated;
+
+  @override
+  $Res call({
+    Object? param = freezed,
+  }) {
+    return _then(_Authenticated(
+      param: param == freezed
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as UserProfileParam,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Authenticated implements _Authenticated {
-  const _$_Authenticated();
+  const _$_Authenticated({required this.param});
+
+  @override
+  final UserProfileParam param;
 
   @override
   String toString() {
-    return 'AuthCheckState.authenticated()';
+    return 'AuthCheckState.authenticated(param: $param)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Authenticated);
+        (other.runtimeType == runtimeType &&
+            other is _Authenticated &&
+            const DeepCollectionEquality().equals(other.param, param));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(param));
+
+  @JsonKey(ignore: true)
+  @override
+  _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
+      __$AuthenticatedCopyWithImpl<_Authenticated>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
-    return authenticated();
+    return authenticated(param);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
-    return authenticated?.call();
+    return authenticated?.call(param);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated();
+      return authenticated(param);
     }
     return orElse();
   }
@@ -500,7 +526,13 @@ class _$_Authenticated implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthCheckState {
-  const factory _Authenticated() = _$_Authenticated;
+  const factory _Authenticated({required UserProfileParam param}) =
+      _$_Authenticated;
+
+  UserProfileParam get param;
+  @JsonKey(ignore: true)
+  _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -545,7 +577,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -556,7 +588,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -567,7 +599,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -683,7 +715,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
     required TResult Function(String message) error,
   }) {
@@ -694,7 +726,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
   }) {
@@ -705,7 +737,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),

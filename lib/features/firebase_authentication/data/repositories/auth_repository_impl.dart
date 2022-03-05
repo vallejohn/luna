@@ -9,7 +9,6 @@ import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/domain/repositories/auth_repository.dart';
 
 import '../data_sources/auth_data_source.dart';
-import '../models/user_profile.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({
@@ -19,7 +18,7 @@ class AuthRepositoryImpl extends AuthRepository {
   );
 
   @override
-  Future<Either<Failure, DataState<UserProfile, LoginError>>> signInWithEmailAndPassword(LoginCredentials params) async{
+  Future<Either<Failure, DataState<UserProfileParam, LoginError>>> signInWithEmailAndPassword(LoginCredentials params) async{
     try{
       Logger().i('Trying to sign in');
       final dataState = await authDataSource.signInWithEmailAndPassword(params);

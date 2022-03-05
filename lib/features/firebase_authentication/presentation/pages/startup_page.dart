@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/router/app_router.dart';
 import '../blocs/auth_check/auth_check_bloc.dart';
+import '../blocs/user_profile/user_profile_bloc.dart';
 
 class StartupPage extends StatelessWidget {
   const StartupPage({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class StartupPage extends StatelessWidget {
     return BlocConsumer<AuthCheckBloc, AuthCheckState>(
       listener: (context, state){
         state.maybeWhen(
-            authenticated: () {
+            authenticated: (param) {
+              context.read<UserProfileBloc>().add(UserProfileEvent.userUpdate(param: param));
               AutoRouter.of(context).replace(const PostsRoute());
             },
             unAuthenticated: () {

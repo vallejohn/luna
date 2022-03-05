@@ -21,6 +21,12 @@ class _$UserProfileEventTearOff {
   _Started started() {
     return const _Started();
   }
+
+  _UserUpdate userUpdate({required UserProfileParam param}) {
+    return _UserUpdate(
+      param: param,
+    );
+  }
 }
 
 /// @nodoc
@@ -31,32 +37,38 @@ mixin _$UserProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(UserProfileParam param) userUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_UserUpdate value) userUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +130,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(UserProfileParam param) userUpdate,
   }) {
     return started();
   }
@@ -126,6 +139,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
   }) {
     return started?.call();
   }
@@ -134,6 +148,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,6 +161,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_UserUpdate value) userUpdate,
   }) {
     return started(this);
   }
@@ -154,6 +170,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
   }) {
     return started?.call(this);
   }
@@ -162,6 +179,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -176,6 +194,140 @@ abstract class _Started implements UserProfileEvent {
 }
 
 /// @nodoc
+abstract class _$UserUpdateCopyWith<$Res> {
+  factory _$UserUpdateCopyWith(
+          _UserUpdate value, $Res Function(_UserUpdate) then) =
+      __$UserUpdateCopyWithImpl<$Res>;
+  $Res call({UserProfileParam param});
+}
+
+/// @nodoc
+class __$UserUpdateCopyWithImpl<$Res>
+    extends _$UserProfileEventCopyWithImpl<$Res>
+    implements _$UserUpdateCopyWith<$Res> {
+  __$UserUpdateCopyWithImpl(
+      _UserUpdate _value, $Res Function(_UserUpdate) _then)
+      : super(_value, (v) => _then(v as _UserUpdate));
+
+  @override
+  _UserUpdate get _value => super._value as _UserUpdate;
+
+  @override
+  $Res call({
+    Object? param = freezed,
+  }) {
+    return _then(_UserUpdate(
+      param: param == freezed
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as UserProfileParam,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UserUpdate implements _UserUpdate {
+  const _$_UserUpdate({required this.param});
+
+  @override
+  final UserProfileParam param;
+
+  @override
+  String toString() {
+    return 'UserProfileEvent.userUpdate(param: $param)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UserUpdate &&
+            const DeepCollectionEquality().equals(other.param, param));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(param));
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserUpdateCopyWith<_UserUpdate> get copyWith =>
+      __$UserUpdateCopyWithImpl<_UserUpdate>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(UserProfileParam param) userUpdate,
+  }) {
+    return userUpdate(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
+  }) {
+    return userUpdate?.call(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(UserProfileParam param)? userUpdate,
+    required TResult orElse(),
+  }) {
+    if (userUpdate != null) {
+      return userUpdate(param);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_UserUpdate value) userUpdate,
+  }) {
+    return userUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
+  }) {
+    return userUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_UserUpdate value)? userUpdate,
+    required TResult orElse(),
+  }) {
+    if (userUpdate != null) {
+      return userUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserUpdate implements UserProfileEvent {
+  const factory _UserUpdate({required UserProfileParam param}) = _$_UserUpdate;
+
+  UserProfileParam get param;
+  @JsonKey(ignore: true)
+  _$UserUpdateCopyWith<_UserUpdate> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$UserProfileStateTearOff {
   const _$UserProfileStateTearOff();
 
@@ -183,9 +335,9 @@ class _$UserProfileStateTearOff {
     return const _Initial();
   }
 
-  _Success success({required Stream<UserProfile> profileStream}) {
-    return _Success(
-      profileStream: profileStream,
+  _WithData withData({required UserProfileParam param}) {
+    return _WithData(
+      param: param,
     );
   }
 }
@@ -198,38 +350,38 @@ mixin _$UserProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<UserProfile> profileStream) success,
+    required TResult Function(UserProfileParam param) withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Success value) success,
+    required TResult Function(_WithData value) withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -291,7 +443,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<UserProfile> profileStream) success,
+    required TResult Function(UserProfileParam param) withData,
   }) {
     return initial();
   }
@@ -300,7 +452,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
   }) {
     return initial?.call();
   }
@@ -309,7 +461,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -322,7 +474,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Success value) success,
+    required TResult Function(_WithData value) withData,
   }) {
     return initial(this);
   }
@@ -331,7 +483,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
   }) {
     return initial?.call(this);
   }
@@ -340,7 +492,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -355,92 +507,91 @@ abstract class _Initial implements UserProfileState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
-  $Res call({Stream<UserProfile> profileStream});
+abstract class _$WithDataCopyWith<$Res> {
+  factory _$WithDataCopyWith(_WithData value, $Res Function(_WithData) then) =
+      __$WithDataCopyWithImpl<$Res>;
+  $Res call({UserProfileParam param});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$UserProfileStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$WithDataCopyWithImpl<$Res> extends _$UserProfileStateCopyWithImpl<$Res>
+    implements _$WithDataCopyWith<$Res> {
+  __$WithDataCopyWithImpl(_WithData _value, $Res Function(_WithData) _then)
+      : super(_value, (v) => _then(v as _WithData));
 
   @override
-  _Success get _value => super._value as _Success;
+  _WithData get _value => super._value as _WithData;
 
   @override
   $Res call({
-    Object? profileStream = freezed,
+    Object? param = freezed,
   }) {
-    return _then(_Success(
-      profileStream: profileStream == freezed
-          ? _value.profileStream
-          : profileStream // ignore: cast_nullable_to_non_nullable
-              as Stream<UserProfile>,
+    return _then(_WithData(
+      param: param == freezed
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as UserProfileParam,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success({required this.profileStream});
+class _$_WithData implements _WithData {
+  const _$_WithData({required this.param});
 
   @override
-  final Stream<UserProfile> profileStream;
+  final UserProfileParam param;
 
   @override
   String toString() {
-    return 'UserProfileState.success(profileStream: $profileStream)';
+    return 'UserProfileState.withData(param: $param)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
-            const DeepCollectionEquality()
-                .equals(other.profileStream, profileStream));
+            other is _WithData &&
+            const DeepCollectionEquality().equals(other.param, param));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(profileStream));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(param));
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  _$WithDataCopyWith<_WithData> get copyWith =>
+      __$WithDataCopyWithImpl<_WithData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<UserProfile> profileStream) success,
+    required TResult Function(UserProfileParam param) withData,
   }) {
-    return success(profileStream);
+    return withData(param);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
   }) {
-    return success?.call(profileStream);
+    return withData?.call(param);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<UserProfile> profileStream)? success,
+    TResult Function(UserProfileParam param)? withData,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(profileStream);
+    if (withData != null) {
+      return withData(param);
     }
     return orElse();
   }
@@ -449,40 +600,39 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Success value) success,
+    required TResult Function(_WithData value) withData,
   }) {
-    return success(this);
+    return withData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
   }) {
-    return success?.call(this);
+    return withData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult Function(_WithData value)? withData,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (withData != null) {
+      return withData(this);
     }
     return orElse();
   }
 }
 
-abstract class _Success implements UserProfileState {
-  const factory _Success({required Stream<UserProfile> profileStream}) =
-      _$_Success;
+abstract class _WithData implements UserProfileState {
+  const factory _WithData({required UserProfileParam param}) = _$_WithData;
 
-  Stream<UserProfile> get profileStream;
+  UserProfileParam get param;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$WithDataCopyWith<_WithData> get copyWith =>
       throw _privateConstructorUsedError;
 }
