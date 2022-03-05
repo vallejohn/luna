@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
+import 'package:luna/core/services/user_profile_service.dart';
 import 'package:luna/core/states/auth_state.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/states/data_state.dart';
@@ -12,14 +13,16 @@ import 'package:luna/features/firebase_authentication/data/models/user_profile.d
 class AuthDataSourceImpl extends AuthDataSource{
   AuthDataSourceImpl({
     required FirebaseAuth firebaseAuth,
-    required CollectionReference collection
+    required CollectionReference collection,
+    required UserProfileService userProfileService
   }) : super(
       firebaseAuth: firebaseAuth,
-      usersCollection: collection
+      usersCollection: collection,
+      userProfileService: userProfileService
   );
 
   @override
-  Future<DataState<UserProfile, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
+  Future<DataState<UserProfileParam, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
     UserCredential userCredential;
 
     try{
@@ -27,7 +30,12 @@ class AuthDataSourceImpl extends AuthDataSource{
           email: params.email,
           password: params.password
       );
-      return DataState.success(data: await _getUserFromCollection(userCredential.user!.uid));
+      UserProfile userProfile = await _getUserFromCollection(userCredential.user!.uid);
+
+      return DataState.success(data: UserProfileParam(
+        userStream: userProfileService.setUser(userProfile),
+        user: userProfile
+      ));
     }on FirebaseAuthException catch(e){
       return DataState.failed(error: AuthError.getLoginErrorFromCode(e.code));
     }
@@ -39,7 +47,12 @@ class AuthDataSourceImpl extends AuthDataSource{
 
     if(user != null){
       Logger().i('User found');
-      return AuthState.authenticated(data: await _getUserFromCollection(user.uid));
+      UserProfile userProfile = await _getUserFromCollection(user.uid);
+
+      return AuthState.authenticated(data: UserProfileParam(
+        userStream: userProfileService.setUser(userProfile),
+        user: userProfile
+      ));
     }else{
       Logger().w('User not found');
       return AuthState.unAuthenticated();

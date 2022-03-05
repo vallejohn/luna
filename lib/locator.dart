@@ -33,7 +33,8 @@ void _setUpFirebaseAuthFeature(){
   getIt.registerLazySingleton<AuthDataSource>(() => AuthDataSourceImpl(
       collection: getIt<FirebaseService>()
           .firebaseFirestore.collection(Collection.users),
-      firebaseAuth: getIt<FirebaseService>().firebaseAuth),
+      firebaseAuth: getIt<FirebaseService>().firebaseAuth,
+      userProfileService: getIt()),
   );
 
   getIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(

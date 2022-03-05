@@ -6,11 +6,14 @@ import 'package:rxdart/rxdart.dart';
 //TODO Find a better solution to this
 class UserProfileService{
   final _controller = BehaviorSubject<UserProfile>();
-  Sink<UserProfile> get userSink => _controller.sink;
+  late UserProfile _user;
+  UserProfile get user => _user;
   Stream<UserProfile> get userStream => _controller.stream;
 
-  void setUser(UserProfile userProfile){
-    userSink.add(userProfile);
+  Stream<UserProfile> setUser(UserProfile userProfile){
+    _user = userProfile;
+    _controller.sink.add(userProfile);
+    return _controller.stream;
   }
 
   void close(){
