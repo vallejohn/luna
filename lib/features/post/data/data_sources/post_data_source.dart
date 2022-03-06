@@ -1,20 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:luna/core/services/firebase_service.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 
 abstract class PostDataSource{
-  final FirebaseFirestore firestore;
-  final FirebaseStorage firebaseStorage;
-  final CollectionReference postsCollection;
+  final FirebaseService firebaseService;
 
   PostDataSource({
-    required this.firestore,
-    required this.postsCollection,
-    required this.firebaseStorage
+    required this.firebaseService,
   });
 
   Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts();

@@ -13,7 +13,7 @@ abstract class Post with _$Post{
     @Default('') String content,
     @Default(0) int commentCount,
     Map<String, dynamic>? recentComment,
-    UserProfile? author,
+    Map<String, dynamic>? author,
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
