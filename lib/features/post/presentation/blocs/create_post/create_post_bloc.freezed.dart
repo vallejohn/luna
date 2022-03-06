@@ -338,8 +338,8 @@ class _$CreatePostStateTearOff {
     return const _Success();
   }
 
-  _Uploading uploading() {
-    return const _Uploading();
+  _Loading loading() {
+    return const _Loading();
   }
 }
 
@@ -352,21 +352,21 @@ mixin _$CreatePostState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function() uploading,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -374,21 +374,21 @@ mixin _$CreatePostState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
-    required TResult Function(_Uploading value) uploading,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -451,7 +451,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function() uploading,
+    required TResult Function() loading,
   }) {
     return initial();
   }
@@ -461,7 +461,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
   }) {
     return initial?.call();
   }
@@ -471,7 +471,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -485,7 +485,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
-    required TResult Function(_Uploading value) uploading,
+    required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
   }
@@ -495,7 +495,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -505,7 +505,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -559,7 +559,7 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function() uploading,
+    required TResult Function() loading,
   }) {
     return success();
   }
@@ -569,7 +569,7 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
   }) {
     return success?.call();
   }
@@ -579,7 +579,7 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -593,7 +593,7 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
-    required TResult Function(_Uploading value) uploading,
+    required TResult Function(_Loading value) loading,
   }) {
     return success(this);
   }
@@ -603,7 +603,7 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
   }) {
     return success?.call(this);
   }
@@ -613,7 +613,7 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -628,36 +628,35 @@ abstract class _Success implements CreatePostState {
 }
 
 /// @nodoc
-abstract class _$UploadingCopyWith<$Res> {
-  factory _$UploadingCopyWith(
-          _Uploading value, $Res Function(_Uploading) then) =
-      __$UploadingCopyWithImpl<$Res>;
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$UploadingCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
-    implements _$UploadingCopyWith<$Res> {
-  __$UploadingCopyWithImpl(_Uploading _value, $Res Function(_Uploading) _then)
-      : super(_value, (v) => _then(v as _Uploading));
+class __$LoadingCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
 
   @override
-  _Uploading get _value => super._value as _Uploading;
+  _Loading get _value => super._value as _Loading;
 }
 
 /// @nodoc
 
-class _$_Uploading implements _Uploading {
-  const _$_Uploading();
+class _$_Loading implements _Loading {
+  const _$_Loading();
 
   @override
   String toString() {
-    return 'CreatePostState.uploading()';
+    return 'CreatePostState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Uploading);
+        (other.runtimeType == runtimeType && other is _Loading);
   }
 
   @override
@@ -668,9 +667,9 @@ class _$_Uploading implements _Uploading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
-    required TResult Function() uploading,
+    required TResult Function() loading,
   }) {
-    return uploading();
+    return loading();
   }
 
   @override
@@ -678,9 +677,9 @@ class _$_Uploading implements _Uploading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
   }) {
-    return uploading?.call();
+    return loading?.call();
   }
 
   @override
@@ -688,11 +687,11 @@ class _$_Uploading implements _Uploading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? success,
-    TResult Function()? uploading,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
-    if (uploading != null) {
-      return uploading();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -702,9 +701,9 @@ class _$_Uploading implements _Uploading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
-    required TResult Function(_Uploading value) uploading,
+    required TResult Function(_Loading value) loading,
   }) {
-    return uploading(this);
+    return loading(this);
   }
 
   @override
@@ -712,9 +711,9 @@ class _$_Uploading implements _Uploading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
   }) {
-    return uploading?.call(this);
+    return loading?.call(this);
   }
 
   @override
@@ -722,16 +721,16 @@ class _$_Uploading implements _Uploading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
-    TResult Function(_Uploading value)? uploading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
-    if (uploading != null) {
-      return uploading(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class _Uploading implements CreatePostState {
-  const factory _Uploading() = _$_Uploading;
+abstract class _Loading implements CreatePostState {
+  const factory _Loading() = _$_Loading;
 }

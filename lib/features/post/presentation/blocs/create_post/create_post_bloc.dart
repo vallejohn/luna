@@ -27,6 +27,7 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
   }
 
   FutureOr<void> _onAddPost(_OnAddPost event, Emitter<CreatePostState> emit) async{
+    emit(CreatePostState.loading());
 
     final failureOrDataState = await _uploadImage(ImageUploadParam(
       userID: event.addPostData.user!.authID!,
@@ -53,6 +54,7 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
               dataState.when(
                   success: (data){
                     Logger().i('Successfully added post');
+                    emit(CreatePostState.success());
                   },
                   failed: (error){
                     Logger().w('Error while adding post');
@@ -62,7 +64,5 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
             Logger().w('Error uploading image: $error');
       });
     });
-
-    emit(CreatePostState.success());
   }
 }

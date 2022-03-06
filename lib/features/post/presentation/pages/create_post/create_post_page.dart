@@ -30,15 +30,17 @@ class CreatePostPage extends StatelessWidget {
           'Create post',
           style: TextStyle(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikRegular),
         ),
-        actions: [
-          ProfilePhoto()
-        ],
+        actions: [ProfilePhoto()],
       ),
       body: BlocBuilder<CreatePostBloc, CreatePostState>(builder: (context, state) {
         return SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              state.maybeWhen(
+                  loading: () => LinearProgressIndicator(
+                      color: AppColors.primary, backgroundColor: AppColors.primary.withOpacity(0.5), minHeight: 1.5),
+                  orElse: () => Container()),
               AppVerticalSpace.regular,
               Padding(
                 padding: const EdgeInsets.only(left: horizontalMargin),
@@ -97,23 +99,25 @@ class CreatePostPage extends StatelessWidget {
                         );
                       }),
                     ),
-                    GestureDetector(
-                      onTap: () => context.read<CreatePostBloc>().add(
-                            CreatePostEvent.onAddPost(
-                                addPostData: AddPostData(
-                                    imagePath: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image.path),
-                                    title: postTitleController.text,
-                                    content: contentController.text,
-                                    user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),
-                          ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: horizontalMargin),
-                        child: Text(
-                          'Post',
-                          style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),
-                        ),
-                      ),
-                    )
+                    state.maybeWhen(
+                        loading: () => Container(),
+                        orElse: () => GestureDetector(
+                              onTap: () => context.read<CreatePostBloc>().add(
+                                    CreatePostEvent.onAddPost(
+                                        addPostData: AddPostData(
+                                            imagePath: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image.path),
+                                            title: postTitleController.text,
+                                            content: contentController.text,
+                                            user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),
+                                  ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: horizontalMargin),
+                                child: Text(
+                                  'Post',
+                                  style: AppTextStyle.medium.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),
+                                ),
+                              ),
+                            ))
                   ],
                 ),
               ),

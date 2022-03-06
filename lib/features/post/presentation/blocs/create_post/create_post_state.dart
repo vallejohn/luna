@@ -4,5 +4,5 @@ part of 'create_post_bloc.dart';
 class CreatePostState with _$CreatePostState {
   const factory CreatePostState.initial() = _Initial;
   const factory CreatePostState.success() = _Success;
-  const factory CreatePostState.uploading() = _Uploading;
+  const factory CreatePostState.loading() = _Loading;
 }
