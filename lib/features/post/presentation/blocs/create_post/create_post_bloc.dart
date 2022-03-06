@@ -28,12 +28,12 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
 
   FutureOr<void> _onAddPost(_OnAddPost event, Emitter<CreatePostState> emit) async{
 
-    final failureOrdataState = await _uploadImage(ImageUploadParam(
+    final failureOrDataState = await _uploadImage(ImageUploadParam(
       userID: event.addPostData.user!.authID!,
       imagePath: event.addPostData.imagePath!
     ));
 
-    failureOrdataState.fold((failure) {
+    failureOrDataState.fold((failure) {
       Logger().e(failure.message.toString());
     }, (dataState) {
       dataState.when(
