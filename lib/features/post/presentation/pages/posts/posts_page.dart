@@ -60,13 +60,13 @@ class PostsPage extends StatelessWidget {
                   return ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
                       Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                      post.copyWith(author: UserProfile.fromJson(post.author!.toJson()));
+                      UserProfile author = UserProfile.fromJson(post.author!);
                       return PostItem(
                           title: post.title,
                           content: post.content,
                           commentCount: post.commentCount,
-                          profileImageURL: post.author!.profileImageURL,
-                          name: '${post.author!.firstname} ${post.author!.lastname}',
+                          profileImageURL: author.profileImageURL,
+                          name: '${author.firstname} ${author.lastname}',
                           category: 'Technology',
                           datePosted: '7 mins ago',
                           onPostTap: () {

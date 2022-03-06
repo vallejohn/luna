@@ -101,7 +101,7 @@ class CreatePostPage extends StatelessWidget {
                       onTap: () => context.read<CreatePostBloc>().add(
                             CreatePostEvent.onAddPost(
                                 addPostData: AddPostData(
-                                    image: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image),
+                                    imagePath: context.read<UploadImageBloc>().state.whenOrNull(success: (image) => image.path),
                                     title: postTitleController.text,
                                     content: contentController.text,
                                     user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),

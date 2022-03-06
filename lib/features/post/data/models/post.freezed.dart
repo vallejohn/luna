@@ -29,7 +29,7 @@ class _$PostTearOff {
       String content = '',
       int commentCount = 0,
       Map<String, dynamic>? recentComment,
-      UserProfile? author}) {
+      Map<String, dynamic>? author}) {
     return _Post(
       id: id,
       title: title,
@@ -57,7 +57,7 @@ mixin _$Post {
   String get content => throw _privateConstructorUsedError;
   int get commentCount => throw _privateConstructorUsedError;
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
-  UserProfile? get author => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -75,9 +75,7 @@ abstract class $PostCopyWith<$Res> {
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      UserProfile? author});
-
-  $UserProfileCopyWith<$Res>? get author;
+      Map<String, dynamic>? author});
 }
 
 /// @nodoc
@@ -126,19 +124,8 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as UserProfile?,
+              as Map<String, dynamic>?,
     ));
-  }
-
-  @override
-  $UserProfileCopyWith<$Res>? get author {
-    if (_value.author == null) {
-      return null;
-    }
-
-    return $UserProfileCopyWith<$Res>(_value.author!, (value) {
-      return _then(_value.copyWith(author: value));
-    });
   }
 }
 
@@ -154,10 +141,7 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      UserProfile? author});
-
-  @override
-  $UserProfileCopyWith<$Res>? get author;
+      Map<String, dynamic>? author});
 }
 
 /// @nodoc
@@ -207,7 +191,7 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as UserProfile?,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -244,7 +228,7 @@ class _$_Post implements _Post {
   @override
   final Map<String, dynamic>? recentComment;
   @override
-  final UserProfile? author;
+  final Map<String, dynamic>? author;
 
   @override
   String toString() {
@@ -298,7 +282,7 @@ abstract class _Post implements Post {
       String content,
       int commentCount,
       Map<String, dynamic>? recentComment,
-      UserProfile? author}) = _$_Post;
+      Map<String, dynamic>? author}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
@@ -315,7 +299,7 @@ abstract class _Post implements Post {
   @override
   Map<String, dynamic>? get recentComment;
   @override
-  UserProfile? get author;
+  Map<String, dynamic>? get author;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
