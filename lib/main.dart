@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/bloc_observer.dart';
 import 'package:luna/bloc_providers.dart';
@@ -8,6 +9,12 @@ import 'package:luna/router/app_router.dart';
 import 'package:statusbarz/statusbarz.dart';
 
 void main() async {
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    )
+  );
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -29,7 +36,7 @@ class Luna extends StatelessWidget {
         child: Builder(builder: (context) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Luna',
             theme: ThemeData(
               fontFamily: 'Rubik',
               primarySwatch: Colors.blue,
