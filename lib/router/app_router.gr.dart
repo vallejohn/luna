@@ -29,7 +29,8 @@ class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<PostDetailsRouteArgs>();
       return MaterialPageX<dynamic>(
           routeData: routeData,
-          child: PostDetailsPage(key: args.key, post: args.post));
+          child:
+              PostDetailsPage(key: args.key, postSnapshot: args.postSnapshot));
     },
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -38,6 +39,10 @@ class _$AppRouter extends RootStackRouter {
     CreatePostRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const CreatePostPage());
+    },
+    ProfileRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ProfilePage());
     }
   };
 
@@ -47,7 +52,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(PostsRoute.name, path: '/posts-page'),
         RouteConfig(PostDetailsRoute.name, path: '/post-details-page'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
-        RouteConfig(CreatePostRoute.name, path: '/create-post-page')
+        RouteConfig(CreatePostRoute.name, path: '/create-post-page'),
+        RouteConfig(ProfileRoute.name, path: '/profile-page')
       ];
 }
 
@@ -70,24 +76,25 @@ class PostsRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [PostDetailsPage]
 class PostDetailsRoute extends PageRouteInfo<PostDetailsRouteArgs> {
-  PostDetailsRoute({Key? key, required Post post})
+  PostDetailsRoute(
+      {Key? key, required Stream<DocumentSnapshot<Object?>> postSnapshot})
       : super(PostDetailsRoute.name,
             path: '/post-details-page',
-            args: PostDetailsRouteArgs(key: key, post: post));
+            args: PostDetailsRouteArgs(key: key, postSnapshot: postSnapshot));
 
   static const String name = 'PostDetailsRoute';
 }
 
 class PostDetailsRouteArgs {
-  const PostDetailsRouteArgs({this.key, required this.post});
+  const PostDetailsRouteArgs({this.key, required this.postSnapshot});
 
   final Key? key;
 
-  final Post post;
+  final Stream<DocumentSnapshot<Object?>> postSnapshot;
 
   @override
   String toString() {
-    return 'PostDetailsRouteArgs{key: $key, post: $post}';
+    return 'PostDetailsRouteArgs{key: $key, postSnapshot: $postSnapshot}';
   }
 }
 
@@ -106,4 +113,12 @@ class CreatePostRoute extends PageRouteInfo<void> {
       : super(CreatePostRoute.name, path: '/create-post-page');
 
   static const String name = 'CreatePostRoute';
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
+
+  static const String name = 'ProfileRoute';
 }
