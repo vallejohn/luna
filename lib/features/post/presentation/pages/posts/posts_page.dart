@@ -59,7 +59,8 @@ class PostsPage extends StatelessWidget {
 
                   return ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                      Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+                      Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>)
+                          .copyWith(id: documentSnapshot.id);
                       UserProfile author = UserProfile.fromJson(post.author!);
                       return PostItem(
                           title: post.title,
@@ -70,7 +71,7 @@ class PostsPage extends StatelessWidget {
                           category: 'Technology',
                           datePosted: '7 mins ago',
                           onPostTap: () {
-                            AutoRouter.of(context).push(PostDetailsRoute(post: post));
+                            AutoRouter.of(context).push(PostDetailsRoute(postSnapshot: documentSnapshot.reference.snapshots()));
                           },
                           coverImageURL: post.coverImageURL);
                     }).toList(),

@@ -334,8 +334,10 @@ class _$CreatePostStateTearOff {
     return const _Initial();
   }
 
-  _Success success() {
-    return const _Success();
+  _Success success({required Stream<DocumentSnapshot<Object?>> postSnapshot}) {
+    return _Success(
+      postSnapshot: postSnapshot,
+    );
   }
 
   _Loading loading() {
@@ -351,21 +353,22 @@ mixin _$CreatePostState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
+        success,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
@@ -450,7 +453,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
+        success,
     required TResult Function() loading,
   }) {
     return initial();
@@ -460,7 +464,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
   }) {
     return initial?.call();
@@ -470,7 +474,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -523,6 +527,7 @@ abstract class _Initial implements CreatePostState {
 abstract class _$SuccessCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
       __$SuccessCopyWithImpl<$Res>;
+  $Res call({Stream<DocumentSnapshot<Object?>> postSnapshot});
 }
 
 /// @nodoc
@@ -533,57 +538,82 @@ class __$SuccessCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
 
   @override
   _Success get _value => super._value as _Success;
+
+  @override
+  $Res call({
+    Object? postSnapshot = freezed,
+  }) {
+    return _then(_Success(
+      postSnapshot: postSnapshot == freezed
+          ? _value.postSnapshot
+          : postSnapshot // ignore: cast_nullable_to_non_nullable
+              as Stream<DocumentSnapshot<Object?>>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success();
+  const _$_Success({required this.postSnapshot});
+
+  @override
+  final Stream<DocumentSnapshot<Object?>> postSnapshot;
 
   @override
   String toString() {
-    return 'CreatePostState.success()';
+    return 'CreatePostState.success(postSnapshot: $postSnapshot)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Success);
+        (other.runtimeType == runtimeType &&
+            other is _Success &&
+            const DeepCollectionEquality()
+                .equals(other.postSnapshot, postSnapshot));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(postSnapshot));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuccessCopyWith<_Success> get copyWith =>
+      __$SuccessCopyWithImpl<_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
+        success,
     required TResult Function() loading,
   }) {
-    return success();
+    return success(postSnapshot);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
   }) {
-    return success?.call();
+    return success?.call(postSnapshot);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(postSnapshot);
     }
     return orElse();
   }
@@ -624,7 +654,13 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CreatePostState {
-  const factory _Success() = _$_Success;
+  const factory _Success(
+      {required Stream<DocumentSnapshot<Object?>> postSnapshot}) = _$_Success;
+
+  Stream<DocumentSnapshot<Object?>> get postSnapshot;
+  @JsonKey(ignore: true)
+  _$SuccessCopyWith<_Success> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -666,7 +702,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
+        success,
     required TResult Function() loading,
   }) {
     return loading();
@@ -676,7 +713,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
   }) {
     return loading?.call();
@@ -686,7 +723,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {

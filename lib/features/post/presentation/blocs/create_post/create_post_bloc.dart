@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
@@ -34,10 +35,10 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
       imagePath: event.addPostData.imagePath!
     ));
 
-    failureOrDataState.fold((failure) {
+    await failureOrDataState.fold((failure) async{
       Logger().e(failure.message.toString());
-    }, (dataState) {
-      dataState.when(
+    }, (dataState) async{
+      await dataState.when(
           success: (imagePath) async{
             Logger().i('Image upload success: ${imagePath.toString()}');
 
@@ -48,19 +49,20 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
               imagePath: imagePath
             ));
 
-            dataState.fold((failure){
+            await dataState.fold((failure) async{
               Logger().e('Failure to upload post: ${failure.message}');
-            }, (dataState){
-              dataState.when(
-                  success: (data){
-                    Logger().i('Successfully added post');
-                    emit(CreatePostState.success());
+            }, (dataState) async{
+              await dataState.when(
+                  success: (data) async{
+                    DocumentReference reference = data;
+                    Logger().i('Successfully added post: ${reference.id}');
+                    emit(CreatePostState.success(postSnapshot: reference.snapshots()));
                   },
-                  failed: (error){
+                  failed: (error) async{
                     Logger().w('Error while adding post');
                   });
             });
-          }, failed: (error){
+          }, failed: (error) async{
             Logger().w('Error uploading image: $error');
       });
     });
