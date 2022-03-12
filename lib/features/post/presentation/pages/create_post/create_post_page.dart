@@ -26,7 +26,7 @@ class CreatePostPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0.5,
         iconTheme: IconThemeData(color: AppColors.darkGrey),
         backgroundColor: Colors.white,
         title: Text(
