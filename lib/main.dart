@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:luna/bloc_observer.dart';
 import 'package:luna/bloc_providers.dart';
+import 'package:luna/global/styles.dart';
 import 'package:luna/locator.dart';
 import 'package:luna/router/app_router.dart';
 import 'package:statusbarz/statusbarz.dart';
@@ -39,7 +40,7 @@ class Luna extends StatelessWidget {
             title: 'Luna',
             theme: ThemeData(
               fontFamily: 'Rubik',
-              primarySwatch: Colors.blue,
+              primarySwatch: AppColors.primary,
             ),
             routerDelegate: _appRouter.delegate(),
             routeInformationParser: _appRouter.defaultRouteParser(),
