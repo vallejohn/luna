@@ -5,7 +5,7 @@ import 'features/firebase_authentication/presentation/blocs/auth_check/auth_chec
 import 'features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
 import 'features/firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import 'features/post/presentation/blocs/posts/posts_bloc.dart';
-import 'features/post/presentation/blocs/upload_image_bloc/upload_image_bloc.dart';
+import 'features/post/presentation/blocs/browse_image_bloc/browse_image_bloc.dart';
 
 class BlocProviders{
   static List<BlocProvider> get(){
@@ -25,8 +25,8 @@ class BlocProviders{
       BlocProvider<CreatePostBloc>(
         create: (context) => CreatePostBloc()..add(CreatePostEvent.started()),
       ),
-      BlocProvider<UploadImageBloc>(
-        create: (context) => UploadImageBloc()..add(UploadImageEvent.started()),
+      BlocProvider<BrowseImageBloc>(
+        create: (context) => BrowseImageBloc()..add(BrowseImageEvent.started()),
       ),
     ];
   }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'upload_image_bloc.dart';
+part of 'browse_image_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,8 +15,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$UploadImageEventTearOff {
-  const _$UploadImageEventTearOff();
+class _$BrowseImageEventTearOff {
+  const _$BrowseImageEventTearOff();
 
   _Started started() {
     return const _Started();
@@ -32,10 +32,10 @@ class _$UploadImageEventTearOff {
 }
 
 /// @nodoc
-const $UploadImageEvent = _$UploadImageEventTearOff();
+const $BrowseImageEvent = _$BrowseImageEventTearOff();
 
 /// @nodoc
-mixin _$UploadImageEvent {
+mixin _$BrowseImageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -83,20 +83,20 @@ mixin _$UploadImageEvent {
 }
 
 /// @nodoc
-abstract class $UploadImageEventCopyWith<$Res> {
-  factory $UploadImageEventCopyWith(
-          UploadImageEvent value, $Res Function(UploadImageEvent) then) =
-      _$UploadImageEventCopyWithImpl<$Res>;
+abstract class $BrowseImageEventCopyWith<$Res> {
+  factory $BrowseImageEventCopyWith(
+          BrowseImageEvent value, $Res Function(BrowseImageEvent) then) =
+      _$BrowseImageEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UploadImageEventCopyWithImpl<$Res>
-    implements $UploadImageEventCopyWith<$Res> {
-  _$UploadImageEventCopyWithImpl(this._value, this._then);
+class _$BrowseImageEventCopyWithImpl<$Res>
+    implements $BrowseImageEventCopyWith<$Res> {
+  _$BrowseImageEventCopyWithImpl(this._value, this._then);
 
-  final UploadImageEvent _value;
+  final BrowseImageEvent _value;
   // ignore: unused_field
-  final $Res Function(UploadImageEvent) _then;
+  final $Res Function(BrowseImageEvent) _then;
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ abstract class _$StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$UploadImageEventCopyWithImpl<$Res>
+class __$StartedCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
     implements _$StartedCopyWith<$Res> {
   __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
       : super(_value, (v) => _then(v as _Started));
@@ -122,7 +122,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'UploadImageEvent.started()';
+    return 'BrowseImageEvent.started()';
   }
 
   @override
@@ -203,7 +203,7 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements UploadImageEvent {
+abstract class _Started implements BrowseImageEvent {
   const factory _Started() = _$_Started;
 }
 
@@ -214,7 +214,7 @@ abstract class _$OnBrowseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$OnBrowseCopyWithImpl<$Res> extends _$UploadImageEventCopyWithImpl<$Res>
+class __$OnBrowseCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
     implements _$OnBrowseCopyWith<$Res> {
   __$OnBrowseCopyWithImpl(_OnBrowse _value, $Res Function(_OnBrowse) _then)
       : super(_value, (v) => _then(v as _OnBrowse));
@@ -230,7 +230,7 @@ class _$_OnBrowse implements _OnBrowse {
 
   @override
   String toString() {
-    return 'UploadImageEvent.onBrowse()';
+    return 'BrowseImageEvent.onBrowse()';
   }
 
   @override
@@ -311,7 +311,7 @@ class _$_OnBrowse implements _OnBrowse {
   }
 }
 
-abstract class _OnBrowse implements UploadImageEvent {
+abstract class _OnBrowse implements BrowseImageEvent {
   const factory _OnBrowse() = _$_OnBrowse;
 }
 
@@ -322,7 +322,7 @@ abstract class _$OnCancelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$OnCancelCopyWithImpl<$Res> extends _$UploadImageEventCopyWithImpl<$Res>
+class __$OnCancelCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
     implements _$OnCancelCopyWith<$Res> {
   __$OnCancelCopyWithImpl(_OnCancel _value, $Res Function(_OnCancel) _then)
       : super(_value, (v) => _then(v as _OnCancel));
@@ -338,7 +338,7 @@ class _$_OnCancel implements _OnCancel {
 
   @override
   String toString() {
-    return 'UploadImageEvent.onCancel()';
+    return 'BrowseImageEvent.onCancel()';
   }
 
   @override
@@ -419,13 +419,13 @@ class _$_OnCancel implements _OnCancel {
   }
 }
 
-abstract class _OnCancel implements UploadImageEvent {
+abstract class _OnCancel implements BrowseImageEvent {
   const factory _OnCancel() = _$_OnCancel;
 }
 
 /// @nodoc
-class _$UploadImageStateTearOff {
-  const _$UploadImageStateTearOff();
+class _$BrowseImageStateTearOff {
+  const _$BrowseImageStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -451,10 +451,10 @@ class _$UploadImageStateTearOff {
 }
 
 /// @nodoc
-const $UploadImageState = _$UploadImageStateTearOff();
+const $BrowseImageState = _$BrowseImageStateTearOff();
 
 /// @nodoc
-mixin _$UploadImageState {
+mixin _$BrowseImageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -514,20 +514,20 @@ mixin _$UploadImageState {
 }
 
 /// @nodoc
-abstract class $UploadImageStateCopyWith<$Res> {
-  factory $UploadImageStateCopyWith(
-          UploadImageState value, $Res Function(UploadImageState) then) =
-      _$UploadImageStateCopyWithImpl<$Res>;
+abstract class $BrowseImageStateCopyWith<$Res> {
+  factory $BrowseImageStateCopyWith(
+          BrowseImageState value, $Res Function(BrowseImageState) then) =
+      _$BrowseImageStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UploadImageStateCopyWithImpl<$Res>
-    implements $UploadImageStateCopyWith<$Res> {
-  _$UploadImageStateCopyWithImpl(this._value, this._then);
+class _$BrowseImageStateCopyWithImpl<$Res>
+    implements $BrowseImageStateCopyWith<$Res> {
+  _$BrowseImageStateCopyWithImpl(this._value, this._then);
 
-  final UploadImageState _value;
+  final BrowseImageState _value;
   // ignore: unused_field
-  final $Res Function(UploadImageState) _then;
+  final $Res Function(BrowseImageState) _then;
 }
 
 /// @nodoc
@@ -537,7 +537,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$UploadImageStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -553,7 +553,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'UploadImageState.initial()';
+    return 'BrowseImageState.initial()';
   }
 
   @override
@@ -646,7 +646,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements UploadImageState {
+abstract class _Initial implements BrowseImageState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -659,7 +659,7 @@ abstract class _$UploadingCopyWith<$Res> {
 
 /// @nodoc
 class __$UploadingCopyWithImpl<$Res>
-    extends _$UploadImageStateCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res>
     implements _$UploadingCopyWith<$Res> {
   __$UploadingCopyWithImpl(_Uploading _value, $Res Function(_Uploading) _then)
       : super(_value, (v) => _then(v as _Uploading));
@@ -675,7 +675,7 @@ class _$_Uploading implements _Uploading {
 
   @override
   String toString() {
-    return 'UploadImageState.uploading()';
+    return 'BrowseImageState.uploading()';
   }
 
   @override
@@ -768,7 +768,7 @@ class _$_Uploading implements _Uploading {
   }
 }
 
-abstract class _Uploading implements UploadImageState {
+abstract class _Uploading implements BrowseImageState {
   const factory _Uploading() = _$_Uploading;
 }
 
@@ -780,7 +780,7 @@ abstract class _$SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$UploadImageStateCopyWithImpl<$Res>
+class __$SuccessCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
     implements _$SuccessCopyWith<$Res> {
   __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
       : super(_value, (v) => _then(v as _Success));
@@ -811,7 +811,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'UploadImageState.success(image: $image)';
+    return 'BrowseImageState.success(image: $image)';
   }
 
   @override
@@ -912,7 +912,7 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements UploadImageState {
+abstract class _Success implements BrowseImageState {
   const factory _Success({required PickedFile image}) = _$_Success;
 
   PickedFile get image;
@@ -930,7 +930,7 @@ abstract class _$CancelledCopyWith<$Res> {
 
 /// @nodoc
 class __$CancelledCopyWithImpl<$Res>
-    extends _$UploadImageStateCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res>
     implements _$CancelledCopyWith<$Res> {
   __$CancelledCopyWithImpl(_Cancelled _value, $Res Function(_Cancelled) _then)
       : super(_value, (v) => _then(v as _Cancelled));
@@ -946,7 +946,7 @@ class _$_Cancelled implements _Cancelled {
 
   @override
   String toString() {
-    return 'UploadImageState.cancelled()';
+    return 'BrowseImageState.cancelled()';
   }
 
   @override
@@ -1039,7 +1039,7 @@ class _$_Cancelled implements _Cancelled {
   }
 }
 
-abstract class _Cancelled implements UploadImageState {
+abstract class _Cancelled implements BrowseImageState {
   const factory _Cancelled() = _$_Cancelled;
 }
 
@@ -1050,7 +1050,7 @@ abstract class _$ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$UploadImageStateCopyWithImpl<$Res>
+class __$ErrorCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
     implements _$ErrorCopyWith<$Res> {
   __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
       : super(_value, (v) => _then(v as _Error));
@@ -1066,7 +1066,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'UploadImageState.error()';
+    return 'BrowseImageState.error()';
   }
 
   @override
@@ -1159,6 +1159,6 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements UploadImageState {
+abstract class _Error implements BrowseImageState {
   const factory _Error() = _$_Error;
 }

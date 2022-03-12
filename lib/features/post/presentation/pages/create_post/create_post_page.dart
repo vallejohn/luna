@@ -12,7 +12,7 @@ import 'package:luna/router/app_router.dart';
 
 import '../../../../../global/ui_helpers.dart';
 import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
-import '../../blocs/upload_image_bloc/upload_image_bloc.dart';
+import '../../blocs/browse_image_bloc/browse_image_bloc.dart';
 import '../widgets/profile_photo.dart';
 
 class CreatePostPage extends StatelessWidget {
@@ -83,7 +83,7 @@ class CreatePostPage extends StatelessWidget {
                     ),
                     AppHorizontalSpace.regular,
                     Expanded(
-                      child: BlocConsumer<UploadImageBloc, UploadImageState>(listener: (context, state) {
+                      child: BlocConsumer<BrowseImageBloc, BrowseImageState>(listener: (context, state) {
                         state.whenOrNull(cancelled: () {
                           const snackBar = SnackBar(
                             content: Text('Image removed'),
@@ -106,7 +106,7 @@ class CreatePostPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onBrowse()),
+                          onTap: () => BlocProvider.of<BrowseImageBloc>(context).add(BrowseImageEvent.onBrowse()),
                         );
                       }),
                     ),
@@ -116,7 +116,7 @@ class CreatePostPage extends StatelessWidget {
                               onTap: () => context.read<CreatePostBloc>().add(
                                     CreatePostEvent.onAddPost(
                                         addPostData: AddPostData(
-                                            imagePath: context.read<UploadImageBloc>().state.maybeWhen(success: (image) => image.path, orElse: () => ''),
+                                            imagePath: context.read<BrowseImageBloc>().state.maybeWhen(success: (image) => image.path, orElse: () => ''),
                                             title: postTitleController.text,
                                             content: contentController.text,
                                             user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),
@@ -133,7 +133,7 @@ class CreatePostPage extends StatelessWidget {
                 ),
               ),
               AppVerticalSpace.regular,
-              BlocBuilder<UploadImageBloc, UploadImageState>(builder: (context, state) {
+              BlocBuilder<BrowseImageBloc, BrowseImageState>(builder: (context, state) {
                 return state.maybeWhen(
                     success: (image) {
                       return Stack(
@@ -178,7 +178,7 @@ class CreatePostPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onTap: () => BlocProvider.of<UploadImageBloc>(context).add(UploadImageEvent.onCancel()),
+                              onTap: () => BlocProvider.of<BrowseImageBloc>(context).add(BrowseImageEvent.onCancel()),
                             ),
                           ),
                         ],
