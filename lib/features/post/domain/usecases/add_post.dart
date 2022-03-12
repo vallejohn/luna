@@ -8,11 +8,11 @@ import 'package:luna/features/post/domain/repositories/post_repository.dart';
 
 import '../../../../core/usecases/usecase_with_params.dart';
 
-  class AddPost implements UseCaseWithParams<DataState<DocumentReference, NoError>, AddPostData>{
+  class AddPost implements UseCaseWithParams<DataState<DocumentReference, FirebaseException>, AddPostData>{
   final PostRepository _postRepository;
   AddPost(this._postRepository);
   @override
-  Future<Either<Failure, DataState<DocumentReference, NoError>>> call(AddPostData addPostData) {
+  Future<Either<Failure, DataState<DocumentReference, FirebaseException>>> call(AddPostData addPostData) {
     return _postRepository.addPost(addPostData);
   }
 }

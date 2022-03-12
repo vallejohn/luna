@@ -44,7 +44,7 @@ class PostRepositoryImpl extends PostRepository{
   }
 
   @override
-  Future<Either<Failure, DataState<DocumentReference<Object?>, NoError>>> addPost(AddPostData addPostData) async{
+  Future<Either<Failure, DataState<DocumentReference<Object?>, FirebaseException>>> addPost(AddPostData addPostData) async{
     try{
       Logger().i('Trying to add post!');
       final dataState = await postDataSource.addPost(addPostData);

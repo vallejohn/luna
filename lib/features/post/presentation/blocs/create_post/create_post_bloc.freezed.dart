@@ -340,6 +340,10 @@ class _$CreatePostStateTearOff {
     );
   }
 
+  _Error error() {
+    return const _Error();
+  }
+
   _Loading loading() {
     return const _Loading();
   }
@@ -355,6 +359,7 @@ mixin _$CreatePostState {
     required TResult Function() initial,
     required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
         success,
+    required TResult Function() error,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
@@ -362,6 +367,7 @@ mixin _$CreatePostState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
@@ -369,6 +375,7 @@ mixin _$CreatePostState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
@@ -377,6 +384,7 @@ mixin _$CreatePostState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
     required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
@@ -384,6 +392,7 @@ mixin _$CreatePostState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
@@ -391,6 +400,7 @@ mixin _$CreatePostState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
@@ -455,6 +465,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
         success,
+    required TResult Function() error,
     required TResult Function() loading,
   }) {
     return initial();
@@ -465,6 +476,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
   }) {
     return initial?.call();
@@ -475,6 +487,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -489,6 +502,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
     required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
@@ -499,6 +513,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
@@ -509,6 +524,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
@@ -589,6 +605,7 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
         success,
+    required TResult Function() error,
     required TResult Function() loading,
   }) {
     return success(postSnapshot);
@@ -599,6 +616,7 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
   }) {
     return success?.call(postSnapshot);
@@ -609,6 +627,7 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -623,6 +642,7 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
     required TResult Function(_Loading value) loading,
   }) {
     return success(this);
@@ -633,6 +653,7 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
   }) {
     return success?.call(this);
@@ -643,6 +664,7 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
@@ -661,6 +683,121 @@ abstract class _Success implements CreatePostState {
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ErrorCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
+      __$ErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ErrorCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
+    implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
+      : super(_value, (v) => _then(v as _Error));
+
+  @override
+  _Error get _value => super._value as _Error;
+}
+
+/// @nodoc
+
+class _$_Error implements _Error {
+  const _$_Error();
+
+  @override
+  String toString() {
+    return 'CreatePostState.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Error);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
+        success,
+    required TResult Function() error,
+    required TResult Function() loading,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
+    TResult Function()? loading,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_Loading value)? loading,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements CreatePostState {
+  const factory _Error() = _$_Error;
 }
 
 /// @nodoc
@@ -704,6 +841,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)
         success,
+    required TResult Function() error,
     required TResult Function() loading,
   }) {
     return loading();
@@ -714,6 +852,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
   }) {
     return loading?.call();
@@ -724,6 +863,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult Function()? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -738,6 +878,7 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
     required TResult Function(_Loading value) loading,
   }) {
     return loading(this);
@@ -748,6 +889,7 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
   }) {
     return loading?.call(this);
@@ -758,6 +900,7 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
     TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {

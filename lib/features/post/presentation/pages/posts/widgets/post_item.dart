@@ -109,49 +109,86 @@ class PostItem extends StatelessWidget {
                 ),
               ),
             ),
-            Stack(
-              children: [
-                Container(
-                  height: 300,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    image: DecorationImage(image: NetworkImage('$coverImageURL'), fit: BoxFit.cover),
+            Visibility(
+              visible: coverImageURL.isNotEmpty,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      image: DecorationImage(image: NetworkImage('$coverImageURL'), fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  child: InkWell(
-                    onTap: onPostTap,
+                  Positioned(
+                    bottom: 0,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       constraints: BoxConstraints(minHeight: 50),
                       decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  title,
-                                  style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikRegular),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(EdgeInsets.zero),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.zero
+                            ),
+                          ),
+                        ),
+                        onPressed: onPostTap,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    title,
+                                    style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikRegular),
+                                  ),
                                 ),
                               ),
-                            ),
-                            AppHorizontalSpace.medium,
-                            Icon(
-                              Ionicons.arrow_forward,
-                              color: Colors.white,
-                            )
-                          ],
+                              AppHorizontalSpace.medium,
+                              Icon(
+                                Ionicons.arrow_forward,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
+                  )
+                ],
+              ),
+            ),
+            Visibility(
+              visible: coverImageURL.isEmpty,
+              child: TextButton(
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all(EdgeInsets.zero),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero
+                    ),
                   ),
-                )
-              ],
+                ),
+                onPressed: (){},
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  constraints: BoxConstraints(minHeight: 50),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
+                    child: Text(
+                      title,
+                      style: AppTextStyle.large.copyWith(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikSemiBold),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
@@ -169,15 +206,16 @@ class PostItem extends StatelessWidget {
               child: Row(
                 children: [
                   Text('2.3k Likes', style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
-                  AppVerticalSpace.regular,
+                  AppHorizontalSpace.regular,
                   Expanded(
                       child: Text('4.1k Shares',
                           style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium))),
                   Icon(
                     Ionicons.chatbubble_outline,
                     color: AppColors.electricBlue,
+                    size: 20,
                   ),
-                  AppVerticalSpace.tiny,
+                  AppHorizontalSpace.tiny,
                   Text('$commentCount', style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
                 ],
               ),

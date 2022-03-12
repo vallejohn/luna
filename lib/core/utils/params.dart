@@ -12,7 +12,7 @@ class LoginCredentials extends Equatable{
 }
 
 class AddPostData extends Equatable{
-  final String? imagePath;
+  final String imagePath;
   final String title;
   final String content;
   final UserProfile? user;

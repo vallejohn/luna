@@ -46,6 +46,7 @@ dependencies:
   ionicons: ^0.1.2
   google_fonts: ^2.1.0
   statusbarz: ^1.0.2
+  fluttertoast: ^8.0.9
 
   #PROVIDERS
   path_provider:

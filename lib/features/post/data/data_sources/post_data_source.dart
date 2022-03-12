@@ -15,5 +15,5 @@ abstract class PostDataSource{
 
   Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts();
   Future<DataState<PickedFile, NoError>> browsePostCoverImage();
-  Future<DataState<DocumentReference, NoError>> addPost(AddPostData addPostData);
+  Future<DataState<DocumentReference, FirebaseException>> addPost(AddPostData addPostData);
 }

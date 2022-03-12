@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logger/logger.dart';
 import 'package:luna/core/services/firebase_service.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/enums.dart';
@@ -8,6 +11,7 @@ import 'package:luna/core/utils/params.dart';
 import 'package:luna/core/utils/statics/collection.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 import 'package:luna/features/post/data/models/post.dart';
+import 'package:luna/core/utils/statics/storage.dart';
 
 class PostDataSourceImpl extends PostDataSource {
   PostDataSourceImpl({
@@ -32,20 +36,40 @@ class PostDataSourceImpl extends PostDataSource {
   }
 
   @override
-  Future<DataState<DocumentReference, NoError>> addPost(AddPostData addPostData) async {
-
+  Future<DataState<DocumentReference, FirebaseException>> addPost(AddPostData addPostData) async {
     try{
       late DocumentReference documentReference;
+      String imagePath = '';
+
+      if(addPostData.imagePath.isNotEmpty){
+        Logger().i('Accessing firebase service for image upload');
+        final dataState = await firebaseService.uploadImage(
+            uID: addPostData.user!.authID!,
+            file: File(addPostData.imagePath),
+            storageLocation: Storage.postCovers);
+
+        dataState.when(
+          success: (imageUrl){
+            imagePath = imageUrl;
+            Logger().i('Image uploaded successfully');
+          },
+          failed: (error){
+            Logger().i('Failed to upload image: ${error.toString()}');
+            return DataState.failed(error: error);
+          },
+        );
+      }
+
       await firebaseService.firebaseFirestore.collection(Collection.posts).add(Post(
           author: addPostData.user!.toJson(),
           title: addPostData.title,
           content: addPostData.content,
           commentCount: 0,
-          coverImageURL: addPostData.imagePath!)
+          coverImageURL: imagePath)
           .toJson()).then((reference) => documentReference = reference);
       return DataState.success(data: documentReference);
-    }catch(e){
-      return DataState.failed(error: NoError());
+    }on FirebaseException catch(e){
+      return DataState.failed(error: e);
     }
   }
 }

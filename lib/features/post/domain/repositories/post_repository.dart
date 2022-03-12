@@ -15,5 +15,5 @@ abstract class PostRepository{
 
   Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts();
   Future<Either<Failure, DataState<PickedFile, NoError>>> uploadPostCoverImage();
-  Future<Either<Failure, DataState<DocumentReference, NoError>>> addPost(AddPostData addPostData);
+  Future<Either<Failure, DataState<DocumentReference, FirebaseException>>> addPost(AddPostData addPostData);
 }
