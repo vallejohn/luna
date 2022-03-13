@@ -139,7 +139,7 @@ class PostView extends StatelessWidget {
                         ),
                       ),
                       verticalSpaceRegular,
-                      /*StreamBuilder<QuerySnapshot>(
+                      StreamBuilder<QuerySnapshot>(
                         stream: model.commentQuerySnapshot,
                         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (snapshot.hasError)
@@ -203,7 +203,7 @@ class PostView extends StatelessWidget {
                             }).toList(),
                           );
                         },
-                      ),*/ // Stream Builder for comments view. Should change to view comments button
+                      ), // Stream Builder for comments view. Should change to view comments button
 
 
                       verticalSpaceRegular,

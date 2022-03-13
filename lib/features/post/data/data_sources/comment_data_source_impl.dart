@@ -1,0 +1,43 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:logger/logger.dart';
+import 'package:luna/core/services/firebase_service.dart';
+import 'package:luna/core/states/data_state.dart';
+import 'package:luna/core/utils/params.dart';
+import 'package:luna/core/utils/statics/collection.dart';
+import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/data/models/recent_comment.dart';
+import 'comment_data_source.dart';
+
+class CommentDataSourceImpl extends CommentDataSource {
+  CommentDataSourceImpl({
+    required FirebaseService firebaseService,
+  }) : super(firebaseService: firebaseService);
+
+  @override
+  Future<DataState<PickedFile, Exception>> browseCommentImage() {
+    // TODO: implement browseCommentImage
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Stream<QuerySnapshot<Object?>>> getAllComments(String postID) async {
+    Logger().i('Accessing firebase service for getting all comments');
+    return firebaseService.firebaseFirestore.collection(Collection.posts).doc(postID).collection(Collection.comments).snapshots();
+  }
+
+  @override
+  Future<void> addComment(AddCommentData addCommentData) async {
+    await firebaseService.firebaseFirestore
+        .collection(Collection.posts)
+        .doc(addCommentData.postID)
+        .collection(Collection.comments)
+        .add(addCommentData.comment.toJson());
+
+    await firebaseService.firebaseFirestore
+        .collection(Collection.posts)
+        .doc(addCommentData.postID)
+        .update(RecentComment(recentComment: addCommentData.comment.toJson(), commentCount: addCommentData.commentCount + 1)
+        .toJson());
+  }
+}

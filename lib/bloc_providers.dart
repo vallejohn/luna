@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:luna/features/post/presentation/blocs/comment/comment_bloc.dart';
 import 'package:luna/features/post/presentation/blocs/create_post/create_post_bloc.dart';
 
 import 'features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
@@ -27,6 +28,9 @@ class BlocProviders{
       ),
       BlocProvider<BrowseImageBloc>(
         create: (context) => BrowseImageBloc()..add(BrowseImageEvent.started()),
+      ),
+      BlocProvider<CommentBloc>(
+        create: (context) => CommentBloc()..add(CommentEvent.started()),
       ),
     ];
   }

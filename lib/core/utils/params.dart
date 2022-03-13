@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
+import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/data/models/recent_comment.dart';
 
-class LoginCredentials extends Equatable{
+class LoginCredentials extends Equatable {
   final String email;
   final String password;
 
@@ -11,7 +13,7 @@ class LoginCredentials extends Equatable{
   List<Object?> get props => [email, password];
 }
 
-class AddPostData extends Equatable{
+class AddPostData extends Equatable {
   final String imagePath;
   final String title;
   final String content;
@@ -23,7 +25,18 @@ class AddPostData extends Equatable{
   List<Object?> get props => [imagePath, title, content];
 }
 
-class UserProfileParam extends Equatable{
+class AddCommentData extends Equatable {
+  final Comment comment;
+  final String postID;
+  final int commentCount;
+
+  const AddCommentData({required this.postID, required this.commentCount, required this.comment});
+
+  @override
+  List<Object?> get props => [comment, postID, commentCount];
+}
+
+class UserProfileParam extends Equatable {
   final Stream<UserProfile> userStream;
   final UserProfile user;
 
@@ -33,7 +46,7 @@ class UserProfileParam extends Equatable{
   List<Object?> get props => [userStream, user];
 }
 
-class ImageUploadParam extends Equatable{
+class ImageUploadParam extends Equatable {
   final String userID;
   final String imagePath;
 
