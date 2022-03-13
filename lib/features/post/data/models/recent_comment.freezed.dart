@@ -1,0 +1,189 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+
+part of 'recent_comment.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+RecentComment _$RecentCommentFromJson(Map<String, dynamic> json) {
+  return _RecentComment.fromJson(json);
+}
+
+/// @nodoc
+class _$RecentCommentTearOff {
+  const _$RecentCommentTearOff();
+
+  _RecentComment call(
+      {Map<String, dynamic>? recentComment, int commentCount = 0}) {
+    return _RecentComment(
+      recentComment: recentComment,
+      commentCount: commentCount,
+    );
+  }
+
+  RecentComment fromJson(Map<String, Object?> json) {
+    return RecentComment.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $RecentComment = _$RecentCommentTearOff();
+
+/// @nodoc
+mixin _$RecentComment {
+  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
+  int get commentCount => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecentCommentCopyWith<RecentComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecentCommentCopyWith<$Res> {
+  factory $RecentCommentCopyWith(
+          RecentComment value, $Res Function(RecentComment) then) =
+      _$RecentCommentCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic>? recentComment, int commentCount});
+}
+
+/// @nodoc
+class _$RecentCommentCopyWithImpl<$Res>
+    implements $RecentCommentCopyWith<$Res> {
+  _$RecentCommentCopyWithImpl(this._value, this._then);
+
+  final RecentComment _value;
+  // ignore: unused_field
+  final $Res Function(RecentComment) _then;
+
+  @override
+  $Res call({
+    Object? recentComment = freezed,
+    Object? commentCount = freezed,
+  }) {
+    return _then(_value.copyWith(
+      recentComment: recentComment == freezed
+          ? _value.recentComment
+          : recentComment // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      commentCount: commentCount == freezed
+          ? _value.commentCount
+          : commentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$RecentCommentCopyWith<$Res>
+    implements $RecentCommentCopyWith<$Res> {
+  factory _$RecentCommentCopyWith(
+          _RecentComment value, $Res Function(_RecentComment) then) =
+      __$RecentCommentCopyWithImpl<$Res>;
+  @override
+  $Res call({Map<String, dynamic>? recentComment, int commentCount});
+}
+
+/// @nodoc
+class __$RecentCommentCopyWithImpl<$Res>
+    extends _$RecentCommentCopyWithImpl<$Res>
+    implements _$RecentCommentCopyWith<$Res> {
+  __$RecentCommentCopyWithImpl(
+      _RecentComment _value, $Res Function(_RecentComment) _then)
+      : super(_value, (v) => _then(v as _RecentComment));
+
+  @override
+  _RecentComment get _value => super._value as _RecentComment;
+
+  @override
+  $Res call({
+    Object? recentComment = freezed,
+    Object? commentCount = freezed,
+  }) {
+    return _then(_RecentComment(
+      recentComment: recentComment == freezed
+          ? _value.recentComment
+          : recentComment // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      commentCount: commentCount == freezed
+          ? _value.commentCount
+          : commentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RecentComment implements _RecentComment {
+  _$_RecentComment({this.recentComment, this.commentCount = 0});
+
+  factory _$_RecentComment.fromJson(Map<String, dynamic> json) =>
+      _$$_RecentCommentFromJson(json);
+
+  @override
+  final Map<String, dynamic>? recentComment;
+  @JsonKey()
+  @override
+  final int commentCount;
+
+  @override
+  String toString() {
+    return 'RecentComment(recentComment: $recentComment, commentCount: $commentCount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RecentComment &&
+            const DeepCollectionEquality()
+                .equals(other.recentComment, recentComment) &&
+            const DeepCollectionEquality()
+                .equals(other.commentCount, commentCount));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(recentComment),
+      const DeepCollectionEquality().hash(commentCount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$RecentCommentCopyWith<_RecentComment> get copyWith =>
+      __$RecentCommentCopyWithImpl<_RecentComment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecentCommentToJson(this);
+  }
+}
+
+abstract class _RecentComment implements RecentComment {
+  factory _RecentComment(
+      {Map<String, dynamic>? recentComment,
+      int commentCount}) = _$_RecentComment;
+
+  factory _RecentComment.fromJson(Map<String, dynamic> json) =
+      _$_RecentComment.fromJson;
+
+  @override
+  Map<String, dynamic>? get recentComment;
+  @override
+  int get commentCount;
+  @override
+  @JsonKey(ignore: true)
+  _$RecentCommentCopyWith<_RecentComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
