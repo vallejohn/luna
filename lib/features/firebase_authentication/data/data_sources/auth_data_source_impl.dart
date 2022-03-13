@@ -68,4 +68,9 @@ class AuthDataSourceImpl extends AuthDataSource{
     );
     return userProfile;
   }
+
+  @override
+  Future<void> signOut() async{
+    await firebaseAuth.signOut();
+  }
 }

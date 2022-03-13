@@ -21,6 +21,10 @@ class _$AuthCheckEventTearOff {
   _Started started() {
     return const _Started();
   }
+
+  _SignOut signOut() {
+    return const _SignOut();
+  }
 }
 
 /// @nodoc
@@ -31,32 +35,38 @@ mixin _$AuthCheckEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,6 +128,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() signOut,
   }) {
     return started();
   }
@@ -126,6 +137,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? signOut,
   }) {
     return started?.call();
   }
@@ -134,6 +146,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,6 +159,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SignOut value) signOut,
   }) {
     return started(this);
   }
@@ -154,6 +168,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
   }) {
     return started?.call(this);
   }
@@ -162,6 +177,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -173,6 +189,108 @@ class _$_Started implements _Started {
 
 abstract class _Started implements AuthCheckEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$SignOutCopyWith<$Res> {
+  factory _$SignOutCopyWith(_SignOut value, $Res Function(_SignOut) then) =
+      __$SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SignOutCopyWithImpl<$Res> extends _$AuthCheckEventCopyWithImpl<$Res>
+    implements _$SignOutCopyWith<$Res> {
+  __$SignOutCopyWithImpl(_SignOut _value, $Res Function(_SignOut) _then)
+      : super(_value, (v) => _then(v as _SignOut));
+
+  @override
+  _SignOut get _value => super._value as _SignOut;
+}
+
+/// @nodoc
+
+class _$_SignOut implements _SignOut {
+  const _$_SignOut();
+
+  @override
+  String toString() {
+    return 'AuthCheckEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _SignOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignOut implements AuthCheckEvent {
+  const factory _SignOut() = _$_SignOut;
 }
 
 /// @nodoc
@@ -193,6 +311,10 @@ class _$AuthCheckStateTearOff {
     return const _UnAuthenticated();
   }
 
+  _LoggedOut loggedOut() {
+    return const _LoggedOut();
+  }
+
   _Error error({required String message}) {
     return _Error(
       message: message,
@@ -210,6 +332,7 @@ mixin _$AuthCheckState {
     required TResult Function() loading,
     required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +341,7 @@ mixin _$AuthCheckState {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -226,6 +350,7 @@ mixin _$AuthCheckState {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -235,6 +360,7 @@ mixin _$AuthCheckState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -243,6 +369,7 @@ mixin _$AuthCheckState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -251,6 +378,7 @@ mixin _$AuthCheckState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -315,6 +443,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -326,6 +455,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
   }) {
     return loading?.call();
@@ -337,6 +467,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -352,6 +483,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -363,6 +495,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -374,6 +507,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -456,6 +590,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function() loading,
     required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
   }) {
     return authenticated(param);
@@ -467,6 +602,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
   }) {
     return authenticated?.call(param);
@@ -478,6 +614,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -493,6 +630,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
   }) {
     return authenticated(this);
@@ -504,6 +642,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
   }) {
     return authenticated?.call(this);
@@ -515,6 +654,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -579,6 +719,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     required TResult Function() loading,
     required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
   }) {
     return unAuthenticated();
@@ -590,6 +731,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
   }) {
     return unAuthenticated?.call();
@@ -601,6 +743,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -616,6 +759,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
   }) {
     return unAuthenticated(this);
@@ -627,6 +771,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
   }) {
     return unAuthenticated?.call(this);
@@ -638,6 +783,7 @@ class _$_UnAuthenticated implements _UnAuthenticated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -650,6 +796,127 @@ class _$_UnAuthenticated implements _UnAuthenticated {
 
 abstract class _UnAuthenticated implements AuthCheckState {
   const factory _UnAuthenticated() = _$_UnAuthenticated;
+}
+
+/// @nodoc
+abstract class _$LoggedOutCopyWith<$Res> {
+  factory _$LoggedOutCopyWith(
+          _LoggedOut value, $Res Function(_LoggedOut) then) =
+      __$LoggedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoggedOutCopyWithImpl<$Res> extends _$AuthCheckStateCopyWithImpl<$Res>
+    implements _$LoggedOutCopyWith<$Res> {
+  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _LoggedOut));
+
+  @override
+  _LoggedOut get _value => super._value as _LoggedOut;
+}
+
+/// @nodoc
+
+class _$_LoggedOut implements _LoggedOut {
+  const _$_LoggedOut();
+
+  @override
+  String toString() {
+    return 'AuthCheckState.loggedOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(UserProfileParam param) authenticated,
+    required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(UserProfileParam param)? authenticated,
+    TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(UserProfileParam param)? authenticated,
+    TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+  }) {
+    return loggedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements AuthCheckState {
+  const factory _LoggedOut() = _$_LoggedOut;
 }
 
 /// @nodoc
@@ -717,6 +984,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(UserProfileParam param) authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -728,6 +996,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
   }) {
     return error?.call(message);
@@ -739,6 +1008,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(UserProfileParam param)? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -754,6 +1024,7 @@ class _$_Error implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_UnAuthenticated value) unAuthenticated,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -765,6 +1036,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -776,6 +1048,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_UnAuthenticated value)? unAuthenticated,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

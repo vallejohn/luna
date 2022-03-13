@@ -19,4 +19,5 @@ abstract class AuthDataSource{
 
   Future<DataState<UserProfileParam, LoginError>> signInWithEmailAndPassword(LoginCredentials params);
   Future<AuthState> getActiveUser();
+  Future<void> signOut();
 }

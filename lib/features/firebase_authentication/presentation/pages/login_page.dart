@@ -10,6 +10,7 @@ import '../../../../global/custom_widgets/gradient_button.dart';
 import '../../../../global/custom_widgets/text_input_field.dart';
 import '../../../../global/styles.dart';
 import '../../../../global/ui_helpers.dart';
+import '../blocs/user_profile/user_profile_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,7 +23,8 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
-            state.maybeWhen(success: (){
+            state.maybeWhen(success: (param){
+              context.read<UserProfileBloc>().add(UserProfileEvent.userUpdate(param: param));
               AutoRouter.of(context).replace(const PostsRoute());
             }, orElse: () => null);
           },
@@ -103,6 +105,63 @@ class LoginPage extends StatelessWidget {
                                 email: emailController.text.toString(),
                                 password: passwordController.text.toString())))),
                   ),
+                  AppVerticalSpace.medium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 45),
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: Text(
+                              'Create account',
+                              style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 45),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            'Forgot password?',
+                            style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  AppVerticalSpace.large,
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 45),
+                      child: GestureDetector(
+                        onTap: (){},
+                        child: Wrap(
+                          children: [
+                            Text(
+                              'Sign in with',
+                              style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
+                            ),
+                            Text(
+                              ' Google',
+                              style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikSemiBold),
+                            ),
+                            Text(
+                              ' or ',
+                              style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
+                            ),
+                            Text(
+                              'Facebook',
+                              style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikSemiBold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  AppVerticalSpace.large,
                 ],
               ),
             );

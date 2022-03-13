@@ -7,6 +7,8 @@ import 'package:logger/logger.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/get_active_user.dart';
 
+import '../../../domain/usecases/sign_out.dart';
+
 
 part 'auth_check_event.dart';
 part 'auth_check_state.dart';
@@ -14,9 +16,11 @@ part 'auth_check_bloc.freezed.dart';
 
 class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
   final _getActiveUser = GetIt.instance<GetActiveUser>();
+  final _signOut = GetIt.instance<SignOut>();
 
   AuthCheckBloc() : super(AuthCheckState.loading()) {
     on<_Started>(_onStarted);
+    on<_SignOut>(_onSignOut);
   }
 
   FutureOr<void> _onStarted(_Started event, Emitter<AuthCheckState> emit) async {
@@ -35,6 +39,16 @@ class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
             emit(AuthCheckState.unAuthenticated());
             Logger().w('Unauthenticated');
           });
+    });
+  }
+
+  FutureOr<void> _onSignOut(_SignOut event, Emitter<AuthCheckState> emit) async{
+    final failureOrSuccess = await _signOut();
+
+    failureOrSuccess.fold((failure){
+      Logger().e('Failed to logout');
+    }, (_){
+      emit(AuthCheckState.unAuthenticated());
     });
   }
 }

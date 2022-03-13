@@ -13,4 +13,5 @@ abstract class AuthRepository{
 
   Future<Either<Failure, DataState<UserProfileParam, LoginError>>> signInWithEmailAndPassword(LoginCredentials params);
   Future<Either<Failure, AuthState>> getActiveUser();
+  Future<Either<Failure, void>> signOut();
 }

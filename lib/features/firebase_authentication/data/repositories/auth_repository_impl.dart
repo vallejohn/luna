@@ -40,4 +40,15 @@ class AuthRepositoryImpl extends AuthRepository {
       return Left(Failure.firebase(message: e.code));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> signOut() async{
+    try{
+      Logger().i('Trying to sign out');
+      return Right(await authDataSource.signOut());
+    }on FirebaseException catch(e){
+      Logger().e('Error while signing out: ${e.code}');
+      return Left(Failure.firebase(message: e.code));
+    }
+  }
 }

@@ -8,6 +8,7 @@ import 'package:luna/features/firebase_authentication/data/data_sources/auth_dat
 import 'package:luna/features/firebase_authentication/data/repositories/auth_repository_impl.dart';
 import 'package:luna/features/firebase_authentication/domain/repositories/auth_repository.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/get_active_user.dart';
+import 'package:luna/features/firebase_authentication/domain/usecases/sign_out.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 import 'package:luna/features/post/data/data_sources/comment_data_source.dart';
 import 'package:luna/features/post/data/data_sources/comment_data_source_impl.dart';
@@ -52,6 +53,7 @@ void _setUpFirebaseAuthFeature(){
   //usecases
   getIt.registerLazySingleton(() => GetActiveUser(getIt()));
   getIt.registerLazySingleton(() => SignInWithEmailAndPassword(getIt()));
+  getIt.registerLazySingleton(() => SignOut(getIt()));
 }
 
 void _setUpPostFeature(){

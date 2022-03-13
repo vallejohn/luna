@@ -363,8 +363,10 @@ class _$LoginStateTearOff {
     return const _LoggingIn();
   }
 
-  _Success success() {
-    return const _Success();
+  _Success success({required UserProfileParam param}) {
+    return _Success(
+      param: param,
+    );
   }
 
   _EmailFailure emailFailure({required String message}) {
@@ -395,7 +397,7 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -405,7 +407,7 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -415,7 +417,7 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -511,7 +513,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -524,7 +526,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -537,7 +539,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -638,7 +640,7 @@ class _$_LoggingIn implements _LoggingIn {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -651,7 +653,7 @@ class _$_LoggingIn implements _LoggingIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -664,7 +666,7 @@ class _$_LoggingIn implements _LoggingIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -728,6 +730,7 @@ abstract class _LoggingIn implements LoginState {
 abstract class _$SuccessCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
       __$SuccessCopyWithImpl<$Res>;
+  $Res call({UserProfileParam param});
 }
 
 /// @nodoc
@@ -738,38 +741,61 @@ class __$SuccessCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 
   @override
   _Success get _value => super._value as _Success;
+
+  @override
+  $Res call({
+    Object? param = freezed,
+  }) {
+    return _then(_Success(
+      param: param == freezed
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as UserProfileParam,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success();
+  const _$_Success({required this.param});
+
+  @override
+  final UserProfileParam param;
 
   @override
   String toString() {
-    return 'LoginState.success()';
+    return 'LoginState.success(param: $param)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Success);
+        (other.runtimeType == runtimeType &&
+            other is _Success &&
+            const DeepCollectionEquality().equals(other.param, param));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(param));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuccessCopyWith<_Success> get copyWith =>
+      __$SuccessCopyWithImpl<_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
   }) {
-    return success();
+    return success(param);
   }
 
   @override
@@ -777,12 +803,12 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
   }) {
-    return success?.call();
+    return success?.call(param);
   }
 
   @override
@@ -790,14 +816,14 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(param);
     }
     return orElse();
   }
@@ -847,7 +873,12 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements LoginState {
-  const factory _Success() = _$_Success;
+  const factory _Success({required UserProfileParam param}) = _$_Success;
+
+  UserProfileParam get param;
+  @JsonKey(ignore: true)
+  _$SuccessCopyWith<_Success> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -916,7 +947,7 @@ class _$_EmailFailure implements _EmailFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -929,7 +960,7 @@ class _$_EmailFailure implements _EmailFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -942,7 +973,7 @@ class _$_EmailFailure implements _EmailFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -1074,7 +1105,7 @@ class _$_PasswordFailure implements _PasswordFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -1087,7 +1118,7 @@ class _$_PasswordFailure implements _PasswordFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -1100,7 +1131,7 @@ class _$_PasswordFailure implements _PasswordFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -1230,7 +1261,7 @@ class _$_Failed implements _Failed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loggingIn,
-    required TResult Function() success,
+    required TResult Function(UserProfileParam param) success,
     required TResult Function(String message) emailFailure,
     required TResult Function(String message) passwordFailure,
     required TResult Function(String message) failed,
@@ -1243,7 +1274,7 @@ class _$_Failed implements _Failed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
@@ -1256,7 +1287,7 @@ class _$_Failed implements _Failed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loggingIn,
-    TResult Function()? success,
+    TResult Function(UserProfileParam param)? success,
     TResult Function(String message)? emailFailure,
     TResult Function(String message)? passwordFailure,
     TResult Function(String message)? failed,
