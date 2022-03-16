@@ -71,6 +71,13 @@ class TextInputField extends StatelessWidget {
           borderRadius: BorderRadius.circular(customBorderRadius),
           borderSide: BorderSide.none,
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(customBorderRadius),
+          borderSide: errorText != null
+              ? BorderSide(
+              color: AppColors.error, width: 1.5, style: BorderStyle.solid)
+              : BorderSide.none,
+        ),
       ),
     );
   }

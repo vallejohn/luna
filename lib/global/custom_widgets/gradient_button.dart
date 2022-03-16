@@ -36,7 +36,7 @@ class GradientButton extends StatelessWidget {
               )
             : Text(
                 text,
-                style: AppTextStyle.large.copyWith(color: AppColors.lightGrey),
+                style: AppTextStyle.large.copyWith(color: AppColors.primary[700]),
               ),
       ),
     );

@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
                               orElse: () => null),
                           textInputType: TextInputType.emailAddress,
                           controller: emailController,
-                          hintText: 'Email',
+                          hintText: 'Username or Email',
                         ),
                         AppVerticalSpace.small,
                         TextInputField(
