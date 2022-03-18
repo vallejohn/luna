@@ -192,7 +192,7 @@ class CreatePostPage extends StatelessWidget {
                   controller: postTitleController,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.done,
-                  style: TextStyle(fontSize: textSizeMedium, color: AppColors.bodyText),
+                  style: TextStyle(fontSize: AppFontSize.medium, color: AppColors.bodyText),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -214,7 +214,7 @@ class CreatePostPage extends StatelessWidget {
                   maxLines: null,
                   textInputAction: TextInputAction.newline,
                   style: TextStyle(
-                    fontSize: textSizeMedium,
+                    fontSize: AppFontSize.medium,
                     color: AppColors.bodyText,
                   ),
                   textAlign: TextAlign.start,

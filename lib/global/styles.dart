@@ -69,15 +69,23 @@ class AppFontWeight{
 }
 
 class AppTextStyle{
-  static const TextStyle massive = TextStyle(color: _bodyTextColor, fontSize: textSizeMassive);
-  static const TextStyle extraLarge = TextStyle(color: _bodyTextColor, fontSize: textSizeExtraLarge);
-  static const TextStyle large = TextStyle(color: _bodyTextColor, fontSize: textSizeLarge);
-  static const TextStyle medium = TextStyle(color: _bodyTextColor, fontSize: textSizeMedium);
-  static const TextStyle small = TextStyle(color: _bodyTextColor, fontSize: textSizeSmall);
+  static const TextStyle massive = TextStyle(color: _bodyTextColor, fontSize: _textSizeMassive);
+  static const TextStyle extraLarge = TextStyle(color: _bodyTextColor, fontSize: _textSizeExtraLarge);
+  static const TextStyle large = TextStyle(color: _bodyTextColor, fontSize: _textSizeLarge);
+  static const TextStyle medium = TextStyle(color: _bodyTextColor, fontSize: _textSizeMedium);
+  static const TextStyle small = TextStyle(color: _bodyTextColor, fontSize: _textSizeSmall);
 }
 
-const double textSizeMassive = 30;
-const double textSizeExtraLarge = 25;
-const double textSizeLarge = 18;
-const double textSizeMedium = 16;
-const double textSizeSmall = 12;
+class AppFontSize{
+  static const double massive = _textSizeMassive;
+  static const double extraLarge = _textSizeExtraLarge;
+  static const double large = _textSizeLarge;
+  static const double medium = _textSizeMedium;
+  static const double small = _textSizeSmall;
+}
+
+const double _textSizeMassive = 30;
+const double _textSizeExtraLarge = 25;
+const double _textSizeLarge = 18;
+const double _textSizeMedium = 16;
+const double _textSizeSmall = 12;

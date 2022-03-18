@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/data/models/comment.dart';
@@ -28,8 +30,7 @@ class PostDetailsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: StreamBuilder<DocumentSnapshot>(
+        child: StreamBuilder<DocumentSnapshot>(
             stream: postSnapshot,
             builder: (context, snapshot) {
               if (snapshot.hasError) {
@@ -47,77 +48,112 @@ class PostDetailsPage extends StatelessWidget {
 
               BlocProvider.of<CommentBloc>(context).add(CommentEvent.onFetchPostComments(postID: post.id));
 
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    AppVerticalSpace.medium,
-                    Center(
-                      child: Text(
-                        post.title,
-                        style: AppTextStyle.large.copyWith(fontWeight: AppFontWeight.rubikSemiBold),
-                        textAlign: TextAlign.center,
+              return Stack(
+                children: [
+                  SingleChildScrollView(
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          AppVerticalSpace.medium,
+                          Center(
+                            child: Text(
+                              post.title,
+                              style: GoogleFonts.merriweather().copyWith(fontSize: AppFontSize.large, fontWeight: AppFontWeight.rubikSemiBold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          AppVerticalSpace.medium,
+                          AuthorInformation(author: author),
+                          AppVerticalSpace.medium,
+                          SelectableText(
+                            post.content,
+                            style: GoogleFonts.merriweather().copyWith(fontSize: AppFontSize.medium, color: AppColors.bodyText),
+                            textAlign: TextAlign.justify,
+                          ),
+                          AppVerticalSpace.small,
+                          SocialMediaElements(post: post),
+                          AppVerticalSpace.medium,
+                          /*BlocBuilder<CommentBloc, CommentState>(
+                              builder: (context, state) {
+                                return state.when(
+                                    initial: () => Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                    success: (commentStream) {
+                                      return StreamBuilder<QuerySnapshot>(
+                                          stream: commentStream,
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasError)
+                                              return Center(
+                                                child: Text('Something went wrong!'),
+                                              );
+                                            if (snapshot.connectionState == ConnectionState.waiting) {
+                                              return Center(child: CircularProgressIndicator());
+                                            }
+
+                                            return Column(
+                                              children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
+                                                Comment comment = Comment.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+                                                UserProfile user = UserProfile.fromJson(comment.userProfile!);
+                                                return CommentItem(user: user, comment: comment);
+                                              }).toList(),
+                                            );
+                                          });
+                                    },
+                                    error: () => Center(
+                                          child: Text('Error'),
+                                        ));
+                              },
+                            ),*/
+                          AppVerticalSpace.massive,
+                        ],
                       ),
                     ),
-                    AppVerticalSpace.medium,
-                    AuthorInformation(author: author),
-                    AppVerticalSpace.medium,
-                    Text(
-                      post.content,
-                      style: AppTextStyle.medium,
-                      textAlign: TextAlign.justify,
-                    ),
-                    AppVerticalSpace.medium,
-                    SocialMediaElements(post: post),
-                    AppVerticalSpace.medium,
-                    BlocBuilder<CommentBloc, CommentState>(
-                      builder: (context, state) {
-                        return state.when(
-                            initial: () => Center(
-                                  child: CircularProgressIndicator(),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [BoxShadow(color: AppColors.lightGrey.withOpacity(0.3), blurRadius: 2, spreadRadius: 2, offset: Offset(0, 1))]),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: CommentTextField(
+                                controller: commentController,
+                                onAddComment: () => BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
+                                    addCommentData: AddCommentData(
+                                        comment: Comment(
+                                            userProfile: BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
+                                            body: commentController.text),
+                                        commentCount: 0,
+                                        postID: post.id)))),
+                          ),
+                          AppHorizontalSpace.tiny,
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(customBorderRadius),
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: AppColors.electricBlue.withOpacity(0.05),
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                  primary: AppColors.electricBlue,
+                                  padding: EdgeInsets.zero
                                 ),
-                            success: (commentStream) {
-                              return StreamBuilder<QuerySnapshot>(
-                                  stream: commentStream,
-                                  builder: (context, snapshot) {
-                                    if (snapshot.hasError)
-                                      return Center(
-                                        child: Text('Something went wrong!'),
-                                      );
-                                    if (snapshot.connectionState == ConnectionState.waiting) {
-                                      return Center(child: CircularProgressIndicator());
-                                    }
-
-                                    return Column(
-                                      children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                                        Comment comment = Comment.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                                        UserProfile user = UserProfile.fromJson(comment.userProfile!);
-                                        return CommentItem(user: user, comment: comment);
-                                      }).toList(),
-                                    );
-                                  });
-                            },
-                            error: () => Center(
-                                  child: Text('Error'),
-                                ));
-                      },
+                                onPressed: (){},
+                                  child: Icon(Ionicons.chatbubble_ellipses_outline, color: AppColors.electricBlue,)),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                    AppVerticalSpace.medium,
-                    CommentTextField(
-                        controller: commentController,
-                        onAddComment: () => BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
-                            addCommentData: AddCommentData(
-                                comment: Comment(
-                                    userProfile: BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
-                                    body: commentController.text),
-                                commentCount: 0,
-                                postID: post.id))))
-                  ],
-                ),
+                  )
+                ],
               );
-            },
-          ),
-        ),
+            }),
       ),
     );
   }

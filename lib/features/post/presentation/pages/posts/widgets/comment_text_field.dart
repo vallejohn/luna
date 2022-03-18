@@ -17,45 +17,43 @@ class CommentTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        TextFormField(
-          controller: controller,
-          textInputAction: TextInputAction.done,
-          style: TextStyle(fontSize: textSizeMedium, color: AppColors.bodyText),
-          textAlign: TextAlign.start,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
-            hintText: 'Your thoughts here, '
-                '${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
-                withData: (data) => data.user.firstname,
-                orElse: () => '')}',
-            filled: true,
-            fillColor: AppColors.textFieldBG,
-            hintStyle: TextStyle(color: AppColors.electricBlue.withOpacity(0.5)),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(customBorderRadius), borderSide: BorderSide.none),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(customBorderRadius),
+      child: TextFormField(
+        controller: controller,
+        textInputAction: TextInputAction.done,
+        style: TextStyle(fontSize: AppFontSize.medium, color: AppColors.bodyText),
+        textAlign: TextAlign.start,
+        decoration: InputDecoration(
+          prefixIcon: IconButton(
+            onPressed: (){},
+            icon: CircleAvatar(
+              backgroundImage: NetworkImage('${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
+                  withData: (data) => data.user.profileImageURL,
+                  orElse: () => '')}'),
+            ),
           ),
-        ),
-        Positioned(
-          left: 12,
-          top: 10,
-          child: CircleAvatar(
-            radius: 14,
-            backgroundImage: NetworkImage('${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
-                withData: (data) => data.user.profileImageURL,
-                orElse: () => '')}'),
+          suffixIcon: Material(
+            borderRadius: BorderRadius.circular(50),
+            clipBehavior: Clip.none,
+            color: Colors.transparent,
+            child: IconButton(
+              onPressed: () => onAddComment(),
+                icon: Icon(
+                  Ionicons.send,
+                )),
           ),
+          contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
+          hintText: 'Your thoughts here, '
+              '${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
+              withData: (data) => data.user.firstname,
+              orElse: () => '')}',
+          filled: true,
+          fillColor: AppColors.electricBlue.withOpacity(0.05),
+          hintStyle: TextStyle(color: AppColors.electricBlue.withOpacity(0.5)),
+          border: OutlineInputBorder(borderSide: BorderSide.none),
         ),
-        Positioned(
-            right: 12,
-            top: 10,
-            child: GestureDetector(
-                onTap: () => onAddComment(),
-                child: Icon(
-                  Ionicons.add,
-                  color: AppColors.electricBlue,
-                )))
-      ],
+      ),
     );
   }
 }
