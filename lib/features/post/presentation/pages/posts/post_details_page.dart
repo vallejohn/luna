@@ -73,39 +73,6 @@ class PostDetailsPage extends StatelessWidget {
                           ),
                           AppVerticalSpace.small,
                           SocialMediaElements(post: post),
-                          AppVerticalSpace.medium,
-                          /*BlocBuilder<CommentBloc, CommentState>(
-                              builder: (context, state) {
-                                return state.when(
-                                    initial: () => Center(
-                                          child: CircularProgressIndicator(),
-                                        ),
-                                    success: (commentStream) {
-                                      return StreamBuilder<QuerySnapshot>(
-                                          stream: commentStream,
-                                          builder: (context, snapshot) {
-                                            if (snapshot.hasError)
-                                              return Center(
-                                                child: Text('Something went wrong!'),
-                                              );
-                                            if (snapshot.connectionState == ConnectionState.waiting) {
-                                              return Center(child: CircularProgressIndicator());
-                                            }
-
-                                            return Column(
-                                              children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                                                Comment comment = Comment.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                                                UserProfile user = UserProfile.fromJson(comment.userProfile!);
-                                                return CommentItem(user: user, comment: comment);
-                                              }).toList(),
-                                            );
-                                          });
-                                    },
-                                    error: () => Center(
-                                          child: Text('Error'),
-                                        ));
-                              },
-                            ),*/
                           AppVerticalSpace.massive,
                         ],
                       ),
@@ -116,7 +83,15 @@ class PostDetailsPage extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          boxShadow: [BoxShadow(color: AppColors.lightGrey.withOpacity(0.3), blurRadius: 2, spreadRadius: 2, offset: Offset(0, 1))]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: AppColors.lightGrey.withOpacity(0.3),
+                                blurRadius: 2,
+                                spreadRadius: 2,
+                                offset: Offset(0, 1)
+                            )
+                          ]
+                      ),
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: Row(
                         children: [
@@ -126,7 +101,8 @@ class PostDetailsPage extends StatelessWidget {
                                 onAddComment: () => BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
                                     addCommentData: AddCommentData(
                                         comment: Comment(
-                                            userProfile: BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
+                                            userProfile:
+                                                BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
                                             body: commentController.text),
                                         commentCount: 0,
                                         postID: post.id)))),
@@ -139,12 +115,76 @@ class PostDetailsPage extends StatelessWidget {
                               height: 50,
                               color: AppColors.electricBlue.withOpacity(0.05),
                               child: TextButton(
-                                style: TextButton.styleFrom(
-                                  primary: AppColors.electricBlue,
-                                  padding: EdgeInsets.zero
-                                ),
-                                onPressed: (){},
-                                  child: Icon(Ionicons.chatbubble_ellipses_outline, color: AppColors.electricBlue,)),
+                                  style: TextButton.styleFrom(primary: AppColors.electricBlue, padding: EdgeInsets.zero),
+                                  onPressed: () {
+                                    showModalBottomSheet<void>(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                      ),
+                                      backgroundColor: Colors.white,
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Column(
+                                          children: [
+                                            AppVerticalSpace.small,
+                                            Container(
+                                              decoration: BoxDecoration(),
+                                              child: Center(
+                                                child: Container(
+                                                  width: 100,
+                                                  height: 5,
+                                                  decoration: BoxDecoration(
+                                                      color: AppColors.electricBlue.withOpacity(0.3), borderRadius: BorderRadius.circular(20)),
+                                                ),
+                                              ),
+                                            ),
+                                            AppVerticalSpace.small,
+                                            Expanded(
+                                              child: BlocBuilder<CommentBloc, CommentState>(
+                                                builder: (context, state) {
+                                                  return state.when(
+                                                      initial: () => Center(
+                                                            child: CircularProgressIndicator(),
+                                                          ),
+                                                      success: (commentStream) {
+                                                        return StreamBuilder<QuerySnapshot>(
+                                                            stream: commentStream,
+                                                            builder: (context, snapshot) {
+                                                              if (snapshot.hasError)
+                                                                return Center(
+                                                                  child: Text('Something went wrong!'),
+                                                                );
+                                                              if (snapshot.connectionState == ConnectionState.waiting) {
+                                                                return Center(child: CircularProgressIndicator());
+                                                              }
+
+                                                              return ListView(
+                                                                children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
+                                                                  Comment comment =
+                                                                      Comment.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+                                                                  UserProfile user = UserProfile.fromJson(comment.userProfile!);
+                                                                  return Container(
+                                                                      margin: EdgeInsets.symmetric(horizontal: 20),
+                                                                      child: CommentItem(user: user, comment: comment));
+                                                                }).toList(),
+                                                              );
+                                                            });
+                                                      },
+                                                      error: () => Center(
+                                                            child: Text('Error'),
+                                                          ));
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Icon(
+                                    Ionicons.chatbubble_ellipses_outline,
+                                    color: AppColors.electricBlue,
+                                  )),
                             ),
                           )
                         ],
