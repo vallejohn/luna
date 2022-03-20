@@ -97,7 +97,7 @@ class PostDetailsPage extends StatelessWidget {
                                               userProfile:
                                               BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
                                               body: commentController.text),
-                                          commentCount: 0,
+                                          commentCount: post.commentCount,
                                           postID: post.id)));
                                   commentController.clear();
                                 }),
@@ -139,7 +139,7 @@ class PostDetailsPage extends StatelessWidget {
                                                 AppHorizontalSpace.small,
                                                 Expanded(
                                                   child: Text(
-                                                    '453 Comments',
+                                                    '${post.commentCount} Comments',
                                                     style: AppTextStyle.small
                                                   ),
                                                 ),
