@@ -83,29 +83,24 @@ class PostDetailsPage extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: AppColors.lightGrey.withOpacity(0.3),
-                                blurRadius: 2,
-                                spreadRadius: 2,
-                                offset: Offset(0, 1)
-                            )
-                          ]
-                      ),
+                          boxShadow: [BoxShadow(color: AppColors.lightGrey.withOpacity(0.3), blurRadius: 2, spreadRadius: 2, offset: Offset(0, 1))]),
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: Row(
                         children: [
                           Expanded(
                             child: CommentTextField(
                                 controller: commentController,
-                                onAddComment: () => BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
-                                    addCommentData: AddCommentData(
-                                        comment: Comment(
-                                            userProfile:
-                                                BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
-                                            body: commentController.text),
-                                        commentCount: 0,
-                                        postID: post.id)))),
+                                onAddComment: (){
+                                  BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
+                                      addCommentData: AddCommentData(
+                                          comment: Comment(
+                                              userProfile:
+                                              BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
+                                              body: commentController.text),
+                                          commentCount: 0,
+                                          postID: post.id)));
+                                  commentController.clear();
+                                }),
                           ),
                           AppHorizontalSpace.tiny,
                           ClipRRect(
@@ -127,16 +122,36 @@ class PostDetailsPage extends StatelessWidget {
                                         return Column(
                                           children: [
                                             AppVerticalSpace.small,
-                                            Container(
-                                              decoration: BoxDecoration(),
-                                              child: Center(
-                                                child: Container(
-                                                  width: 100,
-                                                  height: 5,
-                                                  decoration: BoxDecoration(
-                                                      color: AppColors.electricBlue.withOpacity(0.3), borderRadius: BorderRadius.circular(20)),
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  margin: EdgeInsets.only(left: 20),
+                                                  child: Icon(Ionicons.heart_outline),
                                                 ),
-                                              ),
+                                                AppHorizontalSpace.tiny,
+                                                Text(
+                                                  '34k',
+                                                  style: AppTextStyle.small,
+                                                ),
+                                                AppHorizontalSpace.small,
+                                                Expanded(
+                                                  child: Text(
+                                                    '453 Comments',
+                                                    style: AppTextStyle.small
+                                                  ),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(right: 10),
+                                                  child: IconButton(
+                                                    onPressed: () {},
+                                                    icon: Icon(Ionicons.resize_outline),
+                                                    color: AppColors.lightGrey.withOpacity(0.5),
+                                                    splashRadius: 25,
+                                                    padding: EdgeInsets.zero,
+                                                    constraints: BoxConstraints(),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                             AppVerticalSpace.small,
                                             Expanded(
@@ -148,27 +163,37 @@ class PostDetailsPage extends StatelessWidget {
                                                           ),
                                                       success: (commentStream) {
                                                         return StreamBuilder<QuerySnapshot>(
-                                                            stream: commentStream,
-                                                            builder: (context, snapshot) {
-                                                              if (snapshot.hasError)
-                                                                return Center(
-                                                                  child: Text('Something went wrong!'),
-                                                                );
-                                                              if (snapshot.connectionState == ConnectionState.waiting) {
-                                                                return Center(child: CircularProgressIndicator());
-                                                              }
-
-                                                              return ListView(
-                                                                children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                                                                  Comment comment =
-                                                                      Comment.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
-                                                                  UserProfile user = UserProfile.fromJson(comment.userProfile!);
-                                                                  return Container(
-                                                                      margin: EdgeInsets.symmetric(horizontal: 20),
-                                                                      child: CommentItem(user: user, comment: comment));
-                                                                }).toList(),
+                                                          stream: commentStream,
+                                                          builder: (context, snapshot) {
+                                                            if (snapshot.hasError)
+                                                              return Center(
+                                                                child: Text('Something went wrong!'),
                                                               );
-                                                            });
+                                                            if (snapshot.connectionState == ConnectionState.waiting) {
+                                                              return Center(child: CircularProgressIndicator());
+                                                            }
+
+                                                            return ListView.separated(
+                                                              itemCount: snapshot.data!.docs.length,
+                                                              itemBuilder: (context, index) {
+                                                                Comment comment =
+                                                                    Comment.fromJson(snapshot.data!.docs[index].data() as Map<String, dynamic>);
+                                                                UserProfile user = UserProfile.fromJson(comment.userProfile!);
+
+                                                                return Container(
+                                                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                                                  child: CommentItem(user: user, comment: comment),
+                                                                );
+                                                              },
+                                                              separatorBuilder: (BuildContext context, int index) => Container(
+                                                                margin: EdgeInsets.symmetric(horizontal: 20),
+                                                                width: MediaQuery.of(context).size.width,
+                                                                height: 1,
+                                                                color: AppColors.electricBlue.withOpacity(0.05),
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
                                                       },
                                                       error: () => Center(
                                                             child: Text('Error'),
