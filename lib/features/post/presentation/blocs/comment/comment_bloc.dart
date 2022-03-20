@@ -45,7 +45,7 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     final failureOrAdd = await _addComment(event.addCommentData);
 
     failureOrAdd.fold((failure){
-
+      Logger().e(failure.message);
     }, (_){
 
     });

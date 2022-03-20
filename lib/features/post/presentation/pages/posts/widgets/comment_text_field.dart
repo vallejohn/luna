@@ -3,6 +3,7 @@ import 'package:flutter/material.dart%20';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/comment_text_field_bloc.dart';
 
 import '../../../../../../core/utils/params.dart';
 import '../../../../../../global/styles.dart';
@@ -19,40 +20,54 @@ class CommentTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(customBorderRadius),
-      child: TextFormField(
-        controller: controller,
-        textInputAction: TextInputAction.done,
-        style: TextStyle(fontSize: AppFontSize.medium, color: AppColors.bodyText),
-        textAlign: TextAlign.start,
-        decoration: InputDecoration(
-          prefixIcon: IconButton(
-            onPressed: (){},
-            icon: CircleAvatar(
-              backgroundImage: NetworkImage('${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
-                  withData: (data) => data.user.profileImageURL,
-                  orElse: () => '')}'),
+      child: BlocBuilder<CommentTextFieldBloc, CommentTextFieldState>(
+        builder: (context, state) {
+          return TextFormField(
+            controller: controller,
+            textInputAction: TextInputAction.done,
+            style: TextStyle(fontSize: AppFontSize.medium, color: AppColors.bodyText),
+            textAlign: TextAlign.start,
+            decoration: InputDecoration(
+              prefixIcon: IconButton(
+                onPressed: () {},
+                icon: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      '${context.read<UserProfileBloc>().state.maybeWhen(
+                          withData: (data) => data.user.profileImageURL,
+                          orElse: () => '')}',),
+                ),
+              ),
+              suffixIcon: Material(
+                borderRadius: BorderRadius.circular(50),
+                clipBehavior: Clip.none,
+                color: Colors.transparent,
+                child: IconButton(
+                    onPressed: () => state.when(
+                          isNotEmpty: () => onAddComment(),
+                          isEmpty: () => null,
+                        ),
+                    icon: Icon(
+                      state.when(
+                            isNotEmpty: () => Ionicons.send,
+                            isEmpty: () => Ionicons.send_outline,
+                          ),
+                    ), color: AppColors.electricBlue,),
+              ),
+              contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
+              hintText: 'Your thoughts here, '
+                  '${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
+                  withData: (data) => data.user.firstname,
+                  orElse: () => '')}',
+              filled: true,
+              fillColor: AppColors.electricBlue.withOpacity(0.05),
+              hintStyle: TextStyle(color: AppColors.electricBlue.withOpacity(0.5)),
+              border: OutlineInputBorder(borderSide: BorderSide.none),
             ),
-          ),
-          suffixIcon: Material(
-            borderRadius: BorderRadius.circular(50),
-            clipBehavior: Clip.none,
-            color: Colors.transparent,
-            child: IconButton(
-              onPressed: () => onAddComment(),
-                icon: Icon(
-                  Ionicons.send,
-                )),
-          ),
-          contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
-          hintText: 'Your thoughts here, '
-              '${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
-              withData: (data) => data.user.firstname,
-              orElse: () => '')}',
-          filled: true,
-          fillColor: AppColors.electricBlue.withOpacity(0.05),
-          hintStyle: TextStyle(color: AppColors.electricBlue.withOpacity(0.5)),
-          border: OutlineInputBorder(borderSide: BorderSide.none),
-        ),
+            onChanged: (value) {
+              context.read<CommentTextFieldBloc>().add(CommentTextFieldEvent.onChanged(value: value));
+            },
+          );
+        },
       ),
     );
   }

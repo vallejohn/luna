@@ -46,8 +46,6 @@ class PostDetailsPage extends StatelessWidget {
               Post post = Post.fromJson(snapshot.data!.data() as Map<String, dynamic>).copyWith(id: snapshot.data!.id);
               UserProfile author = UserProfile.fromJson(post.author!);
 
-              BlocProvider.of<CommentBloc>(context).add(CommentEvent.onFetchPostComments(postID: post.id));
-
               return Stack(
                 children: [
                   SingleChildScrollView(
@@ -112,6 +110,9 @@ class PostDetailsPage extends StatelessWidget {
                               child: TextButton(
                                   style: TextButton.styleFrom(primary: AppColors.electricBlue, padding: EdgeInsets.zero),
                                   onPressed: () {
+
+                                    BlocProvider.of<CommentBloc>(context).add(CommentEvent.onFetchPostComments(postID: post.id));
+
                                     showModalBottomSheet<void>(
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10.0),

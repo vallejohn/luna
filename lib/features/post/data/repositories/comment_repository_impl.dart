@@ -36,6 +36,11 @@ class CommentRepositoryImpl extends CommentRepository{
 
   @override
   Future<Either<Failure, void>> addComment(AddCommentData addCommentData) async{
+
+    if(addCommentData.comment.body!.isEmpty){
+      return Left(Failure.generic(message: 'Comment is empty'));
+    }
+
     try{
       Logger().i('Trying to add comment');
       return Right(await commentDataSource.addComment(addCommentData));
