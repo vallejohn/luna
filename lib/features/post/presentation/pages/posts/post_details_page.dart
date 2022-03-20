@@ -8,6 +8,7 @@ import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/data/models/comment.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/post/presentation/blocs/comment/comment_bloc.dart';
+import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/comment_text_field_bloc.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/author_information.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/comment_item.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/comment_text_field.dart';
@@ -26,6 +27,7 @@ class PostDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController commentController = TextEditingController();
+    BlocProvider.of<CommentTextFieldBloc>(context).add(CommentTextFieldEvent.started());
 
     return Scaffold(
       backgroundColor: Colors.white,
