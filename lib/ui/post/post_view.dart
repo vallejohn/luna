@@ -21,7 +21,7 @@ class PostView extends StatelessWidget {
     return BlocBuilder<PostBloc, PostState>(builder: (context, state) {
       return state.when(
           initial: (currentUser) {
-            Logger().i('Post view: ${post.title}');
+            log.i('Post view: ${post.title}');
             UserProfile author = UserProfile.fromJson(post.author!);
             return Scaffold(
               body: SingleChildScrollView(

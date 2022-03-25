@@ -10,6 +10,8 @@ import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 
+import '../../../../../core/utils/app_logger.dart';
+
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
@@ -17,6 +19,8 @@ part 'login_bloc.freezed.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final _signInWithUsernameAndPassword = GetIt.instance<SignInWithEmailAndPassword>();
+
+  var log = AppLogger('LoginBloc');
 
   LoginBloc() : super(LoginState.initial()) {
     on<_SignInWithEmailAndPassword>(_onSignInWithEmailAndPassword);
@@ -33,16 +37,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     failureOrDataState.fold((failure){
       emit(LoginState.failed(message: failure.message));
-      Logger().e('Login failure: ${failure.message}');
+      log.e('Login failure: ${failure.message}');
     }, (dataState){
       dataState.when(
           success: (data){
             emit(LoginState.success(param: data));
-            Logger().i('Login success!}');
+            log.i('Login success!}');
           }, failed: (loginError){
             LoginError error = loginError;
             String errorMessage = AuthError.getStringMessageFromErrorCode(error);
-            Logger().w('Login failed: $errorMessage');
+            log.w('Login failed: $errorMessage');
 
             if(AuthError.isEmailError(error)){
               emit(LoginState.emailFailure(message: errorMessage));

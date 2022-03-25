@@ -8,6 +8,8 @@ import 'package:logger/logger.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/domain/usecases/add_post.dart';
 
+import '../../../../../core/utils/app_logger.dart';
+
 part 'create_post_event.dart';
 part 'create_post_state.dart';
 part 'create_post_bloc.freezed.dart';
@@ -15,6 +17,8 @@ part 'create_post_bloc.freezed.dart';
 class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
 
   final _addPost = GetIt.instance<AddPost>();
+
+  var log = AppLogger('CreatePostBloc');
 
   CreatePostBloc() : super(CreatePostState.initial()) {
     on<_Started>(_onStarted);
@@ -36,17 +40,17 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
     ));
 
     await dataState.fold((failure) async{
-      Logger().e('Failure to upload post: ${failure.message}');
+      log.e('Failure to upload post: ${failure.message}');
       emit(CreatePostState.error());
     }, (dataState) async{
       await dataState.when(
           success: (data) async{
             DocumentReference reference = data;
-            Logger().i('Successfully added post: ${reference.id}');
+            log.i('Successfully added post: ${reference.id}');
             emit(CreatePostState.success(postSnapshot: reference.snapshots()));
           },
           failed: (error) async{
-            Logger().w('Error while adding post: ${error.toString()}');
+            log.w('Error while adding post: ${error.toString()}');
             emit(CreatePostState.error());
           });
     });

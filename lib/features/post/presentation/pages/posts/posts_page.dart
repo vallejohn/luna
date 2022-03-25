@@ -11,6 +11,7 @@ import 'package:luna/router/app_router.dart';
 
 import '../../../../../global/styles.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
+import '../../../data/models/engagement.dart';
 import '../../blocs/posts/posts_bloc.dart';
 
 class PostsPage extends StatelessWidget {
@@ -61,11 +62,12 @@ class PostsPage extends StatelessWidget {
                     children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
                       Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>)
                           .copyWith(id: documentSnapshot.id);
+                      Engagement engagement = Engagement.fromJson(post.engagement!);
                       UserProfile author = UserProfile.fromJson(post.author!);
                       return PostItem(
                           title: post.title,
                           content: post.content,
-                          commentCount: post.commentCount,
+                          commentCount: engagement.comments,
                           profileImageURL: author.profileImageURL,
                           name: '${author.firstname} ${author.lastname}',
                           category: 'Technology',

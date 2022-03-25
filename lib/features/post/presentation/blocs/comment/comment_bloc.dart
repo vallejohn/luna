@@ -7,6 +7,7 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/utils/params.dart';
 
+import '../../../../../core/utils/app_logger.dart';
 import '../../../domain/usecases/add_comment.dart';
 import '../../../domain/usecases/get_all_comments.dart';
 
@@ -18,6 +19,8 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
 
   final _getAllComments = GetIt.instance<GetAllComments>();
   final _addComment = GetIt.instance<AddComment>();
+
+  var log = AppLogger('CommentBloc');
 
   CommentBloc() : super(CommentState.initial()) {
     on<_Started>(_onStarted);
@@ -32,10 +35,10 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     final failureOrAllComments = await _getAllComments(event.postID);
 
     failureOrAllComments.fold((failure){
-      Logger().e('Failed to load comments: ${failure.message}');
+      log.e('Failed to load comments: ${failure.message}');
       emit(CommentState.error());
     }, (data){
-      Logger().i('Successfully fetched post');
+      log.i('Successfully fetched post');
       Stream<QuerySnapshot> commentsStream = data;
       emit(CommentState.success(commentsStream: commentsStream));
     });
@@ -45,7 +48,7 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     final failureOrAdd = await _addComment(event.addCommentData);
 
     failureOrAdd.fold((failure){
-      Logger().e(failure.message);
+      log.e(failure.message);
     }, (_){
 
     });

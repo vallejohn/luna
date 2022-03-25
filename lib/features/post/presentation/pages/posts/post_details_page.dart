@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/data/models/engagement.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/post/presentation/blocs/comment/comment_bloc.dart';
 import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/comment_text_field_bloc.dart';
@@ -16,6 +17,7 @@ import 'package:luna/features/post/presentation/pages/posts/widgets/social_media
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 
+import '../../../../../core/utils/app_logger.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 
@@ -29,6 +31,8 @@ class PostDetailsPage extends StatelessWidget {
     TextEditingController commentController = TextEditingController();
     BlocProvider.of<CommentTextFieldBloc>(context).add(CommentTextFieldEvent.started());
 
+    var log = AppLogger('PostDetailsPage');
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -36,16 +40,17 @@ class PostDetailsPage extends StatelessWidget {
             stream: postSnapshot,
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                Logger().e('Snapshot post error');
+                log.e('Snapshot post error');
                 return Container();
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
-                Logger().w('Snapshot post waiting');
+                log.w('Snapshot post waiting');
                 return Center(
                   child: CircularProgressIndicator(),
                 );
               }
               Post post = Post.fromJson(snapshot.data!.data() as Map<String, dynamic>).copyWith(id: snapshot.data!.id);
+              Engagement engagement = Engagement.fromJson(post.engagement!);
               UserProfile author = UserProfile.fromJson(post.author!);
 
               return Stack(
@@ -72,7 +77,7 @@ class PostDetailsPage extends StatelessWidget {
                             textAlign: TextAlign.justify,
                           ),
                           AppVerticalSpace.small,
-                          SocialMediaElements(post: post),
+                          SocialMediaElements(post: post, engagement: engagement),
                           AppVerticalSpace.massive,
                         ],
                       ),
@@ -97,7 +102,7 @@ class PostDetailsPage extends StatelessWidget {
                                               userProfile:
                                               BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
                                               body: commentController.text),
-                                          commentCount: post.commentCount,
+                                          commentCount: engagement.comments,
                                           postID: post.id)));
                                   commentController.clear();
                                 }),
@@ -139,7 +144,7 @@ class PostDetailsPage extends StatelessWidget {
                                                 AppHorizontalSpace.small,
                                                 Expanded(
                                                   child: Text(
-                                                    '${post.commentCount} Comments',
+                                                    '${engagement.comments} Comments',
                                                     style: AppTextStyle.small
                                                   ),
                                                 ),

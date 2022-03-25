@@ -11,9 +11,11 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       title: json['title'] as String? ?? '',
       coverImageURL: json['coverImageURL'] as String? ?? '',
       content: json['content'] as String? ?? '',
-      commentCount: json['commentCount'] as int? ?? 0,
       recentComment: json['recentComment'] as Map<String, dynamic>?,
+      engagement: json['engagement'] as Map<String, dynamic>?,
       author: json['author'] as Map<String, dynamic>?,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
     );
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
@@ -21,7 +23,9 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'title': instance.title,
       'coverImageURL': instance.coverImageURL,
       'content': instance.content,
-      'commentCount': instance.commentCount,
       'recentComment': instance.recentComment,
+      'engagement': instance.engagement,
       'author': instance.author,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };

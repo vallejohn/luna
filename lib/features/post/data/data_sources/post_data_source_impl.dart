@@ -10,13 +10,18 @@ import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/core/utils/statics/collection.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
+import 'package:luna/features/post/data/models/engagement.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/core/utils/statics/storage.dart';
+
+import '../../../../core/utils/app_logger.dart';
 
 class PostDataSourceImpl extends PostDataSource {
   PostDataSourceImpl({
     required FirebaseService firebaseService,
   }) : super(firebaseService: firebaseService);
+
+  var log = AppLogger('PostDataSourceImpl');
 
   @override
   Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts() async {
@@ -42,7 +47,7 @@ class PostDataSourceImpl extends PostDataSource {
       String imagePath = '';
 
       if(addPostData.imagePath.isNotEmpty){
-        Logger().i('Accessing firebase service for image upload');
+        log.i('Accessing firebase service for image upload');
         final dataState = await firebaseService.uploadImage(
             uID: addPostData.user!.authID!,
             file: File(addPostData.imagePath),
@@ -51,10 +56,10 @@ class PostDataSourceImpl extends PostDataSource {
         dataState.when(
           success: (imageUrl){
             imagePath = imageUrl;
-            Logger().i('Image uploaded successfully');
+            log.i('Image uploaded successfully');
           },
           failed: (error){
-            Logger().i('Failed to upload image: ${error.toString()}');
+            log.i('Failed to upload image: ${error.toString()}');
             return DataState.failed(error: error);
           },
         );
@@ -64,7 +69,8 @@ class PostDataSourceImpl extends PostDataSource {
           author: addPostData.user!.toJson(),
           title: addPostData.title,
           content: addPostData.content,
-          commentCount: 0,
+          engagement: Engagement().toJson(),
+          createdAt: Timestamp.now(),
           coverImageURL: imagePath)
           .toJson()).then((reference) => documentReference = reference);
       return DataState.success(data: documentReference);

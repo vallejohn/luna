@@ -22,11 +22,9 @@ RecentComment _$RecentCommentFromJson(Map<String, dynamic> json) {
 class _$RecentCommentTearOff {
   const _$RecentCommentTearOff();
 
-  _RecentComment call(
-      {Map<String, dynamic>? recentComment, int commentCount = 0}) {
+  _RecentComment call({Map<String, dynamic>? recentComment}) {
     return _RecentComment(
       recentComment: recentComment,
-      commentCount: commentCount,
     );
   }
 
@@ -41,7 +39,6 @@ const $RecentComment = _$RecentCommentTearOff();
 /// @nodoc
 mixin _$RecentComment {
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
-  int get commentCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +51,7 @@ abstract class $RecentCommentCopyWith<$Res> {
   factory $RecentCommentCopyWith(
           RecentComment value, $Res Function(RecentComment) then) =
       _$RecentCommentCopyWithImpl<$Res>;
-  $Res call({Map<String, dynamic>? recentComment, int commentCount});
+  $Res call({Map<String, dynamic>? recentComment});
 }
 
 /// @nodoc
@@ -69,17 +66,12 @@ class _$RecentCommentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? recentComment = freezed,
-    Object? commentCount = freezed,
   }) {
     return _then(_value.copyWith(
       recentComment: recentComment == freezed
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      commentCount: commentCount == freezed
-          ? _value.commentCount
-          : commentCount // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -91,7 +83,7 @@ abstract class _$RecentCommentCopyWith<$Res>
           _RecentComment value, $Res Function(_RecentComment) then) =
       __$RecentCommentCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, dynamic>? recentComment, int commentCount});
+  $Res call({Map<String, dynamic>? recentComment});
 }
 
 /// @nodoc
@@ -108,17 +100,12 @@ class __$RecentCommentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? recentComment = freezed,
-    Object? commentCount = freezed,
   }) {
     return _then(_RecentComment(
       recentComment: recentComment == freezed
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      commentCount: commentCount == freezed
-          ? _value.commentCount
-          : commentCount // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -126,20 +113,17 @@ class __$RecentCommentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RecentComment implements _RecentComment {
-  _$_RecentComment({this.recentComment, this.commentCount = 0});
+  _$_RecentComment({this.recentComment});
 
   factory _$_RecentComment.fromJson(Map<String, dynamic> json) =>
       _$$_RecentCommentFromJson(json);
 
   @override
   final Map<String, dynamic>? recentComment;
-  @JsonKey()
-  @override
-  final int commentCount;
 
   @override
   String toString() {
-    return 'RecentComment(recentComment: $recentComment, commentCount: $commentCount)';
+    return 'RecentComment(recentComment: $recentComment)';
   }
 
   @override
@@ -148,16 +132,12 @@ class _$_RecentComment implements _RecentComment {
         (other.runtimeType == runtimeType &&
             other is _RecentComment &&
             const DeepCollectionEquality()
-                .equals(other.recentComment, recentComment) &&
-            const DeepCollectionEquality()
-                .equals(other.commentCount, commentCount));
+                .equals(other.recentComment, recentComment));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(recentComment),
-      const DeepCollectionEquality().hash(commentCount));
+      runtimeType, const DeepCollectionEquality().hash(recentComment));
 
   @JsonKey(ignore: true)
   @override
@@ -171,17 +151,14 @@ class _$_RecentComment implements _RecentComment {
 }
 
 abstract class _RecentComment implements RecentComment {
-  factory _RecentComment(
-      {Map<String, dynamic>? recentComment,
-      int commentCount}) = _$_RecentComment;
+  factory _RecentComment({Map<String, dynamic>? recentComment}) =
+      _$_RecentComment;
 
   factory _RecentComment.fromJson(Map<String, dynamic> json) =
       _$_RecentComment.fromJson;
 
   @override
   Map<String, dynamic>? get recentComment;
-  @override
-  int get commentCount;
   @override
   @JsonKey(ignore: true)
   _$RecentCommentCopyWith<_RecentComment> get copyWith =>

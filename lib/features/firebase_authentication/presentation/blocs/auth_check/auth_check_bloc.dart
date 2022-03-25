@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:luna/core/utils/app_logger.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/get_active_user.dart';
 
@@ -18,6 +19,8 @@ class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
   final _getActiveUser = GetIt.instance<GetActiveUser>();
   final _signOut = GetIt.instance<SignOut>();
 
+  var log = AppLogger('AuthCheckBloc');
+
   AuthCheckBloc() : super(AuthCheckState.loading()) {
     on<_Started>(_onStarted);
     on<_SignOut>(_onSignOut);
@@ -28,16 +31,16 @@ class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
 
     failureOrAuthState.fold((failure) {
       emit(AuthCheckState.error(message: failure.message));
-      Logger().e('AuthCheck failure: ${failure.message}');
+      log.e('AuthCheck failure: ${failure.message}');
     }, (authState) {
       authState.when(
           authenticated: (param) {
             emit(AuthCheckState.authenticated(param: param));
-            Logger().i('Authenticated: ${param.user.toString()}');
+            log.i('Authenticated: ${param.user.email.toString()}');
           },
           unAuthenticated: () {
             emit(AuthCheckState.unAuthenticated());
-            Logger().w('Unauthenticated');
+            log.w('Unauthenticated');
           });
     });
   }
@@ -46,7 +49,7 @@ class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
     final failureOrSuccess = await _signOut();
 
     failureOrSuccess.fold((failure){
-      Logger().e('Failed to logout');
+      log.e('Failed to logout');
     }, (_){
       emit(AuthCheckState.unAuthenticated());
     });

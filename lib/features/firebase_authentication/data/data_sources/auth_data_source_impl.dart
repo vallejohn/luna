@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 import 'package:luna/core/services/user_profile_service.dart';
 import 'package:luna/core/states/auth_state.dart';
+import 'package:luna/core/utils/app_logger.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/errors.dart';
@@ -20,6 +21,8 @@ class AuthDataSourceImpl extends AuthDataSource{
       usersCollection: collection,
       userProfileService: userProfileService
   );
+
+  var log = AppLogger('AuthDataSourceImpl');
 
   @override
   Future<DataState<UserProfileParam, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
@@ -46,7 +49,7 @@ class AuthDataSourceImpl extends AuthDataSource{
     User? user = firebaseAuth.currentUser;
 
     if(user != null){
-      Logger().i('User found');
+      log.i('User found');
       UserProfile userProfile = await _getUserFromCollection(user.uid);
 
       return AuthState.authenticated(data: UserProfileParam(
@@ -54,13 +57,13 @@ class AuthDataSourceImpl extends AuthDataSource{
         user: userProfile
       ));
     }else{
-      Logger().w('User not found');
+      log.w('User not found');
       return AuthState.unAuthenticated();
     }
   }
 
   Future<UserProfile> _getUserFromCollection(String authID) async{
-    Logger().i('Getting user information from collection using $authID');
+    log.i('Getting user information from collection using $authID');
 
     QuerySnapshot snapshot = await usersCollection.where('authID', isEqualTo: authID).get();
     UserProfile? userProfile = UserProfile.fromJson(

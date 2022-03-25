@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
 import 'package:luna/router/app_router.dart';
 
+import '../../../../../core/utils/app_logger.dart';
 import '../../../../../global/styles.dart';
 import '../../../../../global/ui_helpers.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
@@ -16,6 +17,9 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var log = AppLogger('ProfilePhoto');
+
     return BlocListener<AuthCheckBloc, AuthCheckState>(
       listener: (context, state) {
         state.whenOrNull(unAuthenticated: () => AutoRouter.of(context).push(const LoginRoute()));
@@ -29,15 +33,15 @@ class ProfilePhoto extends StatelessWidget {
                     stream: param.userStream,
                     builder: (context, AsyncSnapshot<UserProfile> snapshot) {
                       if (snapshot.hasError) {
-                        Logger().e('Snapshot error');
+                        log.e('Snapshot error');
                         return Container();
                       }
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        Logger().w('Snapshot waiting');
+                        log.w('Snapshot waiting');
                         return Container();
                       }
                       UserProfile profile = UserProfile.fromJson(snapshot.data!.toJson());
-                      Logger().i('Snapshot success!');
+                      log.i('Snapshot success!');
                       return Padding(
                         padding: EdgeInsets.only(right: horizontalMargin),
                         child: GestureDetector(

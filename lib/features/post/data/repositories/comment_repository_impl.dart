@@ -6,6 +6,7 @@ import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/params.dart';
 
+import '../../../../core/utils/app_logger.dart';
 import '../../domain/repositories/comment_repository.dart';
 import '../data_sources/comment_data_source.dart';
 
@@ -16,6 +17,8 @@ class CommentRepositoryImpl extends CommentRepository{
       commentDataSource: commentDataSource
   );
 
+  var log = AppLogger('CommentRepositoryImpl');
+
   @override
   Future<Either<Failure, DataState<PickedFile, Exception>>> browseCommentImage() {
     // TODO: implement browseCommentImage
@@ -25,11 +28,11 @@ class CommentRepositoryImpl extends CommentRepository{
   @override
   Future<Either<Failure, Stream<QuerySnapshot<Object?>>>> getAllComments(String postID) async{
     try{
-      Logger().i('Getting all comments from firebase');
+      log.i('Getting all comments from firebase');
       final comments = await commentDataSource.getAllComments(postID);
       return Right(comments);
     }catch(e){
-      Logger().e('Error getting comments from firebase: ${e.toString()}');
+      log.e('Error getting comments from firebase: ${e.toString()}');
       return Left(Failure.firebase(message: e.toString()));
     }
   }
@@ -42,10 +45,10 @@ class CommentRepositoryImpl extends CommentRepository{
     }
 
     try{
-      Logger().i('Trying to add comment');
+      log.i('Trying to add comment');
       return Right(await commentDataSource.addComment(addCommentData));
     }catch(e){
-      Logger().e('Error adding comments to firebase: ${e.toString()}');
+      log.e('Error adding comments to firebase: ${e.toString()}');
       return Left(Failure.firebase(message: e.toString()));
     }
   }

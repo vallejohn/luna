@@ -7,12 +7,15 @@ import 'package:luna/core/utils/params.dart';
 import 'package:luna/core/utils/statics/collection.dart';
 import 'package:luna/features/post/data/models/comment.dart';
 import 'package:luna/features/post/data/models/recent_comment.dart';
+import '../../../../core/utils/app_logger.dart';
 import 'comment_data_source.dart';
 
 class CommentDataSourceImpl extends CommentDataSource {
   CommentDataSourceImpl({
     required FirebaseService firebaseService,
   }) : super(firebaseService: firebaseService);
+
+  var log = AppLogger('CommentDataSourceImpl');
 
   @override
   Future<DataState<PickedFile, Exception>> browseCommentImage() {
@@ -22,7 +25,7 @@ class CommentDataSourceImpl extends CommentDataSource {
 
   @override
   Future<Stream<QuerySnapshot<Object?>>> getAllComments(String postID) async {
-    Logger().i('Accessing firebase service for getting all comments');
+    log.i('Accessing firebase service for getting all comments');
     return firebaseService.firebaseFirestore.collection(Collection.posts).doc(postID).collection(Collection.comments).snapshots();
   }
 
@@ -37,7 +40,7 @@ class CommentDataSourceImpl extends CommentDataSource {
     await firebaseService.firebaseFirestore
         .collection(Collection.posts)
         .doc(addCommentData.postID)
-        .update(RecentComment(recentComment: addCommentData.comment.toJson(), commentCount: addCommentData.commentCount + 1)
+        .update(RecentComment(recentComment: addCommentData.comment.toJson())
         .toJson());
   }
 }

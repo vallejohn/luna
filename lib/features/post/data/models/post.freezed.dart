@@ -27,17 +27,21 @@ class _$PostTearOff {
       String title = '',
       String coverImageURL = '',
       String content = '',
-      int commentCount = 0,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author}) {
+      Map<String, dynamic>? engagement,
+      Map<String, dynamic>? author,
+      dynamic createdAt,
+      dynamic updatedAt}) {
     return _Post(
       id: id,
       title: title,
       coverImageURL: coverImageURL,
       content: content,
-      commentCount: commentCount,
       recentComment: recentComment,
+      engagement: engagement,
       author: author,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
     );
   }
 
@@ -55,9 +59,11 @@ mixin _$Post {
   String get title => throw _privateConstructorUsedError;
   String get coverImageURL => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  int get commentCount => throw _privateConstructorUsedError;
   Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get engagement => throw _privateConstructorUsedError;
   Map<String, dynamic>? get author => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,9 +79,11 @@ abstract class $PostCopyWith<$Res> {
       String title,
       String coverImageURL,
       String content,
-      int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author});
+      Map<String, dynamic>? engagement,
+      Map<String, dynamic>? author,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -92,9 +100,11 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
     Object? title = freezed,
     Object? coverImageURL = freezed,
     Object? content = freezed,
-    Object? commentCount = freezed,
     Object? recentComment = freezed,
+    Object? engagement = freezed,
     Object? author = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -113,18 +123,26 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      commentCount: commentCount == freezed
-          ? _value.commentCount
-          : commentCount // ignore: cast_nullable_to_non_nullable
-              as int,
       recentComment: recentComment == freezed
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      engagement: engagement == freezed
+          ? _value.engagement
+          : engagement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -139,9 +157,11 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String title,
       String coverImageURL,
       String content,
-      int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author});
+      Map<String, dynamic>? engagement,
+      Map<String, dynamic>? author,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -159,9 +179,11 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
     Object? title = freezed,
     Object? coverImageURL = freezed,
     Object? content = freezed,
-    Object? commentCount = freezed,
     Object? recentComment = freezed,
+    Object? engagement = freezed,
     Object? author = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_Post(
       id: id == freezed
@@ -180,18 +202,26 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      commentCount: commentCount == freezed
-          ? _value.commentCount
-          : commentCount // ignore: cast_nullable_to_non_nullable
-              as int,
       recentComment: recentComment == freezed
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      engagement: engagement == freezed
+          ? _value.engagement
+          : engagement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -204,9 +234,11 @@ class _$_Post implements _Post {
       this.title = '',
       this.coverImageURL = '',
       this.content = '',
-      this.commentCount = 0,
       this.recentComment,
-      this.author});
+      this.engagement,
+      this.author,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
@@ -222,17 +254,20 @@ class _$_Post implements _Post {
   @JsonKey()
   @override
   final String content;
-  @JsonKey()
-  @override
-  final int commentCount;
   @override
   final Map<String, dynamic>? recentComment;
   @override
+  final Map<String, dynamic>? engagement;
+  @override
   final Map<String, dynamic>? author;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updatedAt;
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, coverImageURL: $coverImageURL, content: $content, commentCount: $commentCount, recentComment: $recentComment, author: $author)';
+    return 'Post(id: $id, title: $title, coverImageURL: $coverImageURL, content: $content, recentComment: $recentComment, engagement: $engagement, author: $author, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -246,10 +281,12 @@ class _$_Post implements _Post {
                 .equals(other.coverImageURL, coverImageURL) &&
             const DeepCollectionEquality().equals(other.content, content) &&
             const DeepCollectionEquality()
-                .equals(other.commentCount, commentCount) &&
-            const DeepCollectionEquality()
                 .equals(other.recentComment, recentComment) &&
-            const DeepCollectionEquality().equals(other.author, author));
+            const DeepCollectionEquality()
+                .equals(other.engagement, engagement) &&
+            const DeepCollectionEquality().equals(other.author, author) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @override
@@ -259,9 +296,11 @@ class _$_Post implements _Post {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(coverImageURL),
       const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(commentCount),
       const DeepCollectionEquality().hash(recentComment),
-      const DeepCollectionEquality().hash(author));
+      const DeepCollectionEquality().hash(engagement),
+      const DeepCollectionEquality().hash(author),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -280,9 +319,11 @@ abstract class _Post implements Post {
       String title,
       String coverImageURL,
       String content,
-      int commentCount,
       Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? author}) = _$_Post;
+      Map<String, dynamic>? engagement,
+      Map<String, dynamic>? author,
+      dynamic createdAt,
+      dynamic updatedAt}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
@@ -295,11 +336,15 @@ abstract class _Post implements Post {
   @override
   String get content;
   @override
-  int get commentCount;
-  @override
   Map<String, dynamic>? get recentComment;
   @override
+  Map<String, dynamic>? get engagement;
+  @override
   Map<String, dynamic>? get author;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;

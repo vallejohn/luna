@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -11,9 +11,11 @@ abstract class Post with _$Post{
     @Default('') String title,
     @Default('') String coverImageURL,
     @Default('') String content,
-    @Default(0) int commentCount,
     Map<String, dynamic>? recentComment,
+    Map<String, dynamic>? engagement,
     Map<String, dynamic>? author,
+    dynamic createdAt,
+    dynamic updatedAt,
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);

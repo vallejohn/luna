@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
+import '../../../../../core/utils/app_logger.dart';
 import '../../../domain/usecases/add_post_cover_image.dart';
 
 part 'browse_image_event.dart';
@@ -14,6 +15,7 @@ part 'browse_image_bloc.freezed.dart';
 class BrowseImageBloc extends Bloc<BrowseImageEvent, BrowseImageState> {
   final _uploadPostCoverImage = GetIt.instance<AddPostCoverImage>();
 
+  var log = AppLogger('BrowseImageBloc');
 
   BrowseImageBloc() : super(BrowseImageState.initial()) {
     on<_Started>((event, emit) {});
@@ -25,12 +27,12 @@ class BrowseImageBloc extends Bloc<BrowseImageEvent, BrowseImageState> {
     final failureOrCoverImage = await _uploadPostCoverImage();
 
     failureOrCoverImage.fold((failure){
-      Logger().e(failure.message);
+      log.e(failure.message);
       emit(BrowseImageState.error());
     }, (dataState){
       dataState.whenOrNull(success: (data){
         PickedFile? _image = data;
-        Logger().i(_image!.path.toString());
+        log.i(_image!.path.toString());
         emit(BrowseImageState.success(image: _image));
       });
     });

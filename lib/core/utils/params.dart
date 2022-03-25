@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/data/models/like.dart';
 import 'package:luna/features/post/data/models/recent_comment.dart';
 
 class LoginCredentials extends Equatable {
@@ -34,6 +35,17 @@ class AddCommentData extends Equatable {
 
   @override
   List<Object?> get props => [comment, postID, commentCount];
+}
+
+class AddLikeData extends Equatable {
+  final Like like;
+  final String postID;
+  final int likeCount;
+
+  const AddLikeData({required this.postID, required this.likeCount, required this.like});
+
+  @override
+  List<Object?> get props => [like, postID, likeCount];
 }
 
 class UserProfileParam extends Equatable {
