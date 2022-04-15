@@ -5,7 +5,9 @@ import 'package:luna/core/services/firebase_service.dart';
 import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/core/utils/statics/collection.dart';
+import 'package:luna/core/utils/statics/firestore_fields.dart';
 import 'package:luna/features/post/data/models/comment.dart';
+import 'package:luna/features/post/data/models/engagement.dart';
 import 'package:luna/features/post/data/models/recent_comment.dart';
 import '../../../../core/utils/app_logger.dart';
 import 'comment_data_source.dart';
@@ -31,16 +33,11 @@ class CommentDataSourceImpl extends CommentDataSource {
 
   @override
   Future<void> addComment(AddCommentData addCommentData) async {
-    await firebaseService.firebaseFirestore
-        .collection(Collection.posts)
-        .doc(addCommentData.postID)
-        .collection(Collection.comments)
-        .add(addCommentData.comment.toJson());
 
-    await firebaseService.firebaseFirestore
-        .collection(Collection.posts)
-        .doc(addCommentData.postID)
-        .update(RecentComment(recentComment: addCommentData.comment.toJson())
-        .toJson());
+    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts).doc(addCommentData.postID);
+
+    await document.collection(Collection.comments).add(addCommentData.comment.toJson());
+    await document.update(RecentComment(recentComment: addCommentData.comment.toJson()).toJson());
+    await document.update({EngagementField.comments: addCommentData.commentCount + 1});
   }
 }

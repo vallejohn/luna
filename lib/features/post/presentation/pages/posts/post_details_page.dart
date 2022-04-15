@@ -13,7 +13,7 @@ import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/co
 import 'package:luna/features/post/presentation/pages/posts/widgets/author_information.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/comment_item.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/comment_text_field.dart';
-import 'package:luna/features/post/presentation/pages/posts/widgets/social_media_elements.dart';
+import 'package:luna/features/post/presentation/pages/posts/widgets/engagement_tile.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 
@@ -77,7 +77,13 @@ class PostDetailsPage extends StatelessWidget {
                             textAlign: TextAlign.justify,
                           ),
                           AppVerticalSpace.small,
-                          SocialMediaElements(post: post, engagement: engagement),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 1,
+                            color: AppColors.electricBlue.withOpacity(0.05),
+                          ),
+                          AppVerticalSpace.small,
+                          EngagementTile(post: post, engagement: engagement),
                           AppVerticalSpace.massive,
                         ],
                       ),
@@ -144,7 +150,7 @@ class PostDetailsPage extends StatelessWidget {
                                                 AppHorizontalSpace.small,
                                                 Expanded(
                                                   child: Text(
-                                                    '${engagement.comments} Comments',
+                                                    '${engagement.comments} Comment${engagement.comments > 1? 's' : ''}',
                                                     style: AppTextStyle.small
                                                   ),
                                                 ),

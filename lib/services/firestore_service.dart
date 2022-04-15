@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:logger/logger.dart';
-import 'package:luna/models/comment.dart';
+/*import 'package:luna/models/comment.dart';*/
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
@@ -48,11 +48,11 @@ class FirestoreService {
     return userProfile;
   }
 
-  Future addComment(String postID, int commentCount, Comment comment) async {
+/*  Future addComment(String postID, int commentCount, Comment comment) async {
     await _posts.doc(postID).collection(COMMENTS).add(comment.toJson());
     await _posts.doc(postID).update(
         {'recentComment': comment.toJson(), 'commentCount': commentCount + 1});
-  }
+  }*/
 
   DocumentReference getPost(String postID) {
     return _posts.doc(postID).withConverter<Post>(

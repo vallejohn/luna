@@ -50,7 +50,7 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     failureOrAdd.fold((failure){
       log.e(failure.message);
     }, (_){
-
+      log.i('Comment was added successfully');
     });
   }
 }

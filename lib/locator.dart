@@ -12,17 +12,23 @@ import 'package:luna/features/firebase_authentication/domain/usecases/sign_out.d
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 import 'package:luna/features/post/data/data_sources/comment_data_source.dart';
 import 'package:luna/features/post/data/data_sources/comment_data_source_impl.dart';
+import 'package:luna/features/post/data/data_sources/like_data_source_impl.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source.dart';
 import 'package:luna/features/post/data/data_sources/post_data_source_impl.dart';
 import 'package:luna/features/post/data/repositories/comment_repository_impl.dart';
+import 'package:luna/features/post/data/repositories/like_repository_impl.dart';
 import 'package:luna/features/post/data/repositories/post_repository_impl.dart';
 import 'package:luna/features/post/domain/repositories/comment_repository.dart';
+import 'package:luna/features/post/domain/repositories/like_repository.dart';
 import 'package:luna/features/post/domain/repositories/post_repository.dart';
 import 'package:luna/features/post/domain/usecases/add_comment.dart';
+import 'package:luna/features/post/domain/usecases/add_like.dart';
 import 'package:luna/features/post/domain/usecases/add_post.dart';
 import 'package:luna/features/post/domain/usecases/add_post_cover_image.dart';
 import 'package:luna/features/post/domain/usecases/get_all_comments.dart';
 import 'package:luna/features/post/domain/usecases/get_all_posts.dart';
+
+import 'features/post/data/data_sources/like_data_source.dart';
 
 final getIt = GetIt.instance;
 
@@ -36,6 +42,7 @@ Future<void> setupLocator() async{
   _setUpFirebaseAuthFeature();
   _setUpPostFeature();
   _setUpCommentFeature();
+  _setUpLikeFeature();
 }
 
 void _setUpFirebaseAuthFeature(){
@@ -79,4 +86,16 @@ void _setUpCommentFeature(){
 
   getIt.registerLazySingleton(() => GetAllComments(getIt()));
   getIt.registerLazySingleton(() => AddComment(getIt()));
+}
+
+void _setUpLikeFeature(){
+  getIt.registerLazySingleton<LikeDataSource>(() => LikeDataSourceImpl(
+      firebaseService: getIt())
+  );
+
+  getIt.registerLazySingleton<LikeRepository>(() => LikeRepositoryImpl(
+      likeDataSource: getIt())
+  );
+
+  getIt.registerLazySingleton(() => AddLike(getIt()));
 }

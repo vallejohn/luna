@@ -1,14 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:logger/logger.dart';
 import 'package:luna/core/services/firebase_service.dart';
-import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/core/utils/statics/collection.dart';
+import 'package:luna/core/utils/statics/firestore_fields.dart';
+import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/post/data/data_sources/like_data_source.dart';
-import 'package:luna/features/post/data/models/comment.dart';
-import 'package:luna/features/post/data/models/recent_comment.dart';
-import 'comment_data_source.dart';
 
 class LikeDataSourceImpl extends LikeDataSource {
   LikeDataSourceImpl({
@@ -16,20 +12,23 @@ class LikeDataSourceImpl extends LikeDataSource {
   }) : super(firebaseService: firebaseService);
 
   @override
-  Future<void> addLike(AddLikeData addLikeData) async{
+  Future<bool> addLike(AddLikeData addLikeData) async{
 
-    await firebaseService.firebaseFirestore
-        .collection(Collection.posts)
-        .doc(addLikeData.postID)
-        .collection(Collection.likes)
-        .add(addLikeData.like.toJson());
+    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts).doc(addLikeData.postID);
 
-    await firebaseService.firebaseFirestore
-        .collection(Collection.posts)
-        .doc(addLikeData.postID)
-        .update(RecentComment(recentComment: addLikeData.like.toJson())
-        .toJson());
+    final user = UserProfile.fromJson(addLikeData.like.userProfile as Map<String, dynamic>);
+    QuerySnapshot snapshot =  await document.collection(Collection.likes).where('authID', isEqualTo: user.authID).get();
 
+    //TODO !! Warning, bunch of document reads please revise.
+    if(snapshot.docs.isEmpty){
+      await document.collection(Collection.likes).add(user.toJson());
+      await document.update({EngagementField.likes: addLikeData.likeCount + 1});
+      return true;
+    }else{
+      await document.collection(Collection.likes).doc(snapshot.docs.first.id).delete();
+      await document.update({EngagementField.likes: addLikeData.likeCount - 1});
+      return false;
+    }
   }
 
   @override
