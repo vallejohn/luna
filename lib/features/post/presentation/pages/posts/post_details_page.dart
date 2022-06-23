@@ -69,7 +69,7 @@ class PostDetailsPage extends StatelessWidget {
                             ),
                           ),
                           AppVerticalSpace.medium,
-                          AuthorInformation(author: author),
+                          AuthorInformation(author: author, post: post,),
                           AppVerticalSpace.medium,
                           SelectableText(
                             post.content,

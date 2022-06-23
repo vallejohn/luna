@@ -1,12 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart%20';
+import 'package:luna/core/utils/helpers/app_date_format.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
+import 'package:luna/features/post/data/models/post.dart';
 
 import '../../../../../../global/styles.dart';
 import '../../../../../../global/ui_helpers.dart';
 
 class AuthorInformation extends StatelessWidget {
   final UserProfile author;
-  const AuthorInformation({Key? key, required this.author}) : super(key: key);
+  final Post post;
+  const AuthorInformation({Key? key, required this.author, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,7 @@ class AuthorInformation extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('7 mins ago',
+              Text(AppDateFormat.getTimeAgo(post.createdAt as Timestamp),
                   style: AppTextStyle.small.copyWith(color: AppColors.lightGrey, fontWeight: AppFontWeight.rubikSemiBold)),
             ],
           ),

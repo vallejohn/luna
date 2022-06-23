@@ -27,12 +27,7 @@ dependencies:
   equatable: ^2.0.3
   dartz: ^0.10.1
 
-  #MVVM Framework
-  stacked: ^2.2.7
-  stacked_services: ^0.8.15
   get_it: ^7.2.0
-  stacked_hooks: ^0.2.1
-  flutter_hooks: ^0.18.2
   freezed_annotation:
   logger: ^1.1.0
 
@@ -48,6 +43,7 @@ dependencies:
   statusbarz: ^1.0.2
   fluttertoast: ^8.0.9
   cached_network_image: ^3.2.0
+  timeago: ^3.2.2
 
   #PROVIDERS
   path_provider:
@@ -74,8 +70,6 @@ dev_dependencies:
   json_serializable:
   mockito: ^5.0.16
 
-dependency_overrides:
-  flutter_hooks: ^0.17.0
 
 
 # For information on the generic Dart part of this file, see the
