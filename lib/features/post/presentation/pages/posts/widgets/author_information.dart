@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart%20';
-import 'package:luna/core/utils/helpers/app_date_format.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/post/data/models/post.dart';
 
@@ -44,7 +43,7 @@ class AuthorInformation extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(AppDateFormat.getTimeAgo(post.createdAt as Timestamp),
+              Text(post.createdAt.toString(),
                   style: AppTextStyle.small.copyWith(color: AppColors.lightGrey, fontWeight: AppFontWeight.rubikSemiBold)),
             ],
           ),

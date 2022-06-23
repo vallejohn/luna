@@ -7,7 +7,6 @@ import 'package:luna/bloc_providers.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/locator.dart';
 import 'package:luna/router/app_router.dart';
-import 'package:statusbarz/statusbarz.dart';
 
 void main() async {
 
@@ -33,20 +32,18 @@ class Luna extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: BlocProviders.get(),
-      child: StatusbarzCapturer(
-        child: Builder(builder: (context) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: 'Luna',
-            theme: ThemeData(
-              fontFamily: 'Rubik',
-              primarySwatch: AppColors.primary,
-            ),
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser(),
-          );
-        }),
-      ),
+      child: Builder(builder: (context) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Luna',
+          theme: ThemeData(
+            fontFamily: 'Rubik',
+            primarySwatch: AppColors.primary,
+          ),
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+        );
+      }),
     );
   }
 }
