@@ -12,23 +12,7 @@ part of 'auth_check_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthCheckEventTearOff {
-  const _$AuthCheckEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _SignOut signOut() {
-    return const _SignOut();
-  }
-}
-
-/// @nodoc
-const $AuthCheckEvent = _$AuthCheckEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthCheckEvent {
@@ -292,38 +276,6 @@ class _$_SignOut implements _SignOut {
 abstract class _SignOut implements AuthCheckEvent {
   const factory _SignOut() = _$_SignOut;
 }
-
-/// @nodoc
-class _$AuthCheckStateTearOff {
-  const _$AuthCheckStateTearOff();
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Authenticated authenticated({required UserProfileParam param}) {
-    return _Authenticated(
-      param: param,
-    );
-  }
-
-  _UnAuthenticated unAuthenticated() {
-    return const _UnAuthenticated();
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Error error({required String message}) {
-    return _Error(
-      message: message,
-    );
-  }
-}
-
-/// @nodoc
-const $AuthCheckState = _$AuthCheckStateTearOff();
 
 /// @nodoc
 mixin _$AuthCheckState {
@@ -666,10 +618,10 @@ class _$_Authenticated implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthCheckState {
-  const factory _Authenticated({required UserProfileParam param}) =
+  const factory _Authenticated({required final UserProfileParam param}) =
       _$_Authenticated;
 
-  UserProfileParam get param;
+  UserProfileParam get param => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1060,9 +1012,9 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements AuthCheckState {
-  const factory _Error({required String message}) = _$_Error;
+  const factory _Error({required final String message}) = _$_Error;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }

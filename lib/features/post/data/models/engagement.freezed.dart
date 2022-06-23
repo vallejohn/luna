@@ -12,31 +12,11 @@ part of 'engagement.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Engagement _$EngagementFromJson(Map<String, dynamic> json) {
   return _Engagement.fromJson(json);
 }
-
-/// @nodoc
-class _$EngagementTearOff {
-  const _$EngagementTearOff();
-
-  _Engagement call({int comments = 0, int likes = 0, int shares = 0}) {
-    return _Engagement(
-      comments: comments,
-      likes: likes,
-      shares: shares,
-    );
-  }
-
-  Engagement fromJson(Map<String, Object?> json) {
-    return Engagement.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Engagement = _$EngagementTearOff();
 
 /// @nodoc
 mixin _$Engagement {
@@ -139,14 +119,14 @@ class _$_Engagement implements _Engagement {
   factory _$_Engagement.fromJson(Map<String, dynamic> json) =>
       _$$_EngagementFromJson(json);
 
-  @JsonKey()
   @override
+  @JsonKey()
   final int comments;
-  @JsonKey()
   @override
+  @JsonKey()
   final int likes;
-  @JsonKey()
   @override
+  @JsonKey()
   final int shares;
 
   @override
@@ -164,6 +144,7 @@ class _$_Engagement implements _Engagement {
             const DeepCollectionEquality().equals(other.shares, shares));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -183,17 +164,18 @@ class _$_Engagement implements _Engagement {
 }
 
 abstract class _Engagement implements Engagement {
-  factory _Engagement({int comments, int likes, int shares}) = _$_Engagement;
+  factory _Engagement({final int comments, final int likes, final int shares}) =
+      _$_Engagement;
 
   factory _Engagement.fromJson(Map<String, dynamic> json) =
       _$_Engagement.fromJson;
 
   @override
-  int get comments;
+  int get comments => throw _privateConstructorUsedError;
   @override
-  int get likes;
+  int get likes => throw _privateConstructorUsedError;
   @override
-  int get shares;
+  int get shares => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$EngagementCopyWith<_Engagement> get copyWith =>

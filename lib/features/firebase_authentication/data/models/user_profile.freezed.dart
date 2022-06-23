@@ -12,40 +12,11 @@ part of 'user_profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
   return _UserProfile.fromJson(json);
 }
-
-/// @nodoc
-class _$UserProfileTearOff {
-  const _$UserProfileTearOff();
-
-  _UserProfile call(
-      {String? authID,
-      String profileImageURL = '',
-      String? username,
-      String? email,
-      String? firstname,
-      String? lastname}) {
-    return _UserProfile(
-      authID: authID,
-      profileImageURL: profileImageURL,
-      username: username,
-      email: email,
-      firstname: firstname,
-      lastname: lastname,
-    );
-  }
-
-  UserProfile fromJson(Map<String, Object?> json) {
-    return UserProfile.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserProfile = _$UserProfileTearOff();
 
 /// @nodoc
 mixin _$UserProfile {
@@ -202,8 +173,8 @@ class _$_UserProfile implements _UserProfile {
 
   @override
   final String? authID;
-  @JsonKey()
   @override
+  @JsonKey()
   final String profileImageURL;
   @override
   final String? username;
@@ -233,6 +204,7 @@ class _$_UserProfile implements _UserProfile {
             const DeepCollectionEquality().equals(other.lastname, lastname));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -256,28 +228,28 @@ class _$_UserProfile implements _UserProfile {
 
 abstract class _UserProfile implements UserProfile {
   factory _UserProfile(
-      {String? authID,
-      String profileImageURL,
-      String? username,
-      String? email,
-      String? firstname,
-      String? lastname}) = _$_UserProfile;
+      {final String? authID,
+      final String profileImageURL,
+      final String? username,
+      final String? email,
+      final String? firstname,
+      final String? lastname}) = _$_UserProfile;
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
       _$_UserProfile.fromJson;
 
   @override
-  String? get authID;
+  String? get authID => throw _privateConstructorUsedError;
   @override
-  String get profileImageURL;
+  String get profileImageURL => throw _privateConstructorUsedError;
   @override
-  String? get username;
+  String? get username => throw _privateConstructorUsedError;
   @override
-  String? get email;
+  String? get email => throw _privateConstructorUsedError;
   @override
-  String? get firstname;
+  String? get firstname => throw _privateConstructorUsedError;
   @override
-  String? get lastname;
+  String? get lastname => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserProfileCopyWith<_UserProfile> get copyWith =>

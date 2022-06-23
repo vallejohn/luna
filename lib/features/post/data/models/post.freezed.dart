@@ -12,46 +12,11 @@ part of 'post.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Post _$PostFromJson(Map<String, dynamic> json) {
   return _Post.fromJson(json);
 }
-
-/// @nodoc
-class _$PostTearOff {
-  const _$PostTearOff();
-
-  _Post call(
-      {String id = '',
-      String title = '',
-      String coverImageURL = '',
-      String content = '',
-      Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? engagement,
-      Map<String, dynamic>? author,
-      dynamic createdAt,
-      dynamic updatedAt}) {
-    return _Post(
-      id: id,
-      title: title,
-      coverImageURL: coverImageURL,
-      content: content,
-      recentComment: recentComment,
-      engagement: engagement,
-      author: author,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  Post fromJson(Map<String, Object?> json) {
-    return Post.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
@@ -234,32 +199,56 @@ class _$_Post implements _Post {
       this.title = '',
       this.coverImageURL = '',
       this.content = '',
-      this.recentComment,
-      this.engagement,
-      this.author,
+      final Map<String, dynamic>? recentComment,
+      final Map<String, dynamic>? engagement,
+      final Map<String, dynamic>? author,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt})
+      : _recentComment = recentComment,
+        _engagement = engagement,
+        _author = author;
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String id;
-  @JsonKey()
   @override
+  @JsonKey()
   final String title;
-  @JsonKey()
   @override
+  @JsonKey()
   final String coverImageURL;
+  @override
   @JsonKey()
-  @override
   final String content;
+  final Map<String, dynamic>? _recentComment;
   @override
-  final Map<String, dynamic>? recentComment;
+  Map<String, dynamic>? get recentComment {
+    final value = _recentComment;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _engagement;
   @override
-  final Map<String, dynamic>? engagement;
+  Map<String, dynamic>? get engagement {
+    final value = _engagement;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _author;
   @override
-  final Map<String, dynamic>? author;
+  Map<String, dynamic>? get author {
+    final value = _author;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final dynamic createdAt;
   @override
@@ -289,6 +278,7 @@ class _$_Post implements _Post {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -315,36 +305,36 @@ class _$_Post implements _Post {
 
 abstract class _Post implements Post {
   factory _Post(
-      {String id,
-      String title,
-      String coverImageURL,
-      String content,
-      Map<String, dynamic>? recentComment,
-      Map<String, dynamic>? engagement,
-      Map<String, dynamic>? author,
-      dynamic createdAt,
-      dynamic updatedAt}) = _$_Post;
+      {final String id,
+      final String title,
+      final String coverImageURL,
+      final String content,
+      final Map<String, dynamic>? recentComment,
+      final Map<String, dynamic>? engagement,
+      final Map<String, dynamic>? author,
+      final dynamic createdAt,
+      final dynamic updatedAt}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
-  String get coverImageURL;
+  String get coverImageURL => throw _privateConstructorUsedError;
   @override
-  String get content;
+  String get content => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get recentComment;
+  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get engagement;
+  Map<String, dynamic>? get engagement => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get author;
+  Map<String, dynamic>? get author => throw _privateConstructorUsedError;
   @override
-  dynamic get createdAt;
+  dynamic get createdAt => throw _privateConstructorUsedError;
   @override
-  dynamic get updatedAt;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;

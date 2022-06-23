@@ -12,26 +12,7 @@ part of 'login_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LoginEventTearOff {
-  const _$LoginEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _SignInWithEmailAndPassword signInWithEmailAndPassword(
-      {required LoginCredentials emailAndPassword}) {
-    return _SignInWithEmailAndPassword(
-      emailAndPassword: emailAndPassword,
-    );
-  }
-}
-
-/// @nodoc
-const $LoginEvent = _$LoginEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$LoginEvent {
@@ -342,54 +323,14 @@ class _$_SignInWithEmailAndPassword implements _SignInWithEmailAndPassword {
 
 abstract class _SignInWithEmailAndPassword implements LoginEvent {
   const factory _SignInWithEmailAndPassword(
-          {required LoginCredentials emailAndPassword}) =
+          {required final LoginCredentials emailAndPassword}) =
       _$_SignInWithEmailAndPassword;
 
-  LoginCredentials get emailAndPassword;
+  LoginCredentials get emailAndPassword => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SignInWithEmailAndPasswordCopyWith<_SignInWithEmailAndPassword>
       get copyWith => throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$LoginStateTearOff {
-  const _$LoginStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _LoggingIn loggingIn() {
-    return const _LoggingIn();
-  }
-
-  _Success success({required UserProfileParam param}) {
-    return _Success(
-      param: param,
-    );
-  }
-
-  _EmailFailure emailFailure({required String message}) {
-    return _EmailFailure(
-      message: message,
-    );
-  }
-
-  _PasswordFailure passwordFailure({required String message}) {
-    return _PasswordFailure(
-      message: message,
-    );
-  }
-
-  _Failed failed({required String message}) {
-    return _Failed(
-      message: message,
-    );
-  }
-}
-
-/// @nodoc
-const $LoginState = _$LoginStateTearOff();
 
 /// @nodoc
 mixin _$LoginState {
@@ -873,9 +814,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements LoginState {
-  const factory _Success({required UserProfileParam param}) = _$_Success;
+  const factory _Success({required final UserProfileParam param}) = _$_Success;
 
-  UserProfileParam get param;
+  UserProfileParam get param => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1030,9 +971,10 @@ class _$_EmailFailure implements _EmailFailure {
 }
 
 abstract class _EmailFailure implements LoginState {
-  const factory _EmailFailure({required String message}) = _$_EmailFailure;
+  const factory _EmailFailure({required final String message}) =
+      _$_EmailFailure;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$EmailFailureCopyWith<_EmailFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1188,10 +1130,10 @@ class _$_PasswordFailure implements _PasswordFailure {
 }
 
 abstract class _PasswordFailure implements LoginState {
-  const factory _PasswordFailure({required String message}) =
+  const factory _PasswordFailure({required final String message}) =
       _$_PasswordFailure;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PasswordFailureCopyWith<_PasswordFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1344,9 +1286,9 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements LoginState {
-  const factory _Failed({required String message}) = _$_Failed;
+  const factory _Failed({required final String message}) = _$_Failed;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailedCopyWith<_Failed> get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,29 +12,11 @@ part of 'like.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Like _$LikeFromJson(Map<String, dynamic> json) {
   return _Like.fromJson(json);
 }
-
-/// @nodoc
-class _$LikeTearOff {
-  const _$LikeTearOff();
-
-  _Like call({Map<String, dynamic>? userProfile}) {
-    return _Like(
-      userProfile: userProfile,
-    );
-  }
-
-  Like fromJson(Map<String, Object?> json) {
-    return Like.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Like = _$LikeTearOff();
 
 /// @nodoc
 mixin _$Like {
@@ -106,12 +88,19 @@ class __$LikeCopyWithImpl<$Res> extends _$LikeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Like implements _Like {
-  _$_Like({this.userProfile});
+  _$_Like({final Map<String, dynamic>? userProfile})
+      : _userProfile = userProfile;
 
   factory _$_Like.fromJson(Map<String, dynamic> json) => _$$_LikeFromJson(json);
 
+  final Map<String, dynamic>? _userProfile;
   @override
-  final Map<String, dynamic>? userProfile;
+  Map<String, dynamic>? get userProfile {
+    final value = _userProfile;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -127,6 +116,7 @@ class _$_Like implements _Like {
                 .equals(other.userProfile, userProfile));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(userProfile));
@@ -143,12 +133,12 @@ class _$_Like implements _Like {
 }
 
 abstract class _Like implements Like {
-  factory _Like({Map<String, dynamic>? userProfile}) = _$_Like;
+  factory _Like({final Map<String, dynamic>? userProfile}) = _$_Like;
 
   factory _Like.fromJson(Map<String, dynamic> json) = _$_Like.fromJson;
 
   @override
-  Map<String, dynamic>? get userProfile;
+  Map<String, dynamic>? get userProfile => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LikeCopyWith<_Like> get copyWith => throw _privateConstructorUsedError;

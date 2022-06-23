@@ -12,27 +12,7 @@ part of 'data_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$DataStateTearOff {
-  const _$DataStateTearOff();
-
-  _Success<Type, Error> success<Type, Error>({Type? data}) {
-    return _Success<Type, Error>(
-      data: data,
-    );
-  }
-
-  _Failed<Type, Error> failed<Type, Error>({required Error error}) {
-    return _Failed<Type, Error>(
-      error: error,
-    );
-  }
-}
-
-/// @nodoc
-const $DataState = _$DataStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$DataState<Type, Error> {
@@ -220,9 +200,9 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
 }
 
 abstract class _Success<Type, Error> implements DataState<Type, Error> {
-  const factory _Success({Type? data}) = _$_Success<Type, Error>;
+  const factory _Success({final Type? data}) = _$_Success<Type, Error>;
 
-  Type? get data;
+  Type? get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<Type, Error, _Success<Type, Error>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -355,9 +335,9 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
 }
 
 abstract class _Failed<Type, Error> implements DataState<Type, Error> {
-  const factory _Failed({required Error error}) = _$_Failed<Type, Error>;
+  const factory _Failed({required final Error error}) = _$_Failed<Type, Error>;
 
-  Error get error;
+  Error get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FailedCopyWith<Type, Error, _Failed<Type, Error>> get copyWith =>
       throw _privateConstructorUsedError;

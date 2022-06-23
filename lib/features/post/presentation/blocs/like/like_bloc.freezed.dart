@@ -12,31 +12,7 @@ part of 'like_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LikeEventTearOff {
-  const _$LikeEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _OnAdd onAdd({required AddLikeData addLikeData}) {
-    return _OnAdd(
-      addLikeData: addLikeData,
-    );
-  }
-
-  _OnFetchPostLikes onFetchPostLikes({required String postID}) {
-    return _OnFetchPostLikes(
-      postID: postID,
-    );
-  }
-}
-
-/// @nodoc
-const $LikeEvent = _$LikeEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$LikeEvent {
@@ -339,9 +315,9 @@ class _$_OnAdd implements _OnAdd {
 }
 
 abstract class _OnAdd implements LikeEvent {
-  const factory _OnAdd({required AddLikeData addLikeData}) = _$_OnAdd;
+  const factory _OnAdd({required final AddLikeData addLikeData}) = _$_OnAdd;
 
-  AddLikeData get addLikeData;
+  AddLikeData get addLikeData => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnAddCopyWith<_OnAdd> get copyWith => throw _privateConstructorUsedError;
 }
@@ -478,36 +454,14 @@ class _$_OnFetchPostLikes implements _OnFetchPostLikes {
 }
 
 abstract class _OnFetchPostLikes implements LikeEvent {
-  const factory _OnFetchPostLikes({required String postID}) =
+  const factory _OnFetchPostLikes({required final String postID}) =
       _$_OnFetchPostLikes;
 
-  String get postID;
+  String get postID => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnFetchPostLikesCopyWith<_OnFetchPostLikes> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$LikeStateTearOff {
-  const _$LikeStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Liked liked({required bool isLiked}) {
-    return _Liked(
-      isLiked: isLiked,
-    );
-  }
-
-  _Error error() {
-    return const _Error();
-  }
-}
-
-/// @nodoc
-const $LikeState = _$LikeStateTearOff();
 
 /// @nodoc
 mixin _$LikeState {
@@ -809,9 +763,9 @@ class _$_Liked implements _Liked {
 }
 
 abstract class _Liked implements LikeState {
-  const factory _Liked({required bool isLiked}) = _$_Liked;
+  const factory _Liked({required final bool isLiked}) = _$_Liked;
 
-  bool get isLiked;
+  bool get isLiked => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LikedCopyWith<_Liked> get copyWith => throw _privateConstructorUsedError;
 }

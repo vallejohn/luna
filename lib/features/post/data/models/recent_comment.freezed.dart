@@ -12,29 +12,11 @@ part of 'recent_comment.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RecentComment _$RecentCommentFromJson(Map<String, dynamic> json) {
   return _RecentComment.fromJson(json);
 }
-
-/// @nodoc
-class _$RecentCommentTearOff {
-  const _$RecentCommentTearOff();
-
-  _RecentComment call({Map<String, dynamic>? recentComment}) {
-    return _RecentComment(
-      recentComment: recentComment,
-    );
-  }
-
-  RecentComment fromJson(Map<String, Object?> json) {
-    return RecentComment.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RecentComment = _$RecentCommentTearOff();
 
 /// @nodoc
 mixin _$RecentComment {
@@ -113,13 +95,20 @@ class __$RecentCommentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RecentComment implements _RecentComment {
-  _$_RecentComment({this.recentComment});
+  _$_RecentComment({final Map<String, dynamic>? recentComment})
+      : _recentComment = recentComment;
 
   factory _$_RecentComment.fromJson(Map<String, dynamic> json) =>
       _$$_RecentCommentFromJson(json);
 
+  final Map<String, dynamic>? _recentComment;
   @override
-  final Map<String, dynamic>? recentComment;
+  Map<String, dynamic>? get recentComment {
+    final value = _recentComment;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -135,6 +124,7 @@ class _$_RecentComment implements _RecentComment {
                 .equals(other.recentComment, recentComment));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(recentComment));
@@ -151,14 +141,14 @@ class _$_RecentComment implements _RecentComment {
 }
 
 abstract class _RecentComment implements RecentComment {
-  factory _RecentComment({Map<String, dynamic>? recentComment}) =
+  factory _RecentComment({final Map<String, dynamic>? recentComment}) =
       _$_RecentComment;
 
   factory _RecentComment.fromJson(Map<String, dynamic> json) =
       _$_RecentComment.fromJson;
 
   @override
-  Map<String, dynamic>? get recentComment;
+  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RecentCommentCopyWith<_RecentComment> get copyWith =>

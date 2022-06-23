@@ -12,30 +12,11 @@ part of 'comment.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Comment _$CommentFromJson(Map<String, dynamic> json) {
   return _Comment.fromJson(json);
 }
-
-/// @nodoc
-class _$CommentTearOff {
-  const _$CommentTearOff();
-
-  _Comment call({Map<String, dynamic>? userProfile, String? body}) {
-    return _Comment(
-      userProfile: userProfile,
-      body: body,
-    );
-  }
-
-  Comment fromJson(Map<String, Object?> json) {
-    return Comment.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Comment = _$CommentTearOff();
 
 /// @nodoc
 mixin _$Comment {
@@ -118,13 +99,21 @@ class __$CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Comment implements _Comment {
-  _$_Comment({this.userProfile, this.body});
+  _$_Comment({final Map<String, dynamic>? userProfile, this.body})
+      : _userProfile = userProfile;
 
   factory _$_Comment.fromJson(Map<String, dynamic> json) =>
       _$$_CommentFromJson(json);
 
+  final Map<String, dynamic>? _userProfile;
   @override
-  final Map<String, dynamic>? userProfile;
+  Map<String, dynamic>? get userProfile {
+    final value = _userProfile;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final String? body;
 
@@ -143,6 +132,7 @@ class _$_Comment implements _Comment {
             const DeepCollectionEquality().equals(other.body, body));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -161,15 +151,16 @@ class _$_Comment implements _Comment {
 }
 
 abstract class _Comment implements Comment {
-  factory _Comment({Map<String, dynamic>? userProfile, String? body}) =
-      _$_Comment;
+  factory _Comment(
+      {final Map<String, dynamic>? userProfile,
+      final String? body}) = _$_Comment;
 
   factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
 
   @override
-  Map<String, dynamic>? get userProfile;
+  Map<String, dynamic>? get userProfile => throw _privateConstructorUsedError;
   @override
-  String? get body;
+  String? get body => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CommentCopyWith<_Comment> get copyWith =>

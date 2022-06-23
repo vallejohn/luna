@@ -12,27 +12,7 @@ part of 'browse_image_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$BrowseImageEventTearOff {
-  const _$BrowseImageEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _OnBrowse onBrowse() {
-    return const _OnBrowse();
-  }
-
-  _OnCancel onCancel() {
-    return const _OnCancel();
-  }
-}
-
-/// @nodoc
-const $BrowseImageEvent = _$BrowseImageEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$BrowseImageEvent {
@@ -422,36 +402,6 @@ class _$_OnCancel implements _OnCancel {
 abstract class _OnCancel implements BrowseImageEvent {
   const factory _OnCancel() = _$_OnCancel;
 }
-
-/// @nodoc
-class _$BrowseImageStateTearOff {
-  const _$BrowseImageStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Uploading uploading() {
-    return const _Uploading();
-  }
-
-  _Success success({required PickedFile image}) {
-    return _Success(
-      image: image,
-    );
-  }
-
-  _Cancelled cancelled() {
-    return const _Cancelled();
-  }
-
-  _Error error() {
-    return const _Error();
-  }
-}
-
-/// @nodoc
-const $BrowseImageState = _$BrowseImageStateTearOff();
 
 /// @nodoc
 mixin _$BrowseImageState {
@@ -913,9 +863,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements BrowseImageState {
-  const factory _Success({required PickedFile image}) = _$_Success;
+  const factory _Success({required final PickedFile image}) = _$_Success;
 
-  PickedFile get image;
+  PickedFile get image => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;

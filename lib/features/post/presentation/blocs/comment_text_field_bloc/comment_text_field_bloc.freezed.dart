@@ -12,25 +12,7 @@ part of 'comment_text_field_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CommentTextFieldEventTearOff {
-  const _$CommentTextFieldEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _OnChanged onChanged({required String value}) {
-    return _OnChanged(
-      value: value,
-    );
-  }
-}
-
-/// @nodoc
-const $CommentTextFieldEvent = _$CommentTextFieldEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CommentTextFieldEvent {
@@ -319,29 +301,13 @@ class _$_OnChanged implements _OnChanged {
 }
 
 abstract class _OnChanged implements CommentTextFieldEvent {
-  const factory _OnChanged({required String value}) = _$_OnChanged;
+  const factory _OnChanged({required final String value}) = _$_OnChanged;
 
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnChangedCopyWith<_OnChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CommentTextFieldStateTearOff {
-  const _$CommentTextFieldStateTearOff();
-
-  _IsNotEmpty isNotEmpty() {
-    return const _IsNotEmpty();
-  }
-
-  _IsEmpty isEmpty() {
-    return const _IsEmpty();
-  }
-}
-
-/// @nodoc
-const $CommentTextFieldState = _$CommentTextFieldStateTearOff();
 
 /// @nodoc
 mixin _$CommentTextFieldState {

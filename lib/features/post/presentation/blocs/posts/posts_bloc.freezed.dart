@@ -12,19 +12,7 @@ part of 'posts_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PostsEventTearOff {
-  const _$PostsEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-}
-
-/// @nodoc
-const $PostsEvent = _$PostsEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PostsEvent {
@@ -173,34 +161,6 @@ class _$_Started implements _Started {
 abstract class _Started implements PostsEvent {
   const factory _Started() = _$_Started;
 }
-
-/// @nodoc
-class _$PostsStateTearOff {
-  const _$PostsStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Success success({required Stream<QuerySnapshot<Object?>> postsStream}) {
-    return _Success(
-      postsStream: postsStream,
-    );
-  }
-
-  _Empty empty() {
-    return const _Empty();
-  }
-
-  _Error error({required String message}) {
-    return _Error(
-      message: message,
-    );
-  }
-}
-
-/// @nodoc
-const $PostsState = _$PostsStateTearOff();
 
 /// @nodoc
 mixin _$PostsState {
@@ -526,9 +486,10 @@ class _$_Success implements _Success {
 
 abstract class _Success implements PostsState {
   const factory _Success(
-      {required Stream<QuerySnapshot<Object?>> postsStream}) = _$_Success;
+      {required final Stream<QuerySnapshot<Object?>> postsStream}) = _$_Success;
 
-  Stream<QuerySnapshot<Object?>> get postsStream;
+  Stream<QuerySnapshot<Object?>> get postsStream =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -785,9 +746,9 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements PostsState {
-  const factory _Error({required String message}) = _$_Error;
+  const factory _Error({required final String message}) = _$_Error;
 
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }

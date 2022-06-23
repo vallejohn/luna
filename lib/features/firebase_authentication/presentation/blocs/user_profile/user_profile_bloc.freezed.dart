@@ -12,25 +12,7 @@ part of 'user_profile_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UserProfileEventTearOff {
-  const _$UserProfileEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _UserUpdate userUpdate({required UserProfileParam param}) {
-    return _UserUpdate(
-      param: param,
-    );
-  }
-}
-
-/// @nodoc
-const $UserProfileEvent = _$UserProfileEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UserProfileEvent {
@@ -319,31 +301,14 @@ class _$_UserUpdate implements _UserUpdate {
 }
 
 abstract class _UserUpdate implements UserProfileEvent {
-  const factory _UserUpdate({required UserProfileParam param}) = _$_UserUpdate;
+  const factory _UserUpdate({required final UserProfileParam param}) =
+      _$_UserUpdate;
 
-  UserProfileParam get param;
+  UserProfileParam get param => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$UserUpdateCopyWith<_UserUpdate> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$UserProfileStateTearOff {
-  const _$UserProfileStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _WithData withData({required UserProfileParam param}) {
-    return _WithData(
-      param: param,
-    );
-  }
-}
-
-/// @nodoc
-const $UserProfileState = _$UserProfileStateTearOff();
 
 /// @nodoc
 mixin _$UserProfileState {
@@ -629,9 +594,10 @@ class _$_WithData implements _WithData {
 }
 
 abstract class _WithData implements UserProfileState {
-  const factory _WithData({required UserProfileParam param}) = _$_WithData;
+  const factory _WithData({required final UserProfileParam param}) =
+      _$_WithData;
 
-  UserProfileParam get param;
+  UserProfileParam get param => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WithDataCopyWith<_WithData> get copyWith =>
       throw _privateConstructorUsedError;

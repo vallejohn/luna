@@ -12,32 +12,11 @@ part of 'failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FailureTearOff {
-  const _$FailureTearOff();
-
-  _Firebase firebase({required String message}) {
-    return _Firebase(
-      message: message,
-    );
-  }
-
-  _Generic generic({required String message}) {
-    return _Generic(
-      message: message,
-    );
-  }
-}
-
-/// @nodoc
-const $Failure = _$FailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Failure {
   String get message => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) firebase,
@@ -233,10 +212,10 @@ class _$_Firebase implements _Firebase {
 }
 
 abstract class _Firebase implements Failure {
-  const factory _Firebase({required String message}) = _$_Firebase;
+  const factory _Firebase({required final String message}) = _$_Firebase;
 
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$FirebaseCopyWith<_Firebase> get copyWith =>
@@ -367,10 +346,10 @@ class _$_Generic implements _Generic {
 }
 
 abstract class _Generic implements Failure {
-  const factory _Generic({required String message}) = _$_Generic;
+  const factory _Generic({required final String message}) = _$_Generic;
 
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$GenericCopyWith<_Generic> get copyWith =>

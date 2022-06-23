@@ -12,25 +12,7 @@ part of 'create_post_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CreatePostEventTearOff {
-  const _$CreatePostEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _OnAddPost onAddPost({required AddPostData addPostData}) {
-    return _OnAddPost(
-      addPostData: addPostData,
-    );
-  }
-}
-
-/// @nodoc
-const $CreatePostEvent = _$CreatePostEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CreatePostEvent {
@@ -318,39 +300,14 @@ class _$_OnAddPost implements _OnAddPost {
 }
 
 abstract class _OnAddPost implements CreatePostEvent {
-  const factory _OnAddPost({required AddPostData addPostData}) = _$_OnAddPost;
+  const factory _OnAddPost({required final AddPostData addPostData}) =
+      _$_OnAddPost;
 
-  AddPostData get addPostData;
+  AddPostData get addPostData => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnAddPostCopyWith<_OnAddPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CreatePostStateTearOff {
-  const _$CreatePostStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Success success({required Stream<DocumentSnapshot<Object?>> postSnapshot}) {
-    return _Success(
-      postSnapshot: postSnapshot,
-    );
-  }
-
-  _Error error() {
-    return const _Error();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-}
-
-/// @nodoc
-const $CreatePostState = _$CreatePostStateTearOff();
 
 /// @nodoc
 mixin _$CreatePostState {
@@ -677,9 +634,11 @@ class _$_Success implements _Success {
 
 abstract class _Success implements CreatePostState {
   const factory _Success(
-      {required Stream<DocumentSnapshot<Object?>> postSnapshot}) = _$_Success;
+          {required final Stream<DocumentSnapshot<Object?>> postSnapshot}) =
+      _$_Success;
 
-  Stream<DocumentSnapshot<Object?>> get postSnapshot;
+  Stream<DocumentSnapshot<Object?>> get postSnapshot =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;

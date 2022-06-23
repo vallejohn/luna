@@ -12,31 +12,7 @@ part of 'comment_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CommentEventTearOff {
-  const _$CommentEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _OnAdd onAdd({required AddCommentData addCommentData}) {
-    return _OnAdd(
-      addCommentData: addCommentData,
-    );
-  }
-
-  _OnFetchPostComments onFetchPostComments({required String postID}) {
-    return _OnFetchPostComments(
-      postID: postID,
-    );
-  }
-}
-
-/// @nodoc
-const $CommentEvent = _$CommentEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CommentEvent {
@@ -340,9 +316,10 @@ class _$_OnAdd implements _OnAdd {
 }
 
 abstract class _OnAdd implements CommentEvent {
-  const factory _OnAdd({required AddCommentData addCommentData}) = _$_OnAdd;
+  const factory _OnAdd({required final AddCommentData addCommentData}) =
+      _$_OnAdd;
 
-  AddCommentData get addCommentData;
+  AddCommentData get addCommentData => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnAddCopyWith<_OnAdd> get copyWith => throw _privateConstructorUsedError;
 }
@@ -480,36 +457,14 @@ class _$_OnFetchPostComments implements _OnFetchPostComments {
 }
 
 abstract class _OnFetchPostComments implements CommentEvent {
-  const factory _OnFetchPostComments({required String postID}) =
+  const factory _OnFetchPostComments({required final String postID}) =
       _$_OnFetchPostComments;
 
-  String get postID;
+  String get postID => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnFetchPostCommentsCopyWith<_OnFetchPostComments> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$CommentStateTearOff {
-  const _$CommentStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Success success({required Stream<QuerySnapshot<Object?>> commentsStream}) {
-    return _Success(
-      commentsStream: commentsStream,
-    );
-  }
-
-  _Error error() {
-    return const _Error();
-  }
-}
-
-/// @nodoc
-const $CommentState = _$CommentStateTearOff();
 
 /// @nodoc
 mixin _$CommentState {
@@ -817,9 +772,11 @@ class _$_Success implements _Success {
 
 abstract class _Success implements CommentState {
   const factory _Success(
-      {required Stream<QuerySnapshot<Object?>> commentsStream}) = _$_Success;
+          {required final Stream<QuerySnapshot<Object?>> commentsStream}) =
+      _$_Success;
 
-  Stream<QuerySnapshot<Object?>> get commentsStream;
+  Stream<QuerySnapshot<Object?>> get commentsStream =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
