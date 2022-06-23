@@ -1,15 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart%20';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:luna/features/post/data/models/comment.dart';
 import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/comment_text_field_bloc.dart';
 
-import '../../../../../../core/utils/params.dart';
 import '../../../../../../global/styles.dart';
 import '../../../../../../global/ui_helpers.dart';
 import '../../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
-import '../../../blocs/comment/comment_bloc.dart';
 
 class CommentTextField extends StatelessWidget {
   final TextEditingController controller;
