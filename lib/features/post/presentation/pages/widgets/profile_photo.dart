@@ -26,11 +26,11 @@ class ProfilePhoto extends StatelessWidget {
       },
       child: BlocBuilder<UserProfileBloc, UserProfileState>(
         builder: (context, state) {
+          return Container();
           return state.maybeWhen(
               orElse: () => Container(),
               withData: (param) =>
                   StreamBuilder<UserProfile>(
-                    stream: param.userStream,
                     builder: (context, AsyncSnapshot<UserProfile> snapshot) {
                       if (snapshot.hasError) {
                         log.e('Snapshot error');

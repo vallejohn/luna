@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:logger/logger.dart';
-import 'package:luna/core/services/user_profile_service.dart';
 import 'package:luna/core/states/auth_state.dart';
 import 'package:luna/core/utils/app_logger.dart';
 import 'package:luna/core/utils/enums.dart';
@@ -15,11 +13,9 @@ class AuthDataSourceImpl extends AuthDataSource{
   AuthDataSourceImpl({
     required FirebaseAuth firebaseAuth,
     required CollectionReference collection,
-    required UserProfileService userProfileService
   }) : super(
       firebaseAuth: firebaseAuth,
       usersCollection: collection,
-      userProfileService: userProfileService
   );
 
   var log = AppLogger('AuthDataSourceImpl');
@@ -36,7 +32,6 @@ class AuthDataSourceImpl extends AuthDataSource{
       UserProfile userProfile = await _getUserFromCollection(userCredential.user!.uid);
 
       return DataState.success(data: UserProfileParam(
-        userStream: userProfileService.setUser(userProfile),
         user: userProfile
       ));
     }on FirebaseAuthException catch(e){
@@ -53,7 +48,6 @@ class AuthDataSourceImpl extends AuthDataSource{
       UserProfile userProfile = await _getUserFromCollection(user.uid);
 
       return AuthState.authenticated(data: UserProfileParam(
-        userStream: userProfileService.setUser(userProfile),
         user: userProfile
       ));
     }else{
