@@ -70,4 +70,9 @@ class AuthDataSourceImpl extends AuthDataSource{
   Future<void> signOut() async{
     await firebaseAuth.signOut();
   }
+
+  @override
+  Future<Stream<QuerySnapshot>> getUserInfoFromCollections(String authID)async {
+    return usersCollection.where('authID', isEqualTo: authID).snapshots();
+  }
 }
