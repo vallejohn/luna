@@ -19,7 +19,6 @@ import 'package:luna/global/ui_helpers.dart';
 
 import '../../../../../core/utils/app_logger.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
-import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 
 class PostDetailsPage extends StatelessWidget {
   final Stream<DocumentSnapshot> postSnapshot;
@@ -105,8 +104,7 @@ class PostDetailsPage extends StatelessWidget {
                                   BlocProvider.of<CommentBloc>(context).add(CommentEvent.onAdd(
                                       addCommentData: AddCommentData(
                                           comment: Comment(
-                                              userProfile:
-                                              BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
+                                              userProfile: null,
                                               body: commentController.text),
                                           commentCount: engagement.comments,
                                           postID: post.id)));

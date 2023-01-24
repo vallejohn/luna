@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/post/presentation/pages/posts/widgets/post_item.dart';
-import 'package:luna/features/post/presentation/pages/widgets/profile_photo.dart';
 import 'package:luna/router/app_router.dart';
 
 import '../../../../../global/styles.dart';
@@ -36,7 +35,6 @@ class PostsPage extends StatelessWidget {
                 color: AppColors.primary,
                 size: 30,
               )),
-          ProfilePhoto()
         ],
       ),
       body: BlocBuilder<PostsBloc, PostsState>(

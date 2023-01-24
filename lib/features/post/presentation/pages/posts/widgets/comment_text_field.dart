@@ -5,7 +5,6 @@ import 'package:luna/features/post/presentation/blocs/comment_text_field_bloc/co
 
 import '../../../../../../global/styles.dart';
 import '../../../../../../global/ui_helpers.dart';
-import '../../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 
 class CommentTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -27,10 +26,7 @@ class CommentTextField extends StatelessWidget {
               prefixIcon: IconButton(
                 onPressed: () {},
                 icon: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      '${context.read<UserProfileBloc>().state.maybeWhen(
-                          withData: (data) => data.user.profileImageURL,
-                          orElse: () => '')}',),
+                  backgroundImage: NetworkImage(''),
                 ),
               ),
               suffixIcon: Material(
@@ -50,10 +46,7 @@ class CommentTextField extends StatelessWidget {
                     ), color: AppColors.electricBlue,),
               ),
               contentPadding: EdgeInsets.only(left: 50, top: 10, bottom: 10),
-              hintText: 'Your thoughts here, '
-                  '${BlocProvider.of<UserProfileBloc>(context).state.maybeWhen(
-                  withData: (data) => data.user.firstname,
-                  orElse: () => '')}',
+              hintText: 'Your thoughts here',
               filled: true,
               fillColor: AppColors.electricBlue.withOpacity(0.05),
               hintStyle: TextStyle(color: AppColors.electricBlue.withOpacity(0.5)),

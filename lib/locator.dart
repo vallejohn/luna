@@ -1,7 +1,5 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:luna/core/services/firebase_service.dart';
-import 'package:luna/core/services/user_profile_service.dart';
 import 'package:luna/core/utils/statics/collection.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source_impl.dart';
@@ -35,7 +33,6 @@ final getIt = GetIt.instance;
 Future<void> setupLocator() async{
 
   getIt.registerLazySingleton(() => FirebaseService());
-  getIt.registerLazySingleton(() => UserProfileService());
 
   getIt<FirebaseService>().init();
 
@@ -49,8 +46,7 @@ void _setUpFirebaseAuthFeature(){
   getIt.registerLazySingleton<AuthDataSource>(() => AuthDataSourceImpl(
       collection: getIt<FirebaseService>()
           .firebaseFirestore.collection(Collection.users),
-      firebaseAuth: getIt<FirebaseService>().firebaseAuth,
-      userProfileService: getIt()),
+      firebaseAuth: getIt<FirebaseService>().firebaseAuth,),
   );
 
   getIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(

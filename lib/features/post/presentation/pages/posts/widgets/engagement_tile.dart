@@ -7,7 +7,6 @@ import 'package:luna/features/post/data/models/like.dart';
 
 import '../../../../../../global/styles.dart';
 import '../../../../../../global/ui_helpers.dart';
-import '../../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import '../../../../data/models/post.dart';
 import '../../../blocs/like/like_bloc.dart';
 
@@ -33,7 +32,7 @@ class EngagementTile extends StatelessWidget {
                             likeCount: engagement.likes,
                             postID: post.id,
                             like: Like(
-                              userProfile: BlocProvider.of<UserProfileBloc>(context).state.whenOrNull(withData: (data) => data.user.toJson()),
+                              userProfile: null
                             ),
                           ),
                         ),

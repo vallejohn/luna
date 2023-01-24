@@ -1,11 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:luna/features/firebase_authentication/presentation/pages/widgets/splash_screen.dart';
 import 'package:luna/router/app_router.dart';
 import '../blocs/auth_check/auth_check_bloc.dart';
-import '../blocs/user_profile/user_profile_bloc.dart';
 
 class StartupPage extends StatelessWidget {
   const StartupPage({Key? key}) : super(key: key);
@@ -16,7 +14,6 @@ class StartupPage extends StatelessWidget {
       listener: (context, state){
         state.maybeWhen(
             authenticated: (param) {
-              context.read<UserProfileBloc>().add(UserProfileEvent.userUpdate(param: param));
               AutoRouter.of(context).replace(const PostsRoute());
             },
             unAuthenticated: () {

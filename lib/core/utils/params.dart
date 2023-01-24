@@ -49,13 +49,12 @@ class AddLikeData extends Equatable {
 }
 
 class UserProfileParam extends Equatable {
-  final Stream<UserProfile> userStream;
   final UserProfile user;
 
-  const UserProfileParam({required this.userStream, required this.user});
+  const UserProfileParam({required this.user});
 
   @override
-  List<Object?> get props => [userStream, user];
+  List<Object?> get props => [user];
 }
 
 class ImageUploadParam extends Equatable {
