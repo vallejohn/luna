@@ -11,9 +11,7 @@ import 'package:luna/global/styles.dart';
 import 'package:luna/router/app_router.dart';
 
 import '../../../../../global/ui_helpers.dart';
-import '../../../../firebase_authentication/presentation/blocs/user_profile/user_profile_bloc.dart';
 import '../../blocs/browse_image_bloc/browse_image_bloc.dart';
-import '../widgets/profile_photo.dart';
 
 class CreatePostPage extends StatelessWidget {
   const CreatePostPage({Key? key}) : super(key: key);
@@ -33,7 +31,7 @@ class CreatePostPage extends StatelessWidget {
           'Create post',
           style: TextStyle(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikRegular),
         ),
-        actions: [ProfilePhoto()],
+        actions: [],
       ),
       body: BlocConsumer<CreatePostBloc, CreatePostState>(listener: (context, state) {
         state.whenOrNull(
@@ -119,7 +117,7 @@ class CreatePostPage extends StatelessWidget {
                                             imagePath: context.read<BrowseImageBloc>().state.maybeWhen(success: (image) => image.path, orElse: () => ''),
                                             title: postTitleController.text,
                                             content: contentController.text,
-                                            user: context.read<UserProfileBloc>().state.whenOrNull(withData: (param) => param.user))),
+                                            user: null)),
                                   ),
                               child: Padding(
                                 padding: const EdgeInsets.only(right: horizontalMargin),

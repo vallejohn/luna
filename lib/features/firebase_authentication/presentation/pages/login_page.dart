@@ -10,7 +10,6 @@ import '../../../../global/custom_widgets/gradient_button.dart';
 import '../../../../global/custom_widgets/text_input_field.dart';
 import '../../../../global/styles.dart';
 import '../../../../global/ui_helpers.dart';
-import '../blocs/user_profile/user_profile_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -24,7 +23,6 @@ class LoginPage extends StatelessWidget {
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
             state.maybeWhen(success: (param){
-              context.read<UserProfileBloc>().add(UserProfileEvent.userUpdate(param: param));
               AutoRouter.of(context).replace(const PostsRoute());
             }, orElse: () => null);
           },
