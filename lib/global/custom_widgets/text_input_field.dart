@@ -31,6 +31,7 @@ class TextInputField extends StatelessWidget {
       obscureText: obscureText ?? false,
       obscuringCharacter: '•',
       decoration: InputDecoration(
+        errorStyle:  AppTextStyle.small.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
         errorText: errorText,
         suffixIcon: obscureText != null
             ? TextButton(
@@ -75,7 +76,7 @@ class TextInputField extends StatelessWidget {
           borderRadius: BorderRadius.circular(customBorderRadius),
           borderSide: errorText != null
               ? BorderSide(
-              color: AppColors.error, width: 1.5, style: BorderStyle.solid)
+              color: Colors.white, width: 1.5, style: BorderStyle.solid)
               : BorderSide.none,
         ),
       ),

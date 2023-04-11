@@ -31,7 +31,7 @@ class GradientButton extends StatelessWidget {
                 width: 25,
                 child: CircularProgressIndicator(
                   strokeWidth: 3,
-                  color: AppColors.bodyText,
+                  color: AppColors.primary[700],
                 ),
               )
             : Text(

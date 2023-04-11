@@ -7,6 +7,7 @@ import 'package:logger/logger.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
+import 'package:luna/features/firebase_authentication/data/models/account.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 
@@ -22,7 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   var log = AppLogger('LoginBloc');
 
-  LoginBloc() : super(LoginState.initial()) {
+  LoginBloc() : super(LoginState()) {
     on<_SignInWithEmailAndPassword>(_onSignInWithEmailAndPassword);
     on<_Started>(_onStarted);
   }
@@ -31,29 +32,27 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   FutureOr<void> _onSignInWithEmailAndPassword(_SignInWithEmailAndPassword event, Emitter<LoginState> emit) async{
-    emit(LoginState.loggingIn());
+    emit(state.copyWith(status: LoginStatus.loading));
 
     final failureOrDataState = await _signInWithUsernameAndPassword(event.emailAndPassword);
 
     failureOrDataState.fold((failure){
-      emit(LoginState.failed(message: failure.message));
-      log.e('Login failure: ${failure.message}');
-    }, (dataState){
-      dataState.when(
-          success: (data){
-            emit(LoginState.success(param: data));
-            log.i('Login success!}');
-          }, failed: (loginError){
-            LoginError error = loginError;
-            String errorMessage = AuthError.getStringMessageFromErrorCode(error);
-            log.w('Login failed: $errorMessage');
-
-            if(AuthError.isEmailError(error)){
-              emit(LoginState.emailFailure(message: errorMessage));
-            }else{
-              emit(LoginState.passwordFailure(message: errorMessage));
-            }
-      });
+      emit(state.copyWith(
+        status: LoginStatus.failed,
+        loginError: failure.when(
+          firebase: (firebase) => AuthError.getLoginErrorFromCode(
+            firebase.code,
+          ),
+        ),
+        message: failure.when(
+          firebase: (firebase) => firebase.message!,
+        ),
+      ));
+    }, (account){
+      emit(state.copyWith(
+        status: LoginStatus.success,
+        account: account,
+      ));
     });
   }
 }

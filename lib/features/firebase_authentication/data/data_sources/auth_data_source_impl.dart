@@ -7,6 +7,7 @@ import 'package:luna/core/states/data_state.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
+import 'package:luna/features/firebase_authentication/data/models/account.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 
 class AuthDataSourceImpl extends AuthDataSource{
@@ -21,22 +22,13 @@ class AuthDataSourceImpl extends AuthDataSource{
   var log = AppLogger('AuthDataSourceImpl');
 
   @override
-  Future<DataState<UserProfileParam, LoginError>> signInWithEmailAndPassword(LoginCredentials params) async{
-    UserCredential userCredential;
-
-    try{
-      userCredential = await firebaseAuth.signInWithEmailAndPassword(
-          email: params.email,
-          password: params.password
-      );
-      UserProfile userProfile = await _getUserFromCollection(userCredential.user!.uid);
-
-      return DataState.success(data: UserProfileParam(
-        user: userProfile
-      ));
-    }on FirebaseAuthException catch(e){
-      return DataState.failed(error: AuthError.getLoginErrorFromCode(e.code));
-    }
+  Future<Account> signInWithEmailAndPassword(LoginCredentials params) async{
+    final userCredential = await firebaseAuth.signInWithEmailAndPassword(
+      email: params.email,
+      password: params.password,
+    );
+    final snapshot = await usersCollection.where('authID', isEqualTo: userCredential.user?.uid).get();
+    return Account.fromJson(snapshot.docs.first.data() as Map<String, dynamic>);
   }
 
   @override

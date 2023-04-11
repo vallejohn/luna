@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:luna/core/utils/enums.dart';
 import 'package:luna/router/app_router.dart';
 
 import '../../../../core/utils/params.dart';
@@ -22,9 +24,12 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
-            state.maybeWhen(success: (param){
-              AutoRouter.of(context).replace(const PostsRoute());
-            }, orElse: () => null);
+            if(state.status == LoginStatus.success){
+             // AutoRouter.of(context).replace(const PostsRoute());
+            }
+            if(state.status == LoginStatus.failed){
+              Fluttertoast.showToast(msg: state.message);
+            }
           },
           builder: (context, state) {
             return Container(
@@ -68,18 +73,18 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: [
                         TextInputField(
-                          errorText: state.maybeWhen(
-                              emailFailure:(message) => message ,
-                              orElse: () => null),
+                          errorText: state.status == LoginStatus.failed && (state.loginError == LoginError.userNotFound || state.loginError == LoginError.invalidEmail)
+                              ? state.message
+                              : null,
                           textInputType: TextInputType.emailAddress,
                           controller: emailController,
                           hintText: 'Username or Email',
                         ),
                         AppVerticalSpace.small,
                         TextInputField(
-                          errorText: state.maybeWhen(
-                              passwordFailure:(message) => message ,
-                              orElse: () => null),
+                          errorText: state.status == LoginStatus.failed && state.loginError == LoginError.wrongPassword
+                              ? state.message
+                              : null,
                           onShowPasswordTap: () {},
                           obscureText: true,
                           controller: passwordController,
@@ -93,10 +98,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: GradientButton(
                         text: 'Login',
-                        onLoginBusy: state.maybeWhen(
-                            loggingIn: () => true,
-                            orElse:() => false
-                        ),
+                        onLoginBusy: state.status == LoginStatus.loading,
                         onPressed: () => BlocProvider.of<LoginBloc>(context)
                             .add(LoginEvent.signInWithEmailAndPassword(
                             emailAndPassword: LoginCredentials(
