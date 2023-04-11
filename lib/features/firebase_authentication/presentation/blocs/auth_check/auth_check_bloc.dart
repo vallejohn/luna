@@ -30,8 +30,7 @@ class AuthCheckBloc extends Bloc<AuthCheckEvent, AuthCheckState> {
     final failureOrAuthState = await _getActiveUser();
 
     failureOrAuthState.fold((failure) {
-      emit(AuthCheckState.error(message: failure.message));
-      log.e('AuthCheck failure: ${failure.message}');
+      emit(AuthCheckState.error(message: failure.when(firebase: (firebase) => firebase.message?? 'Something went wrong')));
     }, (authState) {
       authState.when(
           authenticated: (param) {

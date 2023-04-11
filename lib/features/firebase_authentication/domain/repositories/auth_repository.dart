@@ -5,13 +5,14 @@ import 'package:luna/core/states/failure.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/data_sources/auth_data_source.dart';
+import 'package:luna/features/firebase_authentication/data/models/account.dart';
 
 
 abstract class AuthRepository{
   final AuthDataSource authDataSource;
   AuthRepository({required this.authDataSource});
 
-  Future<Either<Failure, DataState<UserProfileParam, LoginError>>> signInWithEmailAndPassword(LoginCredentials params);
+  Future<Either<Failure, Account>> signInWithEmailAndPassword(LoginCredentials params);
   Future<Either<Failure, AuthState>> getActiveUser();
   Future<Either<Failure, void>> signOut();
 }

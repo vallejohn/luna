@@ -10,9 +10,9 @@ class AppLogger extends Logger{
 class CustomPrinter extends PrettyPrinter{
   final String className;
   CustomPrinter(this.className) : super(
-    noBoxingByDefault: true,
+    noBoxingByDefault: false,
     stackTraceBeginIndex: 2,
-    methodCount: 1
+    methodCount: 0
   );
 
   @override
