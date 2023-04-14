@@ -13,6 +13,7 @@ abstract class AuthRepository{
   AuthRepository({required this.authDataSource});
 
   Future<Either<Failure, Account>> signInWithEmailAndPassword(LoginCredentials params);
+  Future<Either<Failure, Account>> signUpWithEmailAndPassword(SignUpCredentials params);
   Future<Either<Failure, AuthState>> getActiveUser();
   Future<Either<Failure, void>> signOut();
 }

@@ -23,6 +23,19 @@ class AuthError{
     }
     return loginError;
   }
+
+  static RegisterError getRegistrationErrorFromCode(String code){
+    RegisterError loginError = RegisterError.unknown;
+    switch(code){
+      case 'weak-password':
+        loginError = RegisterError.weakPassword;
+      break;
+      case 'email-already-in-use':
+        loginError = RegisterError.emailExist;
+        break;
+    }
+    return loginError;
+  }
   /// This static method will fetch [String] error message based on [LoginError] enum
   static String getStringMessageFromErrorCode(LoginError errorCode){
     String errorMessage = '';

@@ -32,6 +32,16 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
+  Future<Either<Failure, Account>> signUpWithEmailAndPassword(SignUpCredentials params)async {
+    try{
+      final dataState = await authDataSource.signUpWithEmailAndPassword(params);
+      return Right(dataState);
+    }on FirebaseException catch(e){
+      return Left(Failure.firebase(e));
+    }
+  }
+
+  @override
   Future<Either<Failure, AuthState>> getActiveUser() async {
     try{
       log.i('Trying to fetch active user');

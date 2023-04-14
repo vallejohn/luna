@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:equatable/equatable.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/post/data/models/comment.dart';
@@ -12,6 +14,20 @@ class LoginCredentials extends Equatable {
 
   @override
   List<Object?> get props => [email, password];
+}
+
+class SignUpCredentials extends Equatable {
+  final File imagePath;
+  final String username;
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String password;
+
+  const SignUpCredentials({required this.username, required this.firstName, required this.lastName, required this.email, required this.password, required this.imagePath});
+
+  @override
+  List<Object?> get props => [email, password, username, firstName, lastName, imagePath];
 }
 
 class AddPostData extends Equatable {
