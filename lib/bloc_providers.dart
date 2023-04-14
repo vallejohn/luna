@@ -5,6 +5,7 @@ import 'package:luna/features/post/presentation/blocs/create_post/create_post_bl
 
 import 'features/firebase_authentication/presentation/blocs/auth_check/auth_check_bloc.dart';
 import 'features/firebase_authentication/presentation/blocs/login/login_bloc.dart';
+import 'features/firebase_authentication/presentation/blocs/register/register_bloc.dart';
 import 'features/post/presentation/blocs/like/like_bloc.dart';
 import 'features/post/presentation/blocs/posts/posts_bloc.dart';
 import 'features/post/presentation/blocs/browse_image_bloc/browse_image_bloc.dart';
@@ -17,6 +18,9 @@ class BlocProviders{
       ),
       BlocProvider<LoginBloc>(
         create: (context) => LoginBloc()..add(LoginEvent.started()),
+      ),
+      BlocProvider<RegisterBloc>(
+        create: (context) => RegisterBloc(),
       ),
       BlocProvider<PostsBloc>(
         create: (context) => PostsBloc()..add(PostsEvent.started()),
