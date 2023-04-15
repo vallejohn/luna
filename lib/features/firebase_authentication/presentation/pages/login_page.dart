@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
             if(state.status == LoginStatus.success){
-              Fluttertoast.showToast(msg: 'Login success');
+              AutoRouter.of(context).push(const PostsRoute());
             }
             if(state.status == LoginStatus.failed){
               Fluttertoast.showToast(msg: state.message);

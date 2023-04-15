@@ -13,7 +13,7 @@ abstract class PostDataSource{
     required this.firebaseService,
   });
 
-  Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts();
+  Future<Stream<QuerySnapshot>> getAllPosts();
   Future<DataState<PickedFile, NoError>> browsePostCoverImage();
   Future<DataState<DocumentReference, FirebaseException>> addPost(AddPostData addPostData);
 }

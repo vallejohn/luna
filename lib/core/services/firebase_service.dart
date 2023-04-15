@@ -34,4 +34,7 @@ class FirebaseService{
   Future<DocumentReference<Map<String, dynamic>>> addToCollection(Collection collection, Map<String, dynamic> object)async {
     return await _firebaseFirestore.collection(collection.value).add(object);
   }
+  Future<Stream<QuerySnapshot>> getQuerySnapshot(Collection collection)async {
+    return _firebaseFirestore.collection(collection.value).snapshots();
+  }
 }

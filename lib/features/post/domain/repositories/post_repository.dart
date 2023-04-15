@@ -13,7 +13,7 @@ abstract class PostRepository{
   final PostDataSource postDataSource;
   PostRepository({required this.postDataSource});
 
-  Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts();
+  Future<Either<Failure, Stream<QuerySnapshot>>> getAllPosts();
   Future<Either<Failure, DataState<PickedFile, NoError>>> uploadPostCoverImage();
   Future<Either<Failure, DataState<DocumentReference, FirebaseException>>> addPost(AddPostData addPostData);
 }
