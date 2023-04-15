@@ -43,7 +43,7 @@ class AuthDataSourceImpl extends AuthDataSource{
     //TODO Upload image to storage
     final imageUrl = await firebaseService.uploadImage(
       uID: credential.user!.uid,
-      file: params.imagePath,
+      file: params.imagePath!,
       storageLocation: Storage.profilePhotos,
     );
     //TODO add user to collection

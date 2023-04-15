@@ -98,7 +98,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: GradientButton(
                         text: 'Login',
-                        onLoginBusy: state.status == LoginStatus.loading,
+                        onLoading: state.status == LoginStatus.loading,
                         onPressed: () => BlocProvider.of<LoginBloc>(context)
                             .add(LoginEvent.signInWithEmailAndPassword(
                             emailAndPassword: LoginCredentials(

@@ -4,9 +4,9 @@ import 'package:luna/global/ui_helpers.dart';
 
 class GradientButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final bool? onLoginBusy;
+  final bool onLoading;
   final String text;
-  const GradientButton({Key? key, required this.onPressed, this.onLoginBusy, required this.text}) : super(key: key);
+  const GradientButton({Key? key, required this.onPressed, required this.onLoading, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class GradientButton extends StatelessWidget {
         )
       ]),
       child: TextButton(
-        onPressed: onPressed,
-        child: onLoginBusy! && onLoginBusy != null
+        onPressed: onLoading? null : onPressed,
+        child: onLoading
             ? Container(
                 height: 25,
                 width: 25,

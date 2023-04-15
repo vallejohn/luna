@@ -1,16 +1,13 @@
 import 'dart:io';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:luna/core/utils/enums.dart';
+import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/presentation/blocs/register/register_bloc.dart';
-import 'package:luna/router/app_router.dart';
-
-import '../../../../core/utils/params.dart';
 import '../../../post/presentation/blocs/browse_image_bloc/browse_image_bloc.dart';
 import '../blocs/login/login_bloc.dart';
 import '../../../../global/custom_widgets/gradient_button.dart';
@@ -24,7 +21,11 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController firstNameController = TextEditingController();
+    TextEditingController lastNameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
+    TextEditingController confirmPasswordController = TextEditingController();
 
     return MultiBlocListener(
       listeners: [
@@ -124,14 +125,20 @@ class RegisterPage extends StatelessWidget {
                             errorText: state.status == LoginStatus.failed && (state.registerError == RegisterError.emailExist)
                                 ? state.message
                                 : null,
-                            controller: emailController,
+                            controller: usernameController,
                             hintText: 'Username',
                           ),
                           AppVerticalSpace.small,
                           TextInputField(
                             errorText:  null,
-                            controller: emailController,
-                            hintText: 'Display name',
+                            controller: firstNameController,
+                            hintText: 'First name',
+                          ),
+                          AppVerticalSpace.small,
+                          TextInputField(
+                            errorText:  null,
+                            controller: lastNameController,
+                            hintText: 'Last name',
                           ),
                           AppVerticalSpace.small,
                           TextInputField(
@@ -150,7 +157,7 @@ class RegisterPage extends StatelessWidget {
                           TextInputField(
                             onShowPasswordTap: () {},
                             obscureText: true,
-                            controller: passwordController,
+                            controller: confirmPasswordController,
                             hintText: 'Confirm password',
                           ),
                         ],
@@ -161,9 +168,18 @@ class RegisterPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 45),
                       child: GradientButton(
                           text: 'Register',
-                          onLoginBusy: state.status == LoginStatus.loading,
+                          onLoading: state.status == LoginStatus.loading,
                           onPressed:(){
-
+                            context.read<RegisterBloc>().add(RegisterEvent.signUpWithEmailAndPassword(
+                              credentials: SignUpCredentials(
+                                imagePath: BlocProvider.of<BrowseImageBloc>(context, listen: false).state.whenOrNull(success: (image) => File(image.path)),
+                                password: passwordController.text,
+                                email: emailController.text,
+                                lastName: lastNameController.text,
+                                firstName: firstNameController.text,
+                                username: usernameController.text,
+                              ),
+                            ),);
                           }),
                     ),
                     AppVerticalSpace.large,
