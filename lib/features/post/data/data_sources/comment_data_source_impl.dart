@@ -28,15 +28,15 @@ class CommentDataSourceImpl extends CommentDataSource {
   @override
   Future<Stream<QuerySnapshot<Object?>>> getAllComments(String postID) async {
     log.i('Accessing firebase service for getting all comments');
-    return firebaseService.firebaseFirestore.collection(Collection.posts).doc(postID).collection(Collection.comments).snapshots();
+    return firebaseService.firebaseFirestore.collection(Collection.posts.value).doc(postID).collection(Collection.comments.value).snapshots();
   }
 
   @override
   Future<void> addComment(AddCommentData addCommentData) async {
 
-    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts).doc(addCommentData.postID);
+    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts.value).doc(addCommentData.postID);
 
-    await document.collection(Collection.comments).add(addCommentData.comment.toJson());
+    await document.collection(Collection.comments.value).add(addCommentData.comment.toJson());
     await document.update(RecentComment(recentComment: addCommentData.comment.toJson()).toJson());
     await document.update({EngagementField.comments: addCommentData.commentCount + 1});
   }

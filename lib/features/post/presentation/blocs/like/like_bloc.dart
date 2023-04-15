@@ -32,7 +32,6 @@ class LikeBloc extends Bloc<LikeEvent, LikeState> {
     final failureOrAdd = await _addLike(event.addLikeData);
 
     failureOrAdd.fold((failure){
-      log.e(failure.message);
     }, (liked){
       emit(LikeState.liked(isLiked: liked));
     });

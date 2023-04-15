@@ -14,18 +14,18 @@ class LikeDataSourceImpl extends LikeDataSource {
   @override
   Future<bool> addLike(AddLikeData addLikeData) async{
 
-    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts).doc(addLikeData.postID);
+    DocumentReference document = firebaseService.firebaseFirestore.collection(Collection.posts.value).doc(addLikeData.postID);
 
     final user = UserProfile.fromJson(addLikeData.like.userProfile as Map<String, dynamic>);
-    QuerySnapshot snapshot =  await document.collection(Collection.likes).where('authID', isEqualTo: user.authID).get();
+    QuerySnapshot snapshot =  await document.collection(Collection.likes.value).where('authID', isEqualTo: user.authID).get();
 
     //TODO !! Warning, bunch of document reads please revise.
     if(snapshot.docs.isEmpty){
-      await document.collection(Collection.likes).add(user.toJson());
+      await document.collection(Collection.likes.value).add(user.toJson());
       await document.update({EngagementField.likes: addLikeData.likeCount + 1});
       return true;
     }else{
-      await document.collection(Collection.likes).doc(snapshot.docs.first.id).delete();
+      await document.collection(Collection.likes.value).doc(snapshot.docs.first.id).delete();
       await document.update({EngagementField.likes: addLikeData.likeCount - 1});
       return false;
     }

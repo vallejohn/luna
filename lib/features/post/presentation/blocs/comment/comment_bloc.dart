@@ -35,7 +35,6 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     final failureOrAllComments = await _getAllComments(event.postID);
 
     failureOrAllComments.fold((failure){
-      log.e('Failed to load comments: ${failure.message}');
       emit(CommentState.error());
     }, (data){
       log.i('Successfully fetched post');
@@ -48,7 +47,6 @@ class CommentBloc extends Bloc<CommentEvent, CommentState>{
     final failureOrAdd = await _addComment(event.addCommentData);
 
     failureOrAdd.fold((failure){
-      log.e(failure.message);
     }, (_){
       log.i('Comment was added successfully');
     });

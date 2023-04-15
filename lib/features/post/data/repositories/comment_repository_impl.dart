@@ -33,7 +33,7 @@ class CommentRepositoryImpl extends CommentRepository{
       return Right(comments);
     }catch(e){
       log.e('Error getting comments from firebase: ${e.toString()}');
-      return Left(Failure.firebase(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 
@@ -41,7 +41,7 @@ class CommentRepositoryImpl extends CommentRepository{
   Future<Either<Failure, void>> addComment(AddCommentData addCommentData) async{
 
     if(addCommentData.comment.body!.isEmpty){
-      return Left(Failure.generic(message: 'Comment is empty'));
+      throw UnimplementedError();
     }
 
     try{
@@ -49,7 +49,7 @@ class CommentRepositoryImpl extends CommentRepository{
       return Right(await commentDataSource.addComment(addCommentData));
     }catch(e){
       log.e('Error adding comments to firebase: ${e.toString()}');
-      return Left(Failure.firebase(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 }

@@ -20,7 +20,7 @@ class LikeRepositoryImpl extends LikeRepository{
       return Right(await likeDataSource.addLike(addLikeData));
     }catch(e){
       log.e('Error adding like to firebase: ${e.toString()}');
-      return Left(Failure.firebase(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 
@@ -32,7 +32,7 @@ class LikeRepositoryImpl extends LikeRepository{
       return Right(likes);
     }catch(e){
       log.e('Error getting likes from firebase: ${e.toString()}');
-      return Left(Failure.firebase(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 }

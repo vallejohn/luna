@@ -40,7 +40,6 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
     ));
 
     await dataState.fold((failure) async{
-      log.e('Failure to upload post: ${failure.message}');
       emit(CreatePostState.error());
     }, (dataState) async{
       await dataState.when(

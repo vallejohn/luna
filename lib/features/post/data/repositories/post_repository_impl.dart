@@ -22,16 +22,13 @@ class PostRepositoryImpl extends PostRepository{
   var log = AppLogger('PostRepositoryImpl');
 
   @override
-  Future<Either<Failure, DataState<Stream<QuerySnapshot>, PostError>>> getAllPosts() async{
-    // TODO: implement getPost
+  Future<Either<Failure, Stream<QuerySnapshot>>> getAllPosts() async{
     try{
       log.i('Getting all posts from firebase');
       final dataState = await postDataSource.getAllPosts();
       return Right(dataState);
-    }catch(e){
-      log.e('Error getting posts from firebase: ${e.toString()}');
-      //TODO: Should return a firebaseException instead of normal string message.
-      return Left(Failure.firebase(message: e.toString()));
+    }on FirebaseException catch(e){
+      return Left(Failure.firebase(e));
     }
   }
 
@@ -43,7 +40,7 @@ class PostRepositoryImpl extends PostRepository{
       return Right(dataState);
     }catch(e){
       log.e('Error Uploading cover image: ${e.toString()}');
-      return Left(Failure.generic(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 
@@ -55,7 +52,7 @@ class PostRepositoryImpl extends PostRepository{
       return Right(dataState);
     }catch(e){
       log.e('Error when adding post: ${e.toString()}');
-      return Left(Failure.firebase(message: e.toString()));
+      throw UnimplementedError();
     }
   }
 }

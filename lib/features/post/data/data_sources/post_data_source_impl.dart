@@ -24,8 +24,8 @@ class PostDataSourceImpl extends PostDataSource {
   var log = AppLogger('PostDataSourceImpl');
 
   @override
-  Future<DataState<Stream<QuerySnapshot>, PostError>> getAllPosts() async {
-    return DataState.success(data: firebaseService.firebaseFirestore.collection(Collection.posts).snapshots());
+  Future<Stream<QuerySnapshot>> getAllPosts() async {
+    return firebaseService.getQuerySnapshot(Collection.posts);
   }
 
   @override
@@ -48,24 +48,13 @@ class PostDataSourceImpl extends PostDataSource {
 
       if(addPostData.imagePath.isNotEmpty){
         log.i('Accessing firebase service for image upload');
-        final dataState = await firebaseService.uploadImage(
+        imagePath = await firebaseService.uploadImage(
             uID: addPostData.user!.authID!,
             file: File(addPostData.imagePath),
             storageLocation: Storage.postCovers);
-
-        dataState.when(
-          success: (imageUrl){
-            imagePath = imageUrl;
-            log.i('Image uploaded successfully');
-          },
-          failed: (error){
-            log.i('Failed to upload image: ${error.toString()}');
-            return DataState.failed(error: error);
-          },
-        );
       }
 
-      await firebaseService.firebaseFirestore.collection(Collection.posts).add(Post(
+      await firebaseService.firebaseFirestore.collection(Collection.posts.value).add(Post(
           author: addPostData.user!.toJson(),
           title: addPostData.title,
           content: addPostData.content,
