@@ -27,7 +27,6 @@ class BrowseImageBloc extends Bloc<BrowseImageEvent, BrowseImageState> {
     final failureOrCoverImage = await _uploadPostCoverImage();
 
     failureOrCoverImage.fold((failure){
-      log.e(failure.message);
       emit(BrowseImageState.error());
     }, (dataState){
       dataState.whenOrNull(success: (data){

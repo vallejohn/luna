@@ -1,10 +1,13 @@
 part of 'register_bloc.dart';
 
-abstract class RegisterState extends Equatable {
-  const RegisterState();
-}
+enum RegisterStatus{initial, loading, success, failed}
 
-class RegisterInitial extends RegisterState {
-  @override
-  List<Object> get props => [];
+@freezed
+class RegisterState with _$RegisterState {
+  const factory RegisterState({
+    @Default(RegisterStatus.initial) RegisterStatus status,
+    Account? account,
+    @Default('') String message,
+    @Default(RegisterError.unknown) RegisterError registerError,
+  }) = _RegisterState;
 }

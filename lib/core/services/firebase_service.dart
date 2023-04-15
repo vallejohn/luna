@@ -2,6 +2,9 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:luna/core/utils/statics/collection.dart';
+import 'package:luna/core/utils/statics/storage.dart';
+import 'package:path/path.dart';
 
 import '../states/data_state.dart';
 
@@ -20,16 +23,15 @@ class FirebaseService{
     _firebaseStorage = FirebaseStorage.instance;
   }
 
-  Future<DataState<String, FirebaseException>> uploadImage({required String uID, required File file, required String storageLocation}) async{
+  Future<String> uploadImage({required String uID, required File file, required Storage storageLocation}) async{
     String? postCoverImageURL;
-    try {
-      UploadTask uploadTask = _firebaseStorage.ref().child('images/users/$uID/$storageLocation/${file.path}').putFile(file);
-      TaskSnapshot taskSnapshot = await uploadTask.then((TaskSnapshot taskSnapshot) => taskSnapshot);
-      postCoverImageURL = await taskSnapshot.ref.getDownloadURL();
+    UploadTask uploadTask = _firebaseStorage.ref().child('images/users/$uID/${storageLocation.path}/${basename(file.path)}').putFile(file);
+    TaskSnapshot taskSnapshot = await uploadTask.then((TaskSnapshot taskSnapshot) => taskSnapshot);
+    postCoverImageURL = await taskSnapshot.ref.getDownloadURL();
+    return postCoverImageURL;
+  }
 
-      return DataState.success(data: postCoverImageURL);
-    } on FirebaseException catch (e) {
-      return DataState.failed(error: e);
-    }
+  Future<DocumentReference<Map<String, dynamic>>> addToCollection(Collection collection, Map<String, dynamic> object)async {
+    return await _firebaseFirestore.collection(collection.value).add(object);
   }
 }

@@ -1,4 +1,7 @@
 class Storage{
-  static String profilePhotos = 'profile_photos';
-  static String postCovers = 'post_covers';
+  final String path;
+  Storage(this.path);
+
+  static Storage profilePhotos = Storage('profile_photos');
+  static Storage postCovers = Storage('post_covers');
 }

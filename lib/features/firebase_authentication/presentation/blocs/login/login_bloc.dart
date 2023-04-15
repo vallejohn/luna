@@ -3,12 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:logger/logger.dart';
 import 'package:luna/core/utils/enums.dart';
 import 'package:luna/core/utils/errors.dart';
 import 'package:luna/core/utils/params.dart';
 import 'package:luna/features/firebase_authentication/data/models/account.dart';
-import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
 import 'package:luna/features/firebase_authentication/domain/usecases/signin_with_email_and_password.dart';
 
 import '../../../../../core/utils/app_logger.dart';

@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
       body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state){
             if(state.status == LoginStatus.success){
-             // AutoRouter.of(context).replace(const PostsRoute());
+              Fluttertoast.showToast(msg: 'Login success');
             }
             if(state.status == LoginStatus.failed){
               Fluttertoast.showToast(msg: state.message);
@@ -98,7 +98,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 45),
                     child: GradientButton(
                         text: 'Login',
-                        onLoginBusy: state.status == LoginStatus.loading,
+                        onLoading: state.status == LoginStatus.loading,
                         onPressed: () => BlocProvider.of<LoginBloc>(context)
                             .add(LoginEvent.signInWithEmailAndPassword(
                             emailAndPassword: LoginCredentials(
@@ -112,7 +112,7 @@ class LoginPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 45),
                           child: GestureDetector(
-                            onTap: (){},
+                            onTap: () => AutoRouter.of(context).push(const RegisterRoute()),
                             child: Text(
                               'Create account',
                               style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikLight),
