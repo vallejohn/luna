@@ -42,41 +42,26 @@ class PostsPage extends StatelessWidget {
             initial: () => Center(
                   child: CircularProgressIndicator(),
                 ),
-            success: (postsStream) => StreamBuilder<QuerySnapshot>(
-                stream: postsStream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) {
-                    return Center(
-                      child: Text('Something went wrong'),
-                    );
-                  }
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-
-                  return ListView(
-                    children: snapshot.data!.docs.map((DocumentSnapshot documentSnapshot) {
-                      Post post = Post.fromJson(documentSnapshot.data()! as Map<String, dynamic>)
-                          .copyWith(id: documentSnapshot.id);
-                      Engagement engagement = Engagement.fromJson(post.engagement!);
-                      UserProfile author = UserProfile.fromJson(post.author!);
-                      return PostItem(
-                          title: post.title,
-                          content: post.content,
-                          commentCount: engagement.comments,
-                          profileImageURL: author.profileImageURL,
-                          name: '${author.firstname} ${author.lastname}',
-                          category: 'Technology',
-                          datePosted: '7 mins ago',
-                          onPostTap: () {
-                            AutoRouter.of(context).push(PostDetailsRoute(postSnapshot: documentSnapshot.reference.snapshots()));
-                          },
-                          coverImageURL: post.coverImageURL);
-                    }).toList(),
-                  );
-                }),
+            success: (posts) {
+              return ListView(
+                children: posts.map((post) {
+                  Engagement engagement = Engagement.fromJson(post.engagement!);
+                  UserProfile author = UserProfile.fromJson(post.author!);
+                  return PostItem(
+                      title: post.title,
+                      content: post.content,
+                      commentCount: engagement.comments,
+                      profileImageURL: author.profileImageURL,
+                      name: '${author.firstname} ${author.lastname}',
+                      category: 'Technology',
+                      datePosted: '7 mins ago',
+                      onPostTap: () {
+                        AutoRouter.of(context).push(PostDetailsRoute(postSnapshot: documentSnapshot.reference.snapshots()));
+                      },
+                      coverImageURL: post.coverImageURL);
+                }).toList(),
+              );
+            },
             empty: () => Center(
                   child: Container(),
                 ),

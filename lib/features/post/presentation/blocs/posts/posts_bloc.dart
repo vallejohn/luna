@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
+import 'package:luna/features/post/data/models/post.dart';
 import 'package:luna/features/post/domain/usecases/get_all_posts.dart';
 
 part 'posts_event.dart';
@@ -23,8 +24,13 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
 
     failureOrAllPosts.fold((failure){
      emit(PostsState.error(message: failure.when(firebase: (firebase) => firebase.message.toString())));
-    }, (stream){
-      emit(PostsState.success(postsStream: stream));
+    }, (stream)async {
+      await emit.forEach<QuerySnapshot>(stream,
+          onData: (data) => PostsState.success(
+              posts: data.docs.map((snapshot) => Post.fromJson(snapshot.data() as Map<String, dynamic>)).toList(),
+          ),
+      );
+      //emit(PostsState.success(postsStream: stream));
     });
   }
 }

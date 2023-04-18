@@ -167,8 +167,7 @@ mixin _$PostsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<QuerySnapshot<Object?>> postsStream)
-        success,
+    required TResult Function(List<Post> posts) success,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) =>
@@ -176,7 +175,7 @@ mixin _$PostsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
   }) =>
@@ -184,7 +183,7 @@ mixin _$PostsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -272,8 +271,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<QuerySnapshot<Object?>> postsStream)
-        success,
+    required TResult Function(List<Post> posts) success,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -284,7 +282,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
   }) {
@@ -295,7 +293,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -352,7 +350,7 @@ abstract class _Initial implements PostsState {
 abstract class _$SuccessCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
       __$SuccessCopyWithImpl<$Res>;
-  $Res call({Stream<QuerySnapshot<Object?>> postsStream});
+  $Res call({List<Post> posts});
 }
 
 /// @nodoc
@@ -366,13 +364,13 @@ class __$SuccessCopyWithImpl<$Res> extends _$PostsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? postsStream = freezed,
+    Object? posts = freezed,
   }) {
     return _then(_Success(
-      postsStream: postsStream == freezed
-          ? _value.postsStream
-          : postsStream // ignore: cast_nullable_to_non_nullable
-              as Stream<QuerySnapshot<Object?>>,
+      posts: posts == freezed
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 }
@@ -380,14 +378,18 @@ class __$SuccessCopyWithImpl<$Res> extends _$PostsStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({required this.postsStream});
+  const _$_Success({required final List<Post> posts}) : _posts = posts;
 
+  final List<Post> _posts;
   @override
-  final Stream<QuerySnapshot<Object?>> postsStream;
+  List<Post> get posts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
   String toString() {
-    return 'PostsState.success(postsStream: $postsStream)';
+    return 'PostsState.success(posts: $posts)';
   }
 
   @override
@@ -395,13 +397,12 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Success &&
-            const DeepCollectionEquality()
-                .equals(other.postsStream, postsStream));
+            const DeepCollectionEquality().equals(other.posts, posts));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(postsStream));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(posts));
 
   @JsonKey(ignore: true)
   @override
@@ -412,36 +413,35 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<QuerySnapshot<Object?>> postsStream)
-        success,
+    required TResult Function(List<Post> posts) success,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
-    return success(postsStream);
+    return success(posts);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
   }) {
-    return success?.call(postsStream);
+    return success?.call(posts);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(postsStream);
+      return success(posts);
     }
     return orElse();
   }
@@ -485,11 +485,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements PostsState {
-  const factory _Success(
-      {required final Stream<QuerySnapshot<Object?>> postsStream}) = _$_Success;
+  const factory _Success({required final List<Post> posts}) = _$_Success;
 
-  Stream<QuerySnapshot<Object?>> get postsStream =>
-      throw _privateConstructorUsedError;
+  List<Post> get posts => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -534,8 +532,7 @@ class _$_Empty implements _Empty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<QuerySnapshot<Object?>> postsStream)
-        success,
+    required TResult Function(List<Post> posts) success,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -546,7 +543,7 @@ class _$_Empty implements _Empty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
   }) {
@@ -557,7 +554,7 @@ class _$_Empty implements _Empty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -673,8 +670,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Stream<QuerySnapshot<Object?>> postsStream)
-        success,
+    required TResult Function(List<Post> posts) success,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -685,7 +681,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
   }) {
@@ -696,7 +692,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> postsStream)? success,
+    TResult Function(List<Post> posts)? success,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
