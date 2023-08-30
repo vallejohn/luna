@@ -5,6 +5,7 @@ import 'package:luna/features/firebase_authentication/presentation/pages/widgets
 import 'package:luna/router/app_router.dart';
 import '../blocs/auth_check/auth_check_bloc.dart';
 
+@RoutePage()
 class StartupPage extends StatelessWidget {
   const StartupPage({Key? key}) : super(key: key);
 

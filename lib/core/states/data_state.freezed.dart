@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'data_state.dart';
 
@@ -24,8 +24,8 @@ mixin _$DataState<Type, Error> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Type? data)? success,
-    TResult Function(Error error)? failed,
+    TResult? Function(Type? data)? success,
+    TResult? Function(Error error)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$DataState<Type, Error> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Success<Type, Error> value)? success,
-    TResult Function(_Failed<Type, Error> value)? failed,
+    TResult? Function(_Success<Type, Error> value)? success,
+    TResult? Function(_Failed<Type, Error> value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,44 +60,45 @@ mixin _$DataState<Type, Error> {
 abstract class $DataStateCopyWith<Type, Error, $Res> {
   factory $DataStateCopyWith(DataState<Type, Error> value,
           $Res Function(DataState<Type, Error>) then) =
-      _$DataStateCopyWithImpl<Type, Error, $Res>;
+      _$DataStateCopyWithImpl<Type, Error, $Res, DataState<Type, Error>>;
 }
 
 /// @nodoc
-class _$DataStateCopyWithImpl<Type, Error, $Res>
+class _$DataStateCopyWithImpl<Type, Error, $Res,
+        $Val extends DataState<Type, Error>>
     implements $DataStateCopyWith<Type, Error, $Res> {
   _$DataStateCopyWithImpl(this._value, this._then);
 
-  final DataState<Type, Error> _value;
   // ignore: unused_field
-  final $Res Function(DataState<Type, Error>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<Type, Error, $Res> {
-  factory _$SuccessCopyWith(_Success<Type, Error> value,
-          $Res Function(_Success<Type, Error>) then) =
-      __$SuccessCopyWithImpl<Type, Error, $Res>;
+abstract class _$$_SuccessCopyWith<Type, Error, $Res> {
+  factory _$$_SuccessCopyWith(_$_Success<Type, Error> value,
+          $Res Function(_$_Success<Type, Error>) then) =
+      __$$_SuccessCopyWithImpl<Type, Error, $Res>;
+  @useResult
   $Res call({Type? data});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<Type, Error, $Res>
-    extends _$DataStateCopyWithImpl<Type, Error, $Res>
-    implements _$SuccessCopyWith<Type, Error, $Res> {
-  __$SuccessCopyWithImpl(
-      _Success<Type, Error> _value, $Res Function(_Success<Type, Error>) _then)
-      : super(_value, (v) => _then(v as _Success<Type, Error>));
+class __$$_SuccessCopyWithImpl<Type, Error, $Res>
+    extends _$DataStateCopyWithImpl<Type, Error, $Res, _$_Success<Type, Error>>
+    implements _$$_SuccessCopyWith<Type, Error, $Res> {
+  __$$_SuccessCopyWithImpl(_$_Success<Type, Error> _value,
+      $Res Function(_$_Success<Type, Error>) _then)
+      : super(_value, _then);
 
-  @override
-  _Success<Type, Error> get _value => super._value as _Success<Type, Error>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_Success<Type, Error>(
-      data: data == freezed
+    return _then(_$_Success<Type, Error>(
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Type?,
@@ -122,7 +123,7 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success<Type, Error> &&
+            other is _$_Success<Type, Error> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -132,8 +133,9 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<Type, Error, _Success<Type, Error>> get copyWith =>
-      __$SuccessCopyWithImpl<Type, Error, _Success<Type, Error>>(
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<Type, Error, _$_Success<Type, Error>> get copyWith =>
+      __$$_SuccessCopyWithImpl<Type, Error, _$_Success<Type, Error>>(
           this, _$identity);
 
   @override
@@ -148,8 +150,8 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Type? data)? success,
-    TResult Function(Error error)? failed,
+    TResult? Function(Type? data)? success,
+    TResult? Function(Error error)? failed,
   }) {
     return success?.call(data);
   }
@@ -179,8 +181,8 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Success<Type, Error> value)? success,
-    TResult Function(_Failed<Type, Error> value)? failed,
+    TResult? Function(_Success<Type, Error> value)? success,
+    TResult? Function(_Failed<Type, Error> value)? failed,
   }) {
     return success?.call(this);
   }
@@ -202,37 +204,36 @@ class _$_Success<Type, Error> implements _Success<Type, Error> {
 abstract class _Success<Type, Error> implements DataState<Type, Error> {
   const factory _Success({final Type? data}) = _$_Success<Type, Error>;
 
-  Type? get data => throw _privateConstructorUsedError;
+  Type? get data;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<Type, Error, _Success<Type, Error>> get copyWith =>
+  _$$_SuccessCopyWith<Type, Error, _$_Success<Type, Error>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$FailedCopyWith<Type, Error, $Res> {
-  factory _$FailedCopyWith(_Failed<Type, Error> value,
-          $Res Function(_Failed<Type, Error>) then) =
-      __$FailedCopyWithImpl<Type, Error, $Res>;
+abstract class _$$_FailedCopyWith<Type, Error, $Res> {
+  factory _$$_FailedCopyWith(_$_Failed<Type, Error> value,
+          $Res Function(_$_Failed<Type, Error>) then) =
+      __$$_FailedCopyWithImpl<Type, Error, $Res>;
+  @useResult
   $Res call({Error error});
 }
 
 /// @nodoc
-class __$FailedCopyWithImpl<Type, Error, $Res>
-    extends _$DataStateCopyWithImpl<Type, Error, $Res>
-    implements _$FailedCopyWith<Type, Error, $Res> {
-  __$FailedCopyWithImpl(
-      _Failed<Type, Error> _value, $Res Function(_Failed<Type, Error>) _then)
-      : super(_value, (v) => _then(v as _Failed<Type, Error>));
+class __$$_FailedCopyWithImpl<Type, Error, $Res>
+    extends _$DataStateCopyWithImpl<Type, Error, $Res, _$_Failed<Type, Error>>
+    implements _$$_FailedCopyWith<Type, Error, $Res> {
+  __$$_FailedCopyWithImpl(_$_Failed<Type, Error> _value,
+      $Res Function(_$_Failed<Type, Error>) _then)
+      : super(_value, _then);
 
-  @override
-  _Failed<Type, Error> get _value => super._value as _Failed<Type, Error>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(_Failed<Type, Error>(
-      error: error == freezed
+    return _then(_$_Failed<Type, Error>(
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Error,
@@ -257,7 +258,7 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Failed<Type, Error> &&
+            other is _$_Failed<Type, Error> &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
@@ -267,8 +268,9 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
 
   @JsonKey(ignore: true)
   @override
-  _$FailedCopyWith<Type, Error, _Failed<Type, Error>> get copyWith =>
-      __$FailedCopyWithImpl<Type, Error, _Failed<Type, Error>>(
+  @pragma('vm:prefer-inline')
+  _$$_FailedCopyWith<Type, Error, _$_Failed<Type, Error>> get copyWith =>
+      __$$_FailedCopyWithImpl<Type, Error, _$_Failed<Type, Error>>(
           this, _$identity);
 
   @override
@@ -283,8 +285,8 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Type? data)? success,
-    TResult Function(Error error)? failed,
+    TResult? Function(Type? data)? success,
+    TResult? Function(Error error)? failed,
   }) {
     return failed?.call(error);
   }
@@ -314,8 +316,8 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Success<Type, Error> value)? success,
-    TResult Function(_Failed<Type, Error> value)? failed,
+    TResult? Function(_Success<Type, Error> value)? success,
+    TResult? Function(_Failed<Type, Error> value)? failed,
   }) {
     return failed?.call(this);
   }
@@ -337,8 +339,8 @@ class _$_Failed<Type, Error> implements _Failed<Type, Error> {
 abstract class _Failed<Type, Error> implements DataState<Type, Error> {
   const factory _Failed({required final Error error}) = _$_Failed<Type, Error>;
 
-  Error get error => throw _privateConstructorUsedError;
+  Error get error;
   @JsonKey(ignore: true)
-  _$FailedCopyWith<Type, Error, _Failed<Type, Error>> get copyWith =>
+  _$$_FailedCopyWith<Type, Error, _$_Failed<Type, Error>> get copyWith =>
       throw _privateConstructorUsedError;
 }

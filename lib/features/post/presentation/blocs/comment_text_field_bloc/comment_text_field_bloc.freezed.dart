@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comment_text_field_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$CommentTextFieldEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? onChanged,
+    TResult? Function()? started,
+    TResult? Function(String value)? onChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$CommentTextFieldEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnChanged value)? onChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnChanged value)? onChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,34 +60,34 @@ mixin _$CommentTextFieldEvent {
 abstract class $CommentTextFieldEventCopyWith<$Res> {
   factory $CommentTextFieldEventCopyWith(CommentTextFieldEvent value,
           $Res Function(CommentTextFieldEvent) then) =
-      _$CommentTextFieldEventCopyWithImpl<$Res>;
+      _$CommentTextFieldEventCopyWithImpl<$Res, CommentTextFieldEvent>;
 }
 
 /// @nodoc
-class _$CommentTextFieldEventCopyWithImpl<$Res>
+class _$CommentTextFieldEventCopyWithImpl<$Res,
+        $Val extends CommentTextFieldEvent>
     implements $CommentTextFieldEventCopyWith<$Res> {
   _$CommentTextFieldEventCopyWithImpl(this._value, this._then);
 
-  final CommentTextFieldEvent _value;
   // ignore: unused_field
-  final $Res Function(CommentTextFieldEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res>
-    extends _$CommentTextFieldEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$CommentTextFieldEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -103,7 +103,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -121,8 +121,8 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? onChanged,
+    TResult? Function()? started,
+    TResult? Function(String value)? onChanged,
   }) {
     return started?.call();
   }
@@ -152,8 +152,8 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnChanged value)? onChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnChanged value)? onChanged,
   }) {
     return started?.call(this);
   }
@@ -177,29 +177,29 @@ abstract class _Started implements CommentTextFieldEvent {
 }
 
 /// @nodoc
-abstract class _$OnChangedCopyWith<$Res> {
-  factory _$OnChangedCopyWith(
-          _OnChanged value, $Res Function(_OnChanged) then) =
-      __$OnChangedCopyWithImpl<$Res>;
+abstract class _$$_OnChangedCopyWith<$Res> {
+  factory _$$_OnChangedCopyWith(
+          _$_OnChanged value, $Res Function(_$_OnChanged) then) =
+      __$$_OnChangedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$OnChangedCopyWithImpl<$Res>
-    extends _$CommentTextFieldEventCopyWithImpl<$Res>
-    implements _$OnChangedCopyWith<$Res> {
-  __$OnChangedCopyWithImpl(_OnChanged _value, $Res Function(_OnChanged) _then)
-      : super(_value, (v) => _then(v as _OnChanged));
+class __$$_OnChangedCopyWithImpl<$Res>
+    extends _$CommentTextFieldEventCopyWithImpl<$Res, _$_OnChanged>
+    implements _$$_OnChangedCopyWith<$Res> {
+  __$$_OnChangedCopyWithImpl(
+      _$_OnChanged _value, $Res Function(_$_OnChanged) _then)
+      : super(_value, _then);
 
-  @override
-  _OnChanged get _value => super._value as _OnChanged;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(_OnChanged(
-      value: value == freezed
+    return _then(_$_OnChanged(
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -224,18 +224,18 @@ class _$_OnChanged implements _OnChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnChanged &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$_OnChanged &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  _$OnChangedCopyWith<_OnChanged> get copyWith =>
-      __$OnChangedCopyWithImpl<_OnChanged>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnChangedCopyWith<_$_OnChanged> get copyWith =>
+      __$$_OnChangedCopyWithImpl<_$_OnChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -249,8 +249,8 @@ class _$_OnChanged implements _OnChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String value)? onChanged,
+    TResult? Function()? started,
+    TResult? Function(String value)? onChanged,
   }) {
     return onChanged?.call(value);
   }
@@ -280,8 +280,8 @@ class _$_OnChanged implements _OnChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnChanged value)? onChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnChanged value)? onChanged,
   }) {
     return onChanged?.call(this);
   }
@@ -303,9 +303,9 @@ class _$_OnChanged implements _OnChanged {
 abstract class _OnChanged implements CommentTextFieldEvent {
   const factory _OnChanged({required final String value}) = _$_OnChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
-  _$OnChangedCopyWith<_OnChanged> get copyWith =>
+  _$$_OnChangedCopyWith<_$_OnChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -319,8 +319,8 @@ mixin _$CommentTextFieldState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? isNotEmpty,
-    TResult Function()? isEmpty,
+    TResult? Function()? isNotEmpty,
+    TResult? Function()? isEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -338,8 +338,8 @@ mixin _$CommentTextFieldState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IsNotEmpty value)? isNotEmpty,
-    TResult Function(_IsEmpty value)? isEmpty,
+    TResult? Function(_IsNotEmpty value)? isNotEmpty,
+    TResult? Function(_IsEmpty value)? isEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -355,36 +355,35 @@ mixin _$CommentTextFieldState {
 abstract class $CommentTextFieldStateCopyWith<$Res> {
   factory $CommentTextFieldStateCopyWith(CommentTextFieldState value,
           $Res Function(CommentTextFieldState) then) =
-      _$CommentTextFieldStateCopyWithImpl<$Res>;
+      _$CommentTextFieldStateCopyWithImpl<$Res, CommentTextFieldState>;
 }
 
 /// @nodoc
-class _$CommentTextFieldStateCopyWithImpl<$Res>
+class _$CommentTextFieldStateCopyWithImpl<$Res,
+        $Val extends CommentTextFieldState>
     implements $CommentTextFieldStateCopyWith<$Res> {
   _$CommentTextFieldStateCopyWithImpl(this._value, this._then);
 
-  final CommentTextFieldState _value;
   // ignore: unused_field
-  final $Res Function(CommentTextFieldState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$IsNotEmptyCopyWith<$Res> {
-  factory _$IsNotEmptyCopyWith(
-          _IsNotEmpty value, $Res Function(_IsNotEmpty) then) =
-      __$IsNotEmptyCopyWithImpl<$Res>;
+abstract class _$$_IsNotEmptyCopyWith<$Res> {
+  factory _$$_IsNotEmptyCopyWith(
+          _$_IsNotEmpty value, $Res Function(_$_IsNotEmpty) then) =
+      __$$_IsNotEmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$IsNotEmptyCopyWithImpl<$Res>
-    extends _$CommentTextFieldStateCopyWithImpl<$Res>
-    implements _$IsNotEmptyCopyWith<$Res> {
-  __$IsNotEmptyCopyWithImpl(
-      _IsNotEmpty _value, $Res Function(_IsNotEmpty) _then)
-      : super(_value, (v) => _then(v as _IsNotEmpty));
-
-  @override
-  _IsNotEmpty get _value => super._value as _IsNotEmpty;
+class __$$_IsNotEmptyCopyWithImpl<$Res>
+    extends _$CommentTextFieldStateCopyWithImpl<$Res, _$_IsNotEmpty>
+    implements _$$_IsNotEmptyCopyWith<$Res> {
+  __$$_IsNotEmptyCopyWithImpl(
+      _$_IsNotEmpty _value, $Res Function(_$_IsNotEmpty) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -400,7 +399,7 @@ class _$_IsNotEmpty implements _IsNotEmpty {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _IsNotEmpty);
+        (other.runtimeType == runtimeType && other is _$_IsNotEmpty);
   }
 
   @override
@@ -418,8 +417,8 @@ class _$_IsNotEmpty implements _IsNotEmpty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? isNotEmpty,
-    TResult Function()? isEmpty,
+    TResult? Function()? isNotEmpty,
+    TResult? Function()? isEmpty,
   }) {
     return isNotEmpty?.call();
   }
@@ -449,8 +448,8 @@ class _$_IsNotEmpty implements _IsNotEmpty {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IsNotEmpty value)? isNotEmpty,
-    TResult Function(_IsEmpty value)? isEmpty,
+    TResult? Function(_IsNotEmpty value)? isNotEmpty,
+    TResult? Function(_IsEmpty value)? isEmpty,
   }) {
     return isNotEmpty?.call(this);
   }
@@ -474,20 +473,18 @@ abstract class _IsNotEmpty implements CommentTextFieldState {
 }
 
 /// @nodoc
-abstract class _$IsEmptyCopyWith<$Res> {
-  factory _$IsEmptyCopyWith(_IsEmpty value, $Res Function(_IsEmpty) then) =
-      __$IsEmptyCopyWithImpl<$Res>;
+abstract class _$$_IsEmptyCopyWith<$Res> {
+  factory _$$_IsEmptyCopyWith(
+          _$_IsEmpty value, $Res Function(_$_IsEmpty) then) =
+      __$$_IsEmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$IsEmptyCopyWithImpl<$Res>
-    extends _$CommentTextFieldStateCopyWithImpl<$Res>
-    implements _$IsEmptyCopyWith<$Res> {
-  __$IsEmptyCopyWithImpl(_IsEmpty _value, $Res Function(_IsEmpty) _then)
-      : super(_value, (v) => _then(v as _IsEmpty));
-
-  @override
-  _IsEmpty get _value => super._value as _IsEmpty;
+class __$$_IsEmptyCopyWithImpl<$Res>
+    extends _$CommentTextFieldStateCopyWithImpl<$Res, _$_IsEmpty>
+    implements _$$_IsEmptyCopyWith<$Res> {
+  __$$_IsEmptyCopyWithImpl(_$_IsEmpty _value, $Res Function(_$_IsEmpty) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -503,7 +500,7 @@ class _$_IsEmpty implements _IsEmpty {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _IsEmpty);
+        (other.runtimeType == runtimeType && other is _$_IsEmpty);
   }
 
   @override
@@ -521,8 +518,8 @@ class _$_IsEmpty implements _IsEmpty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? isNotEmpty,
-    TResult Function()? isEmpty,
+    TResult? Function()? isNotEmpty,
+    TResult? Function()? isEmpty,
   }) {
     return isEmpty?.call();
   }
@@ -552,8 +549,8 @@ class _$_IsEmpty implements _IsEmpty {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IsNotEmpty value)? isNotEmpty,
-    TResult Function(_IsEmpty value)? isEmpty,
+    TResult? Function(_IsNotEmpty value)? isNotEmpty,
+    TResult? Function(_IsEmpty value)? isEmpty,
   }) {
     return isEmpty?.call(this);
   }

@@ -11,17 +11,17 @@ import '../features/post/presentation/pages/posts/posts_page.dart';
 
 part 'app_router.gr.dart';
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    AutoRoute(page: StartupPage, initial: true),
-    AutoRoute(page: PostsPage),
-    AutoRoute(page: PostDetailsPage),
-    AutoRoute(page: LoginPage),
-    AutoRoute(page: RegisterPage),
-    AutoRoute(page: CreatePostPage),
-    AutoRoute(page: ProfilePage),
-  ]
-)
 
-class AppRouter extends _$AppRouter{}
+@AutoRouterConfig()
+class AppRouter extends _$AppRouter{
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(page: StartupRoute.page, initial: true),
+    AutoRoute(page: PostsRoute.page),
+    AutoRoute(page: PostDetailsRoute.page),
+    AutoRoute(page: LoginRoute.page),
+    AutoRoute(page: RegisterRoute.page),
+    AutoRoute(page: CreatePostRoute.page),
+    AutoRoute(page: ProfileRoute.page),
+  ];
+}

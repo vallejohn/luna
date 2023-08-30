@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_profile.dart';
 
@@ -37,7 +37,8 @@ mixin _$UserProfile {
 abstract class $UserProfileCopyWith<$Res> {
   factory $UserProfileCopyWith(
           UserProfile value, $Res Function(UserProfile) then) =
-      _$UserProfileCopyWithImpl<$Res>;
+      _$UserProfileCopyWithImpl<$Res, UserProfile>;
+  @useResult
   $Res call(
       {String? authID,
       String profileImageURL,
@@ -48,58 +49,62 @@ abstract class $UserProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
+class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
+    implements $UserProfileCopyWith<$Res> {
   _$UserProfileCopyWithImpl(this._value, this._then);
 
-  final UserProfile _value;
   // ignore: unused_field
-  final $Res Function(UserProfile) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? authID = freezed,
-    Object? profileImageURL = freezed,
+    Object? profileImageURL = null,
     Object? username = freezed,
     Object? email = freezed,
     Object? firstname = freezed,
     Object? lastname = freezed,
   }) {
     return _then(_value.copyWith(
-      authID: authID == freezed
+      authID: freezed == authID
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
               as String?,
-      profileImageURL: profileImageURL == freezed
+      profileImageURL: null == profileImageURL
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstname: firstname == freezed
+      firstname: freezed == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastname: lastname == freezed
+      lastname: freezed == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$UserProfileCopyWith<$Res>
+abstract class _$$_UserProfileCopyWith<$Res>
     implements $UserProfileCopyWith<$Res> {
-  factory _$UserProfileCopyWith(
-          _UserProfile value, $Res Function(_UserProfile) then) =
-      __$UserProfileCopyWithImpl<$Res>;
+  factory _$$_UserProfileCopyWith(
+          _$_UserProfile value, $Res Function(_$_UserProfile) then) =
+      __$$_UserProfileCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? authID,
       String profileImageURL,
@@ -110,46 +115,45 @@ abstract class _$UserProfileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
-    implements _$UserProfileCopyWith<$Res> {
-  __$UserProfileCopyWithImpl(
-      _UserProfile _value, $Res Function(_UserProfile) _then)
-      : super(_value, (v) => _then(v as _UserProfile));
+class __$$_UserProfileCopyWithImpl<$Res>
+    extends _$UserProfileCopyWithImpl<$Res, _$_UserProfile>
+    implements _$$_UserProfileCopyWith<$Res> {
+  __$$_UserProfileCopyWithImpl(
+      _$_UserProfile _value, $Res Function(_$_UserProfile) _then)
+      : super(_value, _then);
 
-  @override
-  _UserProfile get _value => super._value as _UserProfile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? authID = freezed,
-    Object? profileImageURL = freezed,
+    Object? profileImageURL = null,
     Object? username = freezed,
     Object? email = freezed,
     Object? firstname = freezed,
     Object? lastname = freezed,
   }) {
-    return _then(_UserProfile(
-      authID: authID == freezed
+    return _then(_$_UserProfile(
+      authID: freezed == authID
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
               as String?,
-      profileImageURL: profileImageURL == freezed
+      profileImageURL: null == profileImageURL
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstname: firstname == freezed
+      firstname: freezed == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastname: lastname == freezed
+      lastname: freezed == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -194,35 +198,35 @@ class _$_UserProfile implements _UserProfile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserProfile &&
-            const DeepCollectionEquality().equals(other.authID, authID) &&
-            const DeepCollectionEquality()
-                .equals(other.profileImageURL, profileImageURL) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.firstname, firstname) &&
-            const DeepCollectionEquality().equals(other.lastname, lastname));
+            other is _$_UserProfile &&
+            (identical(other.authID, authID) || other.authID == authID) &&
+            (identical(other.profileImageURL, profileImageURL) ||
+                other.profileImageURL == profileImageURL) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(authID),
-      const DeepCollectionEquality().hash(profileImageURL),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(firstname),
-      const DeepCollectionEquality().hash(lastname));
+  int get hashCode => Object.hash(runtimeType, authID, profileImageURL,
+      username, email, firstname, lastname);
 
   @JsonKey(ignore: true)
   @override
-  _$UserProfileCopyWith<_UserProfile> get copyWith =>
-      __$UserProfileCopyWithImpl<_UserProfile>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_UserProfileCopyWith<_$_UserProfile> get copyWith =>
+      __$$_UserProfileCopyWithImpl<_$_UserProfile>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserProfileToJson(this);
+    return _$$_UserProfileToJson(
+      this,
+    );
   }
 }
 
@@ -239,19 +243,19 @@ abstract class _UserProfile implements UserProfile {
       _$_UserProfile.fromJson;
 
   @override
-  String? get authID => throw _privateConstructorUsedError;
+  String? get authID;
   @override
-  String get profileImageURL => throw _privateConstructorUsedError;
+  String get profileImageURL;
   @override
-  String? get username => throw _privateConstructorUsedError;
+  String? get username;
   @override
-  String? get email => throw _privateConstructorUsedError;
+  String? get email;
   @override
-  String? get firstname => throw _privateConstructorUsedError;
+  String? get firstname;
   @override
-  String? get lastname => throw _privateConstructorUsedError;
+  String? get lastname;
   @override
   @JsonKey(ignore: true)
-  _$UserProfileCopyWith<_UserProfile> get copyWith =>
+  _$$_UserProfileCopyWith<_$_UserProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }

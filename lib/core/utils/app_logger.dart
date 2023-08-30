@@ -18,7 +18,7 @@ class CustomPrinter extends PrettyPrinter{
   @override
   List<String> log(LogEvent event) {
     return super.log(
-        LogEvent(event.level, '[$className] ${event.message}', event.error, event.stackTrace)
+        LogEvent(event.level, '[$className] ${event.message}', error: event.error, stackTrace: event.stackTrace)
     );
   }
 }

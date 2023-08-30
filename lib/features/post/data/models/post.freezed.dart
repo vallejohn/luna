@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'post.dart';
 
@@ -38,7 +38,8 @@ mixin _$Post {
 /// @nodoc
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
-      _$PostCopyWithImpl<$Res>;
+      _$PostCopyWithImpl<$Res, Post>;
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -52,19 +53,22 @@ abstract class $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
+class _$PostCopyWithImpl<$Res, $Val extends Post>
+    implements $PostCopyWith<$Res> {
   _$PostCopyWithImpl(this._value, this._then);
 
-  final Post _value;
   // ignore: unused_field
-  final $Res Function(Post) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? coverImageURL = freezed,
-    Object? content = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? coverImageURL = null,
+    Object? content = null,
     Object? recentComment = freezed,
     Object? engagement = freezed,
     Object? author = freezed,
@@ -72,51 +76,52 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coverImageURL: coverImageURL == freezed
+      coverImageURL: null == coverImageURL
           ? _value.coverImageURL
           : coverImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      recentComment: recentComment == freezed
+      recentComment: freezed == recentComment
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      engagement: engagement == freezed
+      engagement: freezed == engagement
           ? _value.engagement
           : engagement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      author: author == freezed
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
-      __$PostCopyWithImpl<$Res>;
+abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$$_PostCopyWith(_$_Post value, $Res Function(_$_Post) then) =
+      __$$_PostCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -130,60 +135,58 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
-    implements _$PostCopyWith<$Res> {
-  __$PostCopyWithImpl(_Post _value, $Res Function(_Post) _then)
-      : super(_value, (v) => _then(v as _Post));
+class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
+    implements _$$_PostCopyWith<$Res> {
+  __$$_PostCopyWithImpl(_$_Post _value, $Res Function(_$_Post) _then)
+      : super(_value, _then);
 
-  @override
-  _Post get _value => super._value as _Post;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? coverImageURL = freezed,
-    Object? content = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? coverImageURL = null,
+    Object? content = null,
     Object? recentComment = freezed,
     Object? engagement = freezed,
     Object? author = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_Post(
-      id: id == freezed
+    return _then(_$_Post(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      coverImageURL: coverImageURL == freezed
+      coverImageURL: null == coverImageURL
           ? _value.coverImageURL
           : coverImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      recentComment: recentComment == freezed
-          ? _value.recentComment
+      recentComment: freezed == recentComment
+          ? _value._recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      engagement: engagement == freezed
-          ? _value.engagement
+      engagement: freezed == engagement
+          ? _value._engagement
           : engagement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      author: author == freezed
-          ? _value.author
+      author: freezed == author
+          ? _value._author
           : author // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -227,6 +230,7 @@ class _$_Post implements _Post {
   Map<String, dynamic>? get recentComment {
     final value = _recentComment;
     if (value == null) return null;
+    if (_recentComment is EqualUnmodifiableMapView) return _recentComment;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -236,6 +240,7 @@ class _$_Post implements _Post {
   Map<String, dynamic>? get engagement {
     final value = _engagement;
     if (value == null) return null;
+    if (_engagement is EqualUnmodifiableMapView) return _engagement;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -245,6 +250,7 @@ class _$_Post implements _Post {
   Map<String, dynamic>? get author {
     final value = _author;
     if (value == null) return null;
+    if (_author is EqualUnmodifiableMapView) return _author;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -263,17 +269,17 @@ class _$_Post implements _Post {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Post &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
+            other is _$_Post &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.coverImageURL, coverImageURL) ||
+                other.coverImageURL == coverImageURL) &&
+            (identical(other.content, content) || other.content == content) &&
             const DeepCollectionEquality()
-                .equals(other.coverImageURL, coverImageURL) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
+                .equals(other._recentComment, _recentComment) &&
             const DeepCollectionEquality()
-                .equals(other.recentComment, recentComment) &&
-            const DeepCollectionEquality()
-                .equals(other.engagement, engagement) &&
-            const DeepCollectionEquality().equals(other.author, author) &&
+                .equals(other._engagement, _engagement) &&
+            const DeepCollectionEquality().equals(other._author, _author) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
@@ -282,24 +288,27 @@ class _$_Post implements _Post {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(coverImageURL),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(recentComment),
-      const DeepCollectionEquality().hash(engagement),
-      const DeepCollectionEquality().hash(author),
+      id,
+      title,
+      coverImageURL,
+      content,
+      const DeepCollectionEquality().hash(_recentComment),
+      const DeepCollectionEquality().hash(_engagement),
+      const DeepCollectionEquality().hash(_author),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
-  _$PostCopyWith<_Post> get copyWith =>
-      __$PostCopyWithImpl<_Post>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_PostCopyWith<_$_Post> get copyWith =>
+      __$$_PostCopyWithImpl<_$_Post>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostToJson(this);
+    return _$$_PostToJson(
+      this,
+    );
   }
 }
 
@@ -318,24 +327,24 @@ abstract class _Post implements Post {
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get coverImageURL => throw _privateConstructorUsedError;
+  String get coverImageURL;
   @override
-  String get content => throw _privateConstructorUsedError;
+  String get content;
   @override
-  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get recentComment;
   @override
-  Map<String, dynamic>? get engagement => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get engagement;
   @override
-  Map<String, dynamic>? get author => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get author;
   @override
-  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get createdAt;
   @override
-  dynamic get updatedAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
+  _$$_PostCopyWith<_$_Post> get copyWith => throw _privateConstructorUsedError;
 }

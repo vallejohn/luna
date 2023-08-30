@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'browse_image_bloc.dart';
 
@@ -25,9 +25,9 @@ mixin _$BrowseImageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? onBrowse,
-    TResult Function()? onCancel,
+    TResult? Function()? started,
+    TResult? Function()? onBrowse,
+    TResult? Function()? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$BrowseImageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnBrowse value)? onBrowse,
-    TResult Function(_OnCancel value)? onCancel,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnBrowse value)? onBrowse,
+    TResult? Function(_OnCancel value)? onCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,33 +66,33 @@ mixin _$BrowseImageEvent {
 abstract class $BrowseImageEventCopyWith<$Res> {
   factory $BrowseImageEventCopyWith(
           BrowseImageEvent value, $Res Function(BrowseImageEvent) then) =
-      _$BrowseImageEventCopyWithImpl<$Res>;
+      _$BrowseImageEventCopyWithImpl<$Res, BrowseImageEvent>;
 }
 
 /// @nodoc
-class _$BrowseImageEventCopyWithImpl<$Res>
+class _$BrowseImageEventCopyWithImpl<$Res, $Val extends BrowseImageEvent>
     implements $BrowseImageEventCopyWith<$Res> {
   _$BrowseImageEventCopyWithImpl(this._value, this._then);
 
-  final BrowseImageEvent _value;
   // ignore: unused_field
-  final $Res Function(BrowseImageEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$BrowseImageEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -127,9 +127,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? onBrowse,
-    TResult Function()? onCancel,
+    TResult? Function()? started,
+    TResult? Function()? onBrowse,
+    TResult? Function()? onCancel,
   }) {
     return started?.call();
   }
@@ -161,9 +161,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnBrowse value)? onBrowse,
-    TResult Function(_OnCancel value)? onCancel,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnBrowse value)? onBrowse,
+    TResult? Function(_OnCancel value)? onCancel,
   }) {
     return started?.call(this);
   }
@@ -188,19 +188,19 @@ abstract class _Started implements BrowseImageEvent {
 }
 
 /// @nodoc
-abstract class _$OnBrowseCopyWith<$Res> {
-  factory _$OnBrowseCopyWith(_OnBrowse value, $Res Function(_OnBrowse) then) =
-      __$OnBrowseCopyWithImpl<$Res>;
+abstract class _$$_OnBrowseCopyWith<$Res> {
+  factory _$$_OnBrowseCopyWith(
+          _$_OnBrowse value, $Res Function(_$_OnBrowse) then) =
+      __$$_OnBrowseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$OnBrowseCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
-    implements _$OnBrowseCopyWith<$Res> {
-  __$OnBrowseCopyWithImpl(_OnBrowse _value, $Res Function(_OnBrowse) _then)
-      : super(_value, (v) => _then(v as _OnBrowse));
-
-  @override
-  _OnBrowse get _value => super._value as _OnBrowse;
+class __$$_OnBrowseCopyWithImpl<$Res>
+    extends _$BrowseImageEventCopyWithImpl<$Res, _$_OnBrowse>
+    implements _$$_OnBrowseCopyWith<$Res> {
+  __$$_OnBrowseCopyWithImpl(
+      _$_OnBrowse _value, $Res Function(_$_OnBrowse) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -216,7 +216,7 @@ class _$_OnBrowse implements _OnBrowse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OnBrowse);
+        (other.runtimeType == runtimeType && other is _$_OnBrowse);
   }
 
   @override
@@ -235,9 +235,9 @@ class _$_OnBrowse implements _OnBrowse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? onBrowse,
-    TResult Function()? onCancel,
+    TResult? Function()? started,
+    TResult? Function()? onBrowse,
+    TResult? Function()? onCancel,
   }) {
     return onBrowse?.call();
   }
@@ -269,9 +269,9 @@ class _$_OnBrowse implements _OnBrowse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnBrowse value)? onBrowse,
-    TResult Function(_OnCancel value)? onCancel,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnBrowse value)? onBrowse,
+    TResult? Function(_OnCancel value)? onCancel,
   }) {
     return onBrowse?.call(this);
   }
@@ -296,19 +296,19 @@ abstract class _OnBrowse implements BrowseImageEvent {
 }
 
 /// @nodoc
-abstract class _$OnCancelCopyWith<$Res> {
-  factory _$OnCancelCopyWith(_OnCancel value, $Res Function(_OnCancel) then) =
-      __$OnCancelCopyWithImpl<$Res>;
+abstract class _$$_OnCancelCopyWith<$Res> {
+  factory _$$_OnCancelCopyWith(
+          _$_OnCancel value, $Res Function(_$_OnCancel) then) =
+      __$$_OnCancelCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$OnCancelCopyWithImpl<$Res> extends _$BrowseImageEventCopyWithImpl<$Res>
-    implements _$OnCancelCopyWith<$Res> {
-  __$OnCancelCopyWithImpl(_OnCancel _value, $Res Function(_OnCancel) _then)
-      : super(_value, (v) => _then(v as _OnCancel));
-
-  @override
-  _OnCancel get _value => super._value as _OnCancel;
+class __$$_OnCancelCopyWithImpl<$Res>
+    extends _$BrowseImageEventCopyWithImpl<$Res, _$_OnCancel>
+    implements _$$_OnCancelCopyWith<$Res> {
+  __$$_OnCancelCopyWithImpl(
+      _$_OnCancel _value, $Res Function(_$_OnCancel) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -324,7 +324,7 @@ class _$_OnCancel implements _OnCancel {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OnCancel);
+        (other.runtimeType == runtimeType && other is _$_OnCancel);
   }
 
   @override
@@ -343,9 +343,9 @@ class _$_OnCancel implements _OnCancel {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? onBrowse,
-    TResult Function()? onCancel,
+    TResult? Function()? started,
+    TResult? Function()? onBrowse,
+    TResult? Function()? onCancel,
   }) {
     return onCancel?.call();
   }
@@ -377,9 +377,9 @@ class _$_OnCancel implements _OnCancel {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnBrowse value)? onBrowse,
-    TResult Function(_OnCancel value)? onCancel,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnBrowse value)? onBrowse,
+    TResult? Function(_OnCancel value)? onCancel,
   }) {
     return onCancel?.call(this);
   }
@@ -416,11 +416,11 @@ mixin _$BrowseImageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -444,11 +444,11 @@ mixin _$BrowseImageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -467,33 +467,33 @@ mixin _$BrowseImageState {
 abstract class $BrowseImageStateCopyWith<$Res> {
   factory $BrowseImageStateCopyWith(
           BrowseImageState value, $Res Function(BrowseImageState) then) =
-      _$BrowseImageStateCopyWithImpl<$Res>;
+      _$BrowseImageStateCopyWithImpl<$Res, BrowseImageState>;
 }
 
 /// @nodoc
-class _$BrowseImageStateCopyWithImpl<$Res>
+class _$BrowseImageStateCopyWithImpl<$Res, $Val extends BrowseImageState>
     implements $BrowseImageStateCopyWith<$Res> {
   _$BrowseImageStateCopyWithImpl(this._value, this._then);
 
-  final BrowseImageState _value;
   // ignore: unused_field
-  final $Res Function(BrowseImageState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -509,7 +509,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -530,11 +530,11 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -570,11 +570,11 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -601,21 +601,19 @@ abstract class _Initial implements BrowseImageState {
 }
 
 /// @nodoc
-abstract class _$UploadingCopyWith<$Res> {
-  factory _$UploadingCopyWith(
-          _Uploading value, $Res Function(_Uploading) then) =
-      __$UploadingCopyWithImpl<$Res>;
+abstract class _$$_UploadingCopyWith<$Res> {
+  factory _$$_UploadingCopyWith(
+          _$_Uploading value, $Res Function(_$_Uploading) then) =
+      __$$_UploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$UploadingCopyWithImpl<$Res>
-    extends _$BrowseImageStateCopyWithImpl<$Res>
-    implements _$UploadingCopyWith<$Res> {
-  __$UploadingCopyWithImpl(_Uploading _value, $Res Function(_Uploading) _then)
-      : super(_value, (v) => _then(v as _Uploading));
-
-  @override
-  _Uploading get _value => super._value as _Uploading;
+class __$$_UploadingCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res, _$_Uploading>
+    implements _$$_UploadingCopyWith<$Res> {
+  __$$_UploadingCopyWithImpl(
+      _$_Uploading _value, $Res Function(_$_Uploading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -631,7 +629,7 @@ class _$_Uploading implements _Uploading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Uploading);
+        (other.runtimeType == runtimeType && other is _$_Uploading);
   }
 
   @override
@@ -652,11 +650,11 @@ class _$_Uploading implements _Uploading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) {
     return uploading?.call();
   }
@@ -692,11 +690,11 @@ class _$_Uploading implements _Uploading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) {
     return uploading?.call(this);
   }
@@ -723,27 +721,28 @@ abstract class _Uploading implements BrowseImageState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({PickedFile image});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 
-  @override
-  _Success get _value => super._value as _Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = freezed,
+    Object? image = null,
   }) {
-    return _then(_Success(
-      image: image == freezed
+    return _then(_$_Success(
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as PickedFile,
@@ -768,18 +767,18 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
-            const DeepCollectionEquality().equals(other.image, image));
+            other is _$_Success &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, image);
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -796,11 +795,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) {
     return success?.call(image);
   }
@@ -836,11 +835,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
   }
@@ -865,28 +864,26 @@ class _$_Success implements _Success {
 abstract class _Success implements BrowseImageState {
   const factory _Success({required final PickedFile image}) = _$_Success;
 
-  PickedFile get image => throw _privateConstructorUsedError;
+  PickedFile get image;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$CancelledCopyWith<$Res> {
-  factory _$CancelledCopyWith(
-          _Cancelled value, $Res Function(_Cancelled) then) =
-      __$CancelledCopyWithImpl<$Res>;
+abstract class _$$_CancelledCopyWith<$Res> {
+  factory _$$_CancelledCopyWith(
+          _$_Cancelled value, $Res Function(_$_Cancelled) then) =
+      __$$_CancelledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$CancelledCopyWithImpl<$Res>
-    extends _$BrowseImageStateCopyWithImpl<$Res>
-    implements _$CancelledCopyWith<$Res> {
-  __$CancelledCopyWithImpl(_Cancelled _value, $Res Function(_Cancelled) _then)
-      : super(_value, (v) => _then(v as _Cancelled));
-
-  @override
-  _Cancelled get _value => super._value as _Cancelled;
+class __$$_CancelledCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res, _$_Cancelled>
+    implements _$$_CancelledCopyWith<$Res> {
+  __$$_CancelledCopyWithImpl(
+      _$_Cancelled _value, $Res Function(_$_Cancelled) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -902,7 +899,7 @@ class _$_Cancelled implements _Cancelled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Cancelled);
+        (other.runtimeType == runtimeType && other is _$_Cancelled);
   }
 
   @override
@@ -923,11 +920,11 @@ class _$_Cancelled implements _Cancelled {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) {
     return cancelled?.call();
   }
@@ -963,11 +960,11 @@ class _$_Cancelled implements _Cancelled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) {
     return cancelled?.call(this);
   }
@@ -994,19 +991,17 @@ abstract class _Cancelled implements BrowseImageState {
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$BrowseImageStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
-
-  @override
-  _Error get _value => super._value as _Error;
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$BrowseImageStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1022,7 +1017,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is _$_Error);
   }
 
   @override
@@ -1043,11 +1038,11 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? uploading,
-    TResult Function(PickedFile image)? success,
-    TResult Function()? cancelled,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function()? uploading,
+    TResult? Function(PickedFile image)? success,
+    TResult? Function()? cancelled,
+    TResult? Function()? error,
   }) {
     return error?.call();
   }
@@ -1083,11 +1078,11 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Uploading value)? uploading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Cancelled value)? cancelled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Uploading value)? uploading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Cancelled value)? cancelled,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }

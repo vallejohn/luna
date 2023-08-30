@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'comment_bloc.dart';
 
@@ -25,9 +25,9 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddCommentData addCommentData)? onAdd,
-    TResult Function(String postID)? onFetchPostComments,
+    TResult? Function()? started,
+    TResult? Function(AddCommentData addCommentData)? onAdd,
+    TResult? Function(String postID)? onFetchPostComments,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostComments value)? onFetchPostComments,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostComments value)? onFetchPostComments,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,32 +66,33 @@ mixin _$CommentEvent {
 abstract class $CommentEventCopyWith<$Res> {
   factory $CommentEventCopyWith(
           CommentEvent value, $Res Function(CommentEvent) then) =
-      _$CommentEventCopyWithImpl<$Res>;
+      _$CommentEventCopyWithImpl<$Res, CommentEvent>;
 }
 
 /// @nodoc
-class _$CommentEventCopyWithImpl<$Res> implements $CommentEventCopyWith<$Res> {
+class _$CommentEventCopyWithImpl<$Res, $Val extends CommentEvent>
+    implements $CommentEventCopyWith<$Res> {
   _$CommentEventCopyWithImpl(this._value, this._then);
 
-  final CommentEvent _value;
   // ignore: unused_field
-  final $Res Function(CommentEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$CommentEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$CommentEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -107,7 +108,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -126,9 +127,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddCommentData addCommentData)? onAdd,
-    TResult Function(String postID)? onFetchPostComments,
+    TResult? Function()? started,
+    TResult? Function(AddCommentData addCommentData)? onAdd,
+    TResult? Function(String postID)? onFetchPostComments,
   }) {
     return started?.call();
   }
@@ -160,9 +161,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostComments value)? onFetchPostComments,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostComments value)? onFetchPostComments,
   }) {
     return started?.call(this);
   }
@@ -187,27 +188,27 @@ abstract class _Started implements CommentEvent {
 }
 
 /// @nodoc
-abstract class _$OnAddCopyWith<$Res> {
-  factory _$OnAddCopyWith(_OnAdd value, $Res Function(_OnAdd) then) =
-      __$OnAddCopyWithImpl<$Res>;
+abstract class _$$_OnAddCopyWith<$Res> {
+  factory _$$_OnAddCopyWith(_$_OnAdd value, $Res Function(_$_OnAdd) then) =
+      __$$_OnAddCopyWithImpl<$Res>;
+  @useResult
   $Res call({AddCommentData addCommentData});
 }
 
 /// @nodoc
-class __$OnAddCopyWithImpl<$Res> extends _$CommentEventCopyWithImpl<$Res>
-    implements _$OnAddCopyWith<$Res> {
-  __$OnAddCopyWithImpl(_OnAdd _value, $Res Function(_OnAdd) _then)
-      : super(_value, (v) => _then(v as _OnAdd));
+class __$$_OnAddCopyWithImpl<$Res>
+    extends _$CommentEventCopyWithImpl<$Res, _$_OnAdd>
+    implements _$$_OnAddCopyWith<$Res> {
+  __$$_OnAddCopyWithImpl(_$_OnAdd _value, $Res Function(_$_OnAdd) _then)
+      : super(_value, _then);
 
-  @override
-  _OnAdd get _value => super._value as _OnAdd;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? addCommentData = freezed,
+    Object? addCommentData = null,
   }) {
-    return _then(_OnAdd(
-      addCommentData: addCommentData == freezed
+    return _then(_$_OnAdd(
+      addCommentData: null == addCommentData
           ? _value.addCommentData
           : addCommentData // ignore: cast_nullable_to_non_nullable
               as AddCommentData,
@@ -232,19 +233,19 @@ class _$_OnAdd implements _OnAdd {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnAdd &&
-            const DeepCollectionEquality()
-                .equals(other.addCommentData, addCommentData));
+            other is _$_OnAdd &&
+            (identical(other.addCommentData, addCommentData) ||
+                other.addCommentData == addCommentData));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(addCommentData));
+  int get hashCode => Object.hash(runtimeType, addCommentData);
 
   @JsonKey(ignore: true)
   @override
-  _$OnAddCopyWith<_OnAdd> get copyWith =>
-      __$OnAddCopyWithImpl<_OnAdd>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnAddCopyWith<_$_OnAdd> get copyWith =>
+      __$$_OnAddCopyWithImpl<_$_OnAdd>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -259,9 +260,9 @@ class _$_OnAdd implements _OnAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddCommentData addCommentData)? onAdd,
-    TResult Function(String postID)? onFetchPostComments,
+    TResult? Function()? started,
+    TResult? Function(AddCommentData addCommentData)? onAdd,
+    TResult? Function(String postID)? onFetchPostComments,
   }) {
     return onAdd?.call(addCommentData);
   }
@@ -293,9 +294,9 @@ class _$_OnAdd implements _OnAdd {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostComments value)? onFetchPostComments,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostComments value)? onFetchPostComments,
   }) {
     return onAdd?.call(this);
   }
@@ -319,36 +320,36 @@ abstract class _OnAdd implements CommentEvent {
   const factory _OnAdd({required final AddCommentData addCommentData}) =
       _$_OnAdd;
 
-  AddCommentData get addCommentData => throw _privateConstructorUsedError;
+  AddCommentData get addCommentData;
   @JsonKey(ignore: true)
-  _$OnAddCopyWith<_OnAdd> get copyWith => throw _privateConstructorUsedError;
+  _$$_OnAddCopyWith<_$_OnAdd> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$OnFetchPostCommentsCopyWith<$Res> {
-  factory _$OnFetchPostCommentsCopyWith(_OnFetchPostComments value,
-          $Res Function(_OnFetchPostComments) then) =
-      __$OnFetchPostCommentsCopyWithImpl<$Res>;
+abstract class _$$_OnFetchPostCommentsCopyWith<$Res> {
+  factory _$$_OnFetchPostCommentsCopyWith(_$_OnFetchPostComments value,
+          $Res Function(_$_OnFetchPostComments) then) =
+      __$$_OnFetchPostCommentsCopyWithImpl<$Res>;
+  @useResult
   $Res call({String postID});
 }
 
 /// @nodoc
-class __$OnFetchPostCommentsCopyWithImpl<$Res>
-    extends _$CommentEventCopyWithImpl<$Res>
-    implements _$OnFetchPostCommentsCopyWith<$Res> {
-  __$OnFetchPostCommentsCopyWithImpl(
-      _OnFetchPostComments _value, $Res Function(_OnFetchPostComments) _then)
-      : super(_value, (v) => _then(v as _OnFetchPostComments));
+class __$$_OnFetchPostCommentsCopyWithImpl<$Res>
+    extends _$CommentEventCopyWithImpl<$Res, _$_OnFetchPostComments>
+    implements _$$_OnFetchPostCommentsCopyWith<$Res> {
+  __$$_OnFetchPostCommentsCopyWithImpl(_$_OnFetchPostComments _value,
+      $Res Function(_$_OnFetchPostComments) _then)
+      : super(_value, _then);
 
-  @override
-  _OnFetchPostComments get _value => super._value as _OnFetchPostComments;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postID = freezed,
+    Object? postID = null,
   }) {
-    return _then(_OnFetchPostComments(
-      postID: postID == freezed
+    return _then(_$_OnFetchPostComments(
+      postID: null == postID
           ? _value.postID
           : postID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -373,18 +374,18 @@ class _$_OnFetchPostComments implements _OnFetchPostComments {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnFetchPostComments &&
-            const DeepCollectionEquality().equals(other.postID, postID));
+            other is _$_OnFetchPostComments &&
+            (identical(other.postID, postID) || other.postID == postID));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postID));
+  int get hashCode => Object.hash(runtimeType, postID);
 
   @JsonKey(ignore: true)
   @override
-  _$OnFetchPostCommentsCopyWith<_OnFetchPostComments> get copyWith =>
-      __$OnFetchPostCommentsCopyWithImpl<_OnFetchPostComments>(
+  @pragma('vm:prefer-inline')
+  _$$_OnFetchPostCommentsCopyWith<_$_OnFetchPostComments> get copyWith =>
+      __$$_OnFetchPostCommentsCopyWithImpl<_$_OnFetchPostComments>(
           this, _$identity);
 
   @override
@@ -400,9 +401,9 @@ class _$_OnFetchPostComments implements _OnFetchPostComments {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddCommentData addCommentData)? onAdd,
-    TResult Function(String postID)? onFetchPostComments,
+    TResult? Function()? started,
+    TResult? Function(AddCommentData addCommentData)? onAdd,
+    TResult? Function(String postID)? onFetchPostComments,
   }) {
     return onFetchPostComments?.call(postID);
   }
@@ -434,9 +435,9 @@ class _$_OnFetchPostComments implements _OnFetchPostComments {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostComments value)? onFetchPostComments,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostComments value)? onFetchPostComments,
   }) {
     return onFetchPostComments?.call(this);
   }
@@ -460,9 +461,9 @@ abstract class _OnFetchPostComments implements CommentEvent {
   const factory _OnFetchPostComments({required final String postID}) =
       _$_OnFetchPostComments;
 
-  String get postID => throw _privateConstructorUsedError;
+  String get postID;
   @JsonKey(ignore: true)
-  _$OnFetchPostCommentsCopyWith<_OnFetchPostComments> get copyWith =>
+  _$$_OnFetchPostCommentsCopyWith<_$_OnFetchPostComments> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -478,9 +479,9 @@ mixin _$CommentState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -500,9 +501,9 @@ mixin _$CommentState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -519,32 +520,33 @@ mixin _$CommentState {
 abstract class $CommentStateCopyWith<$Res> {
   factory $CommentStateCopyWith(
           CommentState value, $Res Function(CommentState) then) =
-      _$CommentStateCopyWithImpl<$Res>;
+      _$CommentStateCopyWithImpl<$Res, CommentState>;
 }
 
 /// @nodoc
-class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
+class _$CommentStateCopyWithImpl<$Res, $Val extends CommentState>
+    implements $CommentStateCopyWith<$Res> {
   _$CommentStateCopyWithImpl(this._value, this._then);
 
-  final CommentState _value;
   // ignore: unused_field
-  final $Res Function(CommentState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$CommentStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CommentStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -560,7 +562,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -580,9 +582,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
+    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -614,9 +616,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -641,27 +643,28 @@ abstract class _Initial implements CommentState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({Stream<QuerySnapshot<Object?>> commentsStream});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$CommentStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$CommentStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 
-  @override
-  _Success get _value => super._value as _Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? commentsStream = freezed,
+    Object? commentsStream = null,
   }) {
-    return _then(_Success(
-      commentsStream: commentsStream == freezed
+    return _then(_$_Success(
+      commentsStream: null == commentsStream
           ? _value.commentsStream
           : commentsStream // ignore: cast_nullable_to_non_nullable
               as Stream<QuerySnapshot<Object?>>,
@@ -686,19 +689,19 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
-            const DeepCollectionEquality()
-                .equals(other.commentsStream, commentsStream));
+            other is _$_Success &&
+            (identical(other.commentsStream, commentsStream) ||
+                other.commentsStream == commentsStream));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(commentsStream));
+  int get hashCode => Object.hash(runtimeType, commentsStream);
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -714,9 +717,9 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
+    TResult? Function()? error,
   }) {
     return success?.call(commentsStream);
   }
@@ -748,9 +751,9 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
   }
@@ -775,27 +778,24 @@ abstract class _Success implements CommentState {
           {required final Stream<QuerySnapshot<Object?>> commentsStream}) =
       _$_Success;
 
-  Stream<QuerySnapshot<Object?>> get commentsStream =>
-      throw _privateConstructorUsedError;
+  Stream<QuerySnapshot<Object?>> get commentsStream;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$CommentStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
-
-  @override
-  _Error get _value => super._value as _Error;
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$CommentStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -811,7 +811,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is _$_Error);
   }
 
   @override
@@ -831,9 +831,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(Stream<QuerySnapshot<Object?>> commentsStream)? success,
+    TResult? Function()? error,
   }) {
     return error?.call();
   }
@@ -865,9 +865,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }

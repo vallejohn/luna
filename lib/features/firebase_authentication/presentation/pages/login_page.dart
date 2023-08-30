@@ -13,6 +13,7 @@ import '../../../../global/custom_widgets/text_input_field.dart';
 import '../../../../global/styles.dart';
 import '../../../../global/ui_helpers.dart';
 
+@RoutePage()
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 

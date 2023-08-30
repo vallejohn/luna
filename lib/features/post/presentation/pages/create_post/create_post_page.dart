@@ -13,6 +13,7 @@ import 'package:luna/router/app_router.dart';
 import '../../../../../global/ui_helpers.dart';
 import '../../blocs/browse_image_bloc/browse_image_bloc.dart';
 
+@RoutePage()
 class CreatePostPage extends StatelessWidget {
   const CreatePostPage({Key? key}) : super(key: key);
 

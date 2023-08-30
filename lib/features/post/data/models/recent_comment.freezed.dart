@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'recent_comment.dart';
 
@@ -32,60 +32,62 @@ mixin _$RecentComment {
 abstract class $RecentCommentCopyWith<$Res> {
   factory $RecentCommentCopyWith(
           RecentComment value, $Res Function(RecentComment) then) =
-      _$RecentCommentCopyWithImpl<$Res>;
+      _$RecentCommentCopyWithImpl<$Res, RecentComment>;
+  @useResult
   $Res call({Map<String, dynamic>? recentComment});
 }
 
 /// @nodoc
-class _$RecentCommentCopyWithImpl<$Res>
+class _$RecentCommentCopyWithImpl<$Res, $Val extends RecentComment>
     implements $RecentCommentCopyWith<$Res> {
   _$RecentCommentCopyWithImpl(this._value, this._then);
 
-  final RecentComment _value;
   // ignore: unused_field
-  final $Res Function(RecentComment) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? recentComment = freezed,
   }) {
     return _then(_value.copyWith(
-      recentComment: recentComment == freezed
+      recentComment: freezed == recentComment
           ? _value.recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$RecentCommentCopyWith<$Res>
+abstract class _$$_RecentCommentCopyWith<$Res>
     implements $RecentCommentCopyWith<$Res> {
-  factory _$RecentCommentCopyWith(
-          _RecentComment value, $Res Function(_RecentComment) then) =
-      __$RecentCommentCopyWithImpl<$Res>;
+  factory _$$_RecentCommentCopyWith(
+          _$_RecentComment value, $Res Function(_$_RecentComment) then) =
+      __$$_RecentCommentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Map<String, dynamic>? recentComment});
 }
 
 /// @nodoc
-class __$RecentCommentCopyWithImpl<$Res>
-    extends _$RecentCommentCopyWithImpl<$Res>
-    implements _$RecentCommentCopyWith<$Res> {
-  __$RecentCommentCopyWithImpl(
-      _RecentComment _value, $Res Function(_RecentComment) _then)
-      : super(_value, (v) => _then(v as _RecentComment));
+class __$$_RecentCommentCopyWithImpl<$Res>
+    extends _$RecentCommentCopyWithImpl<$Res, _$_RecentComment>
+    implements _$$_RecentCommentCopyWith<$Res> {
+  __$$_RecentCommentCopyWithImpl(
+      _$_RecentComment _value, $Res Function(_$_RecentComment) _then)
+      : super(_value, _then);
 
-  @override
-  _RecentComment get _value => super._value as _RecentComment;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? recentComment = freezed,
   }) {
-    return _then(_RecentComment(
-      recentComment: recentComment == freezed
-          ? _value.recentComment
+    return _then(_$_RecentComment(
+      recentComment: freezed == recentComment
+          ? _value._recentComment
           : recentComment // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -106,6 +108,7 @@ class _$_RecentComment implements _RecentComment {
   Map<String, dynamic>? get recentComment {
     final value = _recentComment;
     if (value == null) return null;
+    if (_recentComment is EqualUnmodifiableMapView) return _recentComment;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -119,24 +122,27 @@ class _$_RecentComment implements _RecentComment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RecentComment &&
+            other is _$_RecentComment &&
             const DeepCollectionEquality()
-                .equals(other.recentComment, recentComment));
+                .equals(other._recentComment, _recentComment));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(recentComment));
+      runtimeType, const DeepCollectionEquality().hash(_recentComment));
 
   @JsonKey(ignore: true)
   @override
-  _$RecentCommentCopyWith<_RecentComment> get copyWith =>
-      __$RecentCommentCopyWithImpl<_RecentComment>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_RecentCommentCopyWith<_$_RecentComment> get copyWith =>
+      __$$_RecentCommentCopyWithImpl<_$_RecentComment>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecentCommentToJson(this);
+    return _$$_RecentCommentToJson(
+      this,
+    );
   }
 }
 
@@ -148,9 +154,9 @@ abstract class _RecentComment implements RecentComment {
       _$_RecentComment.fromJson;
 
   @override
-  Map<String, dynamic>? get recentComment => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get recentComment;
   @override
   @JsonKey(ignore: true)
-  _$RecentCommentCopyWith<_RecentComment> get copyWith =>
+  _$$_RecentCommentCopyWith<_$_RecentComment> get copyWith =>
       throw _privateConstructorUsedError;
 }

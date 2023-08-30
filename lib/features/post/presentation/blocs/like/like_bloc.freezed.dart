@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'like_bloc.dart';
 
@@ -25,9 +25,9 @@ mixin _$LikeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddLikeData addLikeData)? onAdd,
-    TResult Function(String postID)? onFetchPostLikes,
+    TResult? Function()? started,
+    TResult? Function(AddLikeData addLikeData)? onAdd,
+    TResult? Function(String postID)? onFetchPostLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$LikeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostLikes value)? onFetchPostLikes,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostLikes value)? onFetchPostLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,32 +65,33 @@ mixin _$LikeEvent {
 /// @nodoc
 abstract class $LikeEventCopyWith<$Res> {
   factory $LikeEventCopyWith(LikeEvent value, $Res Function(LikeEvent) then) =
-      _$LikeEventCopyWithImpl<$Res>;
+      _$LikeEventCopyWithImpl<$Res, LikeEvent>;
 }
 
 /// @nodoc
-class _$LikeEventCopyWithImpl<$Res> implements $LikeEventCopyWith<$Res> {
+class _$LikeEventCopyWithImpl<$Res, $Val extends LikeEvent>
+    implements $LikeEventCopyWith<$Res> {
   _$LikeEventCopyWithImpl(this._value, this._then);
 
-  final LikeEvent _value;
   // ignore: unused_field
-  final $Res Function(LikeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$LikeEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$LikeEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -106,7 +107,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -125,9 +126,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddLikeData addLikeData)? onAdd,
-    TResult Function(String postID)? onFetchPostLikes,
+    TResult? Function()? started,
+    TResult? Function(AddLikeData addLikeData)? onAdd,
+    TResult? Function(String postID)? onFetchPostLikes,
   }) {
     return started?.call();
   }
@@ -159,9 +160,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostLikes value)? onFetchPostLikes,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostLikes value)? onFetchPostLikes,
   }) {
     return started?.call(this);
   }
@@ -186,27 +187,27 @@ abstract class _Started implements LikeEvent {
 }
 
 /// @nodoc
-abstract class _$OnAddCopyWith<$Res> {
-  factory _$OnAddCopyWith(_OnAdd value, $Res Function(_OnAdd) then) =
-      __$OnAddCopyWithImpl<$Res>;
+abstract class _$$_OnAddCopyWith<$Res> {
+  factory _$$_OnAddCopyWith(_$_OnAdd value, $Res Function(_$_OnAdd) then) =
+      __$$_OnAddCopyWithImpl<$Res>;
+  @useResult
   $Res call({AddLikeData addLikeData});
 }
 
 /// @nodoc
-class __$OnAddCopyWithImpl<$Res> extends _$LikeEventCopyWithImpl<$Res>
-    implements _$OnAddCopyWith<$Res> {
-  __$OnAddCopyWithImpl(_OnAdd _value, $Res Function(_OnAdd) _then)
-      : super(_value, (v) => _then(v as _OnAdd));
+class __$$_OnAddCopyWithImpl<$Res>
+    extends _$LikeEventCopyWithImpl<$Res, _$_OnAdd>
+    implements _$$_OnAddCopyWith<$Res> {
+  __$$_OnAddCopyWithImpl(_$_OnAdd _value, $Res Function(_$_OnAdd) _then)
+      : super(_value, _then);
 
-  @override
-  _OnAdd get _value => super._value as _OnAdd;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? addLikeData = freezed,
+    Object? addLikeData = null,
   }) {
-    return _then(_OnAdd(
-      addLikeData: addLikeData == freezed
+    return _then(_$_OnAdd(
+      addLikeData: null == addLikeData
           ? _value.addLikeData
           : addLikeData // ignore: cast_nullable_to_non_nullable
               as AddLikeData,
@@ -231,19 +232,19 @@ class _$_OnAdd implements _OnAdd {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnAdd &&
-            const DeepCollectionEquality()
-                .equals(other.addLikeData, addLikeData));
+            other is _$_OnAdd &&
+            (identical(other.addLikeData, addLikeData) ||
+                other.addLikeData == addLikeData));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(addLikeData));
+  int get hashCode => Object.hash(runtimeType, addLikeData);
 
   @JsonKey(ignore: true)
   @override
-  _$OnAddCopyWith<_OnAdd> get copyWith =>
-      __$OnAddCopyWithImpl<_OnAdd>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnAddCopyWith<_$_OnAdd> get copyWith =>
+      __$$_OnAddCopyWithImpl<_$_OnAdd>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -258,9 +259,9 @@ class _$_OnAdd implements _OnAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddLikeData addLikeData)? onAdd,
-    TResult Function(String postID)? onFetchPostLikes,
+    TResult? Function()? started,
+    TResult? Function(AddLikeData addLikeData)? onAdd,
+    TResult? Function(String postID)? onFetchPostLikes,
   }) {
     return onAdd?.call(addLikeData);
   }
@@ -292,9 +293,9 @@ class _$_OnAdd implements _OnAdd {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostLikes value)? onFetchPostLikes,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostLikes value)? onFetchPostLikes,
   }) {
     return onAdd?.call(this);
   }
@@ -317,36 +318,36 @@ class _$_OnAdd implements _OnAdd {
 abstract class _OnAdd implements LikeEvent {
   const factory _OnAdd({required final AddLikeData addLikeData}) = _$_OnAdd;
 
-  AddLikeData get addLikeData => throw _privateConstructorUsedError;
+  AddLikeData get addLikeData;
   @JsonKey(ignore: true)
-  _$OnAddCopyWith<_OnAdd> get copyWith => throw _privateConstructorUsedError;
+  _$$_OnAddCopyWith<_$_OnAdd> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$OnFetchPostLikesCopyWith<$Res> {
-  factory _$OnFetchPostLikesCopyWith(
-          _OnFetchPostLikes value, $Res Function(_OnFetchPostLikes) then) =
-      __$OnFetchPostLikesCopyWithImpl<$Res>;
+abstract class _$$_OnFetchPostLikesCopyWith<$Res> {
+  factory _$$_OnFetchPostLikesCopyWith(
+          _$_OnFetchPostLikes value, $Res Function(_$_OnFetchPostLikes) then) =
+      __$$_OnFetchPostLikesCopyWithImpl<$Res>;
+  @useResult
   $Res call({String postID});
 }
 
 /// @nodoc
-class __$OnFetchPostLikesCopyWithImpl<$Res>
-    extends _$LikeEventCopyWithImpl<$Res>
-    implements _$OnFetchPostLikesCopyWith<$Res> {
-  __$OnFetchPostLikesCopyWithImpl(
-      _OnFetchPostLikes _value, $Res Function(_OnFetchPostLikes) _then)
-      : super(_value, (v) => _then(v as _OnFetchPostLikes));
+class __$$_OnFetchPostLikesCopyWithImpl<$Res>
+    extends _$LikeEventCopyWithImpl<$Res, _$_OnFetchPostLikes>
+    implements _$$_OnFetchPostLikesCopyWith<$Res> {
+  __$$_OnFetchPostLikesCopyWithImpl(
+      _$_OnFetchPostLikes _value, $Res Function(_$_OnFetchPostLikes) _then)
+      : super(_value, _then);
 
-  @override
-  _OnFetchPostLikes get _value => super._value as _OnFetchPostLikes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postID = freezed,
+    Object? postID = null,
   }) {
-    return _then(_OnFetchPostLikes(
-      postID: postID == freezed
+    return _then(_$_OnFetchPostLikes(
+      postID: null == postID
           ? _value.postID
           : postID // ignore: cast_nullable_to_non_nullable
               as String,
@@ -371,18 +372,18 @@ class _$_OnFetchPostLikes implements _OnFetchPostLikes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnFetchPostLikes &&
-            const DeepCollectionEquality().equals(other.postID, postID));
+            other is _$_OnFetchPostLikes &&
+            (identical(other.postID, postID) || other.postID == postID));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postID));
+  int get hashCode => Object.hash(runtimeType, postID);
 
   @JsonKey(ignore: true)
   @override
-  _$OnFetchPostLikesCopyWith<_OnFetchPostLikes> get copyWith =>
-      __$OnFetchPostLikesCopyWithImpl<_OnFetchPostLikes>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnFetchPostLikesCopyWith<_$_OnFetchPostLikes> get copyWith =>
+      __$$_OnFetchPostLikesCopyWithImpl<_$_OnFetchPostLikes>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -397,9 +398,9 @@ class _$_OnFetchPostLikes implements _OnFetchPostLikes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddLikeData addLikeData)? onAdd,
-    TResult Function(String postID)? onFetchPostLikes,
+    TResult? Function()? started,
+    TResult? Function(AddLikeData addLikeData)? onAdd,
+    TResult? Function(String postID)? onFetchPostLikes,
   }) {
     return onFetchPostLikes?.call(postID);
   }
@@ -431,9 +432,9 @@ class _$_OnFetchPostLikes implements _OnFetchPostLikes {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAdd value)? onAdd,
-    TResult Function(_OnFetchPostLikes value)? onFetchPostLikes,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAdd value)? onAdd,
+    TResult? Function(_OnFetchPostLikes value)? onFetchPostLikes,
   }) {
     return onFetchPostLikes?.call(this);
   }
@@ -457,9 +458,9 @@ abstract class _OnFetchPostLikes implements LikeEvent {
   const factory _OnFetchPostLikes({required final String postID}) =
       _$_OnFetchPostLikes;
 
-  String get postID => throw _privateConstructorUsedError;
+  String get postID;
   @JsonKey(ignore: true)
-  _$OnFetchPostLikesCopyWith<_OnFetchPostLikes> get copyWith =>
+  _$$_OnFetchPostLikesCopyWith<_$_OnFetchPostLikes> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -474,9 +475,9 @@ mixin _$LikeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isLiked)? liked,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(bool isLiked)? liked,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -496,9 +497,9 @@ mixin _$LikeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Liked value)? liked,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Liked value)? liked,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -514,32 +515,33 @@ mixin _$LikeState {
 /// @nodoc
 abstract class $LikeStateCopyWith<$Res> {
   factory $LikeStateCopyWith(LikeState value, $Res Function(LikeState) then) =
-      _$LikeStateCopyWithImpl<$Res>;
+      _$LikeStateCopyWithImpl<$Res, LikeState>;
 }
 
 /// @nodoc
-class _$LikeStateCopyWithImpl<$Res> implements $LikeStateCopyWith<$Res> {
+class _$LikeStateCopyWithImpl<$Res, $Val extends LikeState>
+    implements $LikeStateCopyWith<$Res> {
   _$LikeStateCopyWithImpl(this._value, this._then);
 
-  final LikeState _value;
   // ignore: unused_field
-  final $Res Function(LikeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$LikeStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -555,7 +557,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -574,9 +576,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isLiked)? liked,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(bool isLiked)? liked,
+    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -608,9 +610,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Liked value)? liked,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Liked value)? liked,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -635,27 +637,27 @@ abstract class _Initial implements LikeState {
 }
 
 /// @nodoc
-abstract class _$LikedCopyWith<$Res> {
-  factory _$LikedCopyWith(_Liked value, $Res Function(_Liked) then) =
-      __$LikedCopyWithImpl<$Res>;
+abstract class _$$_LikedCopyWith<$Res> {
+  factory _$$_LikedCopyWith(_$_Liked value, $Res Function(_$_Liked) then) =
+      __$$_LikedCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool isLiked});
 }
 
 /// @nodoc
-class __$LikedCopyWithImpl<$Res> extends _$LikeStateCopyWithImpl<$Res>
-    implements _$LikedCopyWith<$Res> {
-  __$LikedCopyWithImpl(_Liked _value, $Res Function(_Liked) _then)
-      : super(_value, (v) => _then(v as _Liked));
+class __$$_LikedCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$_Liked>
+    implements _$$_LikedCopyWith<$Res> {
+  __$$_LikedCopyWithImpl(_$_Liked _value, $Res Function(_$_Liked) _then)
+      : super(_value, _then);
 
-  @override
-  _Liked get _value => super._value as _Liked;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLiked = freezed,
+    Object? isLiked = null,
   }) {
-    return _then(_Liked(
-      isLiked: isLiked == freezed
+    return _then(_$_Liked(
+      isLiked: null == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -680,18 +682,18 @@ class _$_Liked implements _Liked {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Liked &&
-            const DeepCollectionEquality().equals(other.isLiked, isLiked));
+            other is _$_Liked &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isLiked));
+  int get hashCode => Object.hash(runtimeType, isLiked);
 
   @JsonKey(ignore: true)
   @override
-  _$LikedCopyWith<_Liked> get copyWith =>
-      __$LikedCopyWithImpl<_Liked>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_LikedCopyWith<_$_Liked> get copyWith =>
+      __$$_LikedCopyWithImpl<_$_Liked>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -706,9 +708,9 @@ class _$_Liked implements _Liked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isLiked)? liked,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(bool isLiked)? liked,
+    TResult? Function()? error,
   }) {
     return liked?.call(isLiked);
   }
@@ -740,9 +742,9 @@ class _$_Liked implements _Liked {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Liked value)? liked,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Liked value)? liked,
+    TResult? Function(_Error value)? error,
   }) {
     return liked?.call(this);
   }
@@ -765,25 +767,24 @@ class _$_Liked implements _Liked {
 abstract class _Liked implements LikeState {
   const factory _Liked({required final bool isLiked}) = _$_Liked;
 
-  bool get isLiked => throw _privateConstructorUsedError;
+  bool get isLiked;
   @JsonKey(ignore: true)
-  _$LikedCopyWith<_Liked> get copyWith => throw _privateConstructorUsedError;
+  _$$_LikedCopyWith<_$_Liked> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$LikeStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
-
-  @override
-  _Error get _value => super._value as _Error;
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$LikeStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -799,7 +800,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is _$_Error);
   }
 
   @override
@@ -818,9 +819,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isLiked)? liked,
-    TResult Function()? error,
+    TResult? Function()? initial,
+    TResult? Function(bool isLiked)? liked,
+    TResult? Function()? error,
   }) {
     return error?.call();
   }
@@ -852,9 +853,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Liked value)? liked,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Liked value)? liked,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }

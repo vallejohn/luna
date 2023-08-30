@@ -13,6 +13,7 @@ import '../../../../firebase_authentication/data/models/user_profile.dart';
 import '../../../data/models/engagement.dart';
 import '../../blocs/posts/posts_bloc.dart';
 
+@RoutePage()
 class PostsPage extends StatelessWidget {
   const PostsPage({Key? key}) : super(key: key);
 
@@ -56,7 +57,7 @@ class PostsPage extends StatelessWidget {
                       category: 'Technology',
                       datePosted: '7 mins ago',
                       onPostTap: () {
-                        AutoRouter.of(context).push(PostDetailsRoute(postSnapshot: documentSnapshot.reference.snapshots()));
+                        //AutoRouter.of(context).push(PostDetailsRoute(postSnapshot: documentSnapshot.reference.snapshots()));
                       },
                       coverImageURL: post.coverImageURL);
                 }).toList(),

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'failure.dart';
 
@@ -24,7 +24,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FirebaseException firebaseException)? firebase,
+    TResult? Function(FirebaseException firebaseException)? firebase,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Firebase value)? firebase,
+    TResult? Function(_Firebase value)? firebase,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,54 +57,60 @@ mixin _$Failure {
 /// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
-      _$FailureCopyWithImpl<$Res>;
+      _$FailureCopyWithImpl<$Res, Failure>;
+  @useResult
   $Res call({FirebaseException firebaseException});
 }
 
 /// @nodoc
-class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
+class _$FailureCopyWithImpl<$Res, $Val extends Failure>
+    implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(this._value, this._then);
 
-  final Failure _value;
   // ignore: unused_field
-  final $Res Function(Failure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firebaseException = freezed,
+    Object? firebaseException = null,
   }) {
     return _then(_value.copyWith(
-      firebaseException: firebaseException == freezed
+      firebaseException: null == firebaseException
           ? _value.firebaseException
           : firebaseException // ignore: cast_nullable_to_non_nullable
               as FirebaseException,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$FirebaseCopyWith<$Res> implements $FailureCopyWith<$Res> {
-  factory _$FirebaseCopyWith(_Firebase value, $Res Function(_Firebase) then) =
-      __$FirebaseCopyWithImpl<$Res>;
+abstract class _$$_FirebaseCopyWith<$Res> implements $FailureCopyWith<$Res> {
+  factory _$$_FirebaseCopyWith(
+          _$_Firebase value, $Res Function(_$_Firebase) then) =
+      __$$_FirebaseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({FirebaseException firebaseException});
 }
 
 /// @nodoc
-class __$FirebaseCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
-    implements _$FirebaseCopyWith<$Res> {
-  __$FirebaseCopyWithImpl(_Firebase _value, $Res Function(_Firebase) _then)
-      : super(_value, (v) => _then(v as _Firebase));
+class __$$_FirebaseCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_Firebase>
+    implements _$$_FirebaseCopyWith<$Res> {
+  __$$_FirebaseCopyWithImpl(
+      _$_Firebase _value, $Res Function(_$_Firebase) _then)
+      : super(_value, _then);
 
-  @override
-  _Firebase get _value => super._value as _Firebase;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firebaseException = freezed,
+    Object? firebaseException = null,
   }) {
-    return _then(_Firebase(
-      firebaseException == freezed
+    return _then(_$_Firebase(
+      null == firebaseException
           ? _value.firebaseException
           : firebaseException // ignore: cast_nullable_to_non_nullable
               as FirebaseException,
@@ -129,19 +135,19 @@ class _$_Firebase implements _Firebase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Firebase &&
-            const DeepCollectionEquality()
-                .equals(other.firebaseException, firebaseException));
+            other is _$_Firebase &&
+            (identical(other.firebaseException, firebaseException) ||
+                other.firebaseException == firebaseException));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(firebaseException));
+  int get hashCode => Object.hash(runtimeType, firebaseException);
 
   @JsonKey(ignore: true)
   @override
-  _$FirebaseCopyWith<_Firebase> get copyWith =>
-      __$FirebaseCopyWithImpl<_Firebase>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_FirebaseCopyWith<_$_Firebase> get copyWith =>
+      __$$_FirebaseCopyWithImpl<_$_Firebase>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -154,7 +160,7 @@ class _$_Firebase implements _Firebase {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FirebaseException firebaseException)? firebase,
+    TResult? Function(FirebaseException firebaseException)? firebase,
   }) {
     return firebase?.call(firebaseException);
   }
@@ -182,7 +188,7 @@ class _$_Firebase implements _Firebase {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Firebase value)? firebase,
+    TResult? Function(_Firebase value)? firebase,
   }) {
     return firebase?.call(this);
   }
@@ -205,9 +211,9 @@ abstract class _Firebase implements Failure {
       _$_Firebase;
 
   @override
-  FirebaseException get firebaseException => throw _privateConstructorUsedError;
+  FirebaseException get firebaseException;
   @override
   @JsonKey(ignore: true)
-  _$FirebaseCopyWith<_Firebase> get copyWith =>
+  _$$_FirebaseCopyWith<_$_Firebase> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,97 +1,124 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 part of 'app_router.dart';
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    StartupRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const StartupPage());
+    CreatePostRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CreatePostPage(),
+      );
     },
-    PostsRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const PostsPage());
+    LoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
     },
     PostDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<PostDetailsRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child:
-              PostDetailsPage(key: args.key, postSnapshot: args.postSnapshot));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PostDetailsPage(
+          key: args.key,
+          postSnapshot: args.postSnapshot,
+        ),
+      );
     },
-    LoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const LoginPage());
-    },
-    RegisterRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const RegisterPage());
-    },
-    CreatePostRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const CreatePostPage());
+    PostsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PostsPage(),
+      );
     },
     ProfileRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ProfilePage());
-    }
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfilePage(),
+      );
+    },
+    RegisterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegisterPage(),
+      );
+    },
+    StartupRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StartupPage(),
+      );
+    },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(StartupRoute.name, path: '/'),
-        RouteConfig(PostsRoute.name, path: '/posts-page'),
-        RouteConfig(PostDetailsRoute.name, path: '/post-details-page'),
-        RouteConfig(LoginRoute.name, path: '/login-page'),
-        RouteConfig(RegisterRoute.name, path: '/register-page'),
-        RouteConfig(CreatePostRoute.name, path: '/create-post-page'),
-        RouteConfig(ProfileRoute.name, path: '/profile-page')
-      ];
 }
 
 /// generated route for
-/// [StartupPage]
-class StartupRoute extends PageRouteInfo<void> {
-  const StartupRoute() : super(StartupRoute.name, path: '/');
+/// [CreatePostPage]
+class CreatePostRoute extends PageRouteInfo<void> {
+  const CreatePostRoute({List<PageRouteInfo>? children})
+      : super(
+          CreatePostRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'StartupRoute';
+  static const String name = 'CreatePostRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [PostsPage]
-class PostsRoute extends PageRouteInfo<void> {
-  const PostsRoute() : super(PostsRoute.name, path: '/posts-page');
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'PostsRoute';
+  static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [PostDetailsPage]
 class PostDetailsRoute extends PageRouteInfo<PostDetailsRouteArgs> {
-  PostDetailsRoute(
-      {Key? key, required Stream<DocumentSnapshot<Object?>> postSnapshot})
-      : super(PostDetailsRoute.name,
-            path: '/post-details-page',
-            args: PostDetailsRouteArgs(key: key, postSnapshot: postSnapshot));
+  PostDetailsRoute({
+    Key? key,
+    required Stream<DocumentSnapshot<Object?>> postSnapshot,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PostDetailsRoute.name,
+          args: PostDetailsRouteArgs(
+            key: key,
+            postSnapshot: postSnapshot,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'PostDetailsRoute';
+
+  static const PageInfo<PostDetailsRouteArgs> page =
+      PageInfo<PostDetailsRouteArgs>(name);
 }
 
 class PostDetailsRouteArgs {
-  const PostDetailsRouteArgs({this.key, required this.postSnapshot});
+  const PostDetailsRouteArgs({
+    this.key,
+    required this.postSnapshot,
+  });
 
   final Key? key;
 
@@ -104,34 +131,57 @@ class PostDetailsRouteArgs {
 }
 
 /// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
+/// [PostsPage]
+class PostsRoute extends PageRouteInfo<void> {
+  const PostsRoute({List<PageRouteInfo>? children})
+      : super(
+          PostsRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'LoginRoute';
-}
+  static const String name = 'PostsRoute';
 
-/// generated route for
-/// [RegisterPage]
-class RegisterRoute extends PageRouteInfo<void> {
-  const RegisterRoute() : super(RegisterRoute.name, path: '/register-page');
-
-  static const String name = 'RegisterRoute';
-}
-
-/// generated route for
-/// [CreatePostPage]
-class CreatePostRoute extends PageRouteInfo<void> {
-  const CreatePostRoute()
-      : super(CreatePostRoute.name, path: '/create-post-page');
-
-  static const String name = 'CreatePostRoute';
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
-  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RegisterPage]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StartupPage]
+class StartupRoute extends PageRouteInfo<void> {
+  const StartupRoute({List<PageRouteInfo>? children})
+      : super(
+          StartupRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StartupRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

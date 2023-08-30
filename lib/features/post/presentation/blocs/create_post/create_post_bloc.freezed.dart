@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create_post_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$CreatePostEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddPostData addPostData)? onAddPost,
+    TResult? Function()? started,
+    TResult? Function(AddPostData addPostData)? onAddPost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$CreatePostEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAddPost value)? onAddPost,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAddPost value)? onAddPost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,33 +60,33 @@ mixin _$CreatePostEvent {
 abstract class $CreatePostEventCopyWith<$Res> {
   factory $CreatePostEventCopyWith(
           CreatePostEvent value, $Res Function(CreatePostEvent) then) =
-      _$CreatePostEventCopyWithImpl<$Res>;
+      _$CreatePostEventCopyWithImpl<$Res, CreatePostEvent>;
 }
 
 /// @nodoc
-class _$CreatePostEventCopyWithImpl<$Res>
+class _$CreatePostEventCopyWithImpl<$Res, $Val extends CreatePostEvent>
     implements $CreatePostEventCopyWith<$Res> {
   _$CreatePostEventCopyWithImpl(this._value, this._then);
 
-  final CreatePostEvent _value;
   // ignore: unused_field
-  final $Res Function(CreatePostEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$CreatePostEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -102,7 +102,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -120,8 +120,8 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddPostData addPostData)? onAddPost,
+    TResult? Function()? started,
+    TResult? Function(AddPostData addPostData)? onAddPost,
   }) {
     return started?.call();
   }
@@ -151,8 +151,8 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAddPost value)? onAddPost,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAddPost value)? onAddPost,
   }) {
     return started?.call(this);
   }
@@ -176,28 +176,29 @@ abstract class _Started implements CreatePostEvent {
 }
 
 /// @nodoc
-abstract class _$OnAddPostCopyWith<$Res> {
-  factory _$OnAddPostCopyWith(
-          _OnAddPost value, $Res Function(_OnAddPost) then) =
-      __$OnAddPostCopyWithImpl<$Res>;
+abstract class _$$_OnAddPostCopyWith<$Res> {
+  factory _$$_OnAddPostCopyWith(
+          _$_OnAddPost value, $Res Function(_$_OnAddPost) then) =
+      __$$_OnAddPostCopyWithImpl<$Res>;
+  @useResult
   $Res call({AddPostData addPostData});
 }
 
 /// @nodoc
-class __$OnAddPostCopyWithImpl<$Res> extends _$CreatePostEventCopyWithImpl<$Res>
-    implements _$OnAddPostCopyWith<$Res> {
-  __$OnAddPostCopyWithImpl(_OnAddPost _value, $Res Function(_OnAddPost) _then)
-      : super(_value, (v) => _then(v as _OnAddPost));
+class __$$_OnAddPostCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$_OnAddPost>
+    implements _$$_OnAddPostCopyWith<$Res> {
+  __$$_OnAddPostCopyWithImpl(
+      _$_OnAddPost _value, $Res Function(_$_OnAddPost) _then)
+      : super(_value, _then);
 
-  @override
-  _OnAddPost get _value => super._value as _OnAddPost;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? addPostData = freezed,
+    Object? addPostData = null,
   }) {
-    return _then(_OnAddPost(
-      addPostData: addPostData == freezed
+    return _then(_$_OnAddPost(
+      addPostData: null == addPostData
           ? _value.addPostData
           : addPostData // ignore: cast_nullable_to_non_nullable
               as AddPostData,
@@ -222,19 +223,19 @@ class _$_OnAddPost implements _OnAddPost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OnAddPost &&
-            const DeepCollectionEquality()
-                .equals(other.addPostData, addPostData));
+            other is _$_OnAddPost &&
+            (identical(other.addPostData, addPostData) ||
+                other.addPostData == addPostData));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(addPostData));
+  int get hashCode => Object.hash(runtimeType, addPostData);
 
   @JsonKey(ignore: true)
   @override
-  _$OnAddPostCopyWith<_OnAddPost> get copyWith =>
-      __$OnAddPostCopyWithImpl<_OnAddPost>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_OnAddPostCopyWith<_$_OnAddPost> get copyWith =>
+      __$$_OnAddPostCopyWithImpl<_$_OnAddPost>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -248,8 +249,8 @@ class _$_OnAddPost implements _OnAddPost {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(AddPostData addPostData)? onAddPost,
+    TResult? Function()? started,
+    TResult? Function(AddPostData addPostData)? onAddPost,
   }) {
     return onAddPost?.call(addPostData);
   }
@@ -279,8 +280,8 @@ class _$_OnAddPost implements _OnAddPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_OnAddPost value)? onAddPost,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnAddPost value)? onAddPost,
   }) {
     return onAddPost?.call(this);
   }
@@ -303,9 +304,9 @@ abstract class _OnAddPost implements CreatePostEvent {
   const factory _OnAddPost({required final AddPostData addPostData}) =
       _$_OnAddPost;
 
-  AddPostData get addPostData => throw _privateConstructorUsedError;
+  AddPostData get addPostData;
   @JsonKey(ignore: true)
-  _$OnAddPostCopyWith<_OnAddPost> get copyWith =>
+  _$$_OnAddPostCopyWith<_$_OnAddPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -322,10 +323,10 @@ mixin _$CreatePostState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
-    TResult Function()? error,
-    TResult Function()? loading,
+    TResult? Function()? initial,
+    TResult? Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult? Function()? error,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -347,10 +348,10 @@ mixin _$CreatePostState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -368,33 +369,33 @@ mixin _$CreatePostState {
 abstract class $CreatePostStateCopyWith<$Res> {
   factory $CreatePostStateCopyWith(
           CreatePostState value, $Res Function(CreatePostState) then) =
-      _$CreatePostStateCopyWithImpl<$Res>;
+      _$CreatePostStateCopyWithImpl<$Res, CreatePostState>;
 }
 
 /// @nodoc
-class _$CreatePostStateCopyWithImpl<$Res>
+class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
     implements $CreatePostStateCopyWith<$Res> {
   _$CreatePostStateCopyWithImpl(this._value, this._then);
 
-  final CreatePostState _value;
   // ignore: unused_field
-  final $Res Function(CreatePostState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CreatePostStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -410,7 +411,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -431,10 +432,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
-    TResult Function()? error,
-    TResult Function()? loading,
+    TResult? Function()? initial,
+    TResult? Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return initial?.call();
   }
@@ -468,10 +469,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -497,27 +498,28 @@ abstract class _Initial implements CreatePostState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({Stream<DocumentSnapshot<Object?>> postSnapshot});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$CreatePostStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
 
-  @override
-  _Success get _value => super._value as _Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? postSnapshot = freezed,
+    Object? postSnapshot = null,
   }) {
-    return _then(_Success(
-      postSnapshot: postSnapshot == freezed
+    return _then(_$_Success(
+      postSnapshot: null == postSnapshot
           ? _value.postSnapshot
           : postSnapshot // ignore: cast_nullable_to_non_nullable
               as Stream<DocumentSnapshot<Object?>>,
@@ -542,19 +544,19 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
-            const DeepCollectionEquality()
-                .equals(other.postSnapshot, postSnapshot));
+            other is _$_Success &&
+            (identical(other.postSnapshot, postSnapshot) ||
+                other.postSnapshot == postSnapshot));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(postSnapshot));
+  int get hashCode => Object.hash(runtimeType, postSnapshot);
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -571,10 +573,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
-    TResult Function()? error,
-    TResult Function()? loading,
+    TResult? Function()? initial,
+    TResult? Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return success?.call(postSnapshot);
   }
@@ -608,10 +610,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
   }) {
     return success?.call(this);
   }
@@ -637,27 +639,24 @@ abstract class _Success implements CreatePostState {
           {required final Stream<DocumentSnapshot<Object?>> postSnapshot}) =
       _$_Success;
 
-  Stream<DocumentSnapshot<Object?>> get postSnapshot =>
-      throw _privateConstructorUsedError;
+  Stream<DocumentSnapshot<Object?>> get postSnapshot;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
-
-  @override
-  _Error get _value => super._value as _Error;
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$CreatePostStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -673,7 +672,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is _$_Error);
   }
 
   @override
@@ -694,10 +693,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
-    TResult Function()? error,
-    TResult Function()? loading,
+    TResult? Function()? initial,
+    TResult? Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return error?.call();
   }
@@ -731,10 +730,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
   }) {
     return error?.call(this);
   }
@@ -760,19 +759,18 @@ abstract class _Error implements CreatePostState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$CreatePostStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$CreatePostStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -788,7 +786,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -809,10 +807,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
-    TResult Function()? error,
-    TResult Function()? loading,
+    TResult? Function()? initial,
+    TResult? Function(Stream<DocumentSnapshot<Object?>> postSnapshot)? success,
+    TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return loading?.call();
   }
@@ -846,10 +844,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Loading value)? loading,
   }) {
     return loading?.call(this);
   }

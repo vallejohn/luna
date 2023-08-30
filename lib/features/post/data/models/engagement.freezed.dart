@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'engagement.dart';
 
@@ -34,76 +34,81 @@ mixin _$Engagement {
 abstract class $EngagementCopyWith<$Res> {
   factory $EngagementCopyWith(
           Engagement value, $Res Function(Engagement) then) =
-      _$EngagementCopyWithImpl<$Res>;
+      _$EngagementCopyWithImpl<$Res, Engagement>;
+  @useResult
   $Res call({int comments, int likes, int shares});
 }
 
 /// @nodoc
-class _$EngagementCopyWithImpl<$Res> implements $EngagementCopyWith<$Res> {
+class _$EngagementCopyWithImpl<$Res, $Val extends Engagement>
+    implements $EngagementCopyWith<$Res> {
   _$EngagementCopyWithImpl(this._value, this._then);
 
-  final Engagement _value;
   // ignore: unused_field
-  final $Res Function(Engagement) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comments = freezed,
-    Object? likes = freezed,
-    Object? shares = freezed,
+    Object? comments = null,
+    Object? likes = null,
+    Object? shares = null,
   }) {
     return _then(_value.copyWith(
-      comments: comments == freezed
+      comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
               as int,
-      likes: likes == freezed
+      likes: null == likes
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
-      shares: shares == freezed
+      shares: null == shares
           ? _value.shares
           : shares // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$EngagementCopyWith<$Res> implements $EngagementCopyWith<$Res> {
-  factory _$EngagementCopyWith(
-          _Engagement value, $Res Function(_Engagement) then) =
-      __$EngagementCopyWithImpl<$Res>;
+abstract class _$$_EngagementCopyWith<$Res>
+    implements $EngagementCopyWith<$Res> {
+  factory _$$_EngagementCopyWith(
+          _$_Engagement value, $Res Function(_$_Engagement) then) =
+      __$$_EngagementCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int comments, int likes, int shares});
 }
 
 /// @nodoc
-class __$EngagementCopyWithImpl<$Res> extends _$EngagementCopyWithImpl<$Res>
-    implements _$EngagementCopyWith<$Res> {
-  __$EngagementCopyWithImpl(
-      _Engagement _value, $Res Function(_Engagement) _then)
-      : super(_value, (v) => _then(v as _Engagement));
+class __$$_EngagementCopyWithImpl<$Res>
+    extends _$EngagementCopyWithImpl<$Res, _$_Engagement>
+    implements _$$_EngagementCopyWith<$Res> {
+  __$$_EngagementCopyWithImpl(
+      _$_Engagement _value, $Res Function(_$_Engagement) _then)
+      : super(_value, _then);
 
-  @override
-  _Engagement get _value => super._value as _Engagement;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comments = freezed,
-    Object? likes = freezed,
-    Object? shares = freezed,
+    Object? comments = null,
+    Object? likes = null,
+    Object? shares = null,
   }) {
-    return _then(_Engagement(
-      comments: comments == freezed
+    return _then(_$_Engagement(
+      comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
               as int,
-      likes: likes == freezed
+      likes: null == likes
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
-      shares: shares == freezed
+      shares: null == shares
           ? _value.shares
           : shares // ignore: cast_nullable_to_non_nullable
               as int,
@@ -138,28 +143,28 @@ class _$_Engagement implements _Engagement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Engagement &&
-            const DeepCollectionEquality().equals(other.comments, comments) &&
-            const DeepCollectionEquality().equals(other.likes, likes) &&
-            const DeepCollectionEquality().equals(other.shares, shares));
+            other is _$_Engagement &&
+            (identical(other.comments, comments) ||
+                other.comments == comments) &&
+            (identical(other.likes, likes) || other.likes == likes) &&
+            (identical(other.shares, shares) || other.shares == shares));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(comments),
-      const DeepCollectionEquality().hash(likes),
-      const DeepCollectionEquality().hash(shares));
+  int get hashCode => Object.hash(runtimeType, comments, likes, shares);
 
   @JsonKey(ignore: true)
   @override
-  _$EngagementCopyWith<_Engagement> get copyWith =>
-      __$EngagementCopyWithImpl<_Engagement>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_EngagementCopyWith<_$_Engagement> get copyWith =>
+      __$$_EngagementCopyWithImpl<_$_Engagement>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EngagementToJson(this);
+    return _$$_EngagementToJson(
+      this,
+    );
   }
 }
 
@@ -171,13 +176,13 @@ abstract class _Engagement implements Engagement {
       _$_Engagement.fromJson;
 
   @override
-  int get comments => throw _privateConstructorUsedError;
+  int get comments;
   @override
-  int get likes => throw _privateConstructorUsedError;
+  int get likes;
   @override
-  int get shares => throw _privateConstructorUsedError;
+  int get shares;
   @override
   @JsonKey(ignore: true)
-  _$EngagementCopyWith<_Engagement> get copyWith =>
+  _$$_EngagementCopyWith<_$_Engagement> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,7 @@ import 'package:luna/global/ui_helpers.dart';
 import '../../../../../core/utils/app_logger.dart';
 import '../../../../firebase_authentication/data/models/user_profile.dart';
 
+@RoutePage()
 class PostDetailsPage extends StatelessWidget {
   final Stream<DocumentSnapshot> postSnapshot;
 

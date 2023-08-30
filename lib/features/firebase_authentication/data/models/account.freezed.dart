@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'account.dart';
 
@@ -35,7 +35,8 @@ mixin _$Account {
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res>;
+      _$AccountCopyWithImpl<$Res, Account>;
+  @useResult
   $Res call(
       {String authID,
       String profileImageURL,
@@ -46,56 +47,61 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
-  final Account _value;
   // ignore: unused_field
-  final $Res Function(Account) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? authID = freezed,
-    Object? profileImageURL = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? authID = null,
+    Object? profileImageURL = null,
+    Object? username = null,
+    Object? email = null,
+    Object? firstname = null,
+    Object? lastname = null,
   }) {
     return _then(_value.copyWith(
-      authID: authID == freezed
+      authID: null == authID
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
               as String,
-      profileImageURL: profileImageURL == freezed
+      profileImageURL: null == profileImageURL
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
-      __$AccountCopyWithImpl<$Res>;
+abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
+  factory _$$_AccountCopyWith(
+          _$_Account value, $Res Function(_$_Account) then) =
+      __$$_AccountCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String authID,
       String profileImageURL,
@@ -106,45 +112,44 @@ abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
-    implements _$AccountCopyWith<$Res> {
-  __$AccountCopyWithImpl(_Account _value, $Res Function(_Account) _then)
-      : super(_value, (v) => _then(v as _Account));
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
+    implements _$$_AccountCopyWith<$Res> {
+  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
+      : super(_value, _then);
 
-  @override
-  _Account get _value => super._value as _Account;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? authID = freezed,
-    Object? profileImageURL = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? authID = null,
+    Object? profileImageURL = null,
+    Object? username = null,
+    Object? email = null,
+    Object? firstname = null,
+    Object? lastname = null,
   }) {
-    return _then(_Account(
-      authID: authID == freezed
+    return _then(_$_Account(
+      authID: null == authID
           ? _value.authID
           : authID // ignore: cast_nullable_to_non_nullable
               as String,
-      profileImageURL: profileImageURL == freezed
+      profileImageURL: null == profileImageURL
           ? _value.profileImageURL
           : profileImageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
+      firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
+      lastname: null == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
@@ -194,35 +199,35 @@ class _$_Account implements _Account {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Account &&
-            const DeepCollectionEquality().equals(other.authID, authID) &&
-            const DeepCollectionEquality()
-                .equals(other.profileImageURL, profileImageURL) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.firstname, firstname) &&
-            const DeepCollectionEquality().equals(other.lastname, lastname));
+            other is _$_Account &&
+            (identical(other.authID, authID) || other.authID == authID) &&
+            (identical(other.profileImageURL, profileImageURL) ||
+                other.profileImageURL == profileImageURL) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(authID),
-      const DeepCollectionEquality().hash(profileImageURL),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(firstname),
-      const DeepCollectionEquality().hash(lastname));
+  int get hashCode => Object.hash(runtimeType, authID, profileImageURL,
+      username, email, firstname, lastname);
 
   @JsonKey(ignore: true)
   @override
-  _$AccountCopyWith<_Account> get copyWith =>
-      __$AccountCopyWithImpl<_Account>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountToJson(this);
+    return _$$_AccountToJson(
+      this,
+    );
   }
 }
 
@@ -238,19 +243,19 @@ abstract class _Account implements Account {
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
   @override
-  String get authID => throw _privateConstructorUsedError;
+  String get authID;
   @override
-  String get profileImageURL => throw _privateConstructorUsedError;
+  String get profileImageURL;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get firstname => throw _privateConstructorUsedError;
+  String get firstname;
   @override
-  String get lastname => throw _privateConstructorUsedError;
+  String get lastname;
   @override
   @JsonKey(ignore: true)
-  _$AccountCopyWith<_Account> get copyWith =>
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
       throw _privateConstructorUsedError;
 }
