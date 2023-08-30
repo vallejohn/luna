@@ -40,8 +40,8 @@ class Luna extends StatelessWidget {
             fontFamily: 'Rubik',
             primarySwatch: AppColors.primary,
           ),
-          //routerDelegate: _appRouter.delegate(),
-          //routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
         );
       }),
     );
