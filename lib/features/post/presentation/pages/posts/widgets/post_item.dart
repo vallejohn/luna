@@ -6,6 +6,7 @@ import 'package:luna/global/custom_widgets/shadowed_container.dart';
 import 'package:luna/global/styles.dart';
 import 'package:luna/global/ui_helpers.dart';
 import 'package:luna/features/firebase_authentication/data/models/user_profile.dart';
+import 'package:smooth_corner/smooth_corner.dart';
 
 class PostItem extends StatelessWidget {
   final String name;
@@ -38,14 +39,29 @@ class PostItem extends StatelessWidget {
     double hPadding = 20;
     double vPadding = 10;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: ShadowedContainer(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        decoration: ShapeDecoration(
+          color: Colors.white,
+          shape: SmoothRectangleBorder(
+            smoothness: 1,
+            borderRadius: BorderRadius.all(Radius.circular(26))
+          ),
+          shadows: [
+            BoxShadow(
+              color: Color(0x3F000000),
+              blurRadius: 59,
+              offset: Offset(0, 17),
+              spreadRadius: -23,
+            )
+          ]
+        ),
         width: MediaQuery.of(context).size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 60,
+              height: 80,
               child: Padding(
                 padding: EdgeInsets.only(left: hPadding, right: hPadding),
                 child: Row(
@@ -65,18 +81,10 @@ class PostItem extends StatelessWidget {
                             name,
                             style: AppTextStyle.medium.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                '$datePosted on ',
-                                style: AppTextStyle.small.copyWith(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikLight),
-                              ),
-                              Text(
-                                'Travel',
-                                style: AppTextStyle.small.copyWith(color: AppColors.primary, fontWeight: AppFontWeight.rubikMedium),
-                              ),
-                            ],
-                          )
+                          Text(
+                            '$datePosted',
+                            style: AppTextStyle.small.copyWith(color: AppColors.darkGrey, fontWeight: AppFontWeight.rubikLight),
+                          ),
                         ],
                       ),
                     ),
@@ -84,23 +92,50 @@ class PostItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Okinawa',
-                          style: AppTextStyle.small.copyWith(
-                            color: AppColors.darkGrey,
-                            fontWeight: AppFontWeight.rubikLight,
+                          '2.7k',
+                          style: AppTextStyle.medium.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
+                        ),
+                        AppHorizontalSpace.tiny,
+                        ShaderMask(
+                          blendMode: BlendMode.srcIn,
+                          shaderCallback: (Rect bounds) => const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            stops: [.2, 1],
+                            colors: [
+                              Color(0xffBCC520),
+                              Color(0xffD4BA20),
+                            ],
+                          ).createShader(bounds),
+                          child: Icon(
+                            Ionicons.heart_outline,
+                            color: AppColors.primary,
+                            size: 25,
                           ),
                         ),
                         AppHorizontalSpace.tiny,
                         Text(
-                          'Japan',
+                          '675',
                           style: AppTextStyle.medium.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
                         ),
                         AppHorizontalSpace.tiny,
-                        Icon(
-                          Ionicons.location_outline,
-                          color: AppColors.primary,
-                          size: 20,
-                        )
+                        ShaderMask(
+                          blendMode: BlendMode.srcIn,
+                          shaderCallback: (Rect bounds) => const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            stops: [.2, 1],
+                            colors: [
+                              Color(0xffBCC520),
+                              Color(0xffD4BA20),
+                            ],
+                          ).createShader(bounds),
+                          child: Icon(
+                            Ionicons.chatbubble_outline,
+                            color: AppColors.primary,
+                            size: 25,
+                          ),
+                        ),
                       ],
                     )
                   ],
@@ -111,54 +146,21 @@ class PostItem extends StatelessWidget {
               visible: coverImageURL.isNotEmpty,
               child: Stack(
                 children: [
-                  Container(
-                    height: 300,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      image: DecorationImage(image: CachedNetworkImageProvider(coverImageURL), fit: BoxFit.cover),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      constraints: BoxConstraints(minHeight: 50),
-                      decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                      child: TextButton(
-                        style: ButtonStyle(
-                          padding: MaterialStateProperty.all(EdgeInsets.zero),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.zero
-                            ),
-                          ),
-                        ),
-                        onPressed: onPostTap,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    title,
-                                    style: AppTextStyle.medium.copyWith(color: Colors.white, fontWeight: AppFontWeight.rubikRegular),
-                                  ),
-                                ),
-                              ),
-                              AppHorizontalSpace.medium,
-                              Icon(
-                                Ionicons.arrow_forward,
-                                color: Colors.white,
-                              )
-                            ],
-                          ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: hPadding),
+                    child: SmoothClipRRect(
+                      borderRadius: BorderRadius.circular(26),
+                      smoothness: 1,
+                      child: Container(
+                        height: 300,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          image: DecorationImage(image: CachedNetworkImageProvider(coverImageURL), fit: BoxFit.cover),
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -188,6 +190,14 @@ class PostItem extends StatelessWidget {
                 ),
               ),
             ),
+            AppVerticalSpace.medium,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: hPadding),
+              child: Text(
+                title,
+                style: AppTextStyle.medium.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
               child: Text(
@@ -203,18 +213,188 @@ class PostItem extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: hPadding),
               child: Row(
                 children: [
-                  Text('2.3k Likes', style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
-                  AppHorizontalSpace.regular,
-                  Expanded(
-                      child: Text('4.1k Shares',
-                          style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium))),
-                  Icon(
-                    Ionicons.chatbubble_outline,
-                    color: AppColors.electricBlue,
-                    size: 20,
+                  SizedBox(
+                    height: 45,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 15)),
+                            elevation: MaterialStateProperty.resolveWith((states){
+                              if(states.contains(MaterialState.pressed)) return 0;
+                              return 15;
+                            }),
+                            shape: MaterialStateProperty.all(SmoothRectangleBorder(
+                                smoothness: 1,
+                                borderRadius: BorderRadius.all(Radius.circular(10))
+                            )),
+                            backgroundColor: MaterialStateProperty.resolveWith((states){
+                              if(states.contains(MaterialState.pressed)) return Colors.grey.shade100;
+                              return Colors.white;
+                            }),
+                            overlayColor: MaterialStateProperty.all(Colors.transparent),
+                            splashFactory: InkSplash.splashFactory,
+                            shadowColor: MaterialStateProperty.all(Colors.grey.shade50.withOpacity(0.5)),
+                            foregroundColor: MaterialStateProperty.all(AppColors.lightBlack)
+                        ),
+                        onPressed: (){
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 4),
+                              child: ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (Rect bounds) => const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  stops: [.2, 1],
+                                  colors: [
+                                    Color(0xffBCC520),
+                                    Color(0xffD4BA20),
+                                  ],
+                                ).createShader(bounds),
+                                child: Icon(
+                                  Ionicons.star_outline,
+                                  color: AppColors.primary,
+                                  size: 18,
+                                ),
+                              ),
+                            ),
+                            AppHorizontalSpace.small,
+                            ShaderMask(
+                              blendMode: BlendMode.srcIn,
+                              shaderCallback: (Rect bounds) => LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [.1, .5, 1],
+                                colors: [
+                                  Colors.transparent,
+                                  AppColors.lightGrey.withOpacity(0.2),
+                                  Colors.transparent,
+                                ],
+                              ).createShader(bounds),
+                              child: Container(
+                                color: Colors.grey,
+                                height: 25,
+                                width: 1.5,
+                              )
+                            ),
+                            AppHorizontalSpace.small,
+                            Text('5.8'),
+                          ],
+                        )),
                   ),
                   AppHorizontalSpace.tiny,
-                  Text('$commentCount', style: AppTextStyle.medium.copyWith(color: AppColors.electricBlue, fontWeight: AppFontWeight.rubikMedium)),
+                  SizedBox(
+                    height: 45,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 15)),
+                            elevation: MaterialStateProperty.resolveWith((states){
+                              if(states.contains(MaterialState.pressed)) return 0;
+                              return 15;
+                            }),
+                            shape: MaterialStateProperty.all(SmoothRectangleBorder(
+                                smoothness: 1,
+                                borderRadius: BorderRadius.all(Radius.circular(10))
+                            )),
+                            backgroundColor: MaterialStateProperty.resolveWith((states){
+                              if(states.contains(MaterialState.pressed)) return Colors.grey.shade100;
+                              return Colors.white;
+                            }),
+                            overlayColor: MaterialStateProperty.all(Colors.transparent),
+                            splashFactory: InkSplash.splashFactory,
+                          shadowColor: MaterialStateProperty.all(Colors.grey.shade50.withOpacity(0.5)),
+                          foregroundColor: MaterialStateProperty.all(AppColors.lightBlack)
+                        ),
+                        onPressed: (){
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 2),
+                              child: ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (Rect bounds) => const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  stops: [.2, 1],
+                                  colors: [
+                                    Color(0xffBCC520),
+                                    Color(0xffD4BA20),
+                                  ],
+                                ).createShader(bounds),
+                                child: Icon(
+                                  Ionicons.location_outline,
+                                  color: AppColors.primary,
+                                  size: 18,
+                                ),
+                              ),
+                            ),
+                            AppHorizontalSpace.small,
+                            ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (Rect bounds) => LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  stops: [.1, .5, 1],
+                                  colors: [
+                                    Colors.transparent,
+                                    AppColors.lightGrey.withOpacity(0.2),
+                                    Colors.transparent,
+                                  ],
+                                ).createShader(bounds),
+                                child: Container(
+                                  color: Colors.grey,
+                                  height: 25,
+                                  width: 1.5,
+                                )
+                            ),
+                            AppHorizontalSpace.small,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('El Nido Tour C'),
+                                Text('Palawan, Philippines', style: AppTextStyle.small.copyWith(color: AppColors.lightGrey, fontWeight: AppFontWeight.rubikRegular),),
+                              ],
+                            ),
+                          ],
+                        )),
+                  ),
+                  Spacer(),
+                  SizedBox(
+                    height: 45,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        elevation: MaterialStateProperty.resolveWith((states){
+                          if(states.contains(MaterialState.pressed)) return 0;
+                          return 15;
+                        }),
+                        shape: MaterialStateProperty.all(SmoothRectangleBorder(
+                          smoothness: 1,
+                          borderRadius: BorderRadius.all(Radius.circular(10))
+                        )),
+                        backgroundColor: MaterialStateProperty.resolveWith((states){
+                          if(states.contains(MaterialState.pressed)) return AppColors.primary[600];
+                          return AppColors.primary;
+                        }),
+                        overlayColor: MaterialStateProperty.all(Colors.transparent),
+                        splashFactory: NoSplash.splashFactory,
+                        shadowColor: MaterialStateProperty.all(AppColors.primary[200])
+                      ),
+                      onPressed: onPostTap,
+                      child: Row(
+                        children: [
+                          Text('View'),
+                          AppHorizontalSpace.small,
+                          Icon(
+                            Ionicons.arrow_forward,
+                            color: Colors.white,
+                            size: 18,
+                          ),
+                        ],
+                      )),
+                  ),
                 ],
               ),
             ),
