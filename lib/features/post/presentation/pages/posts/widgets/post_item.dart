@@ -161,6 +161,58 @@ class PostItem extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Positioned(
+                    left: 40,
+                    bottom: 20,
+                    child: Container(
+                      padding: EdgeInsets.all(1.5),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black.withOpacity(0.3), spreadRadius: 2)],
+                      ),
+                      child: CircleAvatar(
+                        radius: 23,
+                        backgroundImage: CachedNetworkImageProvider('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiFiAtxQHN-Sjq3vrWaNMXGnkj0aiyXf2J5A&usqp=CAU'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 65,
+                    bottom: 20,
+                    child: Container(
+                      padding: EdgeInsets.all(1.5),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black.withOpacity(0.3), spreadRadius: 2)],
+                      ),
+                      child: CircleAvatar(
+                        radius: 23,
+                        backgroundImage: CachedNetworkImageProvider('https://cdn.britannica.com/09/118509-004-C2BFC637/Taytay-Palawan-Philippines.jpg'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 90,
+                    bottom: 20,
+                    child: Container(
+                      padding: EdgeInsets.all(1.5),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black.withOpacity(0.3), spreadRadius: 2)],
+                      ),
+                      child: CircleAvatar(
+                        radius: 23,
+                        backgroundColor: Colors.white,
+                        child: Text(
+                          '12+',
+                          style: AppTextStyle.small.copyWith(color: AppColors.lightBlack, fontWeight: AppFontWeight.rubikMedium),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -375,8 +427,8 @@ class PostItem extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(10))
                         )),
                         backgroundColor: MaterialStateProperty.resolveWith((states){
-                          if(states.contains(MaterialState.pressed)) return AppColors.primary[600];
-                          return AppColors.primary;
+                          if(states.contains(MaterialState.pressed)) return AppColors.primary[900];
+                          return AppColors.primary[800];
                         }),
                         overlayColor: MaterialStateProperty.all(Colors.transparent),
                         splashFactory: NoSplash.splashFactory,

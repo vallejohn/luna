@@ -21,7 +21,8 @@ class PostsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.5,
+        elevation: 5,
+        shadowColor: Colors.white,
         backgroundColor: Colors.white,
         title: Text(
           'Luna',
