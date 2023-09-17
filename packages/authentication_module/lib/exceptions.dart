@@ -1,0 +1,1 @@
+export 'exceptions/authentication_module_exception.dart';
