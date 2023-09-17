@@ -34,6 +34,18 @@ dependencies {
 android {
     compileSdkVersion 33
 
+    flavorDimensions "env"
+    productFlavors {
+        staging {
+            dimension "env"
+            applicationId "com.valjohn.luna.luna"
+        }
+        production {
+            dimension "env"
+            applicationId "com.valjohn.luna.luna"
+        }
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.valjohn.luna.luna"

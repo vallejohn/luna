@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "381425611294",
-    "project_id": "luna-prod-cbc3f",
-    "storage_bucket": "luna-prod-cbc3f.appspot.com"
+    "project_number": "430397695111",
+    "project_id": "luna-staging-2492d",
+    "storage_bucket": "luna-staging-2492d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:381425611294:android:2f8148246a4e9084ca740f",
+        "mobilesdk_app_id": "1:430397695111:android:5372c635ef065535edc422",
         "android_client_info": {
-          "package_name": "com.falcons.waterutilityviewer.water_utility_viewer"
+          "package_name": "com.valjohn.luna.luna"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyADAkYgqVP-MphtgqbQvgS_pMa8sIi2v70"
+          "current_key": "AIzaSyD9I4YO2R6RR29oCAsGW5W8ffxBN2FNWZI"
         }
       ],
       "services": {

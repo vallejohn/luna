@@ -1,3 +1,5 @@
+import 'package:authentication_module/authentication_module.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:get_it/get_it.dart';
 import 'package:luna/core/services/firebase_service.dart';
 import 'package:luna/core/utils/statics/collection.dart';
@@ -32,6 +34,13 @@ import 'features/post/data/data_sources/like_data_source.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupLocator() async{
+
+  AuthenticationModule authenticationModule = AuthenticationModule();
+  authenticationModule.initialize(
+    firebaseOptions: FlavorConfig.instance.variables['firebase_options'],
+  );
+
+  getIt.registerLazySingleton(() => authenticationModule);
 
   getIt.registerLazySingleton(() => FirebaseService());
 

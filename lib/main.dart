@@ -1,7 +1,9 @@
+import 'package:authentication_module/authentication_module.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:luna/bloc_observer.dart';
 import 'package:luna/bloc_providers.dart';
 import 'package:luna/global/styles.dart';
@@ -17,7 +19,7 @@ void main() async {
   );
 
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //await Firebase.initializeApp();
 
   setupLocator();
   BlocOverrides.runZoned(() => runApp(Luna()),
