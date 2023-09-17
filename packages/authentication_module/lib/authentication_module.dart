@@ -51,27 +51,30 @@ class AuthenticationModule {
   }
 
   Future<void> signIn(String username, String password) async {
-    final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: username,
-      password: password,
-    );
+    UserCredential? userCredential;
 
-    final snapshot = await FirebaseFirestore.instance.collection(_defaultCollection)
-        .where(_uidKey, isEqualTo: userCredential.user?.uid).get();
+    try{
+      userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: username,
+        password: password,
+      );
+    }on FirebaseAuthException catch(e){
+      switch (e.code) {
+        case 'user-not-found':
+          UserNotFoundException();
+          break;
+        case 'wrong-password':
+          InvalidPasswordException();
+          break;
+      }
+    }
 
-    Map<String, dynamic> docMap = snapshot.docs.first.data();
-    String imageUrl = docMap[_imageUrlKey];
-    docMap.remove(_imageUrlKey);
+    await getUserAccount(userCredential!.user!.uid);
 
-    _userAccount = UserAccount(
-      uid: userCredential.user?.uid,
-      imageUrl: imageUrl,
-      data: snapshot.docs.first.data(),
-    );
     _controller.add(AuthStatus.authenticated);
   }
 
-  Future<void> registerUser(
+  Future<void> signup(
     String username,
     String password, {
     UserAccount? userAccount,
@@ -120,6 +123,21 @@ class AuthenticationModule {
     _userAccount = userAccount!.copyWith(
       uid: userCredentials!.user!.uid,
       imageUrl: imageUrl!,
+    );
+  }
+
+  Future<void> getUserAccount(String uid)async {
+    final snapshot = await FirebaseFirestore.instance.collection(_defaultCollection)
+        .where(_uidKey, isEqualTo: uid).get();
+
+    Map<String, dynamic> docMap = snapshot.docs.first.data();
+    String imageUrl = docMap[_imageUrlKey];
+    docMap.remove(_imageUrlKey);
+
+    _userAccount = UserAccount(
+      uid: uid,
+      imageUrl: imageUrl,
+      data: snapshot.docs.first.data(),
     );
   }
 }
