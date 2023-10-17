@@ -36,7 +36,7 @@ final getIt = GetIt.instance;
 Future<void> setupLocator() async{
 
   AuthenticationModule authenticationModule = AuthenticationModule();
-  authenticationModule.initialize(
+  await authenticationModule.initialize(
     firebaseOptions: FlavorConfig.instance.variables['firebase_options'],
   );
 

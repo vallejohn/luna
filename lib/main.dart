@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
+import 'package:get_it/get_it.dart';
 import 'package:luna/bloc_observer.dart';
 import 'package:luna/bloc_providers.dart';
 import 'package:luna/global/styles.dart';
@@ -35,6 +36,29 @@ class Luna extends StatelessWidget {
     return MultiBlocProvider(
       providers: BlocProviders.get(),
       child: Builder(builder: (context) {
+        return MaterialApp(
+          home: Scaffold(
+            appBar: AppBar(title: Text('sample'),),
+            body: Center(
+              child: StreamBuilder(
+                stream: GetIt.instance<AuthenticationModule>().authStatus,
+                builder: (BuildContext context, AsyncSnapshot<AuthStatus> snapshot) {
+                  if(snapshot.data != null){
+                    if(snapshot.data == AuthStatus.unauthenticated) {
+                      return Text('Not authenticated');
+                    }else if(snapshot.data == AuthStatus.authenticated) {
+                      return Text('Authenticated');
+                    }else{
+                      return Text('Ewan');
+                    }
+                  }else{
+                    return Text('Something went wrong');
+                  }
+                },
+              ),
+            ),
+          ),
+        );
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Luna',
